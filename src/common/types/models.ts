@@ -4,7 +4,7 @@ export interface IUserModel {
   nickname: string;
   email: string;
   id: string;
-  avatar?: string | null;
+  avatar: string | null;
   wins: number;
   losses: number;
   draws: number;

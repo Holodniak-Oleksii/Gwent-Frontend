@@ -20,3 +20,14 @@ export enum ECardAbilities {
   MARDREM,
   BERSERK,
 }
+
+export enum QueryKey {
+  PROFILE = "PROFILE",
+}
+
+export enum ENDPOINTS {
+  REGISTRATION = "/users/register",
+  LOGIN = "/users/login",
+  REFETCH = "/refetch",
+  PROFILE = "/users/profile",
+}

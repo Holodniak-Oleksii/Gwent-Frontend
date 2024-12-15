@@ -1,3 +1,4 @@
+import { useRegistrationMutation } from "@/api/auth";
 import { TextFiled } from "@/components/inputs/TextFiled";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { useForm } from "react-hook-form";
@@ -9,8 +10,10 @@ export const Registration = () => {
     formState: { errors },
   } = useForm<IRegistrationFormFields>();
 
+  const { mutate } = useRegistrationMutation();
+
   const onSubmit = (data: IRegistrationFormFields) => {
-    console.log("data :", data);
+    mutate(data);
   };
 
   return (
