@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom";
+import { StyledFormContainer } from "./styles";
 
 export const AuthLayout = () => {
   return (
-    <div>
-      <hr />
+    <StyledFormContainer>
       <Outlet />
-      <hr />
-    </div>
+    </StyledFormContainer>
   );
 };
