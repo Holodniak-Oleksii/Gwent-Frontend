@@ -1,5 +1,8 @@
+import { useLoginMutation } from "@/api/auth";
+import { LINK_TEMPLATES } from "@/common/constants";
 import { TextFiled } from "@/components/inputs/TextFiled";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { ILoginFormFields } from "./types";
 
 export const Login = () => {
@@ -9,8 +12,10 @@ export const Login = () => {
     formState: { errors },
   } = useForm<ILoginFormFields>();
 
+  const { mutate } = useLoginMutation();
+
   const onSubmit = (data: ILoginFormFields) => {
-    console.log("data :", data);
+    mutate(data);
   };
 
   return (
@@ -20,16 +25,15 @@ export const Login = () => {
         placeholder="Enter Nickname"
         error={errors.nickname}
       />
-      <br />
       <TextFiled
         {...register("password", { required: true })}
         placeholder="Enter Password"
         error={errors.password}
         type="password"
       />
-      <br />
 
       <button type="submit">submit</button>
+      <Link to={LINK_TEMPLATES.REGISTRATION}>Registration</Link>
     </form>
   );
 };

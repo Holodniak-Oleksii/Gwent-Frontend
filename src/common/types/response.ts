@@ -1,6 +1,6 @@
 import { IUserModel } from "@/common/types/models";
 
-export interface IRegistrationResponse {
+export interface IAuthResponse {
   user: IUserModel;
   message: string;
   tokens: {

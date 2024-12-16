@@ -1,4 +1,4 @@
-import { InitLayout } from "@/layouts/InitLayout";
+import { Arena } from "@/features/Arena";
 import { useUserStore } from "@/store/user";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { LINK_TEMPLATES } from "./common/constants";
@@ -14,20 +14,21 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route element={<InitLayout />}>
-          <Route path={LINK_TEMPLATES.HOME} element={<BaseLayout />}>
-            <Route path={LINK_TEMPLATES.HOME} element={<Home />} />
-            {isAuth && (
+        <Route path={LINK_TEMPLATES.HOME} element={<BaseLayout />}>
+          <Route path={LINK_TEMPLATES.HOME} element={<Home />} />
+          {isAuth && (
+            <>
               <Route path={LINK_TEMPLATES.PROFILE} element={<Profile />} />
-            )}
-          </Route>
-          {!isAuth && (
-            <Route path={LINK_TEMPLATES.AUTH} element={<AuthLayout />}>
-              <Route path="login" element={<Login />} />
-              <Route path="registration" element={<Registration />} />
-            </Route>
+              <Route path={LINK_TEMPLATES.ARENA(":id")} element={<Arena />} />
+            </>
           )}
         </Route>
+        {!isAuth && (
+          <Route path={LINK_TEMPLATES.AUTH} element={<AuthLayout />}>
+            <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
+          </Route>
+        )}
       </Routes>
     </Router>
   );

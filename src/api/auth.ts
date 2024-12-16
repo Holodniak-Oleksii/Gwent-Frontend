@@ -1,29 +1,55 @@
 import API from "@/api";
+import { LINK_TEMPLATES } from "@/common/constants";
 import {
   ENDPOINTS,
+  IAuthResponse,
   IGetProfileResponse,
-  IRegistrationResponse,
   QueryKey,
 } from "@/common/types";
+import { ILoginFormFields } from "@/features/auth/Login/types";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const useRegistrationMutation = () => {
+export const useLoginMutation = () => {
   const setCredentials = useAuthStore((state) => state.setCredentials);
   const setUser = useUserStore((state) => state.setUser);
+  const navigation = useNavigate();
+
   return useMutation({
-    mutationFn: (data: IRegistrationFormFields) => {
-      return API.post(ENDPOINTS.REGISTRATION, data);
+    mutationFn: (data: ILoginFormFields) => {
+      return API.post(ENDPOINTS.LOGIN, data);
     },
-    onSuccess: (data: AxiosResponse<IRegistrationResponse>) => {
+    onSuccess: (data: AxiosResponse<IAuthResponse>) => {
       setCredentials(
         data.data.tokens.refreshToken,
         data.data.tokens.accessToken
       );
       setUser(data.data.user);
+      navigation(LINK_TEMPLATES.PROFILE);
+    },
+  });
+};
+
+export const useRegistrationMutation = () => {
+  const setCredentials = useAuthStore((state) => state.setCredentials);
+  const setUser = useUserStore((state) => state.setUser);
+  const navigation = useNavigate();
+
+  return useMutation({
+    mutationFn: (data: IRegistrationFormFields) => {
+      return API.post(ENDPOINTS.REGISTRATION, data);
+    },
+    onSuccess: (data: AxiosResponse<IAuthResponse>) => {
+      setCredentials(
+        data.data.tokens.refreshToken,
+        data.data.tokens.accessToken
+      );
+      setUser(data.data.user);
+      navigation(LINK_TEMPLATES.PROFILE);
     },
   });
 };

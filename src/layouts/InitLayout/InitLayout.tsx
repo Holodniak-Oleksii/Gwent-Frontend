@@ -1,9 +1,8 @@
 import { useProfileQuery } from "@/api/auth";
 import { useUserStore } from "@/store/user";
-import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { FC, PropsWithChildren, useEffect } from "react";
 
-export const InitLayout = () => {
+export const InitLayout: FC<PropsWithChildren> = ({ children }) => {
   const { data, isLoading } = useProfileQuery();
   const setUser = useUserStore((state) => state.setUser);
 
@@ -17,5 +16,5 @@ export const InitLayout = () => {
     return <>Loading...</>;
   }
 
-  return <Outlet />;
+  return children;
 };
