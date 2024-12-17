@@ -1,3 +1,4 @@
+import { TPlayer } from "@/common/types/entity";
 import { IUserModel } from "@/common/types/models";
 
 export interface IAuthResponse {
@@ -9,6 +10,14 @@ export interface IAuthResponse {
   };
 }
 
+export interface IErrorResponse {
+  message: string;
+}
+
 export interface IGetProfileResponse {
   user: IUserModel;
+}
+
+export interface IGetPlayersResponse {
+  players: TPlayer[];
 }

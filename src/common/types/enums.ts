@@ -23,6 +23,7 @@ export enum ECardAbilities {
 
 export enum QueryKey {
   PROFILE = "PROFILE",
+  PLAYERS = "PLAYERS",
 }
 
 export enum ENDPOINTS {
@@ -30,4 +31,13 @@ export enum ENDPOINTS {
   LOGIN = "/users/login",
   REFETCH = "/refetch",
   PROFILE = "/users/profile",
+  PLAYERS = "/users/all",
+}
+
+export enum EOperationNotificationType {
+  SENT_DUEL = "send_duel",
+  RESPOND_DUEL = "respond_duel",
+  STORED_DUELS = "stored_duels",
+  NEW_DUEL = "new_duel",
+  DUEL_RESPONSE = "duel_response",
 }
