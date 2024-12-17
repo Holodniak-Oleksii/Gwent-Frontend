@@ -54,7 +54,7 @@ export const useRegistrationMutation = () => {
   });
 };
 
-export const useProfileQuery = () => {
+export const useGetProfileQuery = () => {
   return useQuery<IGetProfileResponse>({
     queryKey: [QueryKey.PROFILE],
     queryFn: async () => {

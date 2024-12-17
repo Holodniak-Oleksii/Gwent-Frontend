@@ -23,6 +23,7 @@ export const BaseLayout = () => {
         {isAuth ? (
           <>
             <StyledLink to={LINK_TEMPLATES.PROFILE}>Profile</StyledLink>
+            <StyledLink to={LINK_TEMPLATES.PLAYERS}>Players</StyledLink>
             <StyledButton onClick={onLogOut}>log out</StyledButton>
           </>
         ) : (

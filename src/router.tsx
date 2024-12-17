@@ -1,4 +1,5 @@
 import { Arena } from "@/features/Arena";
+import { Players } from "@/features/Players";
 import { useUserStore } from "@/store/user";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { LINK_TEMPLATES } from "./common/constants";
@@ -19,6 +20,7 @@ const AppRouter = () => {
           {isAuth && (
             <>
               <Route path={LINK_TEMPLATES.PROFILE} element={<Profile />} />
+              <Route path={LINK_TEMPLATES.PLAYERS} element={<Players />} />
               <Route path={LINK_TEMPLATES.ARENA(":id")} element={<Arena />} />
             </>
           )}

@@ -25,3 +25,11 @@ export interface ICardModel {
   image: string;
   power: number;
 }
+
+export interface INotificationModel {
+  id: string;
+  sender: string;
+  receiver: string;
+  status: "pending" | "accepted" | "declined";
+  createdAt: Date;
+}
