@@ -1,18 +1,14 @@
 import { useGetPlayersQuery } from "@/api/player";
 import { sendMessage } from "@/api/ws/notification";
 import { EOperationNotificationType } from "@/common/types";
-import { useNotificationStore } from "@/store/notifications";
 import { StyledGrid, StyledGridItem } from "./styles";
 
 export const Players = () => {
   const { data, isLoading } = useGetPlayersQuery();
-  const notification = useNotificationStore((state) => state.notifications);
-  console.log("notification :", notification);
-  console.log("data :", data);
 
   const onCall = (nickname: string) => {
     const callDate = {
-      type: EOperationNotificationType.SENT_DUEL,
+      type: EOperationNotificationType.NEW_DUEL,
       receiver: nickname,
     };
     sendMessage(JSON.stringify(callDate));
@@ -30,12 +26,6 @@ export const Players = () => {
           </StyledGridItem>
         ))}
       </StyledGrid>
-      <hr />
-      {notification?.map((n) => (
-        <>
-          you have call from {n.sender} in status {n.status}
-        </>
-      ))}
     </>
   );
 };
