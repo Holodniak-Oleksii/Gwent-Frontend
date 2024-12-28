@@ -39,3 +39,16 @@ export enum EOperationNotificationType {
   STORED_DUELS = "stored_duels",
   NEW_DUEL = "new_duel",
 }
+
+export enum EGameMessageType {
+  WAIT_PARTNER = "waitPartner",
+  PARTNER_LEFT = "partnerLeft",
+  GAME_START = "gameStart",
+}
+
+export enum EGameState {
+  PLAYING = "PLAYING",
+  WAITING = "WAITING",
+  LOADING = "LOADING",
+  PARTNER_LEFT = "PARTNER_LEFT",
+}

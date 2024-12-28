@@ -33,3 +33,7 @@ export interface INotificationModel {
   status: "pending" | "accepted" | "declined";
   createdAt: Date;
 }
+
+export interface IGameModel {
+  arena: object;
+}

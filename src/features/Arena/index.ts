@@ -1,1 +1,1 @@
-export * from "./Arena";
+export { default as Arena } from "./Arena";

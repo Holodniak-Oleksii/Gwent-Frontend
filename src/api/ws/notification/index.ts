@@ -26,7 +26,7 @@ export const initializeNotificationManager = (nickname: string) => {
     return;
   }
 
-  socket = new WebSocket(`${wsUrl}?nickname=${nickname}`);
+  socket = new WebSocket(`${wsUrl}/notifications?nickname=${nickname}`);
 
   socket.onopen = () => {
     console.log("WebSocket connection established");
