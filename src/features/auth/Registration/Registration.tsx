@@ -22,7 +22,7 @@ export const Registration = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextFiled
         {...register("email", { required: true })}
-        placeholder="Enter player"
+        placeholder="Enter Email"
         error={errors.email}
       />
       <TextFiled

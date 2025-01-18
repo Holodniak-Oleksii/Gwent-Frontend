@@ -19,6 +19,7 @@ export const Item: FC<INotificationModel> = ({
   receiver,
   sender,
   status,
+  rate,
 }) => {
   const user = useUserStore((state) => state.user);
   const navigation = useNavigate();
@@ -36,6 +37,7 @@ export const Item: FC<INotificationModel> = ({
   return (
     <StyledNotificationContainer>
       <StyledDateTime>{new Date(createdAt)?.toDateString()}</StyledDateTime>
+      <StyledNotificationMessage>Rate: {rate}</StyledNotificationMessage>
       <StyledNotificationFlex>
         <StyledNotificationMessage>
           {isOwner

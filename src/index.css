@@ -5,7 +5,13 @@
 }
 body,
 html,
-#root {
+#root,
+.ReactModal__Overlay {
+  height: 100%;
+  width: 100%;
+}
+
+.ReactModal__Overlay > div {
   height: 100%;
   width: 100%;
 }

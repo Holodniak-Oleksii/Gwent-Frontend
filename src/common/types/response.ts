@@ -1,5 +1,5 @@
 import { TPlayer } from "@/common/types/entity";
-import { IUserModel } from "@/common/types/models";
+import { ICardModel, IUserModel } from "@/common/types/models";
 
 export interface IAuthResponse {
   user: IUserModel;
@@ -20,4 +20,8 @@ export interface IGetProfileResponse {
 
 export interface IGetPlayersResponse {
   players: TPlayer[];
+}
+
+export interface IGetCardsResponse {
+  cards: ICardModel[];
 }

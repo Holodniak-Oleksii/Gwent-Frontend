@@ -1,4 +1,4 @@
-import { ECardAbilities, EFaction } from "./enums";
+import { ECardAbilities, EFaction, EForces, EType } from "./enums";
 
 export interface IUserModel {
   nickname: string;
@@ -8,7 +8,7 @@ export interface IUserModel {
   wins: number;
   losses: number;
   draws: number;
-  cards: ICardModel[];
+  cards: string[];
   coins: number;
 }
 
@@ -24,10 +24,14 @@ export interface ICardModel {
   ability: ECardAbilities | null;
   image: string;
   power: number;
+  forces: EForces;
+  type: EType;
+  isDefault: boolean;
 }
 
 export interface INotificationModel {
   id: string;
+  rate: number;
   sender: string;
   receiver: string;
   status: "pending" | "accepted" | "declined";
