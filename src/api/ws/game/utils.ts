@@ -15,6 +15,15 @@ export const switcherMessage = ({ type, data }: IMessage) => {
       }));
       break;
     }
+
+    case EGameMessageType.PREPARATION: {
+      useGameStore.setState((state) => ({
+        ...state,
+        state: EGameState.PREPARATION,
+      }));
+      break;
+    }
+
     case EGameMessageType.GAME_START: {
       useGameStore.setState((state) => ({
         ...state,

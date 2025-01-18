@@ -14,6 +14,7 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 `;
 
 export const StyledLink = styled(Link)`

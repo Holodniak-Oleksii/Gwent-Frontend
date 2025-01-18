@@ -69,12 +69,14 @@ export enum EGameMessageType {
   WAIT_PARTNER = "waitPartner",
   PARTNER_LEFT = "partnerLeft",
   GAME_START = "gameStart",
+  PREPARATION = "preparation",
 }
 
 export enum EGameState {
   PLAYING = "PLAYING",
   WAITING = "WAITING",
   LOADING = "LOADING",
+  PREPARATION = "PREPARATION",
   PARTNER_LEFT = "PARTNER_LEFT",
 }
 
