@@ -16,3 +16,13 @@ export const useGetMyCardsQuery = () => {
     },
   });
 };
+
+export const useGetCardsQuery = () => {
+  return useQuery<IGetCardsResponse, IErrorResponse>({
+    queryKey: [QueryKey.ALL_CARDS],
+    queryFn: async () => {
+      const { data } = await API.get<IGetCardsResponse>(ENDPOINTS.ALL_CARDS);
+      return data;
+    },
+  });
+};

@@ -39,3 +39,8 @@ export const StyledLeaderImage = styled.img`
   height: 300px;
   object-fit: contain;
 `;
+
+export const StyledText = styled.div`
+  text-align: center;
+  padding: 12px;
+`;

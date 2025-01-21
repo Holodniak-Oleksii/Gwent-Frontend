@@ -6,9 +6,17 @@ interface IMessage {
   data?: object | null;
 }
 
-export const switcherMessage = ({ type, data }: IMessage) => {
+export const switcherMessage = ({ type }: IMessage) => {
   switch (type) {
     case EGameMessageType.WAIT_PARTNER: {
+      useGameStore.setState((state) => ({
+        ...state,
+        state: EGameState.WAITING,
+      }));
+      break;
+    }
+
+    case EGameMessageType.PREPARATION_COMPLETED: {
       useGameStore.setState((state) => ({
         ...state,
         state: EGameState.WAITING,

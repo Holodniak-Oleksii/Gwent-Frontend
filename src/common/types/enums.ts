@@ -48,6 +48,7 @@ export enum QueryKey {
   PROFILE = "PROFILE",
   PLAYERS = "PLAYERS",
   MY_CARDS = "MY_CARDS",
+  ALL_CARDS = "ALL_CARDS",
 }
 
 export enum ENDPOINTS {
@@ -57,6 +58,7 @@ export enum ENDPOINTS {
   PROFILE = "/users/profile",
   PLAYERS = "/users/all",
   MY_CARDS = "/cards/my",
+  ALL_CARDS = "/cards",
 }
 
 export enum EOperationNotificationType {
@@ -70,6 +72,8 @@ export enum EGameMessageType {
   PARTNER_LEFT = "partnerLeft",
   GAME_START = "gameStart",
   PREPARATION = "preparation",
+  PARTNER_SET_DECK = "partnerSetDeck",
+  PREPARATION_COMPLETED = "preparationCompleted",
 }
 
 export enum EGameState {
@@ -82,4 +86,8 @@ export enum EGameState {
 
 export enum EModalKey {
   CONFIRM_DUEL = "CONFIRM_DUEL",
+}
+
+export enum EGameRequestMessageType {
+  UPDATE_CARDS = "updateCards",
 }
