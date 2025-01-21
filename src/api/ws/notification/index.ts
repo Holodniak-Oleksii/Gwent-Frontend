@@ -26,7 +26,7 @@ export const initializeNotificationManager = (nickname: string) => {
     return;
   }
 
-  socket = new WebSocket(`${wsUrl}?nickname=${nickname}`);
+  socket = new WebSocket(`${wsUrl}/notifications?nickname=${nickname}`);
 
   socket.onopen = () => {
     console.log("WebSocket connection established");
@@ -35,17 +35,31 @@ export const initializeNotificationManager = (nickname: string) => {
   socket.onmessage = (event) => {
     const message = JSON.parse(event.data);
     console.log("message :", message);
-    if (message.type === EOperationNotificationType.STORED_DUELS) {
-      useNotificationStore.setState((state) => ({
-        ...state,
-        notifications: [...message.data, ...state.notifications],
-      }));
-    }
-    if (message.type === EOperationNotificationType.NEW_DUEL) {
-      useNotificationStore.setState((state) => ({
-        ...state,
-        notifications: [message.data, ...state.notifications],
-      }));
+
+    switch (message.type) {
+      case EOperationNotificationType.STORED_DUELS: {
+        useNotificationStore.setState((state) => ({
+          ...state,
+          notifications: message.data,
+        }));
+        break;
+      }
+      case EOperationNotificationType.NEW_DUEL: {
+        useNotificationStore.setState((state) => ({
+          ...state,
+          notifications: [message.data, ...state.notifications],
+        }));
+        break;
+      }
+      case EOperationNotificationType.RESPOND_DUEL: {
+        useNotificationStore.setState((state) => ({
+          ...state,
+          notifications: state.notifications.map((n) =>
+            n.id === message.data.id ? { ...n, status: message.data.status } : n
+          ),
+        }));
+        break;
+      }
     }
   };
 

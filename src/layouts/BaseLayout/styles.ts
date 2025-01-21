@@ -11,6 +11,10 @@ export const StyledHeader = styled.header`
   border-bottom: 1px solid #e0e0e0;
   padding: 0 20px;
   gap: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 `;
 
 export const StyledLink = styled(Link)`
@@ -48,4 +52,10 @@ export const StyledButton = styled.button`
   }
 
   outline: none;
+`;
+
+export const StyledMain = styled.main`
+  height: 100%;
+  width: 100%;
+  padding-top: 70px;
 `;

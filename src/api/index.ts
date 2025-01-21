@@ -6,7 +6,7 @@ interface ICustomAxiosRequestConfig extends InternalAxiosRequestConfig {
 }
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: `${import.meta.env.VITE_BASE_URL}/api/`,
 });
 
 API.interceptors.request.use((config) => {
@@ -32,7 +32,7 @@ API.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/refresh`,
+          `${import.meta.env.VITE_BASE_URL}/api/refresh`,
           {
             refreshToken: useAuthStore.getState().refreshToken,
           }

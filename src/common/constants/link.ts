@@ -5,5 +5,6 @@ export const LINK_TEMPLATES = {
   AUTH: "/auth",
   LOGIN: "/auth/login",
   PLAYERS: "/players",
+  MESSAGES: "/messages",
   ARENA: (id: string) => `/arena/${id}`,
 };

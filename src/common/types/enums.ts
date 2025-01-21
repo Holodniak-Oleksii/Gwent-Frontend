@@ -1,29 +1,54 @@
 export enum EFaction {
-  KINGDOMS_OF_THE_NORTH,
-  NILFGAARD,
-  SCOIATAEL,
-  MONSTERS,
-  UNIVERSAL,
+  KINGDOMS_OF_THE_NORTH = "KINGDOMS_OF_THE_NORTH",
+  NILFGAARD = "NILFGAARD",
+  SCOIATAEL = "SCOIATAEL",
+  MONSTERS = "MONSTERS",
+  UNIVERSAL = "UNIVERSAL",
+}
+
+export enum EForces {
+  CLOSE = "CLOSE",
+  RANGED = "RANGED",
+  SIEGE = "SIEGE",
+  AGILE = "AGILE",
 }
 
 export enum ECardAbilities {
-  HERO,
-  EXECUTION,
-  HORN,
-  SPY,
-  MEDIC,
-  STRONG_CONNECTION,
-  SURGE_OF_STRENGTH,
-  DOUBLE,
-  AGILITY,
-  CALLING_OF_AVENGER,
-  MARDREM,
-  BERSERK,
+  HERO = "HERO",
+  HORN = "HORN",
+  SPY = "SPY",
+  MEDIC = "MEDIC",
+  SCORCH = "SCORCH",
+  MUSTER = "MUSTER",
+  MARDROEME = "MARDROEME",
+  DECOY = "DECOY",
+  BERSERK = "BERSERK",
+  TIGHT_BOND = "TIGHT_BOND",
+  MORALE_BOOST = "MORALE_BOOST",
+  // WEATHER
+  BITING_FROST = "BITING_FROST",
+  IMPENETRABLE_FOG = "IMPENETRABLE_FOG",
+  TORRENTIAL_RAIN = "TORRENTIAL_RAIN",
+  SKELLIGE_STORM = "SKELLIGE_STORM",
+  CLEAR_WEATHER = "CLEAR_WEATHER",
+  // LEADER
+  KING_OF_TEMERIA = "KING_OF_TEMERIA",
+  HIS_IMPERIAL_MAJESTY = "HIS_IMPERIAL_MAJESTY",
+  PUREBLOOD_ELF = "PUREBLOOD_ELF",
+  COMMANDER_OF_THE_RED_RIDERS = "COMMANDER_OF_THE_RED_RIDERS",
+}
+
+export enum EType {
+  LEADER = "LEADER",
+  WEATHER = "WEATHER",
+  UNIT = "UNIT",
 }
 
 export enum QueryKey {
   PROFILE = "PROFILE",
   PLAYERS = "PLAYERS",
+  MY_CARDS = "MY_CARDS",
+  ALL_CARDS = "ALL_CARDS",
 }
 
 export enum ENDPOINTS {
@@ -32,12 +57,37 @@ export enum ENDPOINTS {
   REFETCH = "/refetch",
   PROFILE = "/users/profile",
   PLAYERS = "/users/all",
+  MY_CARDS = "/cards/my",
+  ALL_CARDS = "/cards",
 }
 
 export enum EOperationNotificationType {
-  SENT_DUEL = "send_duel",
   RESPOND_DUEL = "respond_duel",
   STORED_DUELS = "stored_duels",
   NEW_DUEL = "new_duel",
-  DUEL_RESPONSE = "duel_response",
+}
+
+export enum EGameMessageType {
+  WAIT_PARTNER = "waitPartner",
+  PARTNER_LEFT = "partnerLeft",
+  GAME_START = "gameStart",
+  PREPARATION = "preparation",
+  PARTNER_SET_DECK = "partnerSetDeck",
+  PREPARATION_COMPLETED = "preparationCompleted",
+}
+
+export enum EGameState {
+  PLAYING = "PLAYING",
+  WAITING = "WAITING",
+  LOADING = "LOADING",
+  PREPARATION = "PREPARATION",
+  PARTNER_LEFT = "PARTNER_LEFT",
+}
+
+export enum EModalKey {
+  CONFIRM_DUEL = "CONFIRM_DUEL",
+}
+
+export enum EGameRequestMessageType {
+  UPDATE_CARDS = "updateCards",
 }
