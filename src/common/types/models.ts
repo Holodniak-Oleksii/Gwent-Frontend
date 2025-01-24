@@ -38,6 +38,18 @@ export interface INotificationModel {
   createdAt: Date;
 }
 
+export interface IBoardCard {
+  card: ICardModel;
+  ownerNickname: string;
+  position: EForces;
+}
+
 export interface IGameModel {
-  arena: object;
+  boardCards: IBoardCard[];
+  playingCards: ICardModel[];
+  deck: ICardModel[];
+  enemy?: {
+    nickname: string;
+    avatar: string;
+  };
 }

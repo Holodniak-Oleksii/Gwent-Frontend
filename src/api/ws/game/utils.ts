@@ -1,4 +1,4 @@
-import { EGameMessageType, EGameState } from "@/common/types";
+import { EGameMessageType, EGameState, IGameModel } from "@/common/types";
 import { useGameStore } from "@/store/game";
 
 interface IMessage {
@@ -6,7 +6,8 @@ interface IMessage {
   data?: object | null;
 }
 
-export const switcherMessage = ({ type }: IMessage) => {
+export const switcherMessage = ({ type, data }: IMessage) => {
+  console.log("type, data :", type, data);
   switch (type) {
     case EGameMessageType.WAIT_PARTNER: {
       useGameStore.setState((state) => ({
@@ -43,6 +44,20 @@ export const switcherMessage = ({ type }: IMessage) => {
       useGameStore.setState((state) => ({
         ...state,
         state: EGameState.PARTNER_LEFT,
+      }));
+      break;
+    }
+    case EGameMessageType.ENEMY: {
+      useGameStore.setState((state) => ({
+        ...state,
+        game: { ...state.game, enemy: data } as IGameModel,
+      }));
+      break;
+    }
+    case EGameMessageType.UPDATE: {
+      useGameStore.setState((state) => ({
+        ...state,
+        game: { ...state.game, ...data } as IGameModel,
       }));
       break;
     }
