@@ -18,9 +18,22 @@ export const StyledRow = styled.div`
   gap: 6px;
   height: 100%;
   background-color: #ffcbcb;
+  position: relative;
 `;
 
 export const StyledCard = styled.img`
   height: 100%;
   width: auto;
+`;
+
+export const StyledForceIcon = styled.div`
+  position: absolute;
+  left: 16px;
+  top: 20%;
+  height: 60%;
+  aspect-ratio: 1/1;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;

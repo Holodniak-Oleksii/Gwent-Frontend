@@ -1,12 +1,13 @@
+import { EModalKey } from "@/common/types";
+import { PlayingCard } from "@/components/cards/PlayingCard";
 import { IArenaScreen } from "@/features/Arena/states/types";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
-import { getUrlImage } from "@/utils/image";
+import { useModal } from "@ebay/nice-modal-react";
 import { FC } from "react";
 import { Board } from "./components/Board";
 import {
   StyledBoard,
-  StyledCard,
   StyledContainer,
   StyledPlayerInfo,
   StyledPlayers,
@@ -17,10 +18,16 @@ import {
 export const Play: FC<IArenaScreen> = () => {
   const game = useGameStore((state) => state.game);
   const user = useUserStore((state) => state.user);
-
+  const { show } = useModal(EModalKey.APPLY_CARD);
   const renderCards = () =>
     game?.playingCards?.map((c) => (
-      <StyledCard key={c.id} src={getUrlImage(c)} alt={c.image} />
+      <PlayingCard
+        key={c.id}
+        card={c}
+        onClick={() => {
+          show({ card: c });
+        }}
+      />
     ));
 
   return (

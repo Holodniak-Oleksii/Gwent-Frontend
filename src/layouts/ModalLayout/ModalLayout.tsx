@@ -14,6 +14,7 @@ interface IModalLayout extends PropsWithChildren {
   title?: string | React.ReactNode;
   maxWidth?: number;
   renderStatus?: React.ReactNode;
+  bgcolor?: string;
 }
 
 export const ModalLayout: FC<IModalLayout> = ({
@@ -23,15 +24,22 @@ export const ModalLayout: FC<IModalLayout> = ({
   title,
   maxWidth = 515,
   renderStatus,
+  bgcolor,
 }) => (
   <StyledModal isOpen={open} onRequestClose={onClose}>
     <StyledScroll onClick={onClose}>
-      <StyledContainer onClick={(e) => e.stopPropagation()} maxWidth={maxWidth}>
-        <StyledHead>
-          <StyledTitle>{title}</StyledTitle>
-          {renderStatus}
-          <StyledExit onClick={onClose}>x</StyledExit>
-        </StyledHead>
+      <StyledContainer
+        bgcolor={bgcolor}
+        onClick={(e) => e.stopPropagation()}
+        maxWidth={maxWidth}
+      >
+        {title && (
+          <StyledHead>
+            <StyledTitle>{title}</StyledTitle>
+            {renderStatus}
+            <StyledExit onClick={onClose}>x</StyledExit>
+          </StyledHead>
+        )}
         {children}
       </StyledContainer>
     </StyledScroll>

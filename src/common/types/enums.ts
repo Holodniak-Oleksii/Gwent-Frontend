@@ -88,6 +88,7 @@ export enum EGameState {
 
 export enum EModalKey {
   CONFIRM_DUEL = "CONFIRM_DUEL",
+  APPLY_CARD = 'APPLY_CARD'
 }
 
 export enum EGameRequestMessageType {

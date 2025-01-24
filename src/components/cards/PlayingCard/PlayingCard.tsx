@@ -1,17 +1,18 @@
 import { EType, ICardModel } from "@/common/types";
 import { Force } from "@/components/cards/plugs/Force";
+import { Power } from "@/components/cards/plugs/Power";
 import { getUrlImage } from "@/utils/image";
 import { FC } from "react";
-import { Power } from "../plugs/Power";
-import { StyledImage, StyledLabel, StyledPanel, StyledWrapper } from "./styles";
+import { StyledImage, StyledLabel, StyledWrapper } from "./styles";
 
-interface IHeroCardProps {
+interface IPlayingCardProps {
   card: ICardModel;
+  onClick?: () => void;
 }
 
-export const HeroCard: FC<IHeroCardProps> = ({ card }) => {
+export const PlayingCard: FC<IPlayingCardProps> = ({ card, onClick }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper onClick={onClick}>
       <StyledLabel>
         {card.type === EType.UNIT && (
           <>
@@ -21,7 +22,6 @@ export const HeroCard: FC<IHeroCardProps> = ({ card }) => {
         )}
       </StyledLabel>
       <StyledImage src={getUrlImage(card)} alt={card.image} />
-      <StyledPanel>{card.image.replaceAll("-", " ")}</StyledPanel>
     </StyledWrapper>
   );
 };

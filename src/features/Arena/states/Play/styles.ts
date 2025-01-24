@@ -53,9 +53,3 @@ export const StylesCards = styled.div`
   align-items: center;
   overflow: auto;
 `;
-
-export const StyledCard = styled.img`
-  height: 100%;
-  width: auto;
-  cursor: pointer;
-`;
