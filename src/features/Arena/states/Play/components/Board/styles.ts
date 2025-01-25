@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   background-color: #e6e6e6;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr) 2px repeat(3, 1fr);
+  grid-template-rows: repeat(3, 80px) 2px repeat(3, 80px);
   gap: 12px;
 `;
 

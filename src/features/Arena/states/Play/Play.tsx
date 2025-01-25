@@ -1,4 +1,4 @@
-import { EModalKey } from "@/common/types";
+import { EGameRequestMessageType, EModalKey, ICardModel } from "@/common/types";
 import { PlayingCard } from "@/components/cards/PlayingCard";
 import { IArenaScreen } from "@/features/Arena/states/types";
 import { useGameStore } from "@/store/game";
@@ -15,17 +15,27 @@ import {
   StylesCards,
 } from "./styles";
 
-export const Play: FC<IArenaScreen> = () => {
-  const game = useGameStore((state) => state.game);
+export const Play: FC<IArenaScreen> = ({ game }) => {
+  const gameStore = useGameStore((state) => state.game);
   const user = useUserStore((state) => state.user);
   const { show } = useModal(EModalKey.APPLY_CARD);
+
+  const onConfirm = (card: ICardModel) => {
+    game.sendMessage(
+      JSON.stringify({
+        type: EGameRequestMessageType.APPLY_CARD,
+        data: { card },
+      })
+    );
+  };
+
   const renderCards = () =>
-    game?.playingCards?.map((c) => (
+    gameStore?.playingCards?.map((c) => (
       <PlayingCard
         key={c.id}
         card={c}
         onClick={() => {
-          show({ card: c });
+          show({ card: c, onSubmit: () => onConfirm(c) });
         }}
       />
     ));
@@ -33,7 +43,7 @@ export const Play: FC<IArenaScreen> = () => {
   return (
     <StyledWrapper>
       <StyledPlayers>
-        <StyledPlayerInfo>{game?.enemy?.nickname}</StyledPlayerInfo>
+        <StyledPlayerInfo>{gameStore?.enemy?.nickname}</StyledPlayerInfo>
         <StyledPlayerInfo>{user?.nickname}</StyledPlayerInfo>
       </StyledPlayers>
       <StyledContainer>

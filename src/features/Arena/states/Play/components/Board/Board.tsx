@@ -1,16 +1,11 @@
 import { EForces } from "@/common/types";
+import { PlayingCard } from "@/components/cards/PlayingCard";
 import BowIcon from "@/components/icons/BowIcon";
 import SwordIcon from "@/components/icons/SwordIcon";
 import TrebuchetIcon from "@/components/icons/TrebuchetIcon";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
-import { getUrlImage } from "@/utils/image";
-import {
-  StyledCard,
-  StyledForceIcon,
-  StyledRow,
-  StyledWrapper,
-} from "./styles";
+import { StyledForceIcon, StyledRow, StyledWrapper } from "./styles";
 
 export const Board = () => {
   const game = useGameStore((state) => state.game);
@@ -23,19 +18,13 @@ export const Board = () => {
           c.position === position &&
           (c.ownerNickname === user?.nickname) === isMyCards
       )
-      .map((c) => (
-        <StyledCard
-          key={c.card.id}
-          src={getUrlImage(c.card)}
-          alt={c.card.image}
-        />
-      ));
+      .map((c) => <PlayingCard key={c.card.id} card={c.card} />);
 
   return (
     <StyledWrapper>
       <StyledRow>
         <StyledForceIcon>
-          <SwordIcon />
+          <TrebuchetIcon />
         </StyledForceIcon>
         {renderCards(EForces.SIEGE, false)}
       </StyledRow>
@@ -47,7 +36,7 @@ export const Board = () => {
       </StyledRow>
       <StyledRow>
         <StyledForceIcon>
-          <TrebuchetIcon />
+          <SwordIcon />
         </StyledForceIcon>
         {renderCards(EForces.CLOSE, false)}
       </StyledRow>
