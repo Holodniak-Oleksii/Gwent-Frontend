@@ -9,6 +9,7 @@ import { Board } from "./components/Board";
 import {
   StyledBoard,
   StyledContainer,
+  StyledIndicator,
   StyledPlayerInfo,
   StyledPlayers,
   StyledWrapper,
@@ -17,6 +18,7 @@ import {
 
 export const Play: FC<IArenaScreen> = ({ game }) => {
   const gameStore = useGameStore((state) => state.game);
+  console.log("gameStore :", gameStore);
   const user = useUserStore((state) => state.user);
   const { show } = useModal(EModalKey.APPLY_CARD);
 
@@ -44,13 +46,16 @@ export const Play: FC<IArenaScreen> = ({ game }) => {
     <StyledWrapper>
       <StyledPlayers>
         <StyledPlayerInfo>{gameStore?.enemy?.nickname}</StyledPlayerInfo>
+        <StyledIndicator>Player {gameStore?.order} move</StyledIndicator>
         <StyledPlayerInfo>{user?.nickname}</StyledPlayerInfo>
       </StyledPlayers>
       <StyledContainer>
         <StyledBoard>
           <Board />
         </StyledBoard>
-        <StylesCards>{renderCards()}</StylesCards>
+        <StylesCards disabled={gameStore?.order !== user?.nickname}>
+          {renderCards()}
+        </StylesCards>
       </StyledContainer>
     </StyledWrapper>
   );

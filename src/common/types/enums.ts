@@ -74,7 +74,6 @@ export enum EGameMessageType {
   PREPARATION = "preparation",
   PARTNER_SET_DECK = "partnerSetDeck",
   PREPARATION_COMPLETED = "preparationCompleted",
-  ENEMY = "enemy",
   UPDATE = "update",
 }
 

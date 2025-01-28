@@ -47,13 +47,6 @@ export const switcherMessage = ({ type, data }: IMessage) => {
       }));
       break;
     }
-    case EGameMessageType.ENEMY: {
-      useGameStore.setState((state) => ({
-        ...state,
-        game: { ...state.game, enemy: data } as IGameModel,
-      }));
-      break;
-    }
     case EGameMessageType.UPDATE: {
       useGameStore.setState((state) => ({
         ...state,

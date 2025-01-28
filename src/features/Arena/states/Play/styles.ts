@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -17,9 +17,17 @@ export const StyledPlayers = styled.div`
   justify-content: space-between;
 `;
 
+export const StyledIndicator = styled.div`
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const StyledPlayerInfo = styled.div`
   width: 100%;
-  height: calc(50% - 8px);
+  height: calc(50% - 24px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +48,7 @@ export const StyledBoard = styled.div`
   flex-grow: 1;
 `;
 
-export const StylesCards = styled.div`
+export const StylesCards = styled.div<{ disabled: boolean }>`
   width: 100%;
   max-width: 100%;
   flex-shrink: 0;
@@ -52,4 +60,10 @@ export const StylesCards = styled.div`
   gap: 8px;
   align-items: center;
   overflow: auto;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.5;
+      pointer-events: none;
+    `}
 `;

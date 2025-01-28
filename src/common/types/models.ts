@@ -48,6 +48,7 @@ export interface IGameModel {
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
   deck: ICardModel[];
+  order: string;
   enemy?: {
     nickname: string;
     avatar: string;
