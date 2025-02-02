@@ -40,6 +40,15 @@ export const switcherMessage = ({ type, data }: IMessage) => {
       }));
       break;
     }
+
+    case EGameMessageType.GAME_END: {
+      useGameStore.setState((state) => ({
+        ...state,
+        state: EGameState.END,
+        game: { ...state.game, ...data } as IGameModel,
+      }));
+      break;
+    }
     case EGameMessageType.PARTNER_LEFT: {
       useGameStore.setState((state) => ({
         ...state,

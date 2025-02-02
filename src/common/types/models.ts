@@ -44,13 +44,23 @@ export interface IBoardCard {
   position: EForces;
 }
 
+export interface IRound {
+  winner: string;
+  score: {
+    [x: string]: number;
+  };
+}
 export interface IGameModel {
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
   deck: ICardModel[];
   order: string;
+  rounds: IRound[];
+  winner: string | null;
   enemy?: {
     nickname: string;
     avatar: string;
+    pass: boolean;
+    cardsCount: number;
   };
 }

@@ -75,6 +75,7 @@ export enum EGameMessageType {
   PARTNER_SET_DECK = "partnerSetDeck",
   PREPARATION_COMPLETED = "preparationCompleted",
   UPDATE = "update",
+  GAME_END = "gameEnd",
 }
 
 export enum EGameState {
@@ -83,6 +84,7 @@ export enum EGameState {
   LOADING = "LOADING",
   PREPARATION = "PREPARATION",
   PARTNER_LEFT = "PARTNER_LEFT",
+  END = "END",
 }
 
 export enum EModalKey {
@@ -93,4 +95,5 @@ export enum EModalKey {
 export enum EGameRequestMessageType {
   UPDATE_CARDS = "updateCards",
   APPLY_CARD = "applyCard",
+  PLAYER_PASS = "playerPass",
 }
