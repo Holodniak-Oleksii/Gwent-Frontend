@@ -6,7 +6,7 @@ interface INotificationsStore {
   state: EGameState;
 }
 
-export const useGameStore = create<INotificationsStore>((set) => ({
+export const useGameStore = create<INotificationsStore>(() => ({
   game: null,
   state: EGameState.LOADING,
 }));

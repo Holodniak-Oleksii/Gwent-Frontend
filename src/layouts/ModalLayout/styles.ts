@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledScroll = styled.div`
   width: 100%;
@@ -7,15 +7,6 @@ export const StyledScroll = styled.div`
   min-height: 100%;
   padding: 24px 16px;
   display: flex;
-`;
-
-export const StyledContainer = styled.div<{ maxWidth: number }>`
-  width: 100%;
-  margin: auto;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #fff;
-  max-width: ${({ maxWidth }) => maxWidth}px;
 `;
 
 export const StyledModal = styled(Modal)`
@@ -53,4 +44,23 @@ export const StyledExit = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const StyledContainer = styled.div<{
+  maxWidth: number;
+  bgcolor?: string;
+}>`
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  max-width: ${({ maxWidth }) => maxWidth}px;
+  ${({ bgcolor }) =>
+    bgcolor
+      ? css`
+          background-color: ${bgcolor};
+        `
+      : css`
+          background: #fff;
+          border: 1px solid #ccc;
+        `}
 `;

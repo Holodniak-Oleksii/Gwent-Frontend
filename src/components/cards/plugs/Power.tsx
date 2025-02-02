@@ -1,4 +1,4 @@
-import { StyledCircle } from "@/components/cards/HeroCard/styles";
+import { StyledCircle } from "./styles";
 import { FC } from "react";
 import styled from "styled-components";
 

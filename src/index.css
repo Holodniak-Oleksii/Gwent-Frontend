@@ -11,6 +11,9 @@ html,
   width: 100%;
 }
 
+.ReactModal__Overlay {
+  background: #0000007d !important;
+}
 .ReactModal__Overlay > div {
   height: 100%;
   width: 100%;

@@ -1,8 +1,8 @@
 import { EForces } from "@/common/types";
-import { StyledCircle } from "@/components/cards/HeroCard/styles";
 import BowIcon from "@/components/icons/BowIcon";
 import SwordIcon from "@/components/icons/SwordIcon";
 import TrebuchetIcon from "@/components/icons/TrebuchetIcon";
+import { StyledCircle } from "./styles";
 
 import { FC } from "react";
 import styled from "styled-components";

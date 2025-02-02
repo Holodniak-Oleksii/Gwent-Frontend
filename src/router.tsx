@@ -23,10 +23,12 @@ const AppRouter = () => {
               <Route path={LINK_TEMPLATES.PROFILE} element={<Profile />} />
               <Route path={LINK_TEMPLATES.PLAYERS} element={<Players />} />
               <Route path={LINK_TEMPLATES.MESSAGES} element={<Messages />} />
-              <Route path={LINK_TEMPLATES.ARENA(":id")} element={<Arena />} />
             </>
           )}
         </Route>
+        {isAuth && (
+          <Route path={LINK_TEMPLATES.ARENA(":id")} element={<Arena />} />
+        )}
         {!isAuth && (
           <Route path={LINK_TEMPLATES.AUTH} element={<AuthLayout />}>
             <Route path="login" element={<Login />} />

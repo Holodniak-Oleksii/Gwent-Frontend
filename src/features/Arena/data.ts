@@ -1,8 +1,9 @@
 import { EGameState } from "@/common/types";
-import { Preparation } from "@/features/Arena/states/Preparation";
+import { End } from "./states/End";
 import { Left } from "./states/Left";
 import { Loading } from "./states/Loading";
 import { Play } from "./states/Play";
+import { Preparation } from "./states/Preparation";
 import { Wait } from "./states/Wait";
 
 export const ArenaScreen = {
@@ -11,4 +12,5 @@ export const ArenaScreen = {
   [EGameState.PARTNER_LEFT]: Left,
   [EGameState.PLAYING]: Play,
   [EGameState.PREPARATION]: Preparation,
+  [EGameState.END]: End,
 };

@@ -1,26 +1,24 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-  width: 200px;
-  height: 320px;
-  background-color: #f3f3f3ff;
+  height: 100%;
+  aspect-ratio: 3/4;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 `;
 
 export const StyledImage = styled.img`
   width: 100%;
-  height: calc(100% - 60px);
+  height: 100%;
   object-fit: cover;
-`;
-
-export const StyledPanel = styled.div`
-  width: 100%;
-  display: flex;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const StyledLabel = styled.div`
