@@ -50,6 +50,7 @@ export interface IRound {
     [x: string]: number;
   };
 }
+
 export interface IGameModel {
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
@@ -57,6 +58,7 @@ export interface IGameModel {
   order: string;
   rounds: IRound[];
   winner: string | null;
+  effects: EForces[];
   enemy?: {
     nickname: string;
     avatar: string;
