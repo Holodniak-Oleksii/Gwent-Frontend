@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <StyledGrid>
       {data?.cards.map((c) => (
-        <HeroCard card={c} key={c.id} />
+        <HeroCard card={c} key={c.id} isBuy />
       ))}
     </StyledGrid>
   );

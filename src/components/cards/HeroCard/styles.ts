@@ -9,9 +9,10 @@ export const StyledWrapper = styled.div`
   position: relative;
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled.img<{ $isBuy?: boolean }>`
   width: 100%;
-  height: calc(100% - 60px);
+  height: ${({ $isBuy }) =>
+    $isBuy ? "calc(100% - 80px)" : "calc(100% - 60px)"};
   object-fit: cover;
 `;
 
@@ -21,6 +22,8 @@ export const StyledPanel = styled.div`
   padding: 16px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const StyledLabel = styled.div`

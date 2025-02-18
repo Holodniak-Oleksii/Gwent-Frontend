@@ -25,3 +25,7 @@ export interface IGetPlayersResponse {
 export interface IGetCardsResponse {
   cards: ICardModel[];
 }
+
+export interface IGetCardIDsResponse {
+  cards: string[];
+}

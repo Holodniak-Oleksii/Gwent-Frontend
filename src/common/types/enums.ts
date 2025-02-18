@@ -59,6 +59,7 @@ export enum ENDPOINTS {
   PLAYERS = "/users/all",
   MY_CARDS = "/cards/my",
   ALL_CARDS = "/cards",
+  BUY_CARDS = "/cards/buy",
 }
 
 export enum EOperationNotificationType {
