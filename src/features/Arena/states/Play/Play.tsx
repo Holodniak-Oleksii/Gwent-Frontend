@@ -72,7 +72,7 @@ export const Play: FC<IArenaScreen> = ({ game }) => {
         key={c.id}
         card={c}
         onClick={() => {
-          show({ card: c, onSubmit: () => onConfirm(c) });
+          show({ card: c, onSubmit: (card: ICardModel) => onConfirm(card) });
         }}
       />
     ));

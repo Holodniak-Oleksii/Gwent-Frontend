@@ -1,4 +1,4 @@
-import { ICardModel } from "@/common/types";
+import { ECardAbilities, EForces, ICardModel } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
@@ -24,11 +24,26 @@ const StyledContent = styled.div`
 
 interface IApplyProps extends IModalProps {
   card: ICardModel;
-  onSubmit: () => void;
+  onSubmit: (card: ICardModel) => void;
 }
+const forces = [EForces.AGILE, EForces.CLOSE, EForces.RANGED];
 
 export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const { hide, visible } = useModal(id);
+
+  const renderButtons = () =>
+    forces.map((i, key) => (
+      <button
+        key={key}
+        onClick={() => {
+          onSubmit({ ...card, forces: i });
+          hide();
+        }}
+      >
+        {i}
+      </button>
+    ));
+
   return (
     <ModalLayout open={visible} onClose={hide} bgcolor="transparent">
       <StyledContainer>
@@ -36,14 +51,18 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
           <HeroCard card={card} />
           <StyledAction>
             <button onClick={hide}>Cancel</button>
-            <button
-              onClick={() => {
-                onSubmit();
-                hide();
-              }}
-            >
-              Apply
-            </button>
+            {card.ability === ECardAbilities.HORN ? (
+              renderButtons()
+            ) : (
+              <button
+                onClick={() => {
+                  onSubmit(card);
+                  hide();
+                }}
+              >
+                Apply
+              </button>
+            )}
           </StyledAction>
         </StyledContent>
       </StyledContainer>

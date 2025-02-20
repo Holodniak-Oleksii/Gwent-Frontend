@@ -51,6 +51,13 @@ export interface IRound {
   };
 }
 
+export interface IEffect {
+  row: EForces;
+  ability: ECardAbilities;
+  type: EType;
+  applyTo: string[];
+}
+
 export interface IGameModel {
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
@@ -58,7 +65,7 @@ export interface IGameModel {
   order: string;
   rounds: IRound[];
   winner: string | null;
-  effects: EForces[];
+  effects: IEffect[];
   enemy?: {
     nickname: string;
     avatar: string;

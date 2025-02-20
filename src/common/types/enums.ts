@@ -42,6 +42,7 @@ export enum EType {
   LEADER = "LEADER",
   WEATHER = "WEATHER",
   UNIT = "UNIT",
+  SPECIAL = "SPECIAL",
 }
 
 export enum QueryKey {

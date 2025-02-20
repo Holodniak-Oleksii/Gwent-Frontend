@@ -1,6 +1,7 @@
 import { EForces, EType } from "@/common/types";
 import { PlayingCard } from "@/components/cards/PlayingCard";
 import BowIcon from "@/components/icons/BowIcon";
+import HornIcon from "@/components/icons/HornIcon";
 import SwordIcon from "@/components/icons/SwordIcon";
 import TrebuchetIcon from "@/components/icons/TrebuchetIcon";
 import { useGameStore } from "@/store/game";
@@ -8,6 +9,7 @@ import { useUserStore } from "@/store/user";
 import {
   StyledEffect,
   StyledForceIcon,
+  StyledHorn,
   StyledRow,
   StyledWrapper,
 } from "./styles";
@@ -25,6 +27,16 @@ export const Board = () => {
 
   const renderRow = (position: EForces, isMyCards: boolean) => (
     <StyledRow>
+      <StyledHorn>
+        {game?.effects.some(
+          (e) =>
+            e.row === position &&
+            e.type === EType.SPECIAL &&
+            user?.nickname &&
+            e.applyTo.includes(user?.nickname) &&
+            isMyCards
+        ) && <HornIcon />}
+      </StyledHorn>
       <StyledForceIcon>{forceIcons[position]}</StyledForceIcon>
       {game?.boardCards
         ?.filter(
@@ -36,7 +48,10 @@ export const Board = () => {
         .map((c) => (
           <PlayingCard key={c.card.id} card={c.card} />
         ))}
-      {game?.effects.includes(position) && <StyledEffect />}
+
+      {game?.effects.some(
+        (e) => e.row === position && e.type === EType.WEATHER
+      ) && <StyledEffect />}
     </StyledRow>
   );
 

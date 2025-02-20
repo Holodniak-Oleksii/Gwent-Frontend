@@ -19,6 +19,7 @@ export const StyledRow = styled.div`
   height: 100%;
   background-color: #ffcbcb;
   position: relative;
+  padding-left: 80px;
 `;
 
 export const StyledEffect = styled.div`
@@ -37,9 +38,23 @@ export const StyledCard = styled.img`
   width: auto;
 `;
 
-export const StyledForceIcon = styled.div`
+export const StyledHorn = styled.div`
   position: absolute;
   left: 16px;
+  top: 20%;
+  height: 60%;
+  aspect-ratio: 1/1;
+  background-color: #ff00007f;
+  padding: 4px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const StyledForceIcon = styled.div`
+  position: absolute;
+  left: 80px;
   top: 20%;
   height: 60%;
   aspect-ratio: 1/1;
