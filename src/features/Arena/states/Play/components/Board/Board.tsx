@@ -33,8 +33,7 @@ export const Board = () => {
             e.row === position &&
             e.type === EType.SPECIAL &&
             user?.nickname &&
-            e.applyTo.includes(user?.nickname) &&
-            isMyCards
+            (e.applyTo.includes(user?.nickname) ? isMyCards : !isMyCards)
         ) && <HornIcon />}
       </StyledHorn>
       <StyledForceIcon>{forceIcons[position]}</StyledForceIcon>

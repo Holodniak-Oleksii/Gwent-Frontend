@@ -26,7 +26,7 @@ interface IApplyProps extends IModalProps {
   card: ICardModel;
   onSubmit: (card: ICardModel) => void;
 }
-const forces = [EForces.AGILE, EForces.CLOSE, EForces.RANGED];
+const forces = [EForces.SIEGE, EForces.CLOSE, EForces.RANGED];
 
 export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const { hide, visible } = useModal(id);
