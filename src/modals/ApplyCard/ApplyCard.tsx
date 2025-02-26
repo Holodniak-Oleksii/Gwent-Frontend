@@ -1,8 +1,9 @@
-import { ECardAbilities, EForces, ICardModel } from "@/common/types";
+import { ECardAbilities, EForces, EModalKey, ICardModel } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
 import { StyledContainer } from "@/modals/styles";
+import { useGameStore } from "@/store/game";
 import { create, useModal } from "@ebay/nice-modal-react";
 import styled from "styled-components";
 
@@ -30,7 +31,8 @@ const forces = [EForces.SIEGE, EForces.CLOSE, EForces.RANGED];
 
 export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const { hide, visible } = useModal(id);
-
+  const { show } = useModal(EModalKey.RESURRECT);
+  const discards = useGameStore((state) => state.game?.discards);
   const renderButtons = () =>
     forces.map((i, key) => (
       <button
@@ -44,6 +46,19 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
       </button>
     ));
 
+  const apply = () => {
+    if (card.ability === ECardAbilities.MEDIC && !!discards?.length) {
+      show({
+        card,
+        onSubmit,
+      });
+      hide();
+    } else {
+      onSubmit(card);
+      hide();
+    }
+  };
+
   return (
     <ModalLayout open={visible} onClose={hide} bgcolor="transparent">
       <StyledContainer>
@@ -54,14 +69,7 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
             {card.ability === ECardAbilities.HORN ? (
               renderButtons()
             ) : (
-              <button
-                onClick={() => {
-                  onSubmit(card);
-                  hide();
-                }}
-              >
-                Apply
-              </button>
+              <button onClick={apply}>Apply</button>
             )}
           </StyledAction>
         </StyledContent>

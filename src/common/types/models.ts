@@ -61,6 +61,7 @@ export interface IEffect {
 export interface IGameModel {
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
+  discards: ICardModel[];
   deck: ICardModel[];
   order: string;
   rounds: IRound[];
