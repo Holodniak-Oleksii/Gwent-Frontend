@@ -1,6 +1,6 @@
 import { sendMessage } from "@/api/ws/notification";
 import { EOperationNotificationType } from "@/common/types";
-import { TextFiled } from "@/components/inputs/TextFiled";
+import { TextFiled } from "@/components/ui/inputs/TextFiled";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
 import { StyledForm } from "@/modals/ConfirmDuel/styles";

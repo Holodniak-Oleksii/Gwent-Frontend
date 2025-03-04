@@ -2,7 +2,8 @@ import { LINK_TEMPLATES } from "@/common/constants";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { Outlet, useNavigate } from "react-router-dom";
-import { StyledButton, StyledHeader, StyledLink, StyledMain } from "./styles";
+import { Header } from "./components/Header";
+import { StyledMain } from "./styles";
 
 export const BaseLayout = () => {
   const isAuth = useUserStore((state) => state.isAuth);
@@ -20,7 +21,8 @@ export const BaseLayout = () => {
 
   return (
     <>
-      <StyledHeader>
+      {/* <StyledHeader>
+        <DecoratedButton>Home</DecoratedButton>
         <StyledLink to={LINK_TEMPLATES.HOME}>Home</StyledLink>
         {isAuth ? (
           <>
@@ -30,17 +32,18 @@ export const BaseLayout = () => {
             <StyledLink to={LINK_TEMPLATES.PLAYERS}>Players</StyledLink>
             <StyledLink to={LINK_TEMPLATES.MESSAGES}>Message</StyledLink>
             <StyledButton onClick={onLogOut}>log out</StyledButton>
-          </>
-        ) : (
-          <>
-            <StyledLink to={LINK_TEMPLATES.LOGIN}>login</StyledLink>
-            <StyledLink to={LINK_TEMPLATES.REGISTRATION}>
+            </>
+            ) : (
+              <>
+              <StyledLink to={LINK_TEMPLATES.LOGIN}>login</StyledLink>
+              <StyledLink to={LINK_TEMPLATES.REGISTRATION}>
               Registration
-            </StyledLink>
-          </>
-        )}
-      </StyledHeader>
+              </StyledLink>
+              </>
+              )}
+              </StyledHeader> */}
       <StyledMain>
+        <Header />
         <Outlet />
       </StyledMain>
     </>

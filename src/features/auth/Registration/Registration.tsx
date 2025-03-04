@@ -1,6 +1,6 @@
 import { useRegistrationMutation } from "@/api/auth";
 import { LINK_TEMPLATES } from "@/common/constants";
-import { TextFiled } from "@/components/inputs/TextFiled";
+import { TextFiled } from "@/components/ui/inputs/TextFiled";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";

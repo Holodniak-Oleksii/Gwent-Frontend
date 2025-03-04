@@ -1,14 +1,5 @@
-import { useGetCardsQuery } from "@/api/cards";
-import { HeroCard } from "@/components/cards/HeroCard";
-import { StyledGrid } from "@/features/Home/styles";
+import { Banner } from "./components/Banner";
 
 export const Home = () => {
-  const { data } = useGetCardsQuery();
-  return (
-    <StyledGrid>
-      {data?.cards.map((c) => (
-        <HeroCard card={c} key={c.id} isBuy />
-      ))}
-    </StyledGrid>
-  );
+  return <Banner />;
 };

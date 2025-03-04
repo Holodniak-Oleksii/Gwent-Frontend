@@ -1,14 +1,14 @@
+import imageBg from "@/assets/images/background.webp";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
   height: 70px;
   justify-content: flex-end;
-  background-color: #f4f4f4;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: #221f1f;
+  border-bottom: 1px solid #5d535348;
   padding: 0 20px;
   gap: 16px;
   position: fixed;
@@ -57,5 +57,6 @@ export const StyledButton = styled.button`
 export const StyledMain = styled.main`
   height: 100%;
   width: 100%;
-  padding-top: 70px;
+  position: relative;
+  background: url(${imageBg}) center top repeat;
 `;
