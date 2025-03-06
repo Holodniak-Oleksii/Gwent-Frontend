@@ -1,0 +1,22 @@
+{
+  "translation": {
+    "navigation": {
+      "market": "Rynek",
+      "rules": "Zasady",
+      "aboutUs": "O nas",
+      "contacts": "Łączność",
+      "login": "Login"
+    },
+    "button": {
+      "login": "Login",
+      "registration": "Rejestracja",
+      "play": "Grać"
+    },
+    "title": {
+      "gwent": "Gwent"
+    },
+    "subTitle": {
+      "advertisement": "Bezpłatna gra karciana osadzona we Wszechświecie Witcher, w której gracze budują pokłady i walczą strategicznie."
+    }
+  }
+}

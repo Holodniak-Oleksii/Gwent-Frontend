@@ -1,33 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const StyledWrapper = styled.div`
-  width: 100%;
-  height: 100svh;
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  ${({ theme }) => css`
-    max-height: 960px;
-    min-height: 768px;
-    ${theme.media.width.lg} {
-      max-height: 768px;
-      min-height: 640px;
-    }
-    ${theme.media.width.md} {
-      max-height: 640px;
-      min-height: 540px;
-    }
-    ${theme.media.width.sm} {
-      max-height: 710px;
-      min-height: 660px;
-    }
-    ${theme.media.width.xxs} {
-      max-height: 800px;
-      min-height: 708px;
-    }
-  `}
-`;
-
 export const StyledContent = styled.div`
   height: 100%;
   flex-grow: 1;

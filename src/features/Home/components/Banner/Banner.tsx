@@ -1,5 +1,7 @@
 import imageHeroes from "@/assets/images/heroes.webp";
 import { DecoratedButton } from "@/components/ui/buttons/DecoratedButton";
+import { useTranslation } from "react-i18next";
+import { StyledWrapper } from "../../styles";
 import { CardCarousel } from "./CardCarousel";
 import {
   StyledButtonContainer,
@@ -9,22 +11,20 @@ import {
   StyledSubTitle,
   StyledTextContainer,
   StyledTitle,
-  StyledWrapper,
 } from "./styles";
 
 export const Banner = () => {
+  const { t } = useTranslation();
+
   return (
     <StyledWrapper>
       <StyledContent>
         <CardCarousel />
         <StyledTextContainer>
-          <StyledTitle>Gwent</StyledTitle>
-          <StyledSubTitle>
-            The free card game set in The Witcher universe, where players build
-            decks and battle strategically.
-          </StyledSubTitle>
+          <StyledTitle>{t("title.gwent")}</StyledTitle>
+          <StyledSubTitle>{t("subTitle.advertisement")}</StyledSubTitle>
           <StyledButtonContainer>
-            <DecoratedButton minWidth={180}>Play</DecoratedButton>
+            <DecoratedButton minWidth={180}>{t("button.play")}</DecoratedButton>
           </StyledButtonContainer>
         </StyledTextContainer>
       </StyledContent>

@@ -1,4 +1,5 @@
 import { LINK_TEMPLATES } from "@/common/constants";
+import { LanguageLayout } from "@/layouts/LanguageLayout";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -20,32 +21,11 @@ export const BaseLayout = () => {
   };
 
   return (
-    <>
-      {/* <StyledHeader>
-        <DecoratedButton>Home</DecoratedButton>
-        <StyledLink to={LINK_TEMPLATES.HOME}>Home</StyledLink>
-        {isAuth ? (
-          <>
-            <StyledLink to={LINK_TEMPLATES.PROFILE}>
-              {user?.nickname}
-            </StyledLink>
-            <StyledLink to={LINK_TEMPLATES.PLAYERS}>Players</StyledLink>
-            <StyledLink to={LINK_TEMPLATES.MESSAGES}>Message</StyledLink>
-            <StyledButton onClick={onLogOut}>log out</StyledButton>
-            </>
-            ) : (
-              <>
-              <StyledLink to={LINK_TEMPLATES.LOGIN}>login</StyledLink>
-              <StyledLink to={LINK_TEMPLATES.REGISTRATION}>
-              Registration
-              </StyledLink>
-              </>
-              )}
-              </StyledHeader> */}
+    <LanguageLayout>
       <StyledMain>
         <Header />
         <Outlet />
       </StyledMain>
-    </>
+    </LanguageLayout>
   );
 };

@@ -1,18 +1,18 @@
 export const navigation = [
   {
-    name: "Market",
+    name: "navigation.market",
     path: "",
   },
   {
-    name: "Rules",
+    name: "navigation.rules",
     path: "",
   },
   {
-    name: "About us",
+    name: "navigation.aboutUs",
     path: "",
   },
   {
-    name: "Contacts",
+    name: "navigation.contacts",
     path: "",
   },
 ];

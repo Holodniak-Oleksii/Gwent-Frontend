@@ -2,6 +2,8 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import { navigation } from "@/layouts/BaseLayout/components/data";
+import { useTranslation } from "react-i18next";
+import { LanguageSelect } from "./components/LanguageSelect";
 import {
   StyledAction,
   StyledContainer,
@@ -12,12 +14,15 @@ import {
 } from "./styles";
 
 export const Header = () => {
+  const { t } = useTranslation();
+
   const renderNav = () =>
     navigation.map((n, i) => (
       <StyledLink key={i} to={n.path}>
-        {n.name}
+        {t(n.name)}
       </StyledLink>
     ));
+
   return (
     <StyledWrapper>
       <StyledContainer>
@@ -26,8 +31,9 @@ export const Header = () => {
         </StyledLogo>
         <StyledList>{renderNav()}</StyledList>
         <StyledAction>
-          <BaseButton>Login</BaseButton>
-          <BaseButton variant="outline">Registration</BaseButton>
+          <LanguageSelect />
+          <BaseButton>{t("button.login")}</BaseButton>
+          <BaseButton variant="outline">{t("button.registration")}</BaseButton>
         </StyledAction>
       </StyledContainer>
     </StyledWrapper>

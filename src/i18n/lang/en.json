@@ -1,0 +1,22 @@
+{
+  "translation": {
+    "navigation": {
+      "market": "Market",
+      "rules": "Rules",
+      "aboutUs": "About Us",
+      "contacts": "Contacts",
+      "login": "Login"
+    },
+    "button": {
+      "login": "Login",
+      "registration": "Registration",
+      "play": "Play"
+    },
+    "title": {
+      "gwent": "Gwent"
+    },
+    "subTitle": {
+      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically."
+    }
+  }
+}

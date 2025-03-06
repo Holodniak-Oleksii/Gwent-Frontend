@@ -100,3 +100,10 @@ export enum EGameRequestMessageType {
   APPLY_CARD = "applyCard",
   PLAYER_PASS = "playerPass",
 }
+
+export enum EAvailableLanguage {
+  EN = "en",
+  DE = "de",
+  UK = "uk",
+  PL = "pl",
+}

@@ -49,4 +49,5 @@ export const StyledAction = styled.div`
   display: flex;
   gap: 16px;
   margin-left: auto;
+  align-items: center;
 `;

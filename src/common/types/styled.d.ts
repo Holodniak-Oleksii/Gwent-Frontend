@@ -5,9 +5,12 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
+      placeholder: string;
       text: string;
       border: string;
       gold: string;
+      focus: string;
+      error: string;
     };
     overflow: string;
     getLineClamp: (lines: number) => string;

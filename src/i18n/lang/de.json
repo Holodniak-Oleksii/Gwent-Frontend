@@ -1,0 +1,22 @@
+{
+  "translation": {
+    "navigation": {
+      "market": "Markt",
+      "rules": "Regeln",
+      "aboutUs": "Über uns",
+      "contacts": "Kontakte",
+      "login": "Login"
+    },
+    "button": {
+      "login": "Login",
+      "registration": "Anmeldung",
+      "play": "Spielen"
+    },
+    "title": {
+      "gwent": "Gwent"
+    },
+    "subTitle": {
+      "advertisement": "Das kostenlose Kartenspiel spielt im Witcher -Universum, in dem Spieler Decks bauen und strategisch kämpfen."
+    }
+  }
+}

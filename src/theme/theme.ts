@@ -2,10 +2,13 @@ import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
   primary: "rgba(25,26,30,255)",
+  focus: "rgba(9, 10, 11, 1)",
   secondary: "#16cc8f",
   text: "#FEFEFE",
   border: "rgba(223, 228, 248, 0.05)",
   gold: "#f1ca64",
+  error: "#c30505",
+  placeholder: "rgba(40, 41, 47, 1)",
 };
 
 export const breakpoints = {
