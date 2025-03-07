@@ -1,5 +1,4 @@
 import { LINK_TEMPLATES } from "@/common/constants";
-import { LanguageLayout } from "@/layouts/LanguageLayout";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -15,17 +14,15 @@ export const BaseLayout = () => {
   const removeCredentials = useAuthStore((state) => state.removeCredentials);
 
   const onLogOut = () => {
-    navigate(LINK_TEMPLATES.HOME);
+    navigate(LINK_TEMPLATES.HOME());
     logout();
     removeCredentials();
   };
 
   return (
-    <LanguageLayout>
-      <StyledMain>
-        <Header />
-        <Outlet />
-      </StyledMain>
-    </LanguageLayout>
+    <StyledMain>
+      <Header />
+      <Outlet />
+    </StyledMain>
   );
 };

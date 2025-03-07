@@ -1,7 +1,8 @@
 import { DEIcon, ENIcon, PLIcon, UKIcon } from "@/assets/icons";
+import { useOnClickOutside } from "@/common/hooks/useOnClickOutside";
 import { EAvailableLanguage } from "@/common/types";
 import i18n from "@/i18n";
-import { FC, SVGProps, useState } from "react";
+import { FC, SVGProps, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { StyledAction, StyledItem, StyledList, StyledWrapper } from "./styles";
 
@@ -18,6 +19,9 @@ export const LanguageSelect = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => setIsOpen(false));
 
   const handlerChangeLanguage = (code: string) => {
     const pathParts = pathname.split("/").filter(Boolean);
@@ -35,7 +39,7 @@ export const LanguageSelect = () => {
     setIsOpen(false);
   };
 
-  const renderLanguageOptions = (currentLang: EAvailableLanguage) => {
+  const renderLanguageOptions = () => {
     return Object.values(EAvailableLanguage)
       .filter((lang) => lang !== currentLang)
       .map((lang) => {
@@ -49,13 +53,11 @@ export const LanguageSelect = () => {
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper ref={ref}>
       <StyledAction onClick={() => setIsOpen((prev) => !prev)}>
         {currentLang} <CurrentIcon />
       </StyledAction>
-      <StyledList $isOpen={isOpen}>
-        {renderLanguageOptions(currentLang)}
-      </StyledList>
+      <StyledList $isOpen={isOpen}>{renderLanguageOptions()}</StyledList>
     </StyledWrapper>
   );
 };

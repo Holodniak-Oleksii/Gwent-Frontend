@@ -1,8 +1,18 @@
+@font-face {
+  font-family: "Gwent";
+  src: url("/src/assets/fonts/Gwent/Gwent_extrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Gwent", sans-serif;
 }
+
 body,
 html,
 #root,

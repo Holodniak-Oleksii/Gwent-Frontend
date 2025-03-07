@@ -1,68 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-@font-face {
-    font-family: 'Gwent';
-    src: url('/src/assets/fonts/Gwent/Gwent_extrabold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRBlack.woff2') format('woff2');
-    font-weight: 900;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRBold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRBook.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRExtraLight.woff2') format('woff2');
-    font-weight: 200;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRLight.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRMedium.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRRegular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HalisGR';
-    src: url('/src/assets/fonts/HalisGR/HalisGRThin.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
-  }
 
 html {
   width: 100%;
@@ -83,7 +21,6 @@ body::-webkit-scrollbar {
 }
 
 * {
-  font-family: "Gwent", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -210,12 +147,12 @@ fieldset {
 }
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  box-sizing: border-box; 
+  color: inherit; 
+  display: table; 
+  max-width: 100%; 
+  padding: 0;
+  white-space: normal;
 }
 
 progress {
@@ -228,8 +165,8 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box; 
+  padding: 0; 
 }
 
 [type="number"]::-webkit-inner-spin-button,

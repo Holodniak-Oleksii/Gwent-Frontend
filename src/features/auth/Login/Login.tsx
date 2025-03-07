@@ -33,7 +33,7 @@ export const Login = () => {
       />
 
       <button type="submit">submit</button>
-      <Link to={LINK_TEMPLATES.REGISTRATION}>Registration</Link>
+      <Link to={LINK_TEMPLATES.REGISTRATION()}>Registration</Link>
     </form>
   );
 };

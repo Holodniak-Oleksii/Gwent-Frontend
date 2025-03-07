@@ -29,7 +29,7 @@ export const useLoginMutation = () => {
         data.data.tokens.accessToken
       );
       setUser(data.data.user);
-      navigation(LINK_TEMPLATES.PROFILE);
+      navigation(LINK_TEMPLATES.PROFILE());
     },
   });
 };
@@ -49,7 +49,7 @@ export const useRegistrationMutation = () => {
         data.data.tokens.accessToken
       );
       setUser(data.data.user);
-      navigation(LINK_TEMPLATES.PROFILE);
+      navigation(LINK_TEMPLATES.PROFILE());
     },
   });
 };

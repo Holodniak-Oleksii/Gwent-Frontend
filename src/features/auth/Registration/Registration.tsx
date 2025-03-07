@@ -43,7 +43,7 @@ export const Registration = () => {
         type="password"
       />
       <button type="submit">submit</button>
-      <Link to={LINK_TEMPLATES.LOGIN}>Login</Link>
+      <Link to={LINK_TEMPLATES.LOGIN()}>Login</Link>
     </form>
   );
 };
