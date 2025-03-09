@@ -18,6 +18,9 @@ const StyledButton = styled.button<IBaseButtonProps>`
     padding: 8px;
     background: ${variant === "fill" ? theme.colors.secondary : "transparent"};
     text-shadow: 0px 0px 2px ${theme.colors.gold};
+    ${theme.media.width.lg} {
+      min-width: 110px;
+    }
   `}
 `;
 

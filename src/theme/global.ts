@@ -12,7 +12,7 @@ html {
 body, #root {
   width: 100%;
   height: 100%;
-  background-color: rgba(25,26,30,255);
+  background-color:${({ theme }) => theme.colors.bgcolor}
 }
 
 

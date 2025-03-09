@@ -1,9 +1,12 @@
 import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
-import { navigation } from "@/layouts/BaseLayout/components/data";
+import i18n from "@/i18n";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getNavigation } from "../data";
 import { LanguageSelect } from "./components/LanguageSelect";
 import {
   StyledAction,
@@ -17,16 +20,27 @@ import {
 export const Header = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { scrollY } = useScroll();
+  const [visible, setVisible] = useState(true);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setVisible(latest < scrollY.getPrevious()!);
+  });
 
   const renderNav = () =>
-    navigation.map((n, i) => (
-      <StyledLink key={i} to={n.path}>
+    getNavigation(i18n.language).map((n, i) => (
+      <StyledLink key={i} to={n.path} $isActive={pathname.includes(n.path)}>
         {t(n.name)}
       </StyledLink>
     ));
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      initial={{ y: -100 }}
+      animate={{ y: visible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
       <StyledContainer>
         <StyledLogo to={LINK_TEMPLATES.HOME()}>
           <img src={imageLogo} alt="logo" />

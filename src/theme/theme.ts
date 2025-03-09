@@ -9,6 +9,7 @@ const defaultPalette: DefaultTheme["colors"] = {
   gold: "#f1ca64",
   error: "#c30505",
   placeholder: "rgba(40, 41, 47, 1)",
+  bgcolor: "rgba(25,26,30,255)",
 };
 
 export const breakpoints = {
@@ -70,12 +71,18 @@ const theme: DefaultTheme = {
   fontSizes: {
     extra: `
       font-size: 120px;
+      ${media.width.lg} {
+        font-size: 100px;
+      }
     `,
     large: `
 
     `,
     big: `
       font-size: 28px;
+      ${media.width.lg} {
+        font-size: 24px;
+      }
     `,
     regular: `
       font-size: 24px;

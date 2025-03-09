@@ -1,4 +1,3 @@
-import imageBg from "@/assets/images/background.webp";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const StyledHeader = styled.header`
@@ -55,8 +54,7 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledMain = styled.main`
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   position: relative;
-  background: url(${imageBg}) center top repeat;
 `;

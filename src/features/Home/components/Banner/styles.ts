@@ -1,10 +1,25 @@
+import imageBg from "@/assets/images/background.webp";
+import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
+import { StyledWrapper as Wrapper } from "../../styles";
+
+export const StyledWrapper = styled(Wrapper)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url(${imageBg}) center top repeat;
+`;
 
 export const StyledContent = styled.div`
   height: 100%;
   flex-grow: 1;
-  padding: 100px 0;
   display: flex;
+  ${({ theme }) => css`
+    padding: 140px 0;
+    ${theme.media.width.lg} {
+      padding: 80px 0;
+    }
+  `};
 `;
 
 export const StyledTextContainer = styled.div`
@@ -17,11 +32,14 @@ export const StyledTextContainer = styled.div`
   z-index: 2;
   ${({ theme }) => css`
     ${theme.spacing.content};
+    margin-top: auto;
+    margin-bottom: 20px;
+    margin-right: 30%;
+    height: fit-content;
+    ${theme.media.width.lg} {
+      margin-right: 24%;
+    }
   `};
-  margin-top: auto;
-  margin-bottom: 20px;
-  margin-right: 30%;
-  height: fit-content;
 `;
 
 export const StyledTitle = styled.h1`
@@ -42,10 +60,13 @@ export const StyledSubTitle = styled.p`
     ${theme.fontSizes.big};
     color: ${theme.colors.text};
     font-family: "Gwent", sans-serif;
+    ${theme.media.width.lg} {
+      margin-bottom: 20px;
+    }
   `};
 `;
 
-export const StyledImageWrapper = styled.div`
+export const StyledImageWrapper = styled(motion.div)`
   position: relative;
   margin-left: auto;
   width: 30%;

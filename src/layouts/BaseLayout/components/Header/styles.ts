@@ -1,7 +1,9 @@
+import { IActiveble } from "@/common/types";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledWrapper = styled.header`
+export const StyledWrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   left: 0;
@@ -11,22 +13,42 @@ export const StyledWrapper = styled.header`
   background: rgba(25, 26, 30, 0.6);
   backdrop-filter: blur(3px);
   border-bottom: 1px solid rgba(223, 228, 248, 0.05);
+  padding-top: 16px;
+  padding-bottom: 16px;
 `;
 
 export const StyledContainer = styled.div`
-  ${({ theme }) => theme.spacing.content};
-  padding-top: 16px;
-  padding-bottom: 16px;
   height: 100%;
   display: flex;
   gap: 72px;
+
+  ${({ theme }) => css`
+    ${theme.spacing.content}
+    ${theme.media.width.lg} {
+      gap: 56px;
+    }
+  `};
 `;
 
-export const StyledLink = styled(Link)`
-  ${({ theme }) => css`
+export const StyledLink = styled(Link)<IActiveble>`
+  position: relative;
+  letter-spacing: 0.5px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateY(4px) translateX(-50%);
+    height: 1px;
+    transition: width 0.2s ease-in;
+  }
+  ${({ theme, $isActive }) => css`
     ${theme.fontSizes.medium};
     color: ${theme.colors.text};
-    letter-spacing: 0.5px;
+    &::before {
+      background-color: ${theme.colors.secondary};
+      width: ${$isActive ? "calc(100% + 8px)" : 0};
+    }
   `}
 `;
 

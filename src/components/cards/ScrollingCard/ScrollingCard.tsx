@@ -1,8 +1,7 @@
 import styled, { css } from "styled-components";
 
 const StyledWrapper = styled.div`
-  height: 100%;
-  width: 210px;
+  aspect-ratio: 2 / 3;
   position: relative;
   box-shadow: rgba(130, 255, 124, 0.1) 0px 8px 16px,
     rgba(209, 248, 126, 0.1) 0px 16px 32px,
@@ -15,10 +14,16 @@ const StyledWrapper = styled.div`
     position: absolute;
     bottom: -8px;
     left: 8px;
-    ${({ theme }) => css`
-      background-color: ${theme.colors.secondary};
-    `}
   }
+  ${({ theme }) => css`
+    &::after {
+      background-color: ${theme.colors.secondary};
+    }
+    width: 210px;
+    ${theme.media.width.lg} {
+      width: 160px;
+    }
+  `}
 `;
 
 const StyledContainer = styled.div`

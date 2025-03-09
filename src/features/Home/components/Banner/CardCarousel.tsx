@@ -27,12 +27,12 @@ const StyledWrapper = styled.div`
   height: 500px;
   display: flex;
   gap: 32px;
-  width: calc(100% + 80px);
+  width: 150%;
   overflow: hidden;
   position: absolute;
-  top: 40px;
-  left: 0;
-  transform: rotate(5deg) translateX(-40px);
+  top: 10%;
+  left: 50%;
+  transform: rotate(5deg) translateX(-50%);
   perspective: 500px;
 `;
 

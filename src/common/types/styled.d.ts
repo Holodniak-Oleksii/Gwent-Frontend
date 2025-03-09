@@ -11,6 +11,7 @@ declare module "styled-components" {
       gold: string;
       focus: string;
       error: string;
+      bgcolor: string;
     };
     overflow: string;
     getLineClamp: (lines: number) => string;

@@ -27,3 +27,10 @@ export const StyledWrapper = styled.section`
     }
   `}
 `;
+
+export const StyledOverlay = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+`;
