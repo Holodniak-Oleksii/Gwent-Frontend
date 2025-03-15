@@ -10,9 +10,11 @@ export const StyledWrapper = styled(motion.header)`
   width: 100%;
   height: 80px;
   z-index: 1000;
-  background: rgba(25, 26, 30, 0.6);
   backdrop-filter: blur(3px);
-  border-bottom: 1px solid rgba(223, 228, 248, 0.05);
+  ${({ theme }) => css`
+    background: ${theme.colors.bgneon};
+    border-bottom: 1px solid ${theme.colors.border};
+  `}
   padding-top: 16px;
   padding-bottom: 16px;
 `;

@@ -12,6 +12,11 @@ declare module "styled-components" {
       focus: string;
       error: string;
       bgcolor: string;
+      bgneon: string;
+      bgneonLight: string;
+    };
+    common: {
+      bgTexture: string;
     };
     overflow: string;
     getLineClamp: (lines: number) => string;
@@ -27,6 +32,7 @@ declare module "styled-components" {
     };
     spacing: {
       content: ReturnType<typeof css>;
+      indents: ReturnType<typeof css>;
     };
     fontSizes: {
       extra: string;

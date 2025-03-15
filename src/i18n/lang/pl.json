@@ -16,7 +16,12 @@
       "gwent": "Gwent"
     },
     "subTitle": {
-      "advertisement": "Bezpłatna gra karciana osadzona we Wszechświecie Witcher, w której gracze budują pokłady i walczą strategicznie."
+      "advertisement": "gra karciana osadzona we Wszechświecie Witcher, w której gracze budują pokłady i walczą strategicznie.",
+      "gameDescriptionOne": "GWENT to gra karciana, w której o zwycięstwie decydują nie szczęście, lecz twoje umiejętności. Wybierz frakcję, zbuduj armię i zmierz się z graczami z całego świata w różnych trybach gry. Dostosuj strategię w locie, korzystając ze setek unikalnych kart z charyzmatycznymi bohaterami, potężnymi zaklęciami i specjalnymi umiejętnościami. Pamiętaj: każdy twój ruch może przesądzić o wyniku bitwy.",
+      "gameDescriptionTwo": "Opanuj sztukę budowania talii, przechytrz przeciwników i pnij się w rankingach, aby zostać prawdziwym mistrzem GWENT!"
+    },
+    "labels": {
+      "call": "Chcesz być na bieżąco? <span>Dołącz do nas!<span/>"
     }
   }
 }

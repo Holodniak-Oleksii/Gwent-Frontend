@@ -16,7 +16,12 @@
       "gwent": "Gwent"
     },
     "subTitle": {
-      "advertisement": "Das kostenlose Kartenspiel spielt im Witcher -Universum, in dem Spieler Decks bauen und strategisch kämpfen."
+      "advertisement": "Das kostenlose Kartenspiel spielt im Witcher -Universum, in dem Spieler Decks bauen und strategisch kämpfen.",
+      "gameDescriptionOne": " ist ein Kartenspiel, bei dem nicht das Glück, sondern dein Können über den Sieg entscheidet. Wähle eine Fraktion, stelle deine Armee zusammen und fordere Spieler aus aller Welt in verschiedenen Spielmodi heraus. Passe deine Strategie spontan an, indem du Hunderte einzigartiger Karten mit charismatischen Helden, mächtigen Zaubern und besonderen Fähigkeiten nutzt. Denke daran: Jede Entscheidung beeinflusst den Ausgang der Schlacht.",
+      "gameDescriptionTwo": "Beherrsche die Kunst des Deckbaus, überliste deine Gegner und steige in den Rängen auf, um ein wahrer GWENT-Champion zu werden!"
+    },
+    "labels": {
+      "call": "Möchtest du immer auf dem neuesten Stand bleiben? <span>Tritt uns bei!<span/>"
     }
   }
 }

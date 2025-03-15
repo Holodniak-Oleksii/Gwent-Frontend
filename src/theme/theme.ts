@@ -1,3 +1,4 @@
+import imageBg from "@/assets/images/background.webp";
 import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
@@ -10,6 +11,8 @@ const defaultPalette: DefaultTheme["colors"] = {
   error: "#c30505",
   placeholder: "rgba(40, 41, 47, 1)",
   bgcolor: "rgba(25,26,30,255)",
+  bgneon: "rgba(25, 26, 30, 0.6)",
+  bgneonLight: "#16cc8f1c",
 };
 
 export const breakpoints = {
@@ -48,6 +51,9 @@ const theme: DefaultTheme = {
     -webkit-box-orient: vertical;
     overflow: hidden;
   `,
+  common: {
+    bgTexture: `background: url(${imageBg}) center top repeat;`,
+  },
   spacing: {
     content: css`
       margin: 0 auto;
@@ -64,6 +70,12 @@ const theme: DefaultTheme = {
       }
       ${media.width.xs} {
         padding: 0 16px;
+      }
+    `,
+    indents: css`
+      padding: 120px 0;
+      ${media.width.lg} {
+        padding: 100px 0;
       }
     `,
   },

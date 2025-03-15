@@ -15,8 +15,29 @@
     "title": {
       "gwent": "Gwent"
     },
+    "paragraphs": {
+      "game": {
+        "descriptions": {
+          "one": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
+          "two": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!"
+        },
+        "mode": {
+          "one": "Engage in thrilling duels using a real-time WebSocket connection. Challenge friends or face off against skilled opponents in a seamless online experience.",
+          "two": "Test your tactics in Duel Mode, where every decision matters. Adapt your strategy, predict your rival’s moves, and fight for victory!"
+        },
+        "start": {
+          "one": "Sign up, build your first deck, and dive into battle!",
+          "two": "Challenge a friend or match with a worthy opponent to prove your skills!"
+        }
+      }
+    },
     "subTitle": {
-      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically."
+      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
+      "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
+      "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!"
+    },
+    "labels": {
+      "call": "Do you want to stay up to date? <span>Join us!<span/>"
     }
   }
 }

@@ -1,4 +1,3 @@
-import imageBg from "@/assets/images/background.webp";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import { StyledWrapper as Wrapper } from "../../styles";
@@ -7,7 +6,7 @@ export const StyledWrapper = styled(Wrapper)`
   position: fixed;
   top: 0;
   left: 0;
-  background: url(${imageBg}) center top repeat;
+  ${({ theme }) => theme.common.bgTexture};
 `;
 
 export const StyledContent = styled.div`
@@ -95,12 +94,4 @@ export const StyledButtonEffects = styled.div`
   transform: translateX(-50%) translateY(-50%);
   display: flex;
   align-items: center;
-  .shadow-container {
-    &:last-child {
-      transform: translateX(-35%);
-    }
-    &:first-child {
-      transform: rotateX(180deg) rotateZ(180deg) translateX(-35%);
-    }
-  }
 `;

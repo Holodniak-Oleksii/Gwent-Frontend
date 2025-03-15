@@ -1,0 +1,1 @@
+export { NeonParagraph } from "./NeonParagraph";
