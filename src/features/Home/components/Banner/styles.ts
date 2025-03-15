@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { StyledWrapper as Wrapper } from "../../styles";
 
 export const StyledWrapper = styled(Wrapper)`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   ${({ theme }) => theme.common.bgTexture};

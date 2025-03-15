@@ -2,8 +2,6 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import i18n from "@/i18n";
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getNavigation } from "../data";
@@ -21,12 +19,6 @@ export const Header = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { scrollY } = useScroll();
-  const [visible, setVisible] = useState(true);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setVisible(latest < scrollY.getPrevious()!);
-  });
 
   const renderNav = () =>
     getNavigation(i18n.language).map((n, i) => (
@@ -36,11 +28,7 @@ export const Header = () => {
     ));
 
   return (
-    <StyledWrapper
-      initial={{ y: -100 }}
-      animate={{ y: visible ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
+    <StyledWrapper>
       <StyledContainer>
         <StyledLogo to={LINK_TEMPLATES.HOME()}>
           <img src={imageLogo} alt="logo" />

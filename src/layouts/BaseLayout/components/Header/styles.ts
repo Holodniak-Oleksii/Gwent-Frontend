@@ -1,9 +1,8 @@
 import { IActiveble } from "@/common/types";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledWrapper = styled(motion.header)`
+export const StyledWrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
