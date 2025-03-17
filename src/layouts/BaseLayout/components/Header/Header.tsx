@@ -2,6 +2,7 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import i18n from "@/i18n";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getNavigation } from "../data";
@@ -19,6 +20,26 @@ export const Header = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      if (currentScrollPos >= 80) {
+        setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+        setPrevScrollPos(currentScrollPos);
+      } else {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, visible]);
 
   const renderNav = () =>
     getNavigation(i18n.language).map((n, i) => (
@@ -28,7 +49,7 @@ export const Header = () => {
     ));
 
   return (
-    <StyledWrapper>
+    <StyledWrapper $isVisible={visible}>
       <StyledContainer>
         <StyledLogo to={LINK_TEMPLATES.HOME()}>
           <img src={imageLogo} alt="logo" />

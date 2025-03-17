@@ -2,7 +2,7 @@ import { IActiveble } from "@/common/types";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledWrapper = styled.header`
+export const StyledWrapper = styled.header<{ $isVisible: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -10,9 +10,11 @@ export const StyledWrapper = styled.header`
   height: 80px;
   z-index: 1000;
   backdrop-filter: blur(3px);
-  ${({ theme }) => css`
+  transition: all 0.4s ease-in-out;
+  ${({ theme, $isVisible }) => css`
     background: ${theme.colors.bgneon};
     border-bottom: 1px solid ${theme.colors.border};
+    transform: translateY(${$isVisible ? 0 : -100}%);
   `}
   padding-top: 16px;
   padding-bottom: 16px;

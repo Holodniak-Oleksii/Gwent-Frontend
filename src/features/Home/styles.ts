@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.section`
   width: 100%;
@@ -33,4 +33,9 @@ export const StyledOverlay = styled.div`
   width: 100%;
   height: auto;
   z-index: 2;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    border-top: 1px solid ${theme.colors.border};
+    ${({ theme }) => theme.common.bgTexture};
+  `};
 `;

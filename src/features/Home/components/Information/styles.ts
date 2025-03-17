@@ -6,10 +6,7 @@ export const StyledContainer = styled.div`
   z-index: 2;
   width: 100%;
   ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
     ${theme.spacing.content}
-    border-top: 1px solid ${theme.colors.border};
-    ${({ theme }) => theme.common.bgTexture};
   `};
 `;
 
@@ -78,10 +75,10 @@ export const StyledImage = styled.img<IActiveble & { $isPrevious: boolean }>`
 
 export const StyledContentImage = styled.div`
   position: relative;
-  clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
   border: 3px solid transparent;
   width: 100%;
   height: 100%;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
   ${({ theme }) => `background-color: ${theme.colors.secondary}`}
 `;
 

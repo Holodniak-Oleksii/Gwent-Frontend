@@ -1,11 +1,16 @@
-import { Information } from "@/features/Home/components/Information";
 import { Banner } from "./components/Banner";
+import { Fractions } from "./components/Fractions";
+import { Information } from "./components/Information";
+import { StyledOverlay } from "./styles";
 
 export const Home = () => {
   return (
     <>
       <Banner />
-      <Information />
+      <StyledOverlay>
+        <Information />
+        <Fractions />
+      </StyledOverlay>
     </>
   );
 };
