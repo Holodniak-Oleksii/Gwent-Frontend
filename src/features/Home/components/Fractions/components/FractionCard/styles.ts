@@ -1,5 +1,5 @@
 import { EFaction } from "@/common/types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IColorScheme {
   type: EFaction;
@@ -26,14 +26,17 @@ export const StyledWrapper = styled.div`
   @media (hover: hover) {
     &:hover {
       .expanded {
-        transform: rotate(0);
-        opacity: 1;
+        transform: rotate(33.2deg);
+        opacity: 0.4;
         & > div {
-          transform: rotate(0);
+          transform: rotate(-33.2deg);
         }
       }
       .collapsed {
-        opacity: 0.4;
+        opacity: 1;
+      }
+      .texts {
+        transform: translateX(0);
       }
     }
   }
@@ -51,7 +54,6 @@ export const StyledContent = styled.div`
 const StyledRelative = styled.div`
   width: 100%;
   height: 100%;
-  transform: rotate(-33.2deg);
   transition: transform 0.4s ease-in;
 `;
 
@@ -64,12 +66,10 @@ export const StyledImage = styled.img`
 
 export const StyledHeroesRelative = styled(StyledRelative)`
   transform-origin: top right;
-  z-index: 2;
 `;
 
 export const StyledBackRelative = styled(StyledRelative)`
   transform-origin: bottom left;
-  z-index: 1;
   transform: translateY(20%) translateX(10%) scale(1.15) rotate(-33.2deg);
 `;
 
@@ -85,18 +85,16 @@ export const StyledHeroRotate = styled(StyledRotate)`
   top: 0;
   right: 0;
   transform-origin: top right;
-  transform: rotate(33.2deg);
   z-index: 2;
-  opacity: 0.4;
 `;
 
 export const StyledCardRotate = styled(StyledRotate)`
   bottom: 0;
   left: 0;
   transform-origin: bottom left;
-  transform: rotate(33.2deg);
   z-index: 1;
-  opacity: 1;
+  opacity: 0.4;
+  transform: rotate(33.2deg);
 `;
 
 const StyledAngles = styled.div`
@@ -139,4 +137,40 @@ export const StyledAnglesBottom = styled(StyledAngles)<IColorScheme>`
     border-right: 1px solid ${({ type }) => colors[type]};
     border-bottom-right-radius: 4px;
   }
+`;
+
+export const StyledTexts = styled.div`
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px 16px;
+  transition: all 0.4s ease-in-out;
+  transform: translateX(100%);
+`;
+
+export const StyledTitle = styled.div<IColorScheme>`
+  ${({ theme, type }) => css`
+    color: ${colors[type]};
+    ${theme.fontSizes.regular}
+    text-shadow: 2px 0 ${theme.colors.focus}, -2px 0 ${theme.colors
+      .focus}, 0 2px ${theme.colors.focus}, 0 -2px ${theme.colors.focus},
+             1px 1px ${theme.colors.focus}, -1px -1px ${theme.colors
+      .focus}, 1px -1px ${theme.colors.focus}, -1px 1px ${theme.colors.focus};
+  `};
+`;
+
+export const StyledSubTitle = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.text};
+    ${theme.fontSizes.medium}
+    text-shadow: 2px 0 ${theme.colors.focus}, -2px 0 ${theme.colors
+      .focus}, 0 2px ${theme.colors.focus}, 0 -2px ${theme.colors.focus},
+             1px 1px ${theme.colors.focus}, -1px -1px ${theme.colors
+      .focus}, 1px -1px ${theme.colors.focus}, -1px 1px ${theme.colors.focus};
+  `};
 `;

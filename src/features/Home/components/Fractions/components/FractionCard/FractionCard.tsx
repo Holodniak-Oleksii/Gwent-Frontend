@@ -1,5 +1,6 @@
 import { IFractionCard } from "@/features/Home/components/Fractions/types";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import {
   StyledAnglesBottom,
   StyledAnglesTop,
@@ -9,6 +10,9 @@ import {
   StyledHeroesRelative,
   StyledHeroRotate,
   StyledImage,
+  StyledSubTitle,
+  StyledTexts,
+  StyledTitle,
   StyledWrapper,
 } from "./styles";
 
@@ -16,7 +20,10 @@ export const FractionCard: FC<IFractionCard> = ({
   imageBack,
   imageFront,
   type,
+  description,
+  title,
 }) => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper>
       <StyledAnglesTop type={type} />
@@ -31,6 +38,10 @@ export const FractionCard: FC<IFractionCard> = ({
             <StyledImage src={imageBack} alt="fraction" />
           </StyledBackRelative>
         </StyledCardRotate>
+        <StyledTexts className="texts">
+          <StyledTitle type={type}>{t(title)}</StyledTitle>
+          <StyledSubTitle>{t(description)}</StyledSubTitle>
+        </StyledTexts>
       </StyledContent>
       <StyledAnglesBottom type={type} />
     </StyledWrapper>

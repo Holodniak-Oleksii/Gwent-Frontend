@@ -12,13 +12,24 @@ export const StyledContainer = styled.div`
 
 export const StyledContent = styled.div`
   width: 100%;
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  flex-direction: column;
+  ${({ theme }) => css`
+    padding-top: 80px;
+    ${theme.media.width.lg} {
+      padding-top: 60px;
+    }
+  `}
+`;
+
+export const StyledGrid = styled.div`
+  width: 100%;
   display: grid;
   gap: 48px;
   align-items: center;
   grid-template-columns: 45% 1fr;
-  ${({ theme }) => css`
-    ${theme.spacing.indents}
-  `}
 `;
 
 export const StyledTexts = styled.div`

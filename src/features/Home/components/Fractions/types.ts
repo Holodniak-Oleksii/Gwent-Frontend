@@ -5,4 +5,6 @@ export interface IFractionCard {
   imageFront: string;
   imageBack: string;
   type: EFaction;
+  title: string;
+  description: string;
 }

@@ -4,6 +4,7 @@ import {
   StyledContent,
   StyledContentImage,
   StyledGhostText,
+  StyledGrid,
   StyledImage,
   StyledImageContainer,
   StyledLabel,
@@ -15,6 +16,7 @@ import {
   StyledTexts,
 } from "./styles";
 
+import { Article } from "@/components/shared/Article";
 import { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { images, tabs, texts } from "./data";
@@ -90,13 +92,19 @@ export const Information = () => {
   return (
     <StyledContainer>
       <StyledContent>
-        <StyledImageContainer>
-          <StyledContentImage>{renderImages()}</StyledContentImage>
-        </StyledImageContainer>
-        <StyledTexts>
-          <StyledTabList>{renderTabs()}</StyledTabList>
-          <StyledTabContent>{renderTexts()}</StyledTabContent>
-        </StyledTexts>
+        <Article
+          title={t("title.gamePlay")}
+          subTitle={t("subTitle.gamePlay")}
+        />
+        <StyledGrid>
+          <StyledImageContainer>
+            <StyledContentImage>{renderImages()}</StyledContentImage>
+          </StyledImageContainer>
+          <StyledTexts>
+            <StyledTabList>{renderTabs()}</StyledTabList>
+            <StyledTabContent>{renderTexts()}</StyledTabContent>
+          </StyledTexts>
+        </StyledGrid>
       </StyledContent>
     </StyledContainer>
   );

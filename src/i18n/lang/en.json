@@ -13,7 +13,16 @@
       "play": "Play"
     },
     "title": {
-      "gwent": "Gwent"
+      "gwent": "Gwent",
+      "fractions": "Fractions",
+      "gamePlay": "Game Play"
+    },
+    "subTitle": {
+      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
+      "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
+      "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!",
+      "fractions": "Factions in <span>Gwent</span> have unique playstyles and mechanics. Some rely on strength, others on <span>cunning</span> or chaos.",
+      "gamePlay": "Where <span>strategy</span> matters more than luck. Players build decks using unique faction <span>mechanics.</span>"
     },
     "paragraphs": {
       "game": {
@@ -31,10 +40,23 @@
         }
       }
     },
-    "subTitle": {
-      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
-      "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
-      "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!"
+    "fraction": {
+      "northern": {
+        "title": "Northern Realms",
+        "description": "Disciplined warriors who rely on knights, mages, and war machines. They gain bonuses from battlefield resilience and have many armored units."
+      },
+      "scoiatael": {
+        "title": "Scoia'tael",
+        "description": "Guerrilla elves, dwarves, and dryads waging war against human tyranny. They use trickery, ambushes, and unique placement mechanics."
+      },
+      "monsters": {
+        "title": "Monsters",
+        "description": "Terrifying creatures that thrive in chaos and devour everything in their path. They can multiply, strengthen by consuming allies, and control the weather."
+      },
+      "nilfgaard": {
+        "title": "Nilfgaard",
+        "description": "An empire that relies on spies, deceit, and controlling the opponent. Their forces reveal enemy cards and use strategic advantages."
+      }
     },
     "labels": {
       "call": "Do you want to stay up to date? <span>Join us!<span/>"

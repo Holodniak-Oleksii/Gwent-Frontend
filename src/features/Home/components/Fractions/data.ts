@@ -17,12 +17,16 @@ export const fractionCardList: IFractionCard[] = [
     imageFront: imageNorth,
     imageBack: imageNorthBack,
     type: EFaction.KINGDOMS_OF_THE_NORTH,
+    title: "fraction.northern.title",
+    description: "fraction.northern.description",
   },
   {
     id: 1,
     imageFront: imageMonsters,
     imageBack: imageMonstersBack,
     type: EFaction.MONSTERS,
+    title: "fraction.monsters.title",
+    description: "fraction.monsters.description",
   },
 
   {
@@ -30,6 +34,8 @@ export const fractionCardList: IFractionCard[] = [
     imageFront: imageScoiatael,
     imageBack: imageScoiataelBack,
     type: EFaction.SCOIATAEL,
+    title: "fraction.scoiatael.title",
+    description: "fraction.scoiatael.description",
   },
 
   {
@@ -37,5 +43,7 @@ export const fractionCardList: IFractionCard[] = [
     imageFront: imageNilfgaard,
     imageBack: imageNilfgaardBack,
     type: EFaction.NILFGAARD,
+    title: "fraction.nilfgaard.title",
+    description: "fraction.nilfgaard.description",
   },
 ];

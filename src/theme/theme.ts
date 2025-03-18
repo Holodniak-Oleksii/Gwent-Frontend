@@ -73,9 +73,9 @@ const theme: DefaultTheme = {
       }
     `,
     indents: css`
-      padding: 120px 0;
+      padding-top: 160px;
       ${media.width.lg} {
-        padding: 100px 0;
+        padding-top: 120px;
       }
     `,
   },
@@ -88,7 +88,10 @@ const theme: DefaultTheme = {
       }
     `,
     large: `
-
+      font-size: 56px;
+      ${media.width.lg} {
+        font-size: 44px;
+      }
     `,
     big: `
       font-size: 28px;

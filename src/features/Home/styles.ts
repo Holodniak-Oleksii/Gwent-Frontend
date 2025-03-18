@@ -37,5 +37,10 @@ export const StyledOverlay = styled.div`
     background-color: ${theme.colors.primary};
     border-top: 1px solid ${theme.colors.border};
     ${({ theme }) => theme.common.bgTexture};
+
+    padding-bottom: 160px;
+    ${theme.media.width.lg} {
+      padding-bottom: 120px;
+    }
   `};
 `;
