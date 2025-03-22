@@ -17,6 +17,7 @@ declare module "styled-components" {
     };
     common: {
       bgTexture: string;
+      textShadow: string;
     };
     overflow: string;
     getLineClamp: (lines: number) => string;

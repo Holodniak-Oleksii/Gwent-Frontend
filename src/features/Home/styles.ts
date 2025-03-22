@@ -44,3 +44,16 @@ export const StyledOverlay = styled.div`
     }
   `};
 `;
+
+export const StyledTitle = styled.div`
+  text-align: left;
+  align-items: center;
+  ${({ theme }) => `
+    ${theme.fontSizes.large};
+    color: ${theme.colors.text};
+
+    span {
+      color: ${theme.colors.secondary};
+    }
+  `};
+`;

@@ -93,12 +93,6 @@ export const StyledContentImage = styled.div`
   ${({ theme }) => `background-color: ${theme.colors.secondary}`}
 `;
 
-export const StyledTitle = styled.h3`
-  ${({ theme }) => theme.fontSizes.big};
-  margin-bottom: 16px;
-  ${({ theme }) => `color: ${theme.colors.secondary}`}
-`;
-
 export const StyledText = styled.p`
   ${({ theme }) => theme.fontSizes.medium};
 `;

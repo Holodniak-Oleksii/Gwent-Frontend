@@ -53,6 +53,8 @@ const theme: DefaultTheme = {
   `,
   common: {
     bgTexture: `background: url(${imageBg}) center top repeat;`,
+    textShadow: `text-shadow: 2px 0 ${defaultPalette.focus}, -2px 0 ${defaultPalette.focus}, 0 2px ${defaultPalette.focus}, 0 -2px ${defaultPalette.focus},
+             1px 1px ${defaultPalette.focus}, -1px -1px ${defaultPalette.focus}, 1px -1px ${defaultPalette.focus}, -1px 1px ${defaultPalette.focus};`,
   },
   spacing: {
     content: css`

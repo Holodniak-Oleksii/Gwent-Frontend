@@ -157,10 +157,7 @@ export const StyledTitle = styled.div<IColorScheme>`
   ${({ theme, type }) => css`
     color: ${colors[type]};
     ${theme.fontSizes.regular}
-    text-shadow: 2px 0 ${theme.colors.focus}, -2px 0 ${theme.colors
-      .focus}, 0 2px ${theme.colors.focus}, 0 -2px ${theme.colors.focus},
-             1px 1px ${theme.colors.focus}, -1px -1px ${theme.colors
-      .focus}, 1px -1px ${theme.colors.focus}, -1px 1px ${theme.colors.focus};
+    ${theme.common.textShadow};
   `};
 `;
 
@@ -168,9 +165,6 @@ export const StyledSubTitle = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.text};
     ${theme.fontSizes.medium}
-    text-shadow: 2px 0 ${theme.colors.focus}, -2px 0 ${theme.colors
-      .focus}, 0 2px ${theme.colors.focus}, 0 -2px ${theme.colors.focus},
-             1px 1px ${theme.colors.focus}, -1px -1px ${theme.colors
-      .focus}, 1px -1px ${theme.colors.focus}, -1px 1px ${theme.colors.focus};
+    ${theme.common.textShadow};
   `};
 `;

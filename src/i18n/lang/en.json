@@ -15,7 +15,8 @@
     "title": {
       "gwent": "Gwent",
       "fractions": "Fractions",
-      "gamePlay": "Game Play"
+      "gamePlay": "Game Play",
+      "gwentProperly": "How to Play <span>Gwent</span> Properly"
     },
     "subTitle": {
       "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
@@ -38,6 +39,10 @@
           "one": "Sign up, build your first deck, and dive into battle!",
           "two": "Challenge a friend or match with a worthy opponent to prove your skills!"
         }
+      },
+      "properly": {
+        "one": "In Gwent, it’s not just about playing strong cards but also about assessing the battlefield correctly. Every move matters, and rushed decisions can cost you the game. Finding the right balance between attacking and controlling your opponent is crucial, as is knowing when to concede a round to gain an advantage later. Keeping track of resources, predicting your opponent’s strategy, and playing cards based on synergy rather than just raw power will lead to victory. Success comes to those who think ahead and force their opponent to play on their terms.",
+        "two": "Understanding the tempo of the game allows you to dictate the flow and force your opponent into bad moves.It’s crucial not only to know your own cards but also to anticipate possible threats from your opponent. Sometimes, it's best to intentionally lose a round to secure a stronger position in the decisive one. The winner is the one who doesn’t just play cards but builds a strategy several steps ahead."
       }
     },
     "fraction": {
