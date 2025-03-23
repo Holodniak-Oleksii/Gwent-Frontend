@@ -1,5 +1,5 @@
 import { EForces } from "@/common/types";
-import { RadialBlurFilter } from "pixi-filters";
+import { ShockwaveFilter } from "pixi-filters";
 import { Application, Assets, Container, Sprite } from "pixi.js";
 
 export class Slider {
@@ -8,10 +8,11 @@ export class Slider {
   private activeSlide: EForces;
   private keys: EForces[];
   private sprites: Record<EForces, Sprite>;
-  private radialBlur: RadialBlurFilter;
+  private shockWaveFilter: ShockwaveFilter;
   private container: Container;
   private nextSlide: EForces | null = null;
   private transitionProgress: number = 0;
+  private waveProgress: number = 0;
 
   constructor(app: Application, slides: string[]) {
     this.app = app;
@@ -23,14 +24,20 @@ export class Slider {
     this.container = new Container();
     this.app.stage.addChild(this.container);
 
-    // Ініціалізація RadialBlurFilter
-    this.radialBlur = new RadialBlurFilter({
-      angle: 0, // Початковий кут розмиття
-      center: [0.5, 0.5], // Центр ефекту
-      radius: 1, // Початковий радіус
+    this.shockWaveFilter = new ShockwaveFilter({
+      center: {
+        x: app.screen.width / 2,
+        y: app.screen.height / 2,
+      },
+      amplitude: 300,
+      wavelength: 0,
+      speed: 700,
+      brightness: 1,
+      radius: -1,
+      time: 0,
     });
 
-    this.container.filters = [this.radialBlur];
+    this.container.filters = [this.shockWaveFilter];
   }
 
   public async render() {
@@ -47,6 +54,7 @@ export class Slider {
   public update() {
     if (this.nextSlide) {
       this.transitionProgress += 0.03;
+      this.waveProgress += 0.005;
 
       const oldSprite = this.sprites[this.activeSlide];
       const newSprite = this.sprites[this.nextSlide];
@@ -54,8 +62,8 @@ export class Slider {
       oldSprite.alpha = 1 - this.transitionProgress;
       newSprite.alpha = this.transitionProgress;
 
-      this.radialBlur.angle = 1 - this.transitionProgress;
-      this.radialBlur.radius = 1 - this.transitionProgress;
+      this.shockWaveFilter.wavelength = 300;
+      this.shockWaveFilter.time += this.waveProgress;
 
       if (this.transitionProgress >= 1) {
         this.finishTransition();
@@ -105,6 +113,7 @@ export class Slider {
 
     this.nextSlide = id;
     this.transitionProgress = 0;
+    this.waveProgress = 0;
 
     const newSprite = this.sprites[id];
     newSprite.alpha = 0;
@@ -119,7 +128,7 @@ export class Slider {
     this.activeSlide = this.nextSlide;
     this.nextSlide = null;
 
-    this.radialBlur.angle = 0;
-    this.radialBlur.radius = 0;
+    this.shockWaveFilter.time = 0;
+    this.shockWaveFilter.wavelength = 0;
   }
 }
