@@ -14,15 +14,29 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const StyledText = styled.span`
+export const StyledText = styled.span<IActiveble>`
   position: absolute;
-  top: 20%;
-  transform: translateY(-50%);
-  left: 10%;
-  font-size: 130px;
   text-transform: uppercase;
-  ${({ theme }) => css`
-    color: ${convertHexToRgba(theme.colors.text, 0.6)};
+  transition: all 0.2s ease-in;
+
+  ${({ theme, $isActive }) => css`
+    ${$isActive
+      ? css`
+          opacity: 1;
+          transform: translateY(-50%);
+        `
+      : css`
+          opacity: 0;
+        `}
+    top: 20%;
+    left: 10%;
+    font-size: 130px;
+    color: ${convertHexToRgba(theme.colors.text, 0.7)};
+    ${theme.media.width.lg} {
+      font-size: 100px;
+      top: 14%;
+      left: 8%;
+    }
   `}
 `;
 
@@ -47,30 +61,29 @@ export const StyledList = styled.div`
 
 export const StyledImage = styled.img`
   aspect-ratio: 1/1;
-  width: 60%;
+  width: 100%;
+  filter: hue-rotate(110deg) grayscale(0.6);
 `;
 
 export const StyledCardOverlay = styled.div<IActiveble>`
   transition: all 0.2s ease-in;
-  clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
   cursor: pointer;
-  padding: 1px;
-  aspect-ratio: 6/9;
-  ${({ theme, $isActive }) => css`
-    background-color: ${theme.colors.gold};
-    width: ${$isActive ? 150 : 100}px;
-  `}
-`;
-
-export const StyledCard = styled.div`
+  padding: 4px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
+  ${({ theme, $isActive }) => css`
+    background-color: ${theme.colors.bgneon};
+    ${$isActive
+      ? css`
+          width: 80px;
+          filter: drop-shadow(0px 0px 8px ${theme.colors.secondary});
+        `
+      : css`
+          width: 60px;
+        `}
   `}
 `;
 

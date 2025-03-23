@@ -46,7 +46,9 @@ export class Slider {
 
     this.keys.forEach((id) => {
       document.getElementById(id)?.addEventListener("click", () => {
-        this.updateActiveSprite(id);
+        if (!this.nextSlide) {
+          this.updateActiveSprite(id);
+        }
       });
     });
   }

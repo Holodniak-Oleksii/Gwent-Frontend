@@ -5,7 +5,6 @@ import { Slider } from "./Slider";
 
 interface IPixiSliderProps {
   images: string[];
-  activeIndex: number;
 }
 
 const Wrapper = styled.div`
@@ -37,8 +36,8 @@ export const PixiSlider: FC<IPixiSliderProps> = ({ images }) => {
       const slider = new Slider(app, images);
       slider.render();
 
-      app.ticker.add(({ deltaMS }) => {
-        slider.update(deltaMS);
+      app.ticker.add(() => {
+        slider.update();
       });
     };
 

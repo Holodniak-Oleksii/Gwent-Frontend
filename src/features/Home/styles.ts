@@ -34,9 +34,9 @@ export const StyledOverlay = styled.div`
   height: auto;
   z-index: 2;
   ${({ theme }) => css`
+    ${({ theme }) => theme.common.bgTexture};
     background-color: ${theme.colors.primary};
     border-top: 1px solid ${theme.colors.border};
-    ${({ theme }) => theme.common.bgTexture};
 
     padding-bottom: 160px;
     ${theme.media.width.lg} {

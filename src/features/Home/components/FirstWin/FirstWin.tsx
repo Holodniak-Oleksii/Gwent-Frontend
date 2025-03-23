@@ -5,7 +5,6 @@ import { images, rowsData } from "./data";
 import { PixiSlider } from "./PixiSlider";
 import {
   StyledBackground,
-  StyledCard,
   StyledCardOverlay,
   StyledContainer,
   StyledImage,
@@ -17,9 +16,10 @@ import {
 export const FirstWin = () => {
   const { t } = useTranslation();
   const [active, setActive] = useState<EForces>(EForces.CLOSE);
+  const keys = Object.keys(rowsData) as EForces[];
 
   const renderCards = () =>
-    (Object.keys(rowsData) as EForces[]).map((force, i) => (
+    keys.map((force) => (
       <StyledCardOverlay
         id={force}
         key={force}
@@ -28,10 +28,15 @@ export const FirstWin = () => {
           setActive(force);
         }}
       >
-        <StyledCard>
-          <StyledImage src={rowsData[force].icon} alt={rowsData[force].text} />
-        </StyledCard>
+        <StyledImage src={rowsData[force].icon} alt={rowsData[force].text} />
       </StyledCardOverlay>
+    ));
+
+  const renderTitles = () =>
+    keys.map((k) => (
+      <StyledText $isActive={k === active} key={k}>
+        {rowsData[k].text}
+      </StyledText>
     ));
 
   return (
@@ -39,8 +44,7 @@ export const FirstWin = () => {
       <StyledBackground>
         <PixiSlider images={images} />
       </StyledBackground>
-      {/* <StyledBackground src={rowsData[active].bg} /> */}
-      <StyledText>{rowsData[active].text}</StyledText>
+      {renderTitles()}
       <StyledContainer>
         <StyledList>{renderCards()}</StyledList>
       </StyledContainer>
