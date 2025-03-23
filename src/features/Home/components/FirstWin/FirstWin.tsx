@@ -1,7 +1,8 @@
 import { EForces } from "@/common/types";
-import { rowsData } from "@/features/Home/components/FirstWin/data";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { images, rowsData } from "./data";
+import { PixiSlider } from "./PixiSlider";
 import {
   StyledBackground,
   StyledCard,
@@ -18,11 +19,14 @@ export const FirstWin = () => {
   const [active, setActive] = useState<EForces>(EForces.CLOSE);
 
   const renderCards = () =>
-    (Object.keys(rowsData) as EForces[]).map((force) => (
+    (Object.keys(rowsData) as EForces[]).map((force, i) => (
       <StyledCardOverlay
+        id={force}
         key={force}
         $isActive={active === force}
-        onClick={() => setActive(force)}
+        onClick={() => {
+          setActive(force);
+        }}
       >
         <StyledCard>
           <StyledImage src={rowsData[force].icon} alt={rowsData[force].text} />
@@ -32,7 +36,10 @@ export const FirstWin = () => {
 
   return (
     <StyledWrapper>
-      <StyledBackground src={rowsData[active].bg} />
+      <StyledBackground>
+        <PixiSlider images={images} />
+      </StyledBackground>
+      {/* <StyledBackground src={rowsData[active].bg} /> */}
       <StyledText>{rowsData[active].text}</StyledText>
       <StyledContainer>
         <StyledList>{renderCards()}</StyledList>

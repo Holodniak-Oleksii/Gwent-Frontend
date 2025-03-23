@@ -74,12 +74,10 @@ export const StyledCard = styled.div`
   `}
 `;
 
-export const StyledBackground = styled.img`
+export const StyledBackground = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: right top;
 `;

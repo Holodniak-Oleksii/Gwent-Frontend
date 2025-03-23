@@ -16,6 +16,8 @@ interface IScreen {
   bg: string;
 }
 
+export const images = [imageBgClose, imageBgRanged, imageBgSiege, imageBgAgile];
+
 export const rowsData: Record<EForces, IScreen> = {
   [EForces.CLOSE]: {
     icon: imageClose,

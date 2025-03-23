@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import { StyledWrapper as Wrapper } from "../../styles";
 
@@ -65,7 +64,7 @@ export const StyledSubTitle = styled.p`
   `};
 `;
 
-export const StyledImageWrapper = styled(motion.div)`
+export const StyledImageWrapper = styled.div`
   position: relative;
   margin-left: auto;
   width: 30%;
