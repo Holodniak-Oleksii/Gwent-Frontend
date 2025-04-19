@@ -1,6 +1,5 @@
 import { EForces } from "@/common/types";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { images, rowsData } from "./data";
 import { PixiSlider } from "./PixiSlider";
 import {
@@ -14,7 +13,6 @@ import {
 } from "./styles";
 
 export const FirstWin = () => {
-  const { t } = useTranslation();
   const [active, setActive] = useState<EForces>(EForces.CLOSE);
   const keys = Object.keys(rowsData) as EForces[];
 

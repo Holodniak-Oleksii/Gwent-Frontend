@@ -1,3 +1,4 @@
+import { Abilities } from "./components/Abilities";
 import { Banner } from "./components/Banner";
 import { FirstWin } from "./components/FirstWin";
 import { Fractions } from "./components/Fractions";
@@ -15,6 +16,7 @@ export const Home = () => {
       <StyledOverlay>
         <Fractions />
       </StyledOverlay>
+      <Abilities />
     </>
   );
 };

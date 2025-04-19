@@ -17,10 +17,7 @@ export const StyledContent = styled.div`
   align-items: center;
   flex-direction: column;
   ${({ theme }) => css`
-    padding-top: 80px;
-    ${theme.media.width.lg} {
-      padding-top: 60px;
-    }
+    ${theme.spacing.indents};
   `}
 `;
 

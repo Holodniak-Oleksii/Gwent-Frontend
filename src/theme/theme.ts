@@ -75,9 +75,9 @@ const theme: DefaultTheme = {
       }
     `,
     indents: css`
-      padding-top: 160px;
+      padding-top: 120px;
       ${media.width.lg} {
-        padding-top: 120px;
+        padding-top: 80px;
       }
     `,
   },
