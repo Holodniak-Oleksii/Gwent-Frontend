@@ -1,10 +1,6 @@
 import { IActiveble } from "@/common/types";
 import styled, { css } from "styled-components";
 
-interface ISlidePropsStyled extends IActiveble {
-  index: number;
-}
-
 export const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -20,23 +16,21 @@ export const StyledContainer = styled.div`
   display: flex;
 `;
 
-export const StyledSlide = styled.div<ISlidePropsStyled>`
+export const StyledSlide = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
-  transition: all 0.6s ease;
-  ${({ index, $isActive }) => css`
-    transform: translateX(calc(${index} * 150px));
-    opacity: ${$isActive ? 0 : 1};
-  `}
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.6s ease, opacity 0.6s ease, z-index 0.6s ease;
 `;
 
-export const StyledCard = styled.div`
-  background-color: green;
+export const StyledCard = styled.div<IActiveble>`
   width: 140px;
   aspect-ratio: 6/9;
   cursor: pointer;
   position: relative;
+  transition-delay: 0.6s;
+  opacity: ${({ $isActive }) => ($isActive ? 0 : 1)};
 `;
 
 export const StyledList = styled.div`
@@ -54,10 +48,10 @@ export const StyledRelative = styled.div`
   width: 100%;
   position: relative;
   z-index: 3;
+  left: -50%;
 `;
 
 export const StyledBgImage = styled.img`
-  border: 3px solid #000;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -74,29 +68,27 @@ export const StyledBackImageContainer = styled.div<IActiveble>`
   transition: width 0.82s cubic-bezier(0.65, 0, 0.35, 1),
     height 0.75s cubic-bezier(0.65, 0, 0.35, 1),
     transform 0.82s cubic-bezier(0.65, 0, 0.35, 1);
-  border: 3px solid red;
-
   width: 140px;
   height: 210px;
 
   ${({ $isActive }) =>
     $isActive
       ? css`
-          z-index: 1;
-          opacity: 1;
           width: 100%;
           height: 100%;
           transform: translate(-50%, 0);
+          transition-delay: 0.6s;
         `
       : css`
-          opacity: 0;
-          z-index: -1;
+          transition-delay: 1.2s;
         `}
 `;
 
-export const StyledBackImage = styled.img`
+export const StyledBackImage = styled.img<IActiveble>`
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
+  transition-delay: ${({ $isActive }) => ($isActive ? 0.6 : 1.2)}s;
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
 `;

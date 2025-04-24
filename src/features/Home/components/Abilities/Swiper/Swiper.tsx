@@ -21,15 +21,15 @@ interface ISlideProps<T> {
   index: number;
   data: T;
 }
-const VISIBLE_SLIDES = 10;
+const VISIBLE_SLIDES = 25;
+const SLIDE_WIDTH = 150;
 
 export const Swiper: FC<ISwiperProps> = ({ cards }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slides: ISlideProps<ISliderCard>[] = useMemo(
     () =>
-      cards.map((data, realIndex) => ({ realIndex, data, index: realIndex })) ||
-      [],
+      cards.map((data, index) => ({ realIndex: data.id, data, index })) || [],
     [cards]
   );
 
@@ -37,25 +37,42 @@ export const Swiper: FC<ISwiperProps> = ({ cards }) => {
     const total = cards.length;
     if (total === 0) return [];
 
-    return Array.from({ length: VISIBLE_SLIDES }, (_, i) => {
-      const realIndex = (activeIndex + i) % total;
-      return {
-        realIndex,
+    const half = Math.floor(VISIBLE_SLIDES / 2);
+    const result: ISlideProps<ISliderCard>[] = [];
+
+    for (let i = -half; i <= half; i++) {
+      const circularIndex = (activeIndex + i + total) % total;
+      result.push({
+        realIndex: cards[circularIndex].id,
         index: i,
-        data: cards[realIndex],
-      };
-    });
+        data: cards[circularIndex],
+      });
+    }
+
+    return result;
   }, [cards, activeIndex]);
+
+  const goToIndex = (index: number) => {
+    const total = cards.length;
+    const normalizedIndex = (index + total) % total;
+    setActiveIndex(normalizedIndex);
+  };
 
   const renderList = () =>
     visibleSlides.map((slide) => {
+      const isActive = slide.realIndex === activeIndex;
+
       return (
         <StyledSlide
-          $isActive={slide.index === 0}
-          index={slide.index}
-          key={`${slide.realIndex}-${slide.index}`}
+          key={slide.data.id}
+          style={{
+            transform: `translateX(${slide.index * SLIDE_WIDTH}px)`,
+          }}
         >
-          <StyledCard onClick={() => setActiveIndex(slide.realIndex)}>
+          <StyledCard
+            $isActive={isActive}
+            onClick={() => goToIndex(slide.realIndex)}
+          >
             <StyledBgImage src={slide.data.bgImage} alt={slide.data.title} />
           </StyledCard>
         </StyledSlide>
@@ -68,7 +85,11 @@ export const Swiper: FC<ISwiperProps> = ({ cards }) => {
         key={slide.realIndex}
         $isActive={activeIndex === slide.realIndex}
       >
-        <StyledBackImage src={slide.data.bgImage} alt={slide.data.title} />
+        <StyledBackImage
+          $isActive={activeIndex === slide.realIndex}
+          src={slide.data.bgImage}
+          alt={slide.data.title}
+        />
       </StyledBackImageContainer>
     ));
 

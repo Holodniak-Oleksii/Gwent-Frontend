@@ -6,7 +6,12 @@ export const Abilities = () => {
   return (
     <StyledWrapper>
       <StyledContainer>
-        <Swiper cards={dataList} />
+        <Swiper
+          cards={[...dataList, ...dataList].map((data, id) => ({
+            ...data,
+            id,
+          }))}
+        />
       </StyledContainer>
     </StyledWrapper>
   );
