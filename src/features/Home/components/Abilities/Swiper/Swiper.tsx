@@ -1,14 +1,19 @@
 import { ISliderCard } from "@/features/Home/components/Abilities/data";
 import { FC, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   StyledBackImage,
   StyledBackImageContainer,
   StyledBgImage,
   StyledCard,
   StyledContainer,
+  StyledDescription,
   StyledList,
   StyledRelative,
   StyledSlide,
+  StyledText,
+  StyledTextWrapper,
+  StyledTitle,
   StyledWrapper,
 } from "./styles";
 
@@ -26,7 +31,8 @@ const SLIDE_WIDTH = 150;
 
 export const Swiper: FC<ISwiperProps> = ({ cards }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const [isAnimating, setIsAnimating] = useState(false);
+  const { t } = useTranslation();
   const slides: ISlideProps<ISliderCard>[] = useMemo(
     () =>
       cards.map((data, index) => ({ realIndex: data.id, data, index })) || [],
@@ -53,9 +59,19 @@ export const Swiper: FC<ISwiperProps> = ({ cards }) => {
   }, [cards, activeIndex]);
 
   const goToIndex = (index: number) => {
+    if (isAnimating) return;
+
     const total = cards.length;
     const normalizedIndex = (index + total) % total;
+
+    if (normalizedIndex === activeIndex) return;
+
+    setIsAnimating(true);
     setActiveIndex(normalizedIndex);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1500);
   };
 
   const renderList = () =>
@@ -93,10 +109,20 @@ export const Swiper: FC<ISwiperProps> = ({ cards }) => {
       </StyledBackImageContainer>
     ));
 
+  const renderTitles = () =>
+    slides.map((slide) => (
+      <StyledTextWrapper key={slide.realIndex}>
+        <StyledText $isActive={activeIndex === slide.realIndex}>
+          <StyledTitle>{slide.data.title.replaceAll("_", " ")}</StyledTitle>
+          <StyledDescription>{t(slide.data.description)}</StyledDescription>
+        </StyledText>
+      </StyledTextWrapper>
+    ));
+
   return (
     <StyledWrapper>
       {renderBgImages()}
-      <StyledContainer></StyledContainer>
+      <StyledContainer>{renderTitles()}</StyledContainer>
       <StyledContainer>
         <StyledList>
           <StyledRelative>{renderList()}</StyledRelative>

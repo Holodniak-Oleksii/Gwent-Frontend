@@ -14,6 +14,7 @@ declare module "styled-components" {
       bgcolor: string;
       bgneon: string;
       bgneonLight: string;
+      lightText: string;
     };
     common: {
       bgTexture: string;
@@ -37,6 +38,7 @@ declare module "styled-components" {
     };
     fontSizes: {
       extra: string;
+      largeTitle: string;
       large: string;
       regular: string;
       medium: string;

@@ -13,6 +13,7 @@ const defaultPalette: DefaultTheme["colors"] = {
   bgcolor: "rgba(25,26,30,255)",
   bgneon: "rgba(25, 26, 30, 0.6)",
   bgneonLight: "#16cc8f1c",
+  lightText: "#c0c0c0",
 };
 
 export const breakpoints = {
@@ -87,6 +88,12 @@ const theme: DefaultTheme = {
       font-size: 120px;
       ${media.width.lg} {
         font-size: 100px;
+      }
+    `,
+    largeTitle: `
+      font-size: 80px;
+      ${media.width.lg} {
+        font-size: 64px;
       }
     `,
     large: `

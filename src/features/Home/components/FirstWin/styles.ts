@@ -62,7 +62,7 @@ export const StyledList = styled.div`
 export const StyledImage = styled.img`
   aspect-ratio: 1/1;
   width: 100%;
-  filter: hue-rotate(110deg) grayscale(0.6);
+  filter: grayscale(0.2);
 `;
 
 export const StyledCardOverlay = styled.div<IActiveble>`
@@ -79,7 +79,7 @@ export const StyledCardOverlay = styled.div<IActiveble>`
     ${$isActive
       ? css`
           width: 80px;
-          filter: drop-shadow(0px 0px 8px ${theme.colors.secondary});
+          filter: drop-shadow(0px 0px 8px ${theme.colors.gold});
         `
       : css`
           width: 60px;

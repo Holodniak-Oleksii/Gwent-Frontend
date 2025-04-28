@@ -16,9 +16,11 @@
       "gwent": "Gwent",
       "fractions": "Fractions",
       "gamePlay": "Game Play",
-      "gwentProperly": "How to Play <span>Gwent</span> Properly"
+      "gwentProperly": "How to Play <span>Gwent</span> Properly",
+      "fqa": "Frequently Asked Questions"
     },
     "subTitle": {
+      "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
       "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
       "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
       "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!",
@@ -65,6 +67,54 @@
     },
     "labels": {
       "call": "Do you want to stay up to date? <span>Join us!<span/>"
+    },
+    "abilities": {
+      "hero": "Immune to all special cards and abilities. Cannot be affected by Scorch, weather, or other abilities. A powerful standalone card.",
+      "horn": "Doubles the strength of all units in the row it’s placed on (except heroes). Great for boosting your power in a single line.",
+      "spy": "Played on the opponent’s side of the battlefield but grants you two extra cards. A smart trade-off of points for card advantage.",
+      "medic": "When played, allows you to bring back one unit card from your graveyard to the battlefield. Cannot revive hero or other medic cards.",
+      "scorch": "Destroys the strongest non-hero units on the battlefield, including both your side and your opponent’s if tied. Great counter to high-power units.",
+      "muster": "Summons all cards with the same name from your deck to the battlefield. Quickly strengthens your field with matching units.",
+      "mardroeme": "Allows transformation of berserker units into their bear form. Used strategically with berserk units for increased strength.",
+      "decoy": "Replaces a unit card on the battlefield and returns that card to your hand. Ideal for reusing spies or medics.",
+      "berserk": "Transforms into a powerful unit when combined with Mardroeme. Requires setup and timing to maximize effect.",
+      "tightBond": "Doubles the strength of all cards with the same name when placed next to each other. Best used in multiples for exponential power.",
+      "moraleBoost": "Increases the strength of all other units in its row by 1 point. It does not affect itself. Ideal for boosting large groups.",
+      "bitingFrost": "Reduces the strength of all close combat units to 1. A powerful weather card to weaken enemy frontlines.",
+      "impenetrableFog": "Reduces the strength of all ranged units to 1. Best used when your opponent relies on mid-range units.",
+      "torrentialRain": "Reduces the strength of all siege units to 1. Can cripple siege-heavy strategies.",
+      "skelligeStorm": "Affects multiple rows simultaneously, reducing unit strength in both ranged and siege rows to 1.",
+      "clearWeather": "Removes all active weather effects. Best used to restore your units’ full strength.",
+      "kingOfTemeria": "Leader ability that draws an extra card when the round begins. Ensures card advantage.",
+      "hisImperialMajesty": "Leader ability allowing you to look at 3 random cards from your opponent’s hand. Gives insight and strategic planning.",
+      "purebloodElf": "Unaffected by weather. Combines well with weather-heavy decks to maintain strength.",
+      "commanderOfTheRedRiders": "Leader ability to use Scorch effect immediately. A powerful board control tool to eliminate high-value enemy units."
+    },
+    "fqa": {
+      "title": {
+        "1": "What is Gwent?",
+        "2": "How can I start playing Gwent?",
+        "3": "Is Gwent free to play?",
+        "4": "Do I need to know the Witcher series to enjoy Gwent?",
+        "5": "How do I build a strong deck in Gwent?",
+        "6": "What are factions in Gwent?",
+        "7": "Can I play Gwent with my friends?",
+        "8": "Are there competitive tournaments in Gwent?",
+        "9": "Is there a single-player mode in Gwent?",
+        "10": "How often does Gwent receive updates and new cards?"
+      },
+      "text": {
+        "1": "Gwent is a strategic card game set in the Witcher universe where players battle by building decks and outsmarting their opponents.",
+        "2": "You can download Gwent for free on PC, iOS, Android, and select consoles, then create an account to start playing.",
+        "3": "Yes, Gwent is completely free to play with optional in-game purchases for cosmetics and card kegs.",
+        "4": "No, Gwent can be fully enjoyed without prior knowledge of the Witcher books or games, though fans may appreciate the lore references.",
+        "5": "Building a strong deck requires balancing unit strength, special abilities, and synergies between your chosen faction's cards.",
+        "6": "Factions represent different kingdoms and groups, such as Nilfgaard, Northern Realms, Scoia’tael, Monsters, and Skellige, each with unique playstyles.",
+        "7": "Yes, Gwent offers friendly matches where you can challenge your friends directly.",
+        "8": "Absolutely! Gwent hosts ranked seasons, official esports tournaments, and community-driven competitions.",
+        "9": "While the main Gwent game is multiplayer-focused, there is a single-player experience called Gwent: Thronebreaker.",
+        "10": "The Gwent team regularly updates the game with balance patches, seasonal modes, and new card drops to keep gameplay fresh."
+      }
     }
   }
 }

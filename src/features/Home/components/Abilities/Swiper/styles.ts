@@ -16,6 +16,41 @@ export const StyledContainer = styled.div`
   display: flex;
 `;
 
+export const StyledTextWrapper = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transition-delay: 0.6s;
+  overflow: hidden;
+`;
+
+export const StyledText = styled.div<IActiveble>`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.6s ease;
+  transition-delay: 0.6s;
+  ${({ $isActive }) => css`
+    transform: ${$isActive ? "translateY(0)" : "translateY(-100%)"};
+    opacity: ${$isActive ? 1 : 0};
+  `};
+`;
+
+export const StyledTitle = styled.div`
+  ${({ theme }) => css`
+    ${theme.fontSizes.largeTitle};
+    color: ${theme.colors.text};
+  `}
+`;
+
+export const StyledDescription = styled.div`
+  ${({ theme }) => css`
+    ${theme.fontSizes.regular};
+    color: ${theme.colors.text};
+  `}
+`;
+
 export const StyledSlide = styled.div`
   position: absolute;
   top: 0;
@@ -58,6 +93,7 @@ export const StyledBgImage = styled.img`
   left: 0;
   top: 0;
   object-fit: cover;
+  object-position: center 30%;
 `;
 
 export const StyledBackImageContainer = styled.div<IActiveble>`
@@ -88,7 +124,7 @@ export const StyledBackImage = styled.img<IActiveble>`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
   transition-delay: ${({ $isActive }) => ($isActive ? 0.6 : 1.2)}s;
   opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
 `;
