@@ -1269,6 +1269,14 @@
   resolved "https://registry.yarnpkg.com/@pixi/colord/-/colord-2.9.6.tgz#7e4e7851480da6fd3cef4e331f008d60be7e1204"
   integrity sha512-nezytU2pw587fQstUu1AsJZDVEynjskwOL+kibwcdxsMBFqPsFFNA7xl0ii/gXuDi6M0xj3mfRJj8pBSc2jCfA==
 
+"@pixi/react@^8.0.0-beta.25":
+  version "8.0.0-beta.25"
+  resolved "https://registry.yarnpkg.com/@pixi/react/-/react-8.0.0-beta.25.tgz#02bfc1bcd6f9b629a49bde02996cd31700a2f6b1"
+  integrity sha512-nXZbWj6nBHoOhlN1hKjKCeSPWPcv4BGBe8Em8B2V/QrSiihKI4C2vaxvV6Q1udLGsLnv4Hv9EBVa0Ixe0QAdiQ==
+  dependencies:
+    its-fine "^1.2.5"
+    react-reconciler "0.31.0"
+
 "@rollup/pluginutils@^5.0.2":
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.1.4.tgz#bb94f1f9eaaac944da237767cdfee6c5b2262d4a"
@@ -1545,6 +1553,11 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
 
+"@types/gradient-parser@^0.1.2":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@types/gradient-parser/-/gradient-parser-0.1.5.tgz#7b25d5f080f41f0d713207894c3f2f490155462a"
+  integrity sha512-r7K3NkJz3A95WkVVmjs0NcchhHstC2C/VIYNX4JC6tieviUNo774FFeOHjThr3Vw/WCeMP9kAT77MKbIRlO/4w==
+
 "@types/json-schema@^7.0.15":
   version "7.0.15"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz"
@@ -1575,6 +1588,11 @@
   integrity sha512-xXuGavyEGaFQDgBv4UVm8/ZsG+qxeQ7f77yNrW3n+1J6XAstUy5rYHeIHPh1KzsGc6IkCIdu6lQ2xWzu1jBTLg==
   dependencies:
     "@types/react" "*"
+
+"@types/react-reconciler@^0.28.0":
+  version "0.28.9"
+  resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.9.tgz#d24b4864c384e770c83275b3fe73fba00269c83b"
+  integrity sha512-HHM3nxyUZ3zAylX8ZEyrDNd2XZOnQ0D5XfunJF5FLQnZbHHYq4UWvW1QfelQNXv1ICNkwYhfxjwfnqivYB6bFg==
 
 "@types/react@*", "@types/react@^18.3.12":
   version "18.3.12"
@@ -1689,9 +1707,9 @@
     react-refresh "^0.14.2"
 
 "@webgpu/types@^0.1.40":
-  version "0.1.54"
-  resolved "https://registry.yarnpkg.com/@webgpu/types/-/types-0.1.54.tgz#0e692514314d910da56f43e17f5fff9bbd153607"
-  integrity sha512-81oaalC8LFrXjhsczomEQ0u3jG+TqE6V9QHLA8GNZq/Rnot0KDugu3LhSYSlie8tSdooAN1Hov05asrUUp9qgg==
+  version "0.1.58"
+  resolved "https://registry.yarnpkg.com/@webgpu/types/-/types-0.1.58.tgz#3a11baf273c5587e8343967d5163c659c799033f"
+  integrity sha512-+8+NBE17zrc1wS4FvZmmuGTpog5C2H6QC46RY2TTWNpnt15Xvp7dZoUHZQXvb8l5ddKwO8l1pDJa6XTnR4Al1Q==
 
 "@xmldom/xmldom@^0.8.10":
   version "0.8.10"
@@ -2308,15 +2326,6 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-framer-motion@^12.4.10:
-  version "12.4.10"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.4.10.tgz#5b2aa0a18f5563edc9603c2c1cbc9d6f19a110a2"
-  integrity sha512-3Msuyjcr1Pb5hjkn4EJcRe1HumaveP0Gbv4DBMKTPKcV/1GSMkQXj+Uqgneys+9DPcZM18Hac9qY9iUEF5LZtg==
-  dependencies:
-    motion-dom "^12.4.10"
-    motion-utils "^12.4.10"
-    tslib "^2.4.0"
-
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
@@ -2470,6 +2479,13 @@ ismobilejs@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ismobilejs/-/ismobilejs-1.1.1.tgz#c56ca0ae8e52b24ca0f22ba5ef3215a2ddbbaa0e"
   integrity sha512-VaFW53yt8QO61k2WJui0dHf4SlL8lxBofUuUmwBo0ljPk0Drz2TiuDW4jo3wDcv41qy/SxrJ+VAzJ/qYqsmzRw==
+
+its-fine@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-1.2.5.tgz#5466c287f86a0a73e772c8d8d515626c97195dc9"
+  integrity sha512-fXtDA0X0t0eBYAGLVM5YsgJGsJ5jEmqZEPrGbzdf5awjv0xE7nqv3TVnvtUF060Tkes15DbDAKW/I48vsb6SyA==
+  dependencies:
+    "@types/react-reconciler" "^0.28.0"
 
 js-binary-schema-parser@^2.0.3:
   version "2.0.3"
@@ -2625,18 +2641,6 @@ minimatch@^9.0.4:
   dependencies:
     brace-expansion "^2.0.1"
 
-motion-dom@^12.4.10:
-  version "12.4.10"
-  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.4.10.tgz#025886748e33e8ee77742eea7bd088b202e7c83a"
-  integrity sha512-ISP5u6FTceoD6qKdLupIPU/LyXBrxGox+P2e3mBbm1+pLdlBbwv01YENJr7+1WZnW5ucVKzFScYsV1eXTCG4Xg==
-  dependencies:
-    motion-utils "^12.4.10"
-
-motion-utils@^12.4.10:
-  version "12.4.10"
-  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.4.10.tgz#3d93acea5454419eaaad8d5e5425cb71cbfa1e7f"
-  integrity sha512-NPwZd94V013SwRf++jMrk2+HEBgPkeIE2RiOzhAuuQlqxMJPkKt/LXVh6Upl+iN8oarSGD2dlY5/bqgsYXDABA==
-
 ms@^2.1.3:
   version "2.1.3"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
@@ -2765,10 +2769,17 @@ picomatch@^4.0.2:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.2.tgz#77c742931e8f3b8820946c76cd0c1f13730d1dab"
   integrity sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==
 
-pixi.js@^8.8.1:
-  version "8.8.1"
-  resolved "https://registry.yarnpkg.com/pixi.js/-/pixi.js-8.8.1.tgz#2812bbaac960ba3d0ef9d99d77da4454702f9e5a"
-  integrity sha512-Zmox3Vy52Kl6X/uxknKlxJWPVEFiP63nsX8soqB4butTkIOK3y7c9C204wcDfAgkwO1OlwYxscWtHv+ef4gqgA==
+pixi-filters@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/pixi-filters/-/pixi-filters-6.1.2.tgz#9da0e8ab20ab25377d486ce253b3d1e301cb0c75"
+  integrity sha512-zGyrMTcfapSIS8We+8RPzxIYkrUhn0KamRFA9qWwxggOk/guJcW05djg8xNvmNsCxn6LzxK5sODeEFIf9SF5Xg==
+  dependencies:
+    "@types/gradient-parser" "^0.1.2"
+
+pixi.js@^8.2.6:
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/pixi.js/-/pixi.js-8.9.0.tgz#3e1a4f4c8d3a67a7048cad69eed2c8a92bbdc908"
+  integrity sha512-uhXZKbus1C4nHu2ZHDCHE7m9BSsGOAuR+rj31VPyN6O8L8TEFs/q5+/43sMBC89EjPahIhvYOSNtY9nnrrY7BA==
   dependencies:
     "@pixi/colord" "^2.9.6"
     "@types/css-font-loading-module" "^0.0.12"
@@ -2873,6 +2884,13 @@ react-modal@^3.16.3:
     prop-types "^15.7.2"
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
+
+react-reconciler@0.31.0:
+  version "0.31.0"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.31.0.tgz#6b7390fe8fab59210daf523d7400943973de1458"
+  integrity sha512-7Ob7Z+URmesIsIVRjnLoDGwBEG/tVitidU0nMsqX/eeJaLY89RISO/10ERe0MqmzuKUUB1rmY+h1itMbUHg9BQ==
+  dependencies:
+    scheduler "^0.25.0"
 
 react-refresh@^0.14.2:
   version "0.14.2"
@@ -3011,6 +3029,11 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
+scheduler@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.25.0.tgz#336cd9768e8cceebf52d3c80e3dcf5de23e7e015"
+  integrity sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==
+
 semver@^6.3.1:
   version "6.3.1"
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
@@ -3111,7 +3134,7 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
-swiper@*, swiper@^11.2.4:
+swiper@*:
   version "11.2.4"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.2.4.tgz#4d1b55e07f909957e0406bdbff81b850b9dc8aeb"
   integrity sha512-DTtglrsFfMYytid+oNy4QI3t2N2+XhhwSYbnyOhlwBmvY8Bkoj3ombK1/b80w8vDpQ+Lqlnbm+0737+i32MrcA==
@@ -3133,7 +3156,7 @@ tslib@2.6.2:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
-tslib@^2.0.3, tslib@^2.4.0:
+tslib@^2.0.3:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
@@ -3251,11 +3274,6 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
-
-zod@^3.24.1:
-  version "3.24.1"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.24.1.tgz#27445c912738c8ad1e9de1bea0359fa44d9d35ee"
-  integrity sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==
 
 zustand@^5.0.2:
   version "5.0.2"

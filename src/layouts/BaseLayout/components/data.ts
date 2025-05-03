@@ -1,6 +1,6 @@
 import { LINK_TEMPLATES } from "@/common/constants";
 
-export const getNavigation = (locale: string) => [
+export const getNavigation = (locale: string, isAuth: boolean) => [
   {
     name: "navigation.market",
     path: LINK_TEMPLATES.MARKET(locale),
@@ -17,4 +17,13 @@ export const getNavigation = (locale: string) => [
     name: "navigation.contacts",
     path: LINK_TEMPLATES.CONTACTS(locale),
   },
+  ...(isAuth
+    ? [
+        {
+          name: "navigation.players",
+          path: LINK_TEMPLATES.PLAYERS(locale),
+        },
+        { name: "Messages", path: LINK_TEMPLATES.MESSAGES(locale) },
+      ]
+    : []),
 ];

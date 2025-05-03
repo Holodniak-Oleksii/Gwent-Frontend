@@ -17,10 +17,7 @@ export const StyledContent = styled.div`
   align-items: center;
   flex-direction: column;
   ${({ theme }) => css`
-    padding-top: 80px;
-    ${theme.media.width.lg} {
-      padding-top: 60px;
-    }
+    ${theme.spacing.indents};
   `}
 `;
 
@@ -91,12 +88,6 @@ export const StyledContentImage = styled.div`
   height: 100%;
   clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
   ${({ theme }) => `background-color: ${theme.colors.secondary}`}
-`;
-
-export const StyledTitle = styled.h3`
-  ${({ theme }) => theme.fontSizes.big};
-  margin-bottom: 16px;
-  ${({ theme }) => `color: ${theme.colors.secondary}`}
 `;
 
 export const StyledText = styled.p`

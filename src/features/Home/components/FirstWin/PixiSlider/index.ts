@@ -1,0 +1,1 @@
+export { PixiSlider } from "./PixiSlider";

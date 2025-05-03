@@ -2,7 +2,7 @@ import imageBg from "@/assets/images/background.webp";
 import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
-  primary: "rgba(25,26,30,255)",
+  primary: "#1f2326",
   focus: "rgba(9, 10, 11, 1)",
   secondary: "#16cc8f",
   text: "#FEFEFE",
@@ -13,6 +13,7 @@ const defaultPalette: DefaultTheme["colors"] = {
   bgcolor: "rgba(25,26,30,255)",
   bgneon: "rgba(25, 26, 30, 0.6)",
   bgneonLight: "#16cc8f1c",
+  lightText: "#c0c0c0",
 };
 
 export const breakpoints = {
@@ -53,6 +54,8 @@ const theme: DefaultTheme = {
   `,
   common: {
     bgTexture: `background: url(${imageBg}) center top repeat;`,
+    textShadow: `text-shadow: 2px 0 ${defaultPalette.focus}, -2px 0 ${defaultPalette.focus}, 0 2px ${defaultPalette.focus}, 0 -2px ${defaultPalette.focus},
+             1px 1px ${defaultPalette.focus}, -1px -1px ${defaultPalette.focus}, 1px -1px ${defaultPalette.focus}, -1px 1px ${defaultPalette.focus};`,
   },
   spacing: {
     content: css`
@@ -73,9 +76,9 @@ const theme: DefaultTheme = {
       }
     `,
     indents: css`
-      padding-top: 160px;
+      padding-top: 120px;
       ${media.width.lg} {
-        padding-top: 120px;
+        padding-top: 80px;
       }
     `,
   },
@@ -85,6 +88,12 @@ const theme: DefaultTheme = {
       font-size: 120px;
       ${media.width.lg} {
         font-size: 100px;
+      }
+    `,
+    largeTitle: `
+      font-size: 80px;
+      ${media.width.lg} {
+        font-size: 64px;
       }
     `,
     large: `
@@ -118,8 +127,14 @@ const theme: DefaultTheme = {
       }
     `,
     small: `
-      
-          `,
+      font-size: 14px;
+      ${media.width.lg} {
+        font-size: 12px;
+      };
+      ${media.width.md} {
+        font-size: 10px;
+      }
+    `,
   },
 };
 
