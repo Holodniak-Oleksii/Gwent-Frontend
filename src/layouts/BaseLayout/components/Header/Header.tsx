@@ -25,6 +25,7 @@ export const Header = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const isAuth = useUserStore((state) => state.isAuth);
+  const user = useUserStore((state) => state.user);
 
   const logout = useUserStore((state) => state.logout);
   const removeCredentials = useAuthStore((state) => state.removeCredentials);
@@ -54,7 +55,7 @@ export const Header = () => {
   }, [prevScrollPos, visible]);
 
   const renderNav = () =>
-    getNavigation(i18n.language).map((n, i) => (
+    getNavigation(i18n.language, isAuth).map((n, i) => (
       <StyledLink key={i} to={n.path} $isActive={pathname.includes(n.path)}>
         {t(n.name)}
       </StyledLink>
@@ -71,7 +72,7 @@ export const Header = () => {
           <LanguageSelect />
           {isAuth ? (
             <>
-              <Link to={LINK_TEMPLATES.PROFILE()}>Profile</Link>
+              <Link to={LINK_TEMPLATES.PROFILE()}>{user?.nickname}</Link>
               <BaseButton onClick={onLogOut}>log out</BaseButton>
             </>
           ) : (

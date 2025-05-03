@@ -4,9 +4,11 @@ import { Header } from "./components/Header";
 import { StyledMain } from "./styles";
 
 export const BaseLayout = () => (
-  <StyledMain>
+  <>
     <Header />
-    <Outlet />
+    <StyledMain>
+      <Outlet />
+    </StyledMain>
     <Footer />
-  </StyledMain>
+  </>
 );

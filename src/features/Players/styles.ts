@@ -4,7 +4,7 @@ export const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  padding: 40px;
+  ${({ theme }) => theme.spacing.indents};
 `;
 
 export const StyledGridItem = styled.div`
