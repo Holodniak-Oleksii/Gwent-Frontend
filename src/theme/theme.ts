@@ -2,7 +2,7 @@ import imageBg from "@/assets/images/background.webp";
 import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
-  primary: "rgba(25,26,30,255)",
+  primary: "#1f2326",
   focus: "rgba(9, 10, 11, 1)",
   secondary: "#16cc8f",
   text: "#FEFEFE",
@@ -127,8 +127,14 @@ const theme: DefaultTheme = {
       }
     `,
     small: `
-      
-          `,
+      font-size: 14px;
+      ${media.width.lg} {
+        font-size: 12px;
+      };
+      ${media.width.md} {
+        font-size: 10px;
+      }
+    `,
   },
 };
 

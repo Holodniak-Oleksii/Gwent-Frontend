@@ -2,9 +2,11 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import i18n from "@/i18n";
+import { useAuthStore } from "@/store/auth";
+import { useUserStore } from "@/store/user";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getNavigation } from "../data";
 import { LanguageSelect } from "./components/LanguageSelect";
 import {
@@ -22,6 +24,16 @@ export const Header = () => {
   const { pathname } = useLocation();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const isAuth = useUserStore((state) => state.isAuth);
+
+  const logout = useUserStore((state) => state.logout);
+  const removeCredentials = useAuthStore((state) => state.removeCredentials);
+
+  const onLogOut = () => {
+    navigate(LINK_TEMPLATES.HOME());
+    logout();
+    removeCredentials();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,15 +69,24 @@ export const Header = () => {
         <StyledList>{renderNav()}</StyledList>
         <StyledAction>
           <LanguageSelect />
-          <BaseButton onClick={() => navigate(LINK_TEMPLATES.LOGIN())}>
-            {t("button.login")}
-          </BaseButton>
-          <BaseButton
-            variant="outline"
-            onClick={() => navigate(LINK_TEMPLATES.REGISTRATION())}
-          >
-            {t("button.registration")}
-          </BaseButton>
+          {isAuth ? (
+            <>
+              <Link to={LINK_TEMPLATES.PROFILE()}>Profile</Link>
+              <BaseButton onClick={onLogOut}>log out</BaseButton>
+            </>
+          ) : (
+            <>
+              <BaseButton onClick={() => navigate(LINK_TEMPLATES.LOGIN())}>
+                {t("button.login")}
+              </BaseButton>
+              <BaseButton
+                variant="outline"
+                onClick={() => navigate(LINK_TEMPLATES.REGISTRATION())}
+              >
+                {t("button.registration")}
+              </BaseButton>
+            </>
+          )}
         </StyledAction>
       </StyledContainer>
     </StyledWrapper>

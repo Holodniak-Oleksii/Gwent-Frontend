@@ -5,7 +5,31 @@
       "rules": "Rules",
       "aboutUs": "About Us",
       "contacts": "Contacts",
-      "login": "Login"
+      "login": "Login",
+      "fqa": "FQA",
+      "howIfWorks": "How it Works",
+      "teams": "Teams",
+      "abilities": "Abilities",
+      "gamePlay": "Game Play",
+      "forces": "Forces",
+      "fractions": "Fractions",
+      "ukrainian": "Ukrainian",
+      "poland": "Poland",
+      "english": "English",
+      "deutschland": "Deutschland",
+      "title": {
+        "links": "Links",
+        "support": "Support",
+        "product": "Product",
+        "languages": "Languages"
+      }
+    },
+    "footer": {
+      "advertisement": "Join the battle in Gwent! Build your deck and outsmart your opponents today!",
+      "terms": {
+        "rights": "© 2025 GwentWeb. All rights reserved.",
+        "policy": "Terms & Conditions | Privacy & Policy"
+      }
     },
     "button": {
       "login": "Login",
