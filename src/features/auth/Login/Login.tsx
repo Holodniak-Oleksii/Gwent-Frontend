@@ -45,7 +45,7 @@ export const Login = () => {
           required: t("errors.required"),
           minLength: {
             value: 6,
-            message: t("errors.passwordTooShort"),
+            message: t("errors.passwordLength"),
           },
         })}
         placeholder={t("placeholders.password")}

@@ -76,7 +76,7 @@ export const Registration = () => {
           validate: () =>
             confirmPassword === undefined ||
             password === confirmPassword ||
-            t("errors.passwordMismatch"),
+            t("errors.passMissMatch"),
         })}
         placeholder={t("labels.password")}
         label={t("labels.password")}
@@ -95,8 +95,11 @@ export const Registration = () => {
       <TextFiled
         {...register("confirmPassword", {
           required: t("errors.required"),
-          validate: (value) =>
-            value === password || t("errors.passwordMismatch"),
+          minLength: {
+            value: 6,
+            message: t("errors.passwordTooShort"),
+          },
+          validate: (value) => value === password || t("errors.passMissMatch"),
         })}
         placeholder={t("labels.repeatPassword")}
         label={t("labels.repeatPassword")}
