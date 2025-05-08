@@ -96,18 +96,21 @@
       "invalidNickname": "Nickname can only contain Latin letters and numbers",
       "passwordLength": "Password must be at least 6 characters long",
       "passMissMatch": "Passwords do not match",
+      "passIncorrect": "Password incorrect",
       "requiredFields": "All required fields must be filled",
       "emailTaken": "This email is already taken",
       "nicknameTaken": "This nickname is already taken",
       "userRegistered": "User successfully registered",
       "userLogin": "Login successful",
-      "invalidCredentials": "Invalid email or password",
+      "invalidCredentials": "Invalid input data",
       "userNotFound": "User not found",
       "cardNotFound": "Card not found",
       "tokenRequired": "You are not authorized",
       "invalidToken": "Invalid or expired session",
       "tokenRefreshed": "Session updated",
-      "serverError": "An unexpected server error occurred"
+      "serverError": "An unexpected server error occurred",
+      "somethingWentWrong": "Something went wrong",
+      "successfully": "Successfully"
     },
     "labels": {
       "call": "Do you want to stay up to date? <span>Join us!<span/>",

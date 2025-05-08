@@ -1,5 +1,6 @@
 import API from "@/api";
 import { LINK_TEMPLATES } from "@/common/constants";
+import { useNotifyMutation } from "@/common/hooks/useNotifyMutation";
 import {
   ENDPOINTS,
   IAuthResponse,
@@ -10,7 +11,7 @@ import { ILoginFormFields } from "@/features/auth/Login/types";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +20,7 @@ export const useLoginMutation = () => {
   const setUser = useUserStore((state) => state.setUser);
   const navigation = useNavigate();
 
-  return useMutation({
+  return useNotifyMutation({
     mutationFn: (data: ILoginFormFields) => {
       return API.post(ENDPOINTS.LOGIN, data);
     },
@@ -39,7 +40,7 @@ export const useRegistrationMutation = () => {
   const setUser = useUserStore((state) => state.setUser);
   const navigation = useNavigate();
 
-  return useMutation({
+  return useNotifyMutation({
     mutationFn: (data: IRegistrationFormFields) => {
       return API.post(ENDPOINTS.REGISTRATION, data);
     },
