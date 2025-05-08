@@ -34,7 +34,8 @@
     "button": {
       "login": "Login",
       "registration": "Registration",
-      "play": "Play"
+      "play": "Play",
+      "createAccount": "Create Account"
     },
     "title": {
       "gwent": "Gwent",
@@ -90,7 +91,18 @@
       }
     },
     "labels": {
-      "call": "Do you want to stay up to date? <span>Join us!<span/>"
+      "call": "Do you want to stay up to date? <span>Join us!<span/>",
+      "login": "Already have an account?",
+      "registration": "Don't have an account?",
+      "nickname": "Nickname",
+      "password": "Password",
+      "repeatPassword": "Repeat Password",
+      "email": "Email"
+    },
+    "placeholders": {
+      "nickname": "Enter Nickname",
+      "password": "Enter Password",
+      "email": "Enter Email"
     },
     "abilities": {
       "hero": "Immune to all special cards and abilities. Cannot be affected by Scorch, weather, or other abilities. A powerful standalone card.",
