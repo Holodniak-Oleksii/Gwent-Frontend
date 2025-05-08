@@ -28,22 +28,13 @@ export const StyledFrame = styled.div`
   max-width: 440px;
   z-index: 3;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
-  /* &::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    aspect-ratio: 1/1;
-    top: 0;
-    right: 0;
-    background-color: red;
-    transform: rotate(45deg);
-  } */
+
   & > div {
     backdrop-filter: blur(4px);
     position: relative;
     z-index: 4;
     ${({ theme }) => css`
-      background-color: ${convertHexToRgba(theme.colors.placeholder, 0.4)};
+      background-color: ${convertHexToRgba(theme.colors.placeholder, 0.6)};
     `}
   }
 `;

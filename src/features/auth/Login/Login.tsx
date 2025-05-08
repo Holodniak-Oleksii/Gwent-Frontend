@@ -28,23 +28,35 @@ export const Login = () => {
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} id={EAuthFormID.LOGIN}>
       <TextFiled
-        {...register("nickname", { required: true })}
+        {...register("nickname", {
+          required: t("errors.required"),
+          pattern: {
+            value: /^[a-zA-Z0-9]+$/,
+            message: t("errors.invalidNickname"),
+          },
+        })}
         placeholder={t("placeholders.nickname")}
         label={t("labels.nickname")}
         startIcon={<IconUserProfile />}
         error={errors.nickname}
       />
       <TextFiled
-        {...register("password", { required: true })}
+        {...register("password", {
+          required: t("errors.required"),
+          minLength: {
+            value: 6,
+            message: t("errors.passwordTooShort"),
+          },
+        })}
         placeholder={t("placeholders.password")}
         label={t("labels.password")}
         startIcon={<IconLock />}
         endIcon={
           <button type="button" onClick={() => setShowPass((prev) => !prev)}>
-            {showPass ? <IconEyeOff /> : <IconEye />}
+            {showPass ? <IconEye /> : <IconEyeOff />}
           </button>
         }
-        type={showPass ? "password" : "text"}
+        type={showPass ? "text" : "password"}
         error={errors.password}
       />
     </StyledForm>

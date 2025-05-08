@@ -8,7 +8,7 @@ const defaultPalette: DefaultTheme["colors"] = {
   text: "#FEFEFE",
   border: "rgba(223, 228, 248, 0.05)",
   gold: "#f1ca64",
-  error: "#c30505",
+  error: "#f16767",
   placeholder: "rgba(40, 41, 47, 1)",
   bgcolor: "rgba(25,26,30,255)",
   bgneon: "rgba(25, 26, 30, 0.6)",

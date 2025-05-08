@@ -90,6 +90,13 @@
         "description": "An empire that relies on spies, deceit, and controlling the opponent. Their forces reveal enemy cards and use strategic advantages."
       }
     },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidNickname": "Nickname can only contain Latin letters and numbers",
+      "passwordTooShort": "Password must be at least 6 characters long",
+      "passwordMismatch": "Passwords do not match"
+    },
     "labels": {
       "call": "Do you want to stay up to date? <span>Join us!<span/>",
       "login": "Already have an account?",

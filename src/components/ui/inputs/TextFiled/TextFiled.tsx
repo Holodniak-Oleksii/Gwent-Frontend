@@ -42,11 +42,11 @@ const StyledLabel = styled.label<IError>`
     color: ${error ? theme.colors.error : theme.colors.secondary};
     ${theme.fontSizes.small};
     ${theme.overflow};
-    text-shadow: 1px 1px ${theme.colors.focus};
+    text-shadow: 1px 1px 2px ${theme.colors.focus};
   `}
 `;
 
-const StyledError = styled.span`
+const StyledError = styled.span<IError>`
   position: absolute;
   font-family: "HalisGR", sans-serif;
   left: 0;
@@ -57,11 +57,11 @@ const StyledError = styled.span`
     color: ${theme.colors.error};
     ${theme.fontSizes.small};
     ${theme.overflow};
-    text-shadow: 1px 1px ${theme.colors.focus};
+    text-shadow: 1px 1px 2px ${theme.colors.focus};
   `}
 `;
 
-export const Icon = styled.button<IPosition>`
+export const Icon = styled.button<IPosition & IError>`
   position: absolute;
   display: flex;
   align-items: center;
@@ -78,6 +78,9 @@ export const Icon = styled.button<IPosition>`
   }
   svg {
     path {
+      ${({ theme, error }) => css`
+        stroke: ${error ? theme.colors.error : theme.colors.secondary};
+      `}
       width: 20px;
       height: 20px;
     }
@@ -90,11 +93,16 @@ export const TextFiled = forwardRef<HTMLInputElement, ITextFieldProps>(
     return (
       <StyledBlock>
         {!!startIcon && (
-          <Icon type={"button"} className="end-icon" position="left">
+          <Icon
+            error={error}
+            type={"button"}
+            className="end-icon"
+            position="left"
+          >
             {startIcon}
           </Icon>
         )}
-        {!!label && <StyledLabel>{label}</StyledLabel>}
+        {!!label && <StyledLabel error={error}>{label}</StyledLabel>}
         <StyledInput
           {...rest}
           ref={ref}
@@ -104,7 +112,12 @@ export const TextFiled = forwardRef<HTMLInputElement, ITextFieldProps>(
         />
         {!!error && <StyledError>{error.message}</StyledError>}
         {!!endIcon && (
-          <Icon type={"button"} className="end-icon" position="right">
+          <Icon
+            error={error}
+            type={"button"}
+            className="end-icon"
+            position="right"
+          >
             {endIcon}
           </Icon>
         )}

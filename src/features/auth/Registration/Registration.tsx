@@ -12,15 +12,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-const passwordFields = [
-  { name: "password", label: "labels.password" },
-  { name: "confirmPassword", label: "labels.repeatPassword" },
-] as const;
-
 export const Registration = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    trigger,
     formState: { errors },
   } = useForm<IRegistrationFormFields>();
 
@@ -28,6 +25,7 @@ export const Registration = () => {
     password: false,
     confirmPassword: false,
   });
+
   const { mutate } = useRegistrationMutation();
   const { t } = useTranslation();
 
@@ -35,43 +33,86 @@ export const Registration = () => {
     setShowPass((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
+  const password = watch("password");
+  const confirmPassword = watch("confirmPassword");
+
   const onSubmit = (data: IRegistrationFormFields) => mutate(data);
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} id={EAuthFormID.REGISTRATION}>
       <TextFiled
-        {...register("email", { required: true })}
+        {...register("email", {
+          required: t("errors.required"),
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: t("errors.invalidEmail"),
+          },
+        })}
         placeholder={t("placeholders.email")}
         label={t("labels.email")}
         startIcon={<IconEmail />}
         error={errors.email}
       />
       <TextFiled
-        {...register("nickname", { required: true })}
+        {...register("nickname", {
+          required: t("errors.required"),
+          pattern: {
+            value: /^[a-zA-Z0-9]+$/,
+            message: t("errors.invalidNickname"),
+          },
+        })}
         placeholder={t("placeholders.nickname")}
         label={t("labels.nickname")}
         startIcon={<IconUserProfile />}
         error={errors.nickname}
       />
-      {passwordFields.map(({ name, label }) => (
-        <TextFiled
-          key={name}
-          {...register(name, { required: true })}
-          placeholder={t(label)}
-          label={t(label)}
-          startIcon={<IconLock />}
-          error={errors[name]}
-          endIcon={
-            <button
-              type="button"
-              onClick={() => togglePasswordVisibility(name)}
-            >
-              {showPass[name] ? <IconEyeOff /> : <IconEye />}
-            </button>
-          }
-          type={showPass[name] ? "password" : "text"}
-        />
-      ))}
+      <TextFiled
+        {...register("password", {
+          required: t("errors.required"),
+          minLength: {
+            value: 6,
+            message: t("errors.passwordTooShort"),
+          },
+          validate: () =>
+            confirmPassword === undefined ||
+            password === confirmPassword ||
+            t("errors.passwordMismatch"),
+        })}
+        placeholder={t("labels.password")}
+        label={t("labels.password")}
+        startIcon={<IconLock />}
+        error={errors.password}
+        endIcon={
+          <button
+            type="button"
+            onClick={() => togglePasswordVisibility("password")}
+          >
+            {showPass.password ? <IconEye /> : <IconEyeOff />}
+          </button>
+        }
+        type={showPass.password ? "text" : "password"}
+      />
+      <TextFiled
+        {...register("confirmPassword", {
+          required: t("errors.required"),
+          validate: (value) =>
+            value === password || t("errors.passwordMismatch"),
+        })}
+        placeholder={t("labels.repeatPassword")}
+        label={t("labels.repeatPassword")}
+        startIcon={<IconLock />}
+        error={errors.confirmPassword}
+        endIcon={
+          <button
+            type="button"
+            onClick={() => togglePasswordVisibility("confirmPassword")}
+          >
+            {showPass.confirmPassword ? <IconEye /> : <IconEyeOff />}
+          </button>
+        }
+        type={showPass.confirmPassword ? "text" : "password"}
+        onBlur={() => trigger("password")}
+      />
     </StyledForm>
   );
 };
