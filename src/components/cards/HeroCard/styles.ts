@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
-  width: 200px;
-  height: 320px;
-  background-color: #f3f3f3ff;
+  width: 100%;
+  aspect-ratio: 20/32;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primary};
+    border: 1px solid ${theme.colors.bgneonLight};
+  `}
 `;
 
 export const StyledImage = styled.img<{ $isBuy?: boolean }>`
@@ -24,6 +27,13 @@ export const StyledPanel = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 8px;
+  ${({ theme }) => css`
+    span {
+      text-align: center;
+      ${theme.fontSizes.medium};
+      color: ${theme.colors.text};
+    }
+  `}
 `;
 
 export const StyledLabel = styled.div`

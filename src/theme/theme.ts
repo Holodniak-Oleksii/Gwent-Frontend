@@ -1,4 +1,5 @@
 import imageBg from "@/assets/images/background.webp";
+import { getCardWidth } from "@/utils";
 import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
@@ -53,9 +54,22 @@ const theme: DefaultTheme = {
     overflow: hidden;
   `,
   common: {
+    secondFontFamily: 'font-family: "HalisGR", sans-serif',
     bgTexture: `background: url(${imageBg}) center top repeat;`,
     textShadow: `text-shadow: 1px 0 ${defaultPalette.focus}, -1px 0 ${defaultPalette.focus}, 0 1px ${defaultPalette.focus}, 0 -1px ${defaultPalette.focus},
-             1px 1px ${defaultPalette.focus}, -1px -1px ${defaultPalette.focus}, 1px -1px ${defaultPalette.focus}, -1px 1px ${defaultPalette.focus};`,
+    1px 1px ${defaultPalette.focus}, -1px -1px ${defaultPalette.focus}, 1px -1px ${defaultPalette.focus}, -1px 1px ${defaultPalette.focus};`,
+    grid: css`
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 16px;
+      & > div {
+        width: ${getCardWidth("16px", 7)};
+        ${media.width.lg} {
+          width: ${getCardWidth("16px", 6)};
+        }
+      }
+    `,
   },
   spacing: {
     content: css`

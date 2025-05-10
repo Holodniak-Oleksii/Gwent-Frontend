@@ -76,12 +76,12 @@ export const StyledLabel = styled.span`
   width: 100%;
   text-align: left;
   margin-top: 4px;
-  font-family: "HalisGR", sans-serif;
 
-  a {
-    font-family: "HalisGR", sans-serif;
-  }
   ${({ theme }) => css`
+    ${theme.common.secondFontFamily}
+    a {
+      ${theme.common.secondFontFamily}
+    }
     text-shadow: 1px 1px ${theme.colors.focus};
     ${theme.fontSizes.medium};
     a {

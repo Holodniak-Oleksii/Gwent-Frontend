@@ -19,6 +19,8 @@ declare module "styled-components" {
     common: {
       bgTexture: string;
       textShadow: string;
+      secondFontFamily: string;
+      grid: ReturnType<typeof css>;
     };
     overflow: string;
     getLineClamp: (lines: number) => string;

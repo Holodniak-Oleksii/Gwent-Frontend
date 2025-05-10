@@ -1,19 +1,18 @@
 import { useGetMyCardsQuery } from "@/api/cards";
-import { LINK_TEMPLATES } from "@/common/constants";
 import { EFaction } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
-import { useUserStore } from "@/store/user";
+import { UserStats } from "@/features/Profile/components/UserStats";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   StyledActiveTab,
   StyledContainer,
+  StyledList,
   StyledTabs,
   StyledWrapper,
 } from "./styles";
+import { convertText } from "@/utils";
 
 export const Profile = () => {
-  const user = useUserStore((state) => state.user);
   const { data } = useGetMyCardsQuery();
   const [isActiveFraction, setIsActiveFraction] = useState(
     EFaction.KINGDOMS_OF_THE_NORTH
@@ -31,16 +30,17 @@ export const Profile = () => {
         $isActive={f === isActiveFraction}
         onClick={() => setIsActiveFraction(EFaction[f])}
       >
-        {f}
+        {convertText(f)}
       </StyledActiveTab>
     ));
 
   return (
     <StyledWrapper>
-      Hello {user?.nickname}
-      <Link to={LINK_TEMPLATES.ARENA("text")}>Fight</Link>
-      <StyledTabs>{renderTabs()}</StyledTabs>
-      <StyledContainer>{renderHeroCards()}</StyledContainer>
+      <UserStats />
+      <StyledContainer>
+        <StyledTabs>{renderTabs()}</StyledTabs>
+        <StyledList>{renderHeroCards()}</StyledList>
+      </StyledContainer>
     </StyledWrapper>
   );
 };
