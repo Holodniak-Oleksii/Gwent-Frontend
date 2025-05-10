@@ -22,17 +22,15 @@ export const convertStatsToArray = (stats: IUserStats): IStat[] => [
   },
   {
     icon: <IconMedal />,
-    name: "World Place",
-    value: stats.topPlace,
+    name: "Rating",
+    value: stats.rating,
     order: 2,
-    isRang: true,
   },
   {
     icon: <IconPercent />,
     name: "Percentage of wins",
     value: stats.winsPercentage,
     order: 4,
-    isPercentage: true,
   },
   {
     icon: <IconDraws />,

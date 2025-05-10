@@ -39,8 +39,8 @@ export const HeroCard: FC<IHeroCardProps> = ({ card, isBuy }) => {
         $isBuy={buyAlible}
       />
       <StyledPanel>
-        <span>{convertText(card.image)}</span>
         {buyAlible && <button onClick={handleBuy}>Buy</button>}
+        <span>{convertText(card.image)}</span>
       </StyledPanel>
     </StyledWrapper>
   );

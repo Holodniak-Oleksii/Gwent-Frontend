@@ -1,4 +1,5 @@
 import { IActiveble } from "@/common/types/common";
+import { convertHexToRgba } from "@/utils/colorUtil";
 import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
@@ -41,8 +42,10 @@ export const StyledActiveTab = styled.button<IActiveble>`
     ${theme.common.secondFontFamily};
     color: ${theme.colors.text};
     border-bottom: 1px solid ${theme.colors.secondary};
+    transition: all 0.2s linear;
+    font-weight: 500;
     background-color: ${$isActive
-      ? theme.colors.secondary
-      : theme.colors.bgneonLight};
+      ? convertHexToRgba(theme.colors.secondary, 0.4)
+      : convertHexToRgba(theme.colors.secondary, 0.1)};
   `};
 `;

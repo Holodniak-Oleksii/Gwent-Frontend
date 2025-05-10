@@ -7,8 +7,6 @@ export interface IStat {
   icon: ReactNode;
   value: string | number;
   order: number;
-  isPercentage?: boolean;
-  isRang?: boolean;
 }
 
 export const StatCard: FC<IStat> = ({ icon, name, value, order }) => (
