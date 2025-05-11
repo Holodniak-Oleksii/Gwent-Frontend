@@ -8,7 +8,6 @@ import {
   StyledActiveTab,
   StyledContainer,
   StyledList,
-  StyledTabs,
   StyledWrapper,
 } from "./styles";
 
@@ -19,9 +18,7 @@ export const Profile = () => {
   );
 
   const renderHeroCards = () =>
-    data?.cards
-      .filter((c) => c.fractionId === isActiveFraction)
-      .map((card) => <HeroCard key={card.id} card={card} />);
+    data?.cards.map((card) => <HeroCard key={card.id} card={card} />);
 
   const renderTabs = () =>
     Object.values(EFaction).map((f, i) => (
@@ -38,10 +35,10 @@ export const Profile = () => {
     <StyledWrapper>
       <UserStats />
       <StyledContainer>
-        <StyledTabs>
+        {/* <StyledTabs>
           {renderTabs()}
           <StyledActiveTab>Awards</StyledActiveTab>
-        </StyledTabs>
+        </StyledTabs> */}
         <StyledList>{renderHeroCards()}</StyledList>
       </StyledContainer>
     </StyledWrapper>

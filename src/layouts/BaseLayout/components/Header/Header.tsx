@@ -2,11 +2,11 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import i18n from "@/i18n";
-import { useAuthStore } from "@/store/auth";
+import { Account } from "@/layouts/BaseLayout/components/Header/components/Account";
 import { useUserStore } from "@/store/user";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getNavigation } from "../data";
 import { LanguageSelect } from "./components/LanguageSelect";
 import {
@@ -25,16 +25,6 @@ export const Header = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const isAuth = useUserStore((state) => state.isAuth);
-  const user = useUserStore((state) => state.user);
-
-  const logout = useUserStore((state) => state.logout);
-  const removeCredentials = useAuthStore((state) => state.removeCredentials);
-
-  const onLogOut = () => {
-    navigate(LINK_TEMPLATES.HOME());
-    logout();
-    removeCredentials();
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,10 +61,7 @@ export const Header = () => {
         <StyledAction>
           <LanguageSelect />
           {isAuth ? (
-            <>
-              <Link to={LINK_TEMPLATES.PROFILE()}>{user?.nickname}</Link>
-              <BaseButton onClick={onLogOut}>log out</BaseButton>
-            </>
+            <Account />
           ) : (
             <>
               <BaseButton onClick={() => navigate(LINK_TEMPLATES.LOGIN())}>

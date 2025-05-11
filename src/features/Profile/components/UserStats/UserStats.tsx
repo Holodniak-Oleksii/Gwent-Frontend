@@ -1,7 +1,12 @@
+import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
+import IconLogout from "@/common/icons/IconLogout";
 import { Avatar } from "@/components/shared/Avatar";
 import { FirefliesPixi } from "@/components/shared/Fireflies";
 import { convertStatsToArray } from "@/features/Profile/components/UserStats/data";
+import { useAuthStore } from "@/store/auth";
+import { useUserStore } from "@/store/user";
+import { useNavigate } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import { StatCard } from "../StatCard";
 import {
@@ -12,6 +17,7 @@ import {
   StyledDate,
   StyledGrid,
   StyledInfo,
+  StyledLogout,
   StyledName,
   StyledOverlay,
   StyledPanel,
@@ -20,6 +26,16 @@ import {
 
 export const UserStats = () => {
   const stats = useGetUserStats();
+  const navigate = useNavigate();
+
+  const logout = useUserStore((state) => state.logout);
+  const removeCredentials = useAuthStore((state) => state.removeCredentials);
+
+  const onLogOut = () => {
+    navigate(LINK_TEMPLATES.HOME());
+    logout();
+    removeCredentials();
+  };
 
   const renderStats = (secondPart: boolean) =>
     convertStatsToArray(stats)
@@ -37,6 +53,9 @@ export const UserStats = () => {
         <StyledContainer>
           <StyledPanel>
             <FirefliesPixi />
+            <StyledLogout onClick={onLogOut}>
+              <IconLogout />
+            </StyledLogout>
           </StyledPanel>
           <StyledInfo>
             <StyledGrid>{renderStats(false)}</StyledGrid>

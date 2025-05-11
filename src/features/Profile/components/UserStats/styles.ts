@@ -63,6 +63,19 @@ export const StyledPanel = styled.div`
   `}
 `;
 
+export const StyledLogout = styled.button`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.bgneonLight};
+  `}
+`;
+
 export const StyledInfo = styled.div`
   width: 100%;
   position: relative;
@@ -71,7 +84,6 @@ export const StyledInfo = styled.div`
   padding: 24px;
   grid-template-columns: 1fr minmax(200px, 360px) 1fr;
   ${({ theme }) => css`
-    filter: drop-shadow(0px 0px 1px ${theme.colors.secondary});
     background-color: ${theme.colors.primary};
   `}
 `;
