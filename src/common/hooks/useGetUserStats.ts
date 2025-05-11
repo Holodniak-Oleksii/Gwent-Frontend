@@ -8,10 +8,11 @@ export interface IUserStats {
   losses: number;
   draws: number;
   sum: number;
-  winsPercentage: string;
+  winsPercentage: number;
   rating: number;
   coins: number;
   createdAt: string;
+  rang: number;
 }
 
 export const useGetUserStats = (): IUserStats => {
@@ -21,8 +22,10 @@ export const useGetUserStats = (): IUserStats => {
   const losses = user?.losses ?? 0;
   const draws = user?.draws ?? 0;
   const sum = wins + losses + draws;
+  const rating = user?.rating || 0;
+  const winsPercentage = +(sum > 0 ? (wins / sum) * 100 : 0).toFixed(0);
 
-  const winsPercentage = (sum > 0 ? (wins / sum) * 100 : 0).toFixed(2);
+  const rang = rating > 5000 ? 1 : rating > 10000 ? 2 : rating > 50000 ? 3 : 0;
 
   return {
     nickname: user?.nickname,
@@ -32,8 +35,9 @@ export const useGetUserStats = (): IUserStats => {
     draws,
     sum,
     winsPercentage,
-    rating: user?.rating || 0,
+    rating,
     coins: user?.coins || 0,
     createdAt: formatDate(user?.createdAt || ""),
+    rang,
   };
 };

@@ -1,49 +1,61 @@
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
-import IconClock from "@/common/icons/IconClock";
-import IconCoin from "@/common/icons/IconCoin";
+import { Avatar } from "@/components/shared/Avatar";
 import { FirefliesPixi } from "@/components/shared/Fireflies";
-import Image from "@/components/shared/Image";
 import { convertStatsToArray } from "@/features/Profile/components/UserStats/data";
+import { Fragment } from "react/jsx-runtime";
 import { StatCard } from "../StatCard";
 import {
-  StyledAvatar,
   StyledAvatarContainer,
+  StyledAvatarWrapper,
+  StyledColumn,
   StyledContainer,
+  StyledDate,
   StyledGrid,
+  StyledInfo,
   StyledName,
-  StyledTextBlock,
+  StyledOverlay,
+  StyledPanel,
   StyledWrapper,
 } from "./styles";
 
 export const UserStats = () => {
   const stats = useGetUserStats();
 
-  const renderStats = () =>
-    convertStatsToArray(stats).map((item, i) => <StatCard key={i} {...item} />);
+  const renderStats = (secondPart: boolean) =>
+    convertStatsToArray(stats)
+      .slice(secondPart ? 3 : 0, secondPart ? 6 : 3)
+      .map((item, i) => (
+        <Fragment key={i}>
+          <StatCard {...item} />
+          <hr />
+        </Fragment>
+      ));
 
   return (
-    <StyledWrapper>
-      <FirefliesPixi />
-      <StyledContainer>
-        {renderStats()}
-
-        <StyledAvatarContainer>
-          <StyledAvatar>
-            <Image src={stats.avatar} alt={`Avatar of ${stats.nickname}`} />
-          </StyledAvatar>
-          <StyledName>{stats.nickname}</StyledName>
-          <StyledGrid>
-            <StyledTextBlock>
-              <IconCoin />
-              <span>{stats.coins}</span>
-            </StyledTextBlock>
-            <StyledTextBlock>
-              <IconClock />
-              <span>{stats.createdAt}</span>
-            </StyledTextBlock>
-          </StyledGrid>
-        </StyledAvatarContainer>
-      </StyledContainer>
-    </StyledWrapper>
+    <StyledOverlay>
+      <StyledWrapper>
+        <StyledContainer>
+          <StyledPanel>
+            <FirefliesPixi />
+          </StyledPanel>
+          <StyledInfo>
+            <StyledGrid>{renderStats(false)}</StyledGrid>
+            <StyledColumn>
+              <StyledAvatarWrapper>
+                <StyledAvatarContainer>
+                  <Avatar
+                    src={stats.avatar}
+                    percentage={stats.winsPercentage}
+                  />
+                </StyledAvatarContainer>
+              </StyledAvatarWrapper>
+              <StyledName>{stats.nickname}</StyledName>
+              <StyledDate>{stats.createdAt}</StyledDate>
+            </StyledColumn>
+            <StyledGrid>{renderStats(true)}</StyledGrid>
+          </StyledInfo>
+        </StyledContainer>
+      </StyledWrapper>
+    </StyledOverlay>
   );
 };

@@ -1,5 +1,4 @@
 import { IActiveble } from "@/common/types/common";
-import { convertHexToRgba } from "@/utils/colorUtil";
 import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
@@ -7,16 +6,12 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  ${({ theme }) => css`
-    ${theme.common.bgTexture};
-  `};
 `;
 
 export const StyledContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
   ${({ theme }) => css`
     ${theme.spacing.content};
   `};
@@ -41,11 +36,10 @@ export const StyledActiveTab = styled.button<IActiveble>`
     ${theme.fontSizes.medium};
     ${theme.common.secondFontFamily};
     color: ${theme.colors.text};
-    border-bottom: 1px solid ${theme.colors.secondary};
+    text-transform: uppercase;
     transition: all 0.2s linear;
     font-weight: 500;
-    background-color: ${$isActive
-      ? convertHexToRgba(theme.colors.secondary, 0.4)
-      : convertHexToRgba(theme.colors.secondary, 0.1)};
+    border-bottom: 1px solid
+      ${$isActive ? theme.colors.secondary : "transparent"};
   `};
 `;

@@ -2,6 +2,7 @@ import { useGetMyCardsQuery } from "@/api/cards";
 import { EFaction } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { UserStats } from "@/features/Profile/components/UserStats";
+import { convertText } from "@/utils";
 import { useState } from "react";
 import {
   StyledActiveTab,
@@ -10,7 +11,6 @@ import {
   StyledTabs,
   StyledWrapper,
 } from "./styles";
-import { convertText } from "@/utils";
 
 export const Profile = () => {
   const { data } = useGetMyCardsQuery();
@@ -38,7 +38,10 @@ export const Profile = () => {
     <StyledWrapper>
       <UserStats />
       <StyledContainer>
-        <StyledTabs>{renderTabs()}</StyledTabs>
+        <StyledTabs>
+          {renderTabs()}
+          <StyledActiveTab>Awards</StyledActiveTab>
+        </StyledTabs>
         <StyledList>{renderHeroCards()}</StyledList>
       </StyledContainer>
     </StyledWrapper>

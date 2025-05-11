@@ -57,7 +57,7 @@ const StyledAnglesBottom = styled(StyledAngles)`
 
 export const NeonParagraph: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className="neon-paragraph">
       <StyledAnglesTop />
       {children}
       <StyledAnglesBottom />
