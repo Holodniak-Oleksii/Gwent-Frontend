@@ -2,11 +2,13 @@ import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconEditAvatar from "@/common/icons/IconEditAvatar";
 import IconLogout from "@/common/icons/IconLogout";
+import { EModalKey } from "@/common/types";
 import { Avatar } from "@/components/shared/Avatar";
 import { FirefliesPixi } from "@/components/shared/Fireflies";
 import { convertStatsToArray } from "@/features/Profile/components/UserStats/data";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
+import { useModal } from "@ebay/nice-modal-react";
 import { useNavigate } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import { StatCard } from "../StatCard";
@@ -30,6 +32,7 @@ export const UserStats = () => {
   const navigate = useNavigate();
   const logout = useUserStore((state) => state.logout);
   const removeCredentials = useAuthStore((state) => state.removeCredentials);
+  const { show } = useModal(EModalKey.AVATAR_EDIT);
 
   const onLogOut = () => {
     navigate(LINK_TEMPLATES.HOME());
@@ -56,7 +59,7 @@ export const UserStats = () => {
             <StyledIcon onClick={onLogOut}>
               <IconLogout />
             </StyledIcon>
-            <StyledIcon>
+            <StyledIcon onClick={() => show()}>
               <IconEditAvatar />
             </StyledIcon>
           </StyledPanel>
