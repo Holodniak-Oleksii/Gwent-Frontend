@@ -1,5 +1,6 @@
 import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
+import IconEditAvatar from "@/common/icons/IconEditAvatar";
 import IconLogout from "@/common/icons/IconLogout";
 import { Avatar } from "@/components/shared/Avatar";
 import { FirefliesPixi } from "@/components/shared/Fireflies";
@@ -16,8 +17,8 @@ import {
   StyledContainer,
   StyledDate,
   StyledGrid,
+  StyledIcon,
   StyledInfo,
-  StyledLogout,
   StyledName,
   StyledOverlay,
   StyledPanel,
@@ -27,7 +28,6 @@ import {
 export const UserStats = () => {
   const stats = useGetUserStats();
   const navigate = useNavigate();
-
   const logout = useUserStore((state) => state.logout);
   const removeCredentials = useAuthStore((state) => state.removeCredentials);
 
@@ -53,9 +53,12 @@ export const UserStats = () => {
         <StyledContainer>
           <StyledPanel>
             <FirefliesPixi />
-            <StyledLogout onClick={onLogOut}>
+            <StyledIcon onClick={onLogOut}>
               <IconLogout />
-            </StyledLogout>
+            </StyledIcon>
+            <StyledIcon>
+              <IconEditAvatar />
+            </StyledIcon>
           </StyledPanel>
           <StyledInfo>
             <StyledGrid>{renderStats(false)}</StyledGrid>

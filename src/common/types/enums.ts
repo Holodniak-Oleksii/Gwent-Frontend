@@ -61,6 +61,7 @@ export enum ENDPOINTS {
   MY_CARDS = "/cards/my",
   ALL_CARDS = "/cards",
   BUY_CARDS = "/cards/buy",
+  AVATAR = "/users/avatar",
 }
 
 export enum EOperationNotificationType {
@@ -93,6 +94,7 @@ export enum EModalKey {
   CONFIRM_DUEL = "CONFIRM_DUEL",
   APPLY_CARD = "APPLY_CARD",
   RESURRECT = "RESURRECT",
+  AVATAR_EDIT = "AVATAR_EDIT",
 }
 
 export enum EGameRequestMessageType {

@@ -4,6 +4,7 @@ import { useNotifyMutation } from "@/common/hooks/useNotifyMutation";
 import {
   ENDPOINTS,
   IAuthResponse,
+  IAvatarResponse,
   IGetProfileResponse,
   QueryKey,
 } from "@/common/types";
@@ -11,7 +12,7 @@ import { ILoginFormFields } from "@/features/auth/Login/types";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -61,6 +62,24 @@ export const useGetProfileQuery = () => {
     queryFn: async () => {
       const { data } = await API.get<IGetProfileResponse>(ENDPOINTS.PROFILE);
       return data;
+    },
+  });
+};
+
+export const useMutationUploadAvatar = () => {
+  const setUser = useUserStore((state) => state.setUser);
+  const user = useUserStore((state) => state.user);
+
+  return useMutation({
+    mutationFn: (avatar: File) => {
+      const form = new FormData();
+      form.append("avatar", avatar);
+      return API.post(ENDPOINTS.AVATAR, form);
+    },
+    onSuccess: (data: AxiosResponse<IAvatarResponse>) => {
+      if (data.data.avatar && user) {
+        setUser({ ...user, avatar: data.data.avatar });
+      }
     },
   });
 };

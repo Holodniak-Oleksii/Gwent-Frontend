@@ -18,7 +18,7 @@ export const StyledWrapper = styled.div`
 export const StyledImage = styled.img<{ $isBuy?: boolean }>`
   width: 100%;
   height: ${({ $isBuy }) =>
-    $isBuy ? "calc(100% - 120px)" : "calc(100% - 80px)"};
+    $isBuy ? "calc(100% - 120px)" : "calc(100% - 60px)"};
   object-fit: cover;
 `;
 
@@ -34,17 +34,8 @@ export const StyledPanel = styled.div`
   ${({ theme }) => css`
     span {
       text-align: center;
-      ${theme.fontSizes.medium};
+      ${theme.fontSizes.small};
       color: ${theme.colors.text};
     }
   `}
-`;
-
-export const StyledLabel = styled.div`
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 `;

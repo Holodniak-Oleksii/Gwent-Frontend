@@ -56,6 +56,12 @@ export const StyledPanel = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 16px;
   z-index: 3;
   ${({ theme }) => css`
     background-color: ${theme.colors.bgneonLight};
@@ -63,14 +69,15 @@ export const StyledPanel = styled.div`
   `}
 `;
 
-export const StyledLogout = styled.button`
-  position: absolute;
-  right: 16px;
-  top: 16px;
+export const StyledIcon = styled.button`
   padding: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
   ${({ theme }) => css`
     background-color: ${theme.colors.bgneonLight};
   `}
