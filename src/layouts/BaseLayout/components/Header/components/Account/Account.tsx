@@ -3,12 +3,14 @@ import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconCoin from "@/common/icons/IconCoin";
 import { Avatar } from "@/components/shared/Avatar";
 import { convertHexToRgba } from "@/utils/colorUtil";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const StyledBalance = styled.div`
   display: flex;
   align-items: center;
+  margin-left: auto;
   gap: 2px;
   ${({ theme }) => css`
     svg {
@@ -43,6 +45,7 @@ const StyledContainer = styled.div`
   border-radius: 4px;
   ${({ theme }) => css`
     background-color: ${theme.colors.primary};
+    border: 1px solid ${theme.colors.placeholder};
   `}
 `;
 
@@ -52,18 +55,19 @@ const StyledAva = styled(Link)`
 
 export const Account = () => {
   const stats = useGetUserStats();
+  const { t } = useTranslation();
 
   return (
     <StyledContainer>
       <StyledRow>
-        <b>Balance:</b>
+        <b>{t("labels.balance")}:</b>
         <StyledBalance>
           <IconCoin />
           <span>{stats?.coins}</span>
         </StyledBalance>
       </StyledRow>
       <StyledAva to={LINK_TEMPLATES.PROFILE()}>
-        <Avatar isAva src={stats?.avatar || ""} percentage={0} />
+        <Avatar isAva src={stats?.avatar || ""} percentage={100} />
       </StyledAva>
     </StyledContainer>
   );

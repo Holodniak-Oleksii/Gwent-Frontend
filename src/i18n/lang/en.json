@@ -5,6 +5,7 @@
       "rules": "Rules",
       "aboutUs": "About Us",
       "contacts": "Contacts",
+      "players": "Players",
       "login": "Login",
       "fqa": "FQA",
       "howIfWorks": "How it Works",
@@ -119,7 +120,8 @@
       "nickname": "Nickname",
       "password": "Password",
       "repeatPassword": "Repeat Password",
-      "email": "Email"
+      "email": "Email",
+      "balance": "Balance"
     },
     "placeholders": {
       "nickname": "Enter Nickname",
