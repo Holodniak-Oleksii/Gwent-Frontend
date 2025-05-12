@@ -6,21 +6,19 @@ import { Fractions } from "./components/Fractions";
 import { Information } from "./components/Information";
 import { StyledOverlay } from "./styles";
 
-export const Home = () => {
-  return (
-    <>
-      <Banner />
-      <StyledOverlay>
-        <Information />
-      </StyledOverlay>
-      <FirstWin />
-      <StyledOverlay>
-        <Fractions />
-      </StyledOverlay>
-      <Abilities />
-      <StyledOverlay>
-        <Fqa />
-      </StyledOverlay>
-    </>
-  );
-};
+export const Home = () => (
+  <>
+    <Banner />
+    <StyledOverlay>
+      <Information />
+    </StyledOverlay>
+    <FirstWin />
+    <StyledOverlay>
+      <Fractions />
+    </StyledOverlay>
+    <Abilities />
+    <StyledOverlay>
+      <Fqa />
+    </StyledOverlay>
+  </>
+);

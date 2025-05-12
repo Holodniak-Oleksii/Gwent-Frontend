@@ -1,3 +1,18 @@
+import { useGetCardsQuery } from "@/api/cards";
+import { HeroCard } from "@/components/cards/HeroCard";
+import { StyledContainer, StyledList, StyledWrapper } from "./styles";
+
 export const Market = () => {
-  return <div>Market</div>;
+  const { data } = useGetCardsQuery();
+  return (
+    <StyledWrapper>
+      <StyledContainer>
+        <StyledList>
+          {data?.cards.map((c) => (
+            <HeroCard card={c} key={c.id} isBuy />
+          ))}
+        </StyledList>
+      </StyledContainer>
+    </StyledWrapper>
+  );
 };

@@ -33,9 +33,9 @@ const ButtonContentBlock = styled.div`
   ${({ theme }) => css`
     ${theme.fontSizes.regular}
     color: ${theme.colors.text};
+    text-shadow: 1px 1px ${theme.colors.focus};
     background-color: ${theme.colors.secondary};
     font-weight: 600;
-    text-shadow: 0px 0px 2px ${theme.colors.gold};
   `}
 `;
 
@@ -97,7 +97,7 @@ export const DecoratedButton: FC<DecoratedButtonProps> = ({
   ...props
 }) => {
   return (
-    <StyledButton minWidth={minWidth} {...props}>
+    <StyledButton className="decorated-button" minWidth={minWidth} {...props}>
       <ButtonSideLeft>
         <ButtonSideContent />
       </ButtonSideLeft>

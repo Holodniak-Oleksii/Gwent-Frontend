@@ -10,6 +10,8 @@ export interface IUserModel {
   draws: number;
   cards: string[];
   coins: number;
+  createdAt: string;
+  rating: number;
 }
 
 export interface IFactionModel {

@@ -107,3 +107,8 @@ export enum EAvailableLanguage {
   UK = "uk",
   PL = "pl",
 }
+
+export enum EAuthFormID {
+  LOGIN = "LOGIN",
+  REGISTRATION = "REGISTRATION",
+}

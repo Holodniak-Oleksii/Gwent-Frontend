@@ -2,6 +2,7 @@ import { useBuyCardMutation } from "@/api/cards";
 import { EType, ICardModel } from "@/common/types";
 import { Force } from "@/components/cards/plugs/Force";
 import { useUserStore } from "@/store/user";
+import { convertText } from "@/utils";
 import { getUrlImage } from "@/utils/image";
 import { FC } from "react";
 import { Power } from "../plugs/Power";
@@ -38,8 +39,8 @@ export const HeroCard: FC<IHeroCardProps> = ({ card, isBuy }) => {
         $isBuy={buyAlible}
       />
       <StyledPanel>
-        {card.image.replaceAll("-", " ")}
         {buyAlible && <button onClick={handleBuy}>Buy</button>}
+        <span>{convertText(card.image)}</span>
       </StyledPanel>
     </StyledWrapper>
   );
