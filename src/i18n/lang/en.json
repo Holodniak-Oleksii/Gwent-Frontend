@@ -36,7 +36,9 @@
       "login": "Login",
       "registration": "Registration",
       "play": "Play",
-      "createAccount": "Create Account"
+      "createAccount": "Create Account",
+      "cancel": "Cancel",
+      "apply": "Apply"
     },
     "title": {
       "gwent": "Gwent",

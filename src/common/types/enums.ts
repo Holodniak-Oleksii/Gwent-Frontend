@@ -61,6 +61,7 @@ export enum ENDPOINTS {
   MY_CARDS = "/cards/my",
   ALL_CARDS = "/cards",
   BUY_CARDS = "/cards/buy",
+  AVATAR = "/users/avatar",
 }
 
 export enum EOperationNotificationType {
@@ -93,6 +94,7 @@ export enum EModalKey {
   CONFIRM_DUEL = "CONFIRM_DUEL",
   APPLY_CARD = "APPLY_CARD",
   RESURRECT = "RESURRECT",
+  AVATAR_EDIT = "AVATAR_EDIT",
 }
 
 export enum EGameRequestMessageType {
@@ -111,4 +113,16 @@ export enum EAvailableLanguage {
 export enum EAuthFormID {
   LOGIN = "LOGIN",
   REGISTRATION = "REGISTRATION",
+}
+
+export enum EAwards {
+  RICH = "RICH",
+  PATRON = "PATRON",
+  TREASURER = "TREASURER",
+  EQUAL_FIGHTER = "EQUAL_FIGHTER",
+  IRON_WILL = "IRON_WILL",
+  STRATEGY_MASTER = "STRATEGY_MASTER",
+  ARENA_LEGEND = "ARENA_LEGEND",
+  FIGHTER = "FIGHTER",
+  ONE_IN_A_THOUSAND = "ONE_IN_A_THOUSAND",
 }

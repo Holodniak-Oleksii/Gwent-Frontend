@@ -1,7 +1,8 @@
+import imageAgile from "@/assets/images/combats/agile.webp";
+import imageClose from "@/assets/images/combats/close.webp";
+import imageRanged from "@/assets/images/combats/ranged.webp";
+import imageSiege from "@/assets/images/combats/siege.webp";
 import { EForces } from "@/common/types";
-import BowIcon from "@/components/icons/BowIcon";
-import SwordIcon from "@/components/icons/SwordIcon";
-import TrebuchetIcon from "@/components/icons/TrebuchetIcon";
 import { StyledCircle } from "./styles";
 
 import { FC } from "react";
@@ -14,13 +15,16 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ff9603;
   border-radius: 50%;
-  padding: 6px;
   svg {
     width: 100%;
     height: 100%;
   }
+`;
+
+const StyledWrapper = styled.div`
+  position: relative;
+  margin-top: 24px;
 `;
 
 interface IForceProps {
@@ -28,19 +32,18 @@ interface IForceProps {
 }
 
 const dataIcon = {
-  [EForces.SIEGE]: TrebuchetIcon,
-  [EForces.CLOSE]: SwordIcon,
-  [EForces.RANGED]: BowIcon,
-  [EForces.AGILE]: BowIcon,
+  [EForces.SIEGE]: imageSiege,
+  [EForces.CLOSE]: imageClose,
+  [EForces.RANGED]: imageRanged,
+  [EForces.AGILE]: imageAgile,
 };
 
-export const Force: FC<IForceProps> = ({ force }) => {
-  const Icon = dataIcon[force];
-  return (
+export const Force: FC<IForceProps> = ({ force }) => (
+  <StyledWrapper>
     <StyledCircle>
       <StyledContainer>
-        <Icon />
+        <img src={dataIcon[force]} alt={force} />
       </StyledContainer>
     </StyledCircle>
-  );
-};
+  </StyledWrapper>
+);

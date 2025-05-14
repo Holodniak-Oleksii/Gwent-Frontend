@@ -1,3 +1,4 @@
+import { EFaction } from "@/common/types/enums";
 import { css } from "styled-components";
 
 declare module "styled-components" {
@@ -15,6 +16,9 @@ declare module "styled-components" {
       bgneon: string;
       bgneonLight: string;
       lightText: string;
+      fraction: {
+        [key in EFaction]: string;
+      };
     };
     common: {
       bgTexture: string;

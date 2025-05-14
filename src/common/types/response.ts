@@ -10,6 +10,11 @@ export interface IAuthResponse {
   };
 }
 
+export interface IAvatarResponse {
+  avatar: string;
+  message: string;
+}
+
 export interface IErrorResponse {
   message: string;
 }
