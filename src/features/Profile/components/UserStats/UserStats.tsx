@@ -11,7 +11,6 @@ import { useUserStore } from "@/store/user";
 import { useModal } from "@ebay/nice-modal-react";
 import { useNavigate } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
-import { StatCard } from "../StatCard";
 import {
   StyledAvatarContainer,
   StyledAvatarWrapper,
@@ -26,9 +25,11 @@ import {
   StyledPanel,
   StyledWrapper,
 } from "./styles";
+import { StatCard } from "@/components/cards/StatCard";
 
 export const UserStats = () => {
-  const stats = useGetUserStats();
+  const user = useUserStore((state) => state.user);
+  const stats = useGetUserStats(user);
   const navigate = useNavigate();
   const logout = useUserStore((state) => state.logout);
   const removeCredentials = useAuthStore((state) => state.removeCredentials);

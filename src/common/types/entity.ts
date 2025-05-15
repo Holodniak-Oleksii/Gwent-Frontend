@@ -1,3 +1,3 @@
 import { IUserModel } from "@/common/types/models";
 
-export type TPlayer = Omit<IUserModel, "coins" | "cards" | "email">;
+export type TPlayer = Omit<IUserModel, "cards" | "email">;

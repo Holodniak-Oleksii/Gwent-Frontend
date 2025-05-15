@@ -5,7 +5,7 @@ import IconDraws from "@/common/icons/stats/IconDraws";
 import IconFight from "@/common/icons/stats/IconFight";
 import IconMedal from "@/common/icons/stats/IconMedal";
 import IconWins from "@/common/icons/stats/IconWins";
-import { IStat } from "../StatCard/StatCard";
+import { IStat } from "../../../../components/cards/StatCard/StatCard";
 
 export const convertStatsToArray = (stats: IUserStats): IStat[] => {
   const Icon = RANG_IMAGE[stats.rang];

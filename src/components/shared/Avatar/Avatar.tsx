@@ -58,7 +58,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLabel = styled.div`
-  width: 50px;
+  width: 25%;
   aspect-ratio: 347 / 394;
   position: absolute;
   bottom: calc(10% + 24px);
