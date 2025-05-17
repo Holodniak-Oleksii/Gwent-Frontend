@@ -41,7 +41,9 @@
       "challenge": "Challenge",
       "moreInfo": "More Info",
       "apply": "Apply",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "buy": "Buy",
+      "owned": "Owned"
     },
     "title": {
       "gwent": "Gwent",
@@ -49,7 +51,11 @@
       "gamePlay": "Game Play",
       "gwentProperly": "How to Play <span>Gwent</span> Properly",
       "fqa": "Frequently Asked Questions",
-      "fight": "Fight"
+      "fight": "Fight",
+      "buy": "Buy"
+    },
+    "message": {
+      "enoughMoney": "You don't have enough money"
     },
     "subTitle": {
       "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
@@ -117,7 +123,8 @@
       "tokenRefreshed": "Session updated",
       "serverError": "An unexpected server error occurred",
       "somethingWentWrong": "Something went wrong",
-      "successfully": "Successfully"
+      "successfully": "Successfully",
+      "notEnoughMoney": "You don't have enough money"
     },
     "labels": {
       "call": "Do you want to stay up to date? <span>Join us!<span/>",

@@ -97,6 +97,7 @@ export enum EModalKey {
   APPLY_CARD = "APPLY_CARD",
   RESURRECT = "RESURRECT",
   AVATAR_EDIT = "AVATAR_EDIT",
+  BUY_CARD = "BUY_CARD",
 }
 
 export enum EGameRequestMessageType {
