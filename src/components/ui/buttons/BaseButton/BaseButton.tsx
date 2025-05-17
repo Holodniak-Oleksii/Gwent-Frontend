@@ -1,7 +1,20 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  forwardRef,
+} from "react";
+import { Link, LinkProps } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 interface IBaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "fill" | "outline";
+}
+
+interface ILinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+    Omit<LinkProps, "to"> {
+  to: LinkProps["to"];
   variant?: "fill" | "outline";
 }
 
@@ -24,6 +37,10 @@ const StyledButton = styled.button<IBaseButtonProps>`
   `}
 `;
 
+const StyledLink = styled(StyledButton)`
+  text-align: center;
+`;
+
 export const BaseButton: FC<IBaseButtonProps> = ({
   children,
   variant = "fill",
@@ -32,4 +49,10 @@ export const BaseButton: FC<IBaseButtonProps> = ({
   <StyledButton variant={variant} {...props}>
     {children}
   </StyledButton>
+);
+
+export const BaseStyledLink = forwardRef<HTMLAnchorElement, ILinkProps>(
+  ({ variant = "fill", to, ...props }, ref) => (
+    <StyledLink as={Link} to={to} variant={variant} ref={ref} {...props} />
+  )
 );

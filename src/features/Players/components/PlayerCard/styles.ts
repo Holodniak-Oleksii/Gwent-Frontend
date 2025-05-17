@@ -73,7 +73,8 @@ export const StyledAction = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  button {
+  button,
+  a {
     width: calc(50% - 6px);
   }
 `;

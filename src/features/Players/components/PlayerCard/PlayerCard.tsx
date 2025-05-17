@@ -1,13 +1,15 @@
+import { LINK_TEMPLATES } from "@/common/constants";
 import { RANG_IMAGE } from "@/common/constants/rang";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconMedal from "@/common/icons/stats/IconMedal";
 import { EModalKey } from "@/common/types";
 import { TPlayer } from "@/common/types/entity";
 import { Avatar } from "@/components/shared/Avatar";
-import { BaseButton } from "@/components/ui/buttons/BaseButton";
+import { BaseButton, BaseStyledLink } from "@/components/ui/buttons/BaseButton";
 import theme from "@/theme/theme";
 import { useModal } from "@ebay/nice-modal-react";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import {
   StyledAction,
   StyledCenter,
@@ -27,7 +29,7 @@ interface IPlayerCardProps {
 export const PlayerCard: FC<IPlayerCardProps> = ({ player }) => {
   const { show } = useModal(EModalKey.CONFIRM_DUEL);
   const { rang } = useGetUserStats(player);
-
+  const { t } = useTranslation();
   const IconRang = RANG_IMAGE[rang];
 
   return (
@@ -48,9 +50,14 @@ export const PlayerCard: FC<IPlayerCardProps> = ({ player }) => {
             </StyledRang>
           </StyledIconWrapper>
           <StyledAction>
-            <BaseButton variant="outline">More Info</BaseButton>
+            <BaseStyledLink
+              variant="outline"
+              to={LINK_TEMPLATES.PROFILE(player.nickname)}
+            >
+              {t("button.moreInfo")}
+            </BaseStyledLink>
             <BaseButton onClick={() => show({ nickname: player.nickname })}>
-              Challenge
+              {t("button.challenge")}
             </BaseButton>
           </StyledAction>
         </StyledContainer>

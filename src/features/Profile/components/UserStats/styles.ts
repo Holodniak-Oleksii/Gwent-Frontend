@@ -90,8 +90,23 @@ export const StyledInfo = styled.div`
   z-index: 4;
   padding: 24px;
   grid-template-columns: 1fr minmax(200px, 360px) 1fr;
+`;
+
+export const StyledCover = styled.div`
+  width: 100%;
   ${({ theme }) => css`
     background-color: ${theme.colors.primary};
+  `}
+`;
+
+export const StyledRow = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  ${({ theme }) => css`
+    border-top: 1px solid ${convertHexToRgba(theme.colors.secondary, 0.1)};
   `}
 `;
 

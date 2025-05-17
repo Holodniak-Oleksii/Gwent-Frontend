@@ -1,1 +1,1 @@
-export * from "./Profile";
+export { QueryCheck as Profile } from "./Profile";

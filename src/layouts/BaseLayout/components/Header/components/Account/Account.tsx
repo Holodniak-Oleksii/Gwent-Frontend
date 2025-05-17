@@ -68,7 +68,7 @@ export const Account = () => {
           <span>{stats?.coins}</span>
         </StyledBalance>
       </StyledRow>
-      <StyledAva to={LINK_TEMPLATES.PROFILE()}>
+      <StyledAva to={LINK_TEMPLATES.PROFILE(stats.nickname || "")}>
         <Avatar isAva src={stats?.avatar || ""} percentage={100} />
       </StyledAva>
     </StyledContainer>

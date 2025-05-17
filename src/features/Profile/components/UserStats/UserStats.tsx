@@ -3,12 +3,17 @@ import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconEditAvatar from "@/common/icons/IconEditAvatar";
 import IconLogout from "@/common/icons/IconLogout";
 import { EModalKey } from "@/common/types";
+import { TPlayer } from "@/common/types/entity";
+import { StatCard } from "@/components/cards/StatCard";
 import { Avatar } from "@/components/shared/Avatar";
 import { FirefliesPixi } from "@/components/shared/Fireflies";
+import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import { convertStatsToArray } from "@/features/Profile/components/UserStats/data";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { useModal } from "@ebay/nice-modal-react";
+import { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import {
@@ -16,6 +21,7 @@ import {
   StyledAvatarWrapper,
   StyledColumn,
   StyledContainer,
+  StyledCover,
   StyledDate,
   StyledGrid,
   StyledIcon,
@@ -23,17 +29,26 @@ import {
   StyledName,
   StyledOverlay,
   StyledPanel,
+  StyledRow,
   StyledWrapper,
 } from "./styles";
-import { StatCard } from "@/components/cards/StatCard";
 
-export const UserStats = () => {
-  const user = useUserStore((state) => state.user);
-  const stats = useGetUserStats(user);
+interface IUserStatsProps {
+  player: TPlayer;
+  isMyProfile?: boolean;
+}
+
+export const UserStats: FC<IUserStatsProps> = ({
+  player,
+  isMyProfile = false,
+}) => {
+  const stats = useGetUserStats(player);
   const navigate = useNavigate();
   const logout = useUserStore((state) => state.logout);
   const removeCredentials = useAuthStore((state) => state.removeCredentials);
   const { show } = useModal(EModalKey.AVATAR_EDIT);
+  const { show: showChallenge } = useModal(EModalKey.CONFIRM_DUEL);
+  const { t } = useTranslation();
 
   const onLogOut = () => {
     navigate(LINK_TEMPLATES.HOME());
@@ -57,29 +72,44 @@ export const UserStats = () => {
         <StyledContainer>
           <StyledPanel>
             <FirefliesPixi />
-            <StyledIcon onClick={onLogOut}>
-              <IconLogout />
-            </StyledIcon>
-            <StyledIcon onClick={() => show()}>
-              <IconEditAvatar />
-            </StyledIcon>
+            {isMyProfile && (
+              <>
+                <StyledIcon onClick={onLogOut}>
+                  <IconLogout />
+                </StyledIcon>
+                <StyledIcon onClick={() => show()}>
+                  <IconEditAvatar />
+                </StyledIcon>
+              </>
+            )}
           </StyledPanel>
-          <StyledInfo>
-            <StyledGrid>{renderStats(false)}</StyledGrid>
-            <StyledColumn>
-              <StyledAvatarWrapper>
-                <StyledAvatarContainer>
-                  <Avatar
-                    src={stats.avatar}
-                    percentage={stats.winsPercentage}
-                  />
-                </StyledAvatarContainer>
-              </StyledAvatarWrapper>
-              <StyledName>{stats.nickname}</StyledName>
-              <StyledDate>{stats.createdAt}</StyledDate>
-            </StyledColumn>
-            <StyledGrid>{renderStats(true)}</StyledGrid>
-          </StyledInfo>
+          <StyledCover>
+            <StyledInfo>
+              <StyledGrid>{renderStats(false)}</StyledGrid>
+              <StyledColumn>
+                <StyledAvatarWrapper>
+                  <StyledAvatarContainer>
+                    <Avatar
+                      src={stats.avatar}
+                      percentage={stats.winsPercentage}
+                    />
+                  </StyledAvatarContainer>
+                </StyledAvatarWrapper>
+                <StyledName>{stats.nickname}</StyledName>
+                <StyledDate>{stats.createdAt}</StyledDate>
+              </StyledColumn>
+              <StyledGrid>{renderStats(true)}</StyledGrid>
+            </StyledInfo>
+            {!isMyProfile && (
+              <StyledRow>
+                <BaseButton
+                  onClick={() => showChallenge({ nickname: player.nickname })}
+                >
+                  {t("button.challenge")}
+                </BaseButton>
+              </StyledRow>
+            )}
+          </StyledCover>
         </StyledContainer>
       </StyledWrapper>
     </StyledOverlay>
