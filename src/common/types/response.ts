@@ -36,5 +36,5 @@ export interface IGetCardsResponse {
 }
 
 export interface IGetCardIDsResponse {
-  cards: string[];
+  user: IUserModel;
 }

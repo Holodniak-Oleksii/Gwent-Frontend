@@ -28,6 +28,7 @@ export interface ICardModel {
   power: number;
   forces: EForces;
   type: EType;
+  price: number;
   isDefault: boolean;
 }
 
