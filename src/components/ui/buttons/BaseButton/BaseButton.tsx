@@ -19,18 +19,23 @@ interface ILinkProps
 }
 
 const StyledButton = styled.button<IBaseButtonProps>`
+  width: fit-content;
+  position: relative;
+  min-width: 140px;
+  z-index: 3;
+  height: fit-content;
+  padding: 8px;
+  &:disabled {
+    opacity: 0.5;
+    cursor: progress;
+  }
   ${({ theme, variant }) => css`
-    ${theme.fontSizes.medium}
-    width: fit-content;
-    position: relative;
-    min-width: 140px;
-    z-index: 3;
-    height: fit-content;
     border: 1px solid ${theme.colors.secondary};
-    color: ${theme.colors.text};
-    padding: 8px;
+    ${theme.fontSizes.medium}
     background: ${variant === "fill" ? theme.colors.secondary : "transparent"};
-    text-shadow: 0px 0px 2px ${theme.colors.gold};
+    color: ${variant === "fill"
+      ? theme.colors.primary
+      : theme.colors.secondary};
     ${theme.media.width.lg} {
       min-width: 110px;
     }

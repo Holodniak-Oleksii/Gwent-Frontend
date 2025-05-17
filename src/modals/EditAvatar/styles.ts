@@ -10,9 +10,6 @@ export const StyledContent = styled.form`
   justify-content: center;
   border-radius: 12px;
   gap: 12px;
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
-  `}
 `;
 
 export const StyledZoom = styled.input`

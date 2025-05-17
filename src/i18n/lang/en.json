@@ -40,14 +40,16 @@
       "cancel": "Cancel",
       "challenge": "Challenge",
       "moreInfo": "More Info",
-      "apply": "Apply"
+      "apply": "Apply",
+      "confirm": "Confirm"
     },
     "title": {
       "gwent": "Gwent",
       "fractions": "Fractions",
       "gamePlay": "Game Play",
       "gwentProperly": "How to Play <span>Gwent</span> Properly",
-      "fqa": "Frequently Asked Questions"
+      "fqa": "Frequently Asked Questions",
+      "fight": "Fight"
     },
     "subTitle": {
       "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
@@ -125,12 +127,14 @@
       "password": "Password",
       "repeatPassword": "Repeat Password",
       "email": "Email",
-      "balance": "Balance"
+      "balance": "Balance",
+      "rate": "Bet"
     },
     "placeholders": {
       "nickname": "Enter Nickname",
       "password": "Enter Password",
-      "email": "Enter Email"
+      "email": "Enter Email",
+      "rate": "Enter the bet"
     },
     "abilities": {
       "hero": "Immune to all special cards and abilities. Cannot be affected by Scorch, weather, or other abilities. A powerful standalone card.",

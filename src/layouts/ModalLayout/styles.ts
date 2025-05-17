@@ -1,3 +1,4 @@
+import { convertHexToRgba } from "@/utils/colorUtil";
 import Modal from "react-modal";
 import styled, { css } from "styled-components";
 
@@ -20,30 +21,37 @@ export const StyledModal = styled(Modal)`
 `;
 
 export const StyledHead = styled.div`
-  padding: 22px 28px 16px 28px;
+  padding: 16px;
   display: flex;
   gap: 16px;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  ${({ theme }) =>
+    css`
+      border-bottom: 1px solid ${convertHexToRgba(theme.colors.secondary, 0.2)};
+    `}
 `;
 
 export const StyledTitle = styled.p`
-  width: calc(100% - 52px);
-  font-size: 16px;
+  width: calc(100% - 40px);
   line-height: 1.2;
   font-weight: 500;
+  ${({ theme }) =>
+    css`
+      color: ${theme.colors.text};
+      ${theme.fontSizes.big}
+    `}
 `;
 
 export const StyledExit = styled.button`
-  background: #cccccc;
   width: 24px;
-  min-width: 24px;
   height: 24px;
-  padding: 4px;
-  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const StyledContainer = styled.div<{
@@ -54,13 +62,13 @@ export const StyledContainer = styled.div<{
   margin: auto;
   border-radius: 10px;
   max-width: ${({ maxWidth }) => maxWidth}px;
-  ${({ bgcolor }) =>
+  ${({ bgcolor, theme }) =>
     bgcolor
       ? css`
           background-color: ${bgcolor};
         `
       : css`
-          background: #fff;
-          border: 1px solid #ccc;
+          background: ${theme.colors.primary};
+          border: 1px solid ${convertHexToRgba(theme.colors.secondary, 0.2)};
         `}
 `;

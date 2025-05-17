@@ -1,3 +1,4 @@
+import IconClose from "@/common/icons/IconClose";
 import React, { FC, PropsWithChildren } from "react";
 import {
   StyledContainer,
@@ -37,7 +38,9 @@ export const ModalLayout: FC<IModalLayout> = ({
           <StyledHead>
             <StyledTitle>{title}</StyledTitle>
             {renderStatus}
-            <StyledExit onClick={onClose}>x</StyledExit>
+            <StyledExit onClick={onClose}>
+              <IconClose />
+            </StyledExit>
           </StyledHead>
         )}
         {children}
