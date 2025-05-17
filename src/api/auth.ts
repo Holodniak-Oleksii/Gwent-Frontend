@@ -5,6 +5,7 @@ import {
   ENDPOINTS,
   IAuthResponse,
   IAvatarResponse,
+  IGetPlayerResponse,
   IGetProfileResponse,
   QueryKey,
 } from "@/common/types";
@@ -31,7 +32,7 @@ export const useLoginMutation = () => {
         data.data.tokens.accessToken
       );
       setUser(data.data.user);
-      navigation(LINK_TEMPLATES.PROFILE());
+      navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
     },
   });
 };
@@ -51,7 +52,7 @@ export const useRegistrationMutation = () => {
         data.data.tokens.accessToken
       );
       setUser(data.data.user);
-      navigation(LINK_TEMPLATES.PROFILE());
+      navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
     },
   });
 };
@@ -61,6 +62,18 @@ export const useGetProfileQuery = () => {
     queryKey: [QueryKey.PROFILE],
     queryFn: async () => {
       const { data } = await API.get<IGetProfileResponse>(ENDPOINTS.PROFILE);
+      return data;
+    },
+  });
+};
+
+export const useGetProfileByNicknameQuery = (nickname: string) => {
+  return useQuery<IGetPlayerResponse>({
+    queryKey: [QueryKey.PLAYER, nickname],
+    queryFn: async () => {
+      const { data } = await API.get<IGetPlayerResponse>(
+        ENDPOINTS.PLAYER.replace("_nickname_", nickname)
+      );
       return data;
     },
   });

@@ -1,4 +1,5 @@
-import { useUserStore } from "@/store/user";
+import { IUserModel } from "@/common/types";
+import { TPlayer } from "@/common/types/entity";
 import { formatDate } from "@/utils";
 
 export interface IUserStats {
@@ -15,9 +16,9 @@ export interface IUserStats {
   rang: number;
 }
 
-export const useGetUserStats = (): IUserStats => {
-  const user = useUserStore((state) => state.user);
-
+export const useGetUserStats = (
+  user: IUserModel | TPlayer | null
+): IUserStats => {
   const wins = user?.wins ?? 0;
   const losses = user?.losses ?? 0;
   const draws = user?.draws ?? 0;

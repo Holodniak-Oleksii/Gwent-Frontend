@@ -33,7 +33,10 @@ const AppRouter = () => {
           {isAuth && (
             <>
               <Route path={LINK_TEMPLATES.PLAYERS("")} element={<Players />} />
-              <Route path={LINK_TEMPLATES.PROFILE("")} element={<Profile />} />
+              <Route
+                path={LINK_TEMPLATES.PROFILE(":nickname", "")}
+                element={<Profile />}
+              />
               <Route
                 path={LINK_TEMPLATES.MESSAGES("")}
                 element={<Messages />}

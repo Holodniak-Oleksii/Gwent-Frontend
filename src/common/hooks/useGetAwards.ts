@@ -1,8 +1,9 @@
 import { AWARDS } from "@/common/constants/awards";
 import { EAwards, IUserModel } from "@/common/types";
+import { TPlayer } from "@/common/types/entity";
 import { useMemo } from "react";
 
-export const useGetAwards = (user: IUserModel | null) => {
+export const useGetAwards = (user: IUserModel | TPlayer | null) => {
   return useMemo(() => {
     if (!user) return [];
 

@@ -1,11 +1,15 @@
 import { useGetAwards } from "@/common/hooks/useGetAwards";
+import { TPlayer } from "@/common/types/entity";
 import { StyledContainer } from "@/features/Profile/styles";
-import { useUserStore } from "@/store/user";
+import { FC } from "react";
 import { StyledIcon, StyledList } from "./styles";
 
-export const Awards = () => {
-  const user = useUserStore((state) => state.user);
-  const list = useGetAwards(user);
+interface IAwardsProps {
+  player: TPlayer;
+}
+
+export const Awards: FC<IAwardsProps> = ({ player }) => {
+  const list = useGetAwards(player);
 
   if (!list.length) {
     return null;

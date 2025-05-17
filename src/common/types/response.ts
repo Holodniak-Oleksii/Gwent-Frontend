@@ -23,6 +23,10 @@ export interface IGetProfileResponse {
   user: IUserModel;
 }
 
+export interface IGetPlayerResponse {
+  user: TPlayer;
+}
+
 export interface IGetPlayersResponse {
   players: TPlayer[];
 }

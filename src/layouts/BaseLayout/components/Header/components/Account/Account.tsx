@@ -2,6 +2,7 @@ import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconCoin from "@/common/icons/IconCoin";
 import { Avatar } from "@/components/shared/Avatar";
+import { useUserStore } from "@/store/user";
 import { convertHexToRgba } from "@/utils/colorUtil";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -54,7 +55,8 @@ const StyledAva = styled(Link)`
 `;
 
 export const Account = () => {
-  const stats = useGetUserStats();
+  const user = useUserStore((state) => state.user);
+  const stats = useGetUserStats(user);
   const { t } = useTranslation();
 
   return (
@@ -66,7 +68,7 @@ export const Account = () => {
           <span>{stats?.coins}</span>
         </StyledBalance>
       </StyledRow>
-      <StyledAva to={LINK_TEMPLATES.PROFILE()}>
+      <StyledAva to={LINK_TEMPLATES.PROFILE(stats.nickname || "")}>
         <Avatar isAva src={stats?.avatar || ""} percentage={100} />
       </StyledAva>
     </StyledContainer>

@@ -1,12 +1,14 @@
 import { sendMessage } from "@/api/ws/notification";
+import IconCoin from "@/common/icons/IconCoin";
 import { EOperationNotificationType } from "@/common/types";
+import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import { TextFiled } from "@/components/ui/inputs/TextFiled";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
 import { StyledForm } from "@/modals/ConfirmDuel/styles";
-import { StyledContainer } from "@/modals/styles";
 import { create, useModal } from "@ebay/nice-modal-react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface IFormFields {
   rate: string;
@@ -18,6 +20,7 @@ interface IConfirmDuelProps extends IModalProps {
 
 export const ConfirmDuel = create<IConfirmDuelProps>(({ id, nickname }) => {
   const { hide, visible } = useModal(id);
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -40,20 +43,20 @@ export const ConfirmDuel = create<IConfirmDuelProps>(({ id, nickname }) => {
     <ModalLayout
       open={visible}
       onClose={hide}
-      title={"Confirm Duel"}
+      title={t("title.fight")}
       maxWidth={400}
     >
-      <StyledContainer>
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <TextFiled
-            {...register("rate", { required: true })}
-            placeholder="Enter Score"
-            error={errors.rate}
-            type="number"
-          />
-          <button type="submit">confirm</button>
-        </StyledForm>
-      </StyledContainer>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <TextFiled
+          {...register("rate", { required: true })}
+          placeholder={t("placeholders.rate")}
+          label={t("labels.rate")}
+          startIcon={<IconCoin />}
+          error={errors.rate}
+          type="number"
+        />
+        <BaseButton type="submit">{t("button.confirm")}</BaseButton>
+      </StyledForm>
     </ModalLayout>
   );
 });

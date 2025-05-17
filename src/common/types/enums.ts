@@ -47,6 +47,7 @@ export enum EType {
 
 export enum QueryKey {
   PROFILE = "PROFILE",
+  PLAYER = "PLAYER",
   PLAYERS = "PLAYERS",
   MY_CARDS = "MY_CARDS",
   ALL_CARDS = "ALL_CARDS",
@@ -57,6 +58,7 @@ export enum ENDPOINTS {
   LOGIN = "/users/login",
   REFETCH = "/refetch",
   PROFILE = "/users/profile",
+  PLAYER = "/users/info/_nickname_",
   PLAYERS = "/users/all",
   MY_CARDS = "/cards/my",
   ALL_CARDS = "/cards",
