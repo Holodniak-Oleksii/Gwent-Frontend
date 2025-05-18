@@ -99,8 +99,11 @@ const theme: DefaultTheme = {
     `,
     indents: css`
       padding-top: 120px;
+      padding-bottom: 120px;
+
       ${media.width.lg} {
-        padding-top: 80px;
+        padding-top: 100px;
+        padding-bottom: 100px;
       }
     `,
   },

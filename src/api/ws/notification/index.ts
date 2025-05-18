@@ -5,7 +5,6 @@ const wsUrl = import.meta.env.VITE_WS_URL;
 let socket: WebSocket | null = null;
 
 export const initializeNotificationManager = (nickname: string) => {
-  console.log("nickname :", nickname);
   if (!nickname) {
     console.error(
       "WebSocket nickname is missing. Cannot initialize WebSocket."
@@ -34,7 +33,6 @@ export const initializeNotificationManager = (nickname: string) => {
 
   socket.onmessage = (event) => {
     const message = JSON.parse(event.data);
-    console.log("message :", message);
 
     switch (message.type) {
       case EOperationNotificationType.STORED_DUELS: {
@@ -83,5 +81,18 @@ export const sendMessage = (message: string) => {
     socket.send(message);
   } else {
     console.error("WebSocket is not connected");
+  }
+};
+
+export const closeNotificationManager = () => {
+  if (socket) {
+    if (
+      socket.readyState === WebSocket.OPEN ||
+      socket.readyState === WebSocket.CONNECTING
+    ) {
+      socket.close(1000, "Client closed connection");
+      console.log("WebSocket connection closed");
+    }
+    socket = null;
   }
 };

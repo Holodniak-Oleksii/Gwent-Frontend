@@ -38,7 +38,7 @@ export const StyledQuestionNumber = styled.div`
   flex-shrink: 0;
   ${({ theme }) => css`
     background-color: ${theme.colors.secondary};
-    color: ${theme.colors.text};
+    color: ${theme.colors.primary};
     ${theme.fontSizes.medium}
   `}
 `;

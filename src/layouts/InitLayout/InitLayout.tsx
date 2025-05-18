@@ -1,5 +1,6 @@
 import { useGetProfileQuery } from "@/api/auth";
 import { initializeNotificationManager } from "@/api/ws/notification";
+import { Loader } from "@/components/shared/Loader";
 import { useUserStore } from "@/store/user";
 import { FC, PropsWithChildren, useEffect } from "react";
 
@@ -15,7 +16,7 @@ export const InitLayout: FC<PropsWithChildren> = ({ children }) => {
   }, [data?.user, setUser]);
 
   if (isLoading) {
-    return <>Loading...</>;
+    return <Loader />;
   }
 
   return children;

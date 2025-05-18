@@ -23,7 +23,6 @@ export const getNavigation = (locale: string, isAuth: boolean) => [
           name: "navigation.players",
           path: LINK_TEMPLATES.PLAYERS(locale),
         },
-        { name: "Messages", path: LINK_TEMPLATES.MESSAGES(locale) },
       ]
     : []),
 ];

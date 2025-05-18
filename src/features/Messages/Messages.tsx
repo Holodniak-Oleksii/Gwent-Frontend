@@ -1,17 +1,20 @@
-import { Item } from "@/features/Messages/Item";
 import { useNotificationStore } from "@/store/notifications";
-import { StyledContainer, StyledWrapper } from "./styles";
+import { useTranslation } from "react-i18next";
+import { Item } from "./Item";
+import { StyledContainer, StyledEmpty, StyledWrapper } from "./styles";
 
 export const Messages = () => {
   const notification = useNotificationStore((state) => state.notifications);
-  console.log("notification :", notification);
+  const { t } = useTranslation();
 
   return (
     <StyledWrapper>
       <StyledContainer>
-        {notification.map((n) => (
-          <Item key={n.id} {...n} />
-        ))}
+        {notification.length ? (
+          notification.map((n) => <Item key={n.id} {...n} />)
+        ) : (
+          <StyledEmpty>{t("message.emptyNotify")}</StyledEmpty>
+        )}
       </StyledContainer>
     </StyledWrapper>
   );

@@ -5,6 +5,7 @@ import {
   EType,
   ICardModel,
 } from "@/common/types";
+import { Loader } from "@/components/shared/Loader";
 import { TOperation } from "@/features/Arena/states/Preparation/types";
 import { IArenaScreen } from "@/features/Arena/states/types";
 import { FC, useState } from "react";
@@ -53,7 +54,7 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
   };
 
   if (isLoading || !data) {
-    return <>Loading...</>;
+    return <Loader />;
   }
 
   const renderTabs = () =>

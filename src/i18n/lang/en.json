@@ -43,7 +43,10 @@
       "apply": "Apply",
       "confirm": "Confirm",
       "buy": "Buy",
-      "owned": "Owned"
+      "owned": "Owned",
+      "accept": "Accept",
+      "decline": "Decline",
+      "join": "Join"
     },
     "title": {
       "gwent": "Gwent",
@@ -55,7 +58,10 @@
       "buy": "Buy"
     },
     "message": {
-      "enoughMoney": "You don't have enough money"
+      "emptyNotify": "Well, you don't have a notification.",
+      "enoughMoney": "You don't have enough money",
+      "challenged": "Player <b>{{player}}</b> challenged you to a duel by placing <span>{{coins}}</span> coins on the fight",
+      "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight"
     },
     "subTitle": {
       "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",

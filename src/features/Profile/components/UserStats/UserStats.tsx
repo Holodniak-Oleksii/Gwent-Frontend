@@ -1,3 +1,4 @@
+import { closeNotificationManager } from "@/api/ws/notification";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconEditAvatar from "@/common/icons/IconEditAvatar";
@@ -54,6 +55,7 @@ export const UserStats: FC<IUserStatsProps> = ({
     navigate(LINK_TEMPLATES.HOME());
     logout();
     removeCredentials();
+    closeNotificationManager();
   };
 
   const renderStats = (secondPart: boolean) =>
