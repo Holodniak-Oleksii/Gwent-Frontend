@@ -6,11 +6,12 @@ import {
   ICardModel,
 } from "@/common/types";
 import { Loader } from "@/components/shared/Loader";
+import { FractionCarousel } from "@/features/Arena/states/Preparation/components/FractionCarousel";
 import { TOperation } from "@/features/Arena/states/Preparation/types";
 import { IArenaScreen } from "@/features/Arena/states/types";
 import { FC, useState } from "react";
 import { ChooseCards } from "./components/ChooseCards";
-import { StyledActiveTab, StyledTabs, StyledWrapper } from "./styles";
+import { StyledWrapper } from "./styles";
 
 export const Preparation: FC<IArenaScreen> = ({ game }) => {
   const { data, isLoading } = useGetMyCardsQuery();
@@ -57,23 +58,12 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
     return <Loader />;
   }
 
-  const renderTabs = () =>
-    Object.values(EFaction).map((f) => {
-      if (f === EFaction.UNIVERSAL) return null;
-      return (
-        <StyledActiveTab
-          key={f}
-          $isActive={f === activeFraction}
-          onClick={() => setActiveFraction(f)}
-        >
-          {f}
-        </StyledActiveTab>
-      );
-    });
-
   return (
     <StyledWrapper>
-      <StyledTabs>{renderTabs()}</StyledTabs>
+      <FractionCarousel
+        activeFraction={activeFraction}
+        onChangeFraction={(f) => setActiveFraction(f)}
+      />
       <ChooseCards
         leader={data.cards.find(
           (i) => i.type === EType.LEADER && i.fractionId === activeFraction

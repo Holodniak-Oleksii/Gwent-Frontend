@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledCircle = styled.div`
   border-radius: 50%;
   position: relative;
   aspect-ratio: 1 / 1;
-  height: 44px;
   padding: 2px;
   display: flex;
   align-items: center;
@@ -14,4 +13,10 @@ export const StyledCircle = styled.div`
     width: 100%;
     height: 100%;
   }
+  ${({ theme }) => css`
+    height: 44px;
+    ${theme.media.width.lg} {
+      height: 36px;
+    }
+  `}
 `;

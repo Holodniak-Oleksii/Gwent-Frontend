@@ -5,7 +5,7 @@ import { Force } from "@/components/cards/plugs/Force";
 import { Hero } from "@/components/cards/plugs/Hero";
 import { Power } from "@/components/cards/plugs/Power";
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface ILablesProps {
   card: ICardModel;
@@ -15,7 +15,12 @@ export const StyledWrapper = styled.div`
   top: 4px;
   left: 8px;
   display: flex;
-  width: 32px;
+  ${({ theme }) => css`
+    width: 32px;
+    ${theme.media.width.lg} {
+      width: 24px;
+    }
+  `}
 `;
 
 export const StyledRelative = styled.div`

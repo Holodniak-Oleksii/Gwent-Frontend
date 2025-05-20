@@ -46,7 +46,8 @@
       "owned": "Owned",
       "accept": "Accept",
       "decline": "Decline",
-      "join": "Join"
+      "join": "Join",
+      "startGame": "start game"
     },
     "title": {
       "gwent": "Gwent",
@@ -55,7 +56,9 @@
       "gwentProperly": "How to Play <span>Gwent</span> Properly",
       "fqa": "Frequently Asked Questions",
       "fight": "Fight",
-      "buy": "Buy"
+      "buy": "Buy",
+      "cardCollection": "Card Collection",
+      "cardsInDeck": "Cards in Deck"
     },
     "message": {
       "emptyNotify": "Well, you don't have a notification.",
@@ -64,6 +67,11 @@
       "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight"
     },
     "subTitle": {
+      "totalCardsInDeck": "Total cards in deck",
+      "numberOfUnitCards": "Number of Unit Cards",
+      "specialCards": "Special Cards",
+      "totalUnitCardStrength": "Total Unit Card Strength",
+      "heroCards": "Hero Cards",
       "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
       "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
       "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
