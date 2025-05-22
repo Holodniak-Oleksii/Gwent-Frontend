@@ -21,7 +21,7 @@ export const CardCollection: FC<ICardCollectionProps> = ({
 }) => {
   const renderCards = () =>
     list.map((card) => (
-      <StyledCardOverlay key={card.id} onClick={() => onCardClick(card)}>
+      <StyledCardOverlay key={card._id} onClick={() => onCardClick(card)}>
         <HeroCard card={card} />
       </StyledCardOverlay>
     ));

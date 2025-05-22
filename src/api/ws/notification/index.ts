@@ -53,7 +53,9 @@ export const initializeNotificationManager = (nickname: string) => {
         useNotificationStore.setState((state) => ({
           ...state,
           notifications: state.notifications.map((n) =>
-            n.id === message.data.id ? { ...n, status: message.data.status } : n
+            n._id === message.data._id
+              ? { ...n, status: message.data.status }
+              : n
           ),
         }));
         break;

@@ -10,5 +10,7 @@ export const IMAGE_FRACTION: Record<EFaction, string> = {
   [EFaction.MONSTERS]: imageMonsters,
   [EFaction.NILFGAARD]: imageNilfgaard,
   [EFaction.SCOIATAEL]: imageScoiatael,
-  [EFaction.UNIVERSAL]: "",
+  [EFaction.NEUTRAL]: "",
+  [EFaction.SPECIAL]: "",
+  [EFaction.WEATHER]: "",
 };

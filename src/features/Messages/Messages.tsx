@@ -11,7 +11,7 @@ export const Messages = () => {
     <StyledWrapper>
       <StyledContainer>
         {notification.length ? (
-          notification.map((n) => <Item key={n.id} {...n} />)
+          notification.map((n) => <Item key={n._id} {...n} />)
         ) : (
           <StyledEmpty>{t("message.emptyNotify")}</StyledEmpty>
         )}

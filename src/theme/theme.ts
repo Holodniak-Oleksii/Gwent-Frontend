@@ -21,7 +21,9 @@ const defaultPalette: DefaultTheme["colors"] = {
     [EFaction.MONSTERS]: "#9b021e",
     [EFaction.NILFGAARD]: "#222322",
     [EFaction.SCOIATAEL]: "#328d09",
-    [EFaction.UNIVERSAL]: "#2dd1ff",
+    [EFaction.NEUTRAL]: "#2dd1ff",
+    [EFaction.SPECIAL]: "#2dd1ff",
+    [EFaction.WEATHER]: "#2dd1ff",
   },
 };
 

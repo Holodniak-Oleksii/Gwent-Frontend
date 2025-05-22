@@ -4,15 +4,15 @@ export class GameManager {
   private gamSocket: WebSocket | null = null;
   private wsUrl: string;
   private nickname: string;
-  private id: string;
+  private _id: string;
 
-  constructor(nickname: string, id: string) {
+  constructor(nickname: string, _id: string) {
     if (!nickname) {
       throw new Error(
         "WebSocket nickname is required to initialize GameManager."
       );
     }
-    if (!id) {
+    if (!_id) {
       throw new Error("WebSocket id is required to initialize GameManager.");
     }
 
@@ -24,7 +24,7 @@ export class GameManager {
     }
 
     this.nickname = nickname;
-    this.id = id;
+    this._id = _id;
 
     this.connect();
   }
@@ -39,7 +39,7 @@ export class GameManager {
 
   private connect(): void {
     this.gamSocket = new WebSocket(
-      `${this.wsUrl}/game?nickname=${this.nickname}&id=${this.id}`
+      `${this.wsUrl}/game?nickname=${this.nickname}&id=${this._id}`
     );
 
     this.gamSocket.onopen = this.handleOpen.bind(this);

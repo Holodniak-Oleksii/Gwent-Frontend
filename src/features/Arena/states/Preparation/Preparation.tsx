@@ -13,22 +13,26 @@ import { FC, useState } from "react";
 import { ChooseCards } from "./components/ChooseCards";
 import { StyledWrapper } from "./styles";
 
+const universalArray = [EFaction.WEATHER, EFaction.NEUTRAL, EFaction.SPECIAL];
+const cardDefault: Record<EFaction, ICardModel[]> = {
+  [EFaction.KINGDOMS_OF_THE_NORTH]: [],
+  [EFaction.MONSTERS]: [],
+  [EFaction.NILFGAARD]: [],
+  [EFaction.SCOIATAEL]: [],
+  [EFaction.NEUTRAL]: [],
+  [EFaction.SPECIAL]: [],
+  [EFaction.WEATHER]: [],
+};
 export const Preparation: FC<IArenaScreen> = ({ game }) => {
   const { data, isLoading } = useGetMyCardsQuery();
   const [activeFraction, setActiveFraction] = useState<EFaction>(
     EFaction.KINGDOMS_OF_THE_NORTH
   );
   const universal =
-    data?.cards.filter((i) => i.fractionId === EFaction.UNIVERSAL) || [];
-  const [chooseCards, setChooseCards] = useState<
-    Record<EFaction, ICardModel[]>
-  >({
-    [EFaction.KINGDOMS_OF_THE_NORTH]: [],
-    [EFaction.MONSTERS]: [],
-    [EFaction.NILFGAARD]: [],
-    [EFaction.SCOIATAEL]: [],
-    [EFaction.UNIVERSAL]: [],
-  });
+    data?.cards.filter((i) => universalArray.includes(i.fractionId)) || [];
+
+  const [chooseCards, setChooseCards] =
+    useState<Record<EFaction, ICardModel[]>>(cardDefault);
 
   const handlerCardClick = (card: ICardModel, operation: TOperation) => {
     if (operation === "set") {
@@ -40,7 +44,9 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
     if (operation === "unset") {
       setChooseCards((prev) => ({
         ...prev,
-        [activeFraction]: prev[activeFraction].filter((i) => i.id !== card.id),
+        [activeFraction]: prev[activeFraction].filter(
+          (i) => i._id !== card._id
+        ),
       }));
     }
   };

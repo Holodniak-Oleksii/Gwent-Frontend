@@ -9,7 +9,9 @@ const colors = {
   [EFaction.KINGDOMS_OF_THE_NORTH]: "#2571ff",
   [EFaction.MONSTERS]: "#e40606",
   [EFaction.NILFGAARD]: "#ffe100",
-  [EFaction.UNIVERSAL]: "#ffe100",
+  [EFaction.NEUTRAL]: "#fff",
+  [EFaction.SPECIAL]: "#fff",
+  [EFaction.WEATHER]: "#fff",
   [EFaction.SCOIATAEL]: "#00ff26",
 };
 

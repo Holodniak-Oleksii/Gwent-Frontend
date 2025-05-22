@@ -18,7 +18,7 @@ import {
 
 export const Item: FC<INotificationModel> = ({
   createdAt,
-  id,
+  _id,
   receiver,
   sender,
   status,
@@ -32,7 +32,7 @@ export const Item: FC<INotificationModel> = ({
   const onSetStatus = (status: INotificationModel["status"]) => {
     const callDate = {
       type: EOperationNotificationType.RESPOND_DUEL,
-      id,
+      _id,
       status,
     };
     sendMessage(JSON.stringify(callDate));
@@ -78,7 +78,7 @@ export const Item: FC<INotificationModel> = ({
       )}
       {status === "accepted" && (
         <StyledAction>
-          <StyledButton onClick={() => navigation(LINK_TEMPLATES.ARENA(id))}>
+          <StyledButton onClick={() => navigation(LINK_TEMPLATES.ARENA(_id))}>
             {t("button.join")}
           </StyledButton>
         </StyledAction>

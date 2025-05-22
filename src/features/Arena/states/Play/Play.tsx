@@ -69,7 +69,7 @@ export const Play: FC<IArenaScreen> = ({ game }) => {
   const renderCards = () =>
     gameStore?.playingCards?.map((c) => (
       <PlayingCard
-        key={c.id}
+        key={c._id}
         card={c}
         onClick={() => {
           show({ card: c, onSubmit: (card: ICardModel) => onConfirm(card) });

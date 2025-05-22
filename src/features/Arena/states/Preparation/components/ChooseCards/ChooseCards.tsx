@@ -46,7 +46,7 @@ export const ChooseCards: FC<IChooseCardsProps> = ({
   const availableCards = useMemo(
     () =>
       list.filter(
-        (card) => !chooseCards.some((selected) => selected.id === card.id)
+        (card) => !chooseCards.some((selected) => selected._id === card._id)
       ),
     [list, chooseCards]
   );

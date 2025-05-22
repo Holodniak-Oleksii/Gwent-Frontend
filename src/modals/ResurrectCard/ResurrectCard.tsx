@@ -46,7 +46,7 @@ export const ResurrectCard = create<IResurrectCardProps>(
 
     const renderCards = () =>
       discards?.map((c) => (
-        <PlayingCard key={c.id} card={c} onClick={() => apply(c)} />
+        <PlayingCard key={c._id} card={c} onClick={() => apply(c)} />
       ));
 
     return (

@@ -45,7 +45,7 @@ export const Board = () => {
             c.card.type === EType.UNIT
         )
         .map((c) => (
-          <PlayingCard key={c.card.id} card={c.card} />
+          <PlayingCard key={c.card._id} card={c.card} />
         ))}
 
       {game?.effects.some(

@@ -28,7 +28,7 @@ const PrivateProfile: FC<IPrivateProfileProps> = ({ user }) => {
   const { data } = useGetMyCardsQuery();
 
   const renderHeroCards = () =>
-    data?.cards.map((card) => <HeroCard key={card.id} card={card} />);
+    data?.cards.map((card) => <HeroCard key={card._id} card={card} />);
 
   return (
     <StyledWrapper>

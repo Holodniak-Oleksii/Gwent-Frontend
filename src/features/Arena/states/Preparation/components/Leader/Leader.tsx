@@ -26,7 +26,7 @@ interface IRule {
 export const Leader: FC<ILeaderProps> = ({ leader, onStart, stats }) => {
   const { t } = useTranslation();
   const rules: Record<string, IRule> = {
-    numberOfUnitCards: { min: 22 },
+    numberOfUnitCards: { min: 21 },
     specialCards: { max: 10 },
   };
 
