@@ -5,6 +5,7 @@ import { Market } from "@/features/Market";
 import { Messages } from "@/features/Messages";
 import { Players } from "@/features/Players";
 import { Rules } from "@/features/Rules";
+import { BaseLayout } from "@/layouts/BaseLayout";
 import { useUserStore } from "@/store/user";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { LINK_TEMPLATES } from "./common/constants";
@@ -13,7 +14,6 @@ import { Registration } from "./features/auth/Registration";
 import { Home } from "./features/Home";
 import { Profile } from "./features/Profile";
 import { AuthLayout } from "./layouts/AuthLayout";
-import { BaseLayout } from "./layouts/BaseLayout";
 
 const AppRouter = () => {
   const isAuth = useUserStore((state) => state.isAuth);
@@ -22,30 +22,34 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path={baseRouteUrl} element={<BaseLayout />}>
-          <Route index element={<Home />} />
-          <Route path={LINK_TEMPLATES.MARKET("")} element={<Market />} />
-          <Route path={LINK_TEMPLATES.MARKET("")} element={<Market />} />
-          <Route path={LINK_TEMPLATES.RULES("")} element={<Rules />} />
-          <Route path={LINK_TEMPLATES.ABOUT_US("")} element={<AboutUs />} />
-          <Route path={LINK_TEMPLATES.CONTACTS("")} element={<Contacts />} />
+        <Route path={baseRouteUrl}>
+          <Route element={<BaseLayout />}>
+            <Route index element={<Home />} />
+            <Route path={LINK_TEMPLATES.MARKET("")} element={<Market />} />
+            <Route path={LINK_TEMPLATES.MARKET("")} element={<Market />} />
+            <Route path={LINK_TEMPLATES.RULES("")} element={<Rules />} />
+            <Route path={LINK_TEMPLATES.ABOUT_US("")} element={<AboutUs />} />
+            <Route path={LINK_TEMPLATES.CONTACTS("")} element={<Contacts />} />
 
+            {isAuth && (
+              <>
+                <Route
+                  path={LINK_TEMPLATES.PLAYERS("")}
+                  element={<Players />}
+                />
+                <Route
+                  path={LINK_TEMPLATES.PROFILE(":nickname", "")}
+                  element={<Profile />}
+                />
+                <Route
+                  path={LINK_TEMPLATES.MESSAGES("")}
+                  element={<Messages />}
+                />
+              </>
+            )}
+          </Route>
           {isAuth && (
-            <>
-              <Route path={LINK_TEMPLATES.PLAYERS("")} element={<Players />} />
-              <Route
-                path={LINK_TEMPLATES.PROFILE(":nickname", "")}
-                element={<Profile />}
-              />
-              <Route
-                path={LINK_TEMPLATES.MESSAGES("")}
-                element={<Messages />}
-              />
-              <Route
-                path={LINK_TEMPLATES.ARENA(":id", "")}
-                element={<Arena />}
-              />
-            </>
+            <Route path={LINK_TEMPLATES.ARENA(":id", "")} element={<Arena />} />
           )}
         </Route>
         {!isAuth && (

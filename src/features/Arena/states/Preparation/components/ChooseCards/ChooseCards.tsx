@@ -1,16 +1,10 @@
-import { EType, ICardModel } from "@/common/types";
-import { HeroCard } from "@/components/cards/HeroCard";
-import { TOperation } from "@/features/Arena/states/Preparation/types";
-import { getUrlImage } from "@/utils/image";
+import { ECardAbilities, EType, ICardModel } from "@/common/types";
 import { FC, useMemo } from "react";
-import {
-  StyledCardOverlay,
-  StyledCards,
-  StyledLeader,
-  StyledLeaderImage,
-  StyledText,
-  StyledWrapper,
-} from "./styles";
+import { useTranslation } from "react-i18next";
+import { IStats, TOperation } from "../../types";
+import { CardCollection } from "../CardCollection";
+import { Leader } from "../Leader";
+import { StyledWrapper } from "./styles";
 
 interface IChooseCardsProps {
   list: ICardModel[];
@@ -27,51 +21,53 @@ export const ChooseCards: FC<IChooseCardsProps> = ({
   handlerCardClick,
   onStart,
 }) => {
-  const stats = useMemo(() => {
-    const specialCardsCount = chooseCards.filter(
-      (card) => card.type === EType.WEATHER
+  const { t } = useTranslation();
+
+  const stats: IStats = useMemo(() => {
+    const heroCards = chooseCards.filter(
+      (card) => card.ability === ECardAbilities.HERO
     ).length;
-    const totalPower = chooseCards.reduce((sum, card) => sum + card.power, 0);
+
+    const totalUnitCardStrength = chooseCards.reduce(
+      (sum, card) => sum + card.power,
+      0
+    );
     return {
-      totalCards: list.length,
-      selectedCards: chooseCards.length,
-      specialCards: specialCardsCount,
-      bandPower: totalPower,
+      totalCardsInDeck: chooseCards.length,
+      specialCards: chooseCards.filter((card) => card.type !== EType.UNIT)
+        .length,
+      numberOfUnitCards: chooseCards.filter((card) => card.type === EType.UNIT)
+        .length,
+      totalUnitCardStrength,
+      heroCards,
     };
-  }, [list, chooseCards]);
+  }, [chooseCards]);
 
   const availableCards = useMemo(
     () =>
       list.filter(
-        (card) => !chooseCards.some((selected) => selected.id === card.id)
+        (card) => !chooseCards.some((selected) => selected._id === card._id)
       ),
     [list, chooseCards]
   );
 
-  const renderCards = (operation: TOperation, cards: ICardModel[]) =>
-    cards.map((card) => (
-      <StyledCardOverlay
-        key={card.id}
-        onClick={() => handlerCardClick(card, operation)}
-      >
-        <HeroCard card={card} />
-      </StyledCardOverlay>
-    ));
-
   return (
     <StyledWrapper>
-      <StyledCards>{renderCards("set", availableCards)}</StyledCards>
-      <StyledLeader>
-        {leader && (
-          <StyledLeaderImage src={getUrlImage(leader)} alt={leader.image} />
-        )}
-        <StyledText>Cards Number: {stats.totalCards}</StyledText>
-        <StyledText>Band Number: {stats.selectedCards}</StyledText>
-        <StyledText>Special Cards: {stats.specialCards}</StyledText>
-        <StyledText>Band Power: {stats.bandPower}</StyledText>
-        <button onClick={() => onStart(chooseCards)}>start game</button>
-      </StyledLeader>
-      <StyledCards>{renderCards("unset", chooseCards)}</StyledCards>
+      <CardCollection
+        list={availableCards}
+        onCardClick={(card) => handlerCardClick(card, "set")}
+        title={t("title.cardCollection")}
+      />
+      <Leader
+        leader={leader}
+        onStart={() => onStart(chooseCards)}
+        stats={stats}
+      />
+      <CardCollection
+        title={t("title.cardsInDeck")}
+        list={chooseCards}
+        onCardClick={(card) => handlerCardClick(card, "unset")}
+      />
     </StyledWrapper>
   );
 };

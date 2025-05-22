@@ -1,4 +1,5 @@
 import API from "@/api";
+import { initializeNotificationManager } from "@/api/ws/notification";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { useNotifyMutation } from "@/common/hooks/useNotifyMutation";
 import {
@@ -33,6 +34,7 @@ export const useLoginMutation = () => {
       );
       setUser(data.data.user);
       navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
+      initializeNotificationManager(data.data.user.nickname);
     },
   });
 };
@@ -53,6 +55,7 @@ export const useRegistrationMutation = () => {
       );
       setUser(data.data.user);
       navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
+      initializeNotificationManager(data.data.user.nickname);
     },
   });
 };

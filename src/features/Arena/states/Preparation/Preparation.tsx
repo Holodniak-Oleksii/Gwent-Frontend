@@ -5,28 +5,34 @@ import {
   EType,
   ICardModel,
 } from "@/common/types";
+import { Loader } from "@/components/shared/Loader";
+import { FractionCarousel } from "@/features/Arena/states/Preparation/components/FractionCarousel";
 import { TOperation } from "@/features/Arena/states/Preparation/types";
 import { IArenaScreen } from "@/features/Arena/states/types";
 import { FC, useState } from "react";
 import { ChooseCards } from "./components/ChooseCards";
-import { StyledActiveTab, StyledTabs, StyledWrapper } from "./styles";
+import { StyledWrapper } from "./styles";
 
+const universalArray = [EFaction.WEATHER, EFaction.NEUTRAL, EFaction.SPECIAL];
+const cardDefault: Record<EFaction, ICardModel[]> = {
+  [EFaction.KINGDOMS_OF_THE_NORTH]: [],
+  [EFaction.MONSTERS]: [],
+  [EFaction.NILFGAARD]: [],
+  [EFaction.SCOIATAEL]: [],
+  [EFaction.NEUTRAL]: [],
+  [EFaction.SPECIAL]: [],
+  [EFaction.WEATHER]: [],
+};
 export const Preparation: FC<IArenaScreen> = ({ game }) => {
   const { data, isLoading } = useGetMyCardsQuery();
   const [activeFraction, setActiveFraction] = useState<EFaction>(
     EFaction.KINGDOMS_OF_THE_NORTH
   );
   const universal =
-    data?.cards.filter((i) => i.fractionId === EFaction.UNIVERSAL) || [];
-  const [chooseCards, setChooseCards] = useState<
-    Record<EFaction, ICardModel[]>
-  >({
-    [EFaction.KINGDOMS_OF_THE_NORTH]: [],
-    [EFaction.MONSTERS]: [],
-    [EFaction.NILFGAARD]: [],
-    [EFaction.SCOIATAEL]: [],
-    [EFaction.UNIVERSAL]: [],
-  });
+    data?.cards.filter((i) => universalArray.includes(i.fractionId)) || [];
+
+  const [chooseCards, setChooseCards] =
+    useState<Record<EFaction, ICardModel[]>>(cardDefault);
 
   const handlerCardClick = (card: ICardModel, operation: TOperation) => {
     if (operation === "set") {
@@ -38,7 +44,9 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
     if (operation === "unset") {
       setChooseCards((prev) => ({
         ...prev,
-        [activeFraction]: prev[activeFraction].filter((i) => i.id !== card.id),
+        [activeFraction]: prev[activeFraction].filter(
+          (i) => i._id !== card._id
+        ),
       }));
     }
   };
@@ -53,26 +61,15 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
   };
 
   if (isLoading || !data) {
-    return <>Loading...</>;
+    return <Loader />;
   }
-
-  const renderTabs = () =>
-    Object.values(EFaction).map((f) => {
-      if (f === EFaction.UNIVERSAL) return null;
-      return (
-        <StyledActiveTab
-          key={f}
-          $isActive={f === activeFraction}
-          onClick={() => setActiveFraction(f)}
-        >
-          {f}
-        </StyledActiveTab>
-      );
-    });
 
   return (
     <StyledWrapper>
-      <StyledTabs>{renderTabs()}</StyledTabs>
+      <FractionCarousel
+        activeFraction={activeFraction}
+        onChangeFraction={(f) => setActiveFraction(f)}
+      />
       <ChooseCards
         leader={data.cards.find(
           (i) => i.type === EType.LEADER && i.fractionId === activeFraction

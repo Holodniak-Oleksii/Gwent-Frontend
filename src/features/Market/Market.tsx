@@ -9,7 +9,7 @@ export const Market = () => {
       <StyledContainer>
         <StyledList>
           {data?.cards.map((c) => (
-            <HeroCard card={c} key={c.id} isBuy />
+            <HeroCard card={c} key={c._id} isBuy />
           ))}
         </StyledList>
       </StyledContainer>

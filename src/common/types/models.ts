@@ -3,7 +3,7 @@ import { ECardAbilities, EFaction, EForces, EType } from "./enums";
 export interface IUserModel {
   nickname: string;
   email: string;
-  id: string;
+  _id: string;
   avatar: string | null;
   wins: number;
   losses: number;
@@ -21,7 +21,7 @@ export interface IFactionModel {
 }
 
 export interface ICardModel {
-  id: string;
+  _id: string;
   fractionId: EFaction;
   ability: ECardAbilities | null;
   image: string;
@@ -32,12 +32,13 @@ export interface ICardModel {
   isDefault: boolean;
 }
 
+export type TStatus = "pending" | "accepted" | "declined";
 export interface INotificationModel {
-  id: string;
+  _id: string;
   rate: number;
   sender: string;
   receiver: string;
-  status: "pending" | "accepted" | "declined";
+  status: TStatus;
   createdAt: Date;
 }
 

@@ -2,10 +2,13 @@ import { sendMessage } from "@/api/ws/notification";
 import { LINK_TEMPLATES } from "@/common/constants";
 import { EOperationNotificationType, INotificationModel } from "@/common/types";
 import { useUserStore } from "@/store/user";
+import { formatDate } from "@/utils";
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import {
   StyledAction,
+  StyledButton,
   StyledDateTime,
   StyledNotificationContainer,
   StyledNotificationFlex,
@@ -15,7 +18,7 @@ import {
 
 export const Item: FC<INotificationModel> = ({
   createdAt,
-  id,
+  _id,
   receiver,
   sender,
   status,
@@ -24,11 +27,12 @@ export const Item: FC<INotificationModel> = ({
   const user = useUserStore((state) => state.user);
   const navigation = useNavigate();
   const isOwner = user?.nickname === sender;
+  const { t } = useTranslation();
 
   const onSetStatus = (status: INotificationModel["status"]) => {
     const callDate = {
       type: EOperationNotificationType.RESPOND_DUEL,
-      id,
+      _id,
       status,
     };
     sendMessage(JSON.stringify(callDate));
@@ -36,27 +40,47 @@ export const Item: FC<INotificationModel> = ({
 
   return (
     <StyledNotificationContainer>
-      <StyledDateTime>{new Date(createdAt)?.toDateString()}</StyledDateTime>
-      <StyledNotificationMessage>Rate: {rate}</StyledNotificationMessage>
+      <StyledDateTime>{formatDate(createdAt, true)}</StyledDateTime>
       <StyledNotificationFlex>
         <StyledNotificationMessage>
-          {isOwner
-            ? "You send call to " + receiver
-            : "You have call from " + sender}
+          <Trans
+            i18nKey={isOwner ? "message.duel" : "message.challenged"}
+            components={{
+              b: (
+                <Link
+                  to={LINK_TEMPLATES.PROFILE(isOwner ? receiver : sender)}
+                />
+              ),
+              span: <span />,
+            }}
+            values={{
+              player: isOwner ? receiver : sender,
+              coins: rate,
+            }}
+          />
         </StyledNotificationMessage>
-        <StyledNotificationStatus>{status}</StyledNotificationStatus>
+        <StyledNotificationStatus status={status}>
+          {status}
+        </StyledNotificationStatus>
       </StyledNotificationFlex>
       {status === "pending" && !isOwner && (
         <StyledAction>
-          <button onClick={() => onSetStatus("accepted")}>Accept</button>
-          <button onClick={() => onSetStatus("declined")}>Decline</button>
+          <StyledButton onClick={() => onSetStatus("accepted")}>
+            {t("button.accept")}
+          </StyledButton>
+          <StyledButton
+            variant="outline"
+            onClick={() => onSetStatus("declined")}
+          >
+            {t("button.decline")}
+          </StyledButton>
         </StyledAction>
       )}
       {status === "accepted" && (
         <StyledAction>
-          <button onClick={() => navigation(LINK_TEMPLATES.ARENA(id))}>
-            Join
-          </button>
+          <StyledButton onClick={() => navigation(LINK_TEMPLATES.ARENA(_id))}>
+            {t("button.join")}
+          </StyledButton>
         </StyledAction>
       )}
     </StyledNotificationContainer>

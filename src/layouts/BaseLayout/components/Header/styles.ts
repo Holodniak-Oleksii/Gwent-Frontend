@@ -76,3 +76,9 @@ export const StyledAction = styled.div`
   margin-left: auto;
   align-items: center;
 `;
+
+export const StyledNotify = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

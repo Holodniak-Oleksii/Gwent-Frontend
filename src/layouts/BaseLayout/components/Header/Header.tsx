@@ -1,5 +1,6 @@
 import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
+import IconBell from "@/common/icons/IconBell";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import i18n from "@/i18n";
 import { Account } from "@/layouts/BaseLayout/components/Header/components/Account";
@@ -15,6 +16,7 @@ import {
   StyledLink,
   StyledList,
   StyledLogo,
+  StyledNotify,
   StyledWrapper,
 } from "./styles";
 
@@ -61,7 +63,12 @@ export const Header = () => {
         <StyledAction>
           <LanguageSelect />
           {isAuth ? (
-            <Account />
+            <>
+              <StyledNotify to={LINK_TEMPLATES.MESSAGES()}>
+                <IconBell />
+              </StyledNotify>
+              <Account />
+            </>
           ) : (
             <>
               <BaseButton onClick={() => navigate(LINK_TEMPLATES.LOGIN())}>

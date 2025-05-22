@@ -21,7 +21,9 @@ const defaultPalette: DefaultTheme["colors"] = {
     [EFaction.MONSTERS]: "#9b021e",
     [EFaction.NILFGAARD]: "#222322",
     [EFaction.SCOIATAEL]: "#328d09",
-    [EFaction.UNIVERSAL]: "#2dd1ff",
+    [EFaction.NEUTRAL]: "#2dd1ff",
+    [EFaction.SPECIAL]: "#2dd1ff",
+    [EFaction.WEATHER]: "#2dd1ff",
   },
 };
 
@@ -99,8 +101,11 @@ const theme: DefaultTheme = {
     `,
     indents: css`
       padding-top: 120px;
+      padding-bottom: 120px;
+
       ${media.width.lg} {
-        padding-top: 80px;
+        padding-top: 100px;
+        padding-bottom: 100px;
       }
     `,
   },

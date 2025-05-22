@@ -4,6 +4,7 @@ import { LINK_TEMPLATES } from "@/common/constants";
 import { IUserModel } from "@/common/types";
 import { TPlayer } from "@/common/types/entity";
 import { HeroCard } from "@/components/cards/HeroCard";
+import { Loader } from "@/components/shared/Loader";
 import { Awards } from "@/features/Profile/components/Awards";
 import { UserStats } from "@/features/Profile/components/UserStats";
 import { useUserStore } from "@/store/user";
@@ -27,7 +28,7 @@ const PrivateProfile: FC<IPrivateProfileProps> = ({ user }) => {
   const { data } = useGetMyCardsQuery();
 
   const renderHeroCards = () =>
-    data?.cards.map((card) => <HeroCard key={card.id} card={card} />);
+    data?.cards.map((card) => <HeroCard key={card._id} card={card} />);
 
   return (
     <StyledWrapper>
@@ -57,7 +58,7 @@ const GetDetails: FC<IGetProfileProps> = ({ nickname }) => {
   }
 
   if (isLoading || !data?.user) {
-    return <>Loading</>;
+    return <Loader />;
   }
 
   return <PublicProfile player={data.user} />;

@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 interface INotificationsStore {
   notifications: INotificationModel[];
-  removeNotification: (id: INotificationModel["id"]) => void;
+  removeNotification: (id: INotificationModel["_id"]) => void;
 }
 
 export const useNotificationStore = create<INotificationsStore>((set) => ({
@@ -11,6 +11,6 @@ export const useNotificationStore = create<INotificationsStore>((set) => ({
   removeNotification: (id) =>
     set((state) => ({
       ...state,
-      notifications: state.notifications.filter((n) => n.id !== id),
+      notifications: state.notifications.filter((n) => n._id !== id),
     })),
 }));

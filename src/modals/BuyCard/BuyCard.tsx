@@ -23,7 +23,7 @@ interface IApplyProps extends IModalProps {
 
 export const BuyCard = create<IApplyProps>(({ id, card }) => {
   const { hide, visible } = useModal(id);
-  const { mutateAsync } = useBuyCardMutation(card.id);
+  const { mutateAsync } = useBuyCardMutation(card._id);
   const { t } = useTranslation();
   const user = useUserStore((state) => state.user);
 
