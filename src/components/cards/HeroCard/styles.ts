@@ -1,3 +1,4 @@
+import Image from "@/components/shared/Image";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import styled, { css } from "styled-components";
 
@@ -22,9 +23,8 @@ export const StyledWrapper = styled.div`
   `}
 `;
 
-export const StyledImage = styled.img<IBuyProps>`
-  width: 100%;
-  object-fit: cover;
+export const StyledCover = styled.div<IBuyProps>`
+  position: relative;
   ${({ $isBuy, theme, $isPreview }) =>
     $isPreview
       ? "height: 100%;"
@@ -34,6 +34,12 @@ export const StyledImage = styled.img<IBuyProps>`
             height: ${$isBuy ? "calc(100% - 108px)" : "calc(100% - 60px)"};
           }
         `}
+`;
+
+export const StyledImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const StyledPanel = styled.div`

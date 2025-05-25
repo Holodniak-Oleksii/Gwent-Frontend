@@ -1,3 +1,7 @@
+import { Loader } from "@/components/shared/Loader";
+import { useTranslation } from "react-i18next";
+
 export const Wait = () => {
-  return <div>Wait Enemy</div>;
+  const { t } = useTranslation();
+  return <Loader text={t("message.waitEnemy")} />;
 };

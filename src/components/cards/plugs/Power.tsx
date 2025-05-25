@@ -15,8 +15,8 @@ const StyledContainer = styled.div`
   border-radius: 50%;
   ${({ theme }) => css`
     color: ${theme.colors.primary};
-    ${theme.fontSizes.regular};
     ${theme.common.secondFontFamily};
+    font-size: 100%;
     font-weight: 700;
   `}
 `;

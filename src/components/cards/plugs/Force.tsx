@@ -24,7 +24,8 @@ const StyledContainer = styled.div`
 
 const StyledWrapper = styled.div`
   position: relative;
-  margin-top: 24px;
+  width: 100%;
+  margin-top: 40%;
 `;
 
 interface IForceProps {

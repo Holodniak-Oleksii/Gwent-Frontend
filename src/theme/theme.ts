@@ -5,7 +5,7 @@ import { css, DefaultTheme } from "styled-components";
 
 const defaultPalette: DefaultTheme["colors"] = {
   primary: "#1f2326",
-  focus: "rgba(9, 10, 11, 1)",
+  focus: "#090a0b",
   secondary: "#16cc8f",
   text: "#FEFEFE",
   border: "rgba(223, 228, 248, 0.05)",

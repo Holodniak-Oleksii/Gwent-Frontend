@@ -1,8 +1,8 @@
-import { GameManager } from "@/api/ws/game";
+import { GameProvider } from "@/common/contexts/GameContext";
 import { ArenaScreen } from "@/features/Arena/data";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { useParams } from "react-router-dom";
 
 interface IArenaProps {
@@ -11,14 +11,14 @@ interface IArenaProps {
 }
 
 const Arena: FC<IArenaProps> = ({ id, nickname }) => {
-  const game = useMemo(() => {
-    return new GameManager(nickname, id);
-  }, [nickname, id]);
-
   const state = useGameStore((state) => state.state);
   const Component = ArenaScreen[state];
 
-  return <Component game={game} />;
+  return (
+    <GameProvider id={id} nickname={nickname}>
+      <Component />
+    </GameProvider>
+  );
 };
 
 const QueryCheck = () => {
