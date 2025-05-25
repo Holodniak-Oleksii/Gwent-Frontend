@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledWrapper = styled.div`
   height: 100%;
   aspect-ratio: 3/4;
-  border-radius: 12px;
+  border-radius: 5%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -23,9 +23,12 @@ export const StyledImage = styled.img`
 
 export const StyledLabel = styled.div`
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 2%;
+  left: 2%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-size: 75%;
+  line-height: 1;
 `;

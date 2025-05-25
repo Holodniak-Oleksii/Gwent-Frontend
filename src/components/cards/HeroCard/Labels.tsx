@@ -5,31 +5,29 @@ import { Force } from "@/components/cards/plugs/Force";
 import { Hero } from "@/components/cards/plugs/Hero";
 import { Power } from "@/components/cards/plugs/Power";
 import { FC } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ILablesProps {
   card: ICardModel;
 }
 export const StyledWrapper = styled.div`
   position: absolute;
-  top: 4px;
-  left: 8px;
   display: flex;
-  ${({ theme }) => css`
-    width: 32px;
-    ${theme.media.width.lg} {
-      width: 24px;
-    }
-  `}
+  top: 2%;
+  left: 4%;
+  width: 15%;
+  height: 98%;
 `;
 
 export const StyledRelative = styled.div`
   width: 100%;
-  transform: translateY(-12px);
+  height: 100%;
   position: relative;
-  svg {
+  .flag {
+    position: relative;
+    top: -8%;
     width: 100%;
-    height: fit-content;
+    height: 100%;
   }
 `;
 
@@ -37,8 +35,8 @@ export const StyledColumn = styled.div`
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  width: fit-content;
+  transform: translateX(-50%);
+  width: 135%;
 `;
 
 const universal = [EFaction.NEUTRAL, EFaction.SPECIAL, EFaction.WEATHER];

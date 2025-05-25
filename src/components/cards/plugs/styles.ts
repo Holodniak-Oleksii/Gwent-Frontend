@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const StyledCircle = styled.div`
   border-radius: 50%;
@@ -8,15 +8,10 @@ export const StyledCircle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   img {
     object-fit: contain;
     width: 100%;
     height: 100%;
   }
-  ${({ theme }) => css`
-    height: 44px;
-    ${theme.media.width.lg} {
-      height: 36px;
-    }
-  `}
 `;

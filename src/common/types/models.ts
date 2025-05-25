@@ -62,7 +62,16 @@ export interface IEffect {
   applyTo: string[];
 }
 
+export interface IGamePlayer {
+  nickname: string;
+  avatar: string | null;
+  pass: boolean;
+  cardsCount: number;
+  leader: ICardModel;
+}
+
 export interface IGameModel {
+  leader: ICardModel;
   boardCards: IBoardCard[];
   playingCards: ICardModel[];
   discards: ICardModel[];
@@ -71,10 +80,5 @@ export interface IGameModel {
   rounds: IRound[];
   winner: string | null;
   effects: IEffect[];
-  enemy?: {
-    nickname: string;
-    avatar: string;
-    pass: boolean;
-    cardsCount: number;
-  };
+  enemy?: IGamePlayer;
 }

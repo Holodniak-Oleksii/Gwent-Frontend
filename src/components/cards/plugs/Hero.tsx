@@ -5,20 +5,23 @@ import styled, { css } from "styled-components";
 
 const StyledWrapper = styled.div`
   position: relative;
+  width: 100%;
+  transform: translateY(-20%) translateX(-16%);
 `;
+
 const StyledPlugImage = styled.img`
   position: absolute;
   left: 0;
   top: 0;
-  width: 100px;
-  transform: translateX(-10px) translateY(-11px);
+  width: 200%;
 `;
-const StyledContainer = styled.div`
+const StyledContainer = styled(StyledCircle)`
   position: relative;
+  transform: translateY(16%) translateX(14%);
   ${({ theme }) => css`
     color: ${theme.colors.text};
-    ${theme.fontSizes.regular};
     ${theme.common.secondFontFamily};
+    font-size: 100%;
     font-weight: 700;
   `}
 `;
@@ -31,9 +34,7 @@ export const Hero: FC<IHeroProps> = ({ power }) => {
   return (
     <StyledWrapper>
       <StyledPlugImage src={imageBg} alt="bg" />
-      <StyledCircle>
-        <StyledContainer>{power}</StyledContainer>
-      </StyledCircle>
+      <StyledContainer>{power}</StyledContainer>
     </StyledWrapper>
   );
 };

@@ -1,4 +1,5 @@
 import { useGetMyCardsQuery } from "@/api/cards";
+import { useGame } from "@/common/hooks/useGame";
 import {
   EFaction,
   EGameRequestMessageType,
@@ -8,8 +9,7 @@ import {
 import { Loader } from "@/components/shared/Loader";
 import { FractionCarousel } from "@/features/Arena/states/Preparation/components/FractionCarousel";
 import { TOperation } from "@/features/Arena/states/Preparation/types";
-import { IArenaScreen } from "@/features/Arena/states/types";
-import { FC, useState } from "react";
+import { useMemo, useState } from "react";
 import { ChooseCards } from "./components/ChooseCards";
 import { StyledWrapper } from "./styles";
 
@@ -23,7 +23,8 @@ const cardDefault: Record<EFaction, ICardModel[]> = {
   [EFaction.SPECIAL]: [],
   [EFaction.WEATHER]: [],
 };
-export const Preparation: FC<IArenaScreen> = ({ game }) => {
+export const Preparation = () => {
+  const { game } = useGame();
   const { data, isLoading } = useGetMyCardsQuery();
   const [activeFraction, setActiveFraction] = useState<EFaction>(
     EFaction.KINGDOMS_OF_THE_NORTH
@@ -33,6 +34,14 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
 
   const [chooseCards, setChooseCards] =
     useState<Record<EFaction, ICardModel[]>>(cardDefault);
+
+  const leader = useMemo(
+    () =>
+      data?.cards.find(
+        (i) => i.type === EType.LEADER && i.fractionId === activeFraction
+      ),
+    [data?.cards, activeFraction]
+  );
 
   const handlerCardClick = (card: ICardModel, operation: TOperation) => {
     if (operation === "set") {
@@ -55,7 +64,7 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
     game.sendMessage(
       JSON.stringify({
         type: EGameRequestMessageType.UPDATE_CARDS,
-        data: { cards },
+        data: { cards, leader },
       })
     );
   };
@@ -71,9 +80,7 @@ export const Preparation: FC<IArenaScreen> = ({ game }) => {
         onChangeFraction={(f) => setActiveFraction(f)}
       />
       <ChooseCards
-        leader={data.cards.find(
-          (i) => i.type === EType.LEADER && i.fractionId === activeFraction
-        )}
+        leader={leader}
         list={data.cards
           .filter(
             (i) => i.type !== EType.LEADER && i.fractionId === activeFraction

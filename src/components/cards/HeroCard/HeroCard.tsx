@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { Labels } from "./Labels";
 import {
   StyledBuyButton,
+  StyledCover,
   StyledImage,
   StyledName,
   StyledPanel,
@@ -31,13 +32,10 @@ export const HeroCard: FC<IHeroCardProps> = ({ card, isBuy, isPreview }) => {
 
   return (
     <StyledWrapper>
-      <Labels card={card} />
-      <StyledImage
-        src={getUrlImage(card)}
-        alt={card.image}
-        $isBuy={isBuy && !!user}
-        $isPreview={isPreview}
-      />
+      <StyledCover $isBuy={isBuy && !!user} $isPreview={isPreview}>
+        <Labels card={card} />
+        <StyledImage src={getUrlImage(card)} alt={card.image} />
+      </StyledCover>
       {!isPreview && (
         <StyledPanel>
           <StyledName>{convertText(card.image)}</StyledName>
