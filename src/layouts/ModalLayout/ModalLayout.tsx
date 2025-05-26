@@ -13,7 +13,7 @@ interface IModalLayout extends PropsWithChildren {
   open: boolean;
   onClose: () => void;
   title?: string | React.ReactNode;
-  maxWidth?: number;
+  maxWidth?: string;
   renderStatus?: React.ReactNode;
   bgcolor?: string;
 }
@@ -23,7 +23,7 @@ export const ModalLayout: FC<IModalLayout> = ({
   open,
   children,
   title,
-  maxWidth = 515,
+  maxWidth = "515px",
   renderStatus,
   bgcolor,
 }) => (

@@ -17,7 +17,7 @@ import {
   StyledWrapper,
 } from "./styles";
 interface IPlayerSectionProps {
-  player?: IGamePlayer;
+  player?: Pick<IGamePlayer, "avatar" | "leader" | "nickname" | "cardsCount">;
   isEnemy?: boolean;
 }
 

@@ -22,23 +22,33 @@ interface IHeroCardProps {
   card: ICardModel;
   isBuy?: boolean;
   isPreview?: boolean;
+  bgcolor?: string;
+  textColor?: string;
 }
 
-export const HeroCard: FC<IHeroCardProps> = ({ card, isBuy, isPreview }) => {
+export const HeroCard: FC<IHeroCardProps> = ({
+  card,
+  isBuy,
+  isPreview,
+  bgcolor,
+  textColor,
+}) => {
   const user = useUserStore((state) => state.user);
   const buyAlible = isBuy && !user?.cards.includes(card._id);
   const { t } = useTranslation();
   const { show } = useModal(EModalKey.BUY_CARD);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper $bgcolor={bgcolor}>
       <StyledCover $isBuy={isBuy && !!user} $isPreview={isPreview}>
         <Labels card={card} />
         <StyledImage src={getUrlImage(card)} alt={card.image} />
       </StyledCover>
       {!isPreview && (
         <StyledPanel>
-          <StyledName>{convertText(card.image)}</StyledName>
+          <StyledName $textColor={textColor}>
+            {convertText(card.image)}
+          </StyledName>
           {isBuy && !!user && (
             <>
               {buyAlible ? (

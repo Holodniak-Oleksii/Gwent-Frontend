@@ -78,18 +78,21 @@ export const StyledCard = styled.img`
   width: auto;
 `;
 
+export const StyledImage = styled.img`
+  left: 8px;
+  top: 8px;
+  position: absolute;
+  height: calc(100% - 16px);
+  width: calc(100% - 16px);
+  filter: brightness(0.5);
+`;
+
 export const StyledHorn = styled.div`
   height: 100%;
   aspect-ratio: 1/1;
   position: relative;
-  img {
-    left: 8px;
-    top: 8px;
-    position: absolute;
-    height: calc(100% - 16px);
-    width: calc(100% - 16px);
-    filter: brightness(0.5);
-  }
+  display: flex;
+  justify-content: center;
   ${({ theme }) => css`
     border-bottom: 2px solid ${convertHexToRgba(theme.colors.text, 0.1)};
     border-right: 2px solid ${convertHexToRgba(theme.colors.text, 0.1)};

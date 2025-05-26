@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
   background-size: cover;
   box-shadow: inset 20px 20px 100px #000;
   display: grid;
-  grid-template-columns: 4fr 13fr;
+  grid-template-columns: 4fr 12fr 3fr;
 `;
 
 export const StyledPlayers = styled.div`
@@ -71,6 +71,7 @@ export const StyledList = styled.div<{ disabled: boolean }>`
         disabled ? 0 : 0.1
       )};
       pointer-events: ${disabled ? "none" : "all"};
+      opacity: ${disabled ? 0.5 : 1};
       box-shadow: inset 0px 1px 25px ${theme.colors.focus},
         0px 1px 5px ${theme.colors.focus};
     `}

@@ -7,7 +7,7 @@ interface IBuyProps {
   $isPreview?: boolean;
 }
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<{ $bgcolor?: string }>`
   width: 100%;
   height: fit-content;
   max-height: 100%;
@@ -17,8 +17,8 @@ export const StyledWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
+  ${({ theme, $bgcolor }) => css`
+    background-color: ${$bgcolor || theme.colors.primary};
     border: 1px solid ${theme.colors.bgneonLight};
   `}
 `;
@@ -56,12 +56,12 @@ export const StyledPanel = styled.div`
   }
 `;
 
-export const StyledName = styled.span`
+export const StyledName = styled.span<{ $textColor?: string }>`
   margin: auto;
-  ${({ theme }) => css`
+  ${({ theme, $textColor }) => css`
     text-align: center;
     ${theme.fontSizes.small};
-    color: ${theme.colors.text};
+    color: ${$textColor || theme.colors.text};
   `}
 `;
 

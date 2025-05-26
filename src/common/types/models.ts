@@ -60,6 +60,8 @@ export interface IEffect {
   ability: ECardAbilities;
   type: EType;
   applyTo: string[];
+  fractionId: EFaction;
+  image: string;
 }
 
 export interface IGamePlayer {
@@ -68,6 +70,8 @@ export interface IGamePlayer {
   pass: boolean;
   cardsCount: number;
   leader: ICardModel;
+  deckLength: number;
+  discards: ICardModel[];
 }
 
 export interface IGameModel {

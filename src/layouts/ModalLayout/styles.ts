@@ -55,13 +55,13 @@ export const StyledExit = styled.button`
 `;
 
 export const StyledContainer = styled.div<{
-  maxWidth: number;
+  maxWidth: string;
   bgcolor?: string;
 }>`
   width: 100%;
   margin: auto;
   border-radius: 10px;
-  max-width: ${({ maxWidth }) => maxWidth}px;
+  max-width: ${({ maxWidth }) => maxWidth};
   ${({ bgcolor, theme }) =>
     bgcolor
       ? css`
