@@ -42,7 +42,7 @@ export const EditAvatar = create<IModalProps>(({ id }) => {
   };
 
   return (
-    <ModalLayout open={visible} onClose={remove} maxWidth={332}>
+    <ModalLayout open={visible} onClose={remove} maxWidth={"332px"}>
       <StyledContent onSubmit={handleSubmit}>
         <Dropzone onDrop={(files) => setAvatar(files[0])} noClick noKeyboard>
           {({ getRootProps }) => (

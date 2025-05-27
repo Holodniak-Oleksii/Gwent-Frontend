@@ -1,10 +1,14 @@
 import { useGame } from "@/common/hooks/useGame";
 import { EGameRequestMessageType, EModalKey, ICardModel } from "@/common/types";
 import { PlayingCard } from "@/components/cards/PlayingCard";
+import { SunLightEffectPixi } from "@/components/effects/SunRays";
+import { TransitionOverlay } from "@/components/effects/TransitionOverlay";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
 import { useModal } from "@ebay/nice-modal-react";
+import { useEffect, useState } from "react";
 import { Board } from "./components/Board";
+import { Deck } from "./components/Deck";
 import { PlayerSection } from "./components/PlayerSection";
 import { WeatherContainer } from "./components/WeatherContainer";
 import {
@@ -21,8 +25,9 @@ export const Play = () => {
   const gameStore = useGameStore((state) => state.game);
   const user = useUserStore((state) => state.user);
   const { show } = useModal(EModalKey.APPLY_CARD);
+  const [visible, setVisible] = useState(false);
 
-  const onConfirm = (card: ICardModel) => {
+  const onConfirm = async (card: ICardModel) => {
     game.sendMessage(
       JSON.stringify({
         type: EGameRequestMessageType.APPLY_CARD,
@@ -42,8 +47,18 @@ export const Play = () => {
       />
     ));
 
+  useEffect(() => {
+    if (gameStore?.showSunRays) {
+      setVisible(true);
+      setTimeout(() => setVisible(false), 2000);
+    }
+  }, [gameStore?.showSunRays]);
+
   return (
     <StyledWrapper>
+      <TransitionOverlay open={visible} inTime={100}>
+        <SunLightEffectPixi />
+      </TransitionOverlay>
       <StyledPlayers>
         <PlayerSection player={gameStore?.enemy} />
         <WeatherContainer />
@@ -55,7 +70,6 @@ export const Play = () => {
               nickname: user.nickname,
               leader: gameStore?.leader || ({} as ICardModel),
               cardsCount: gameStore?.playingCards.length || 0,
-              pass: false,
             }}
           />
         )}
@@ -70,6 +84,7 @@ export const Play = () => {
           </StyledList>
         </StylesCards>
       </StyledContainer>
+      <Deck />
     </StyledWrapper>
   );
 };

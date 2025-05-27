@@ -10,18 +10,16 @@ interface IPlayingCardProps {
   onClick?: () => void;
 }
 
-export const PlayingCard: FC<IPlayingCardProps> = ({ card, onClick }) => {
-  return (
-    <StyledWrapper onClick={onClick}>
-      <StyledLabel>
-        {card.type === EType.UNIT && (
-          <>
-            <Power power={card.power} />
-            <Force force={card.forces} />
-          </>
-        )}
-      </StyledLabel>
-      <StyledImage src={getUrlImage(card)} alt={card.image} />
-    </StyledWrapper>
-  );
-};
+export const PlayingCard: FC<IPlayingCardProps> = ({ card, onClick }) => (
+  <StyledWrapper onClick={onClick} className="playing-card">
+    <StyledLabel>
+      {card.type === EType.UNIT && (
+        <>
+          <Power power={card.power} />
+          <Force force={card.forces} />
+        </>
+      )}
+    </StyledLabel>
+    <StyledImage src={getUrlImage(card)} alt={card.image} />
+  </StyledWrapper>
+);

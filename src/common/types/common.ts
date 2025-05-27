@@ -1,4 +1,5 @@
 import { FieldError, Merge } from "react-hook-form";
+import { TransitionStatus } from "react-transition-group";
 
 export interface IActiveble {
   $isActive: boolean;
@@ -19,4 +20,8 @@ export type TErrorForm =
   | Merge<FieldError, (FieldError | undefined)[]>;
 export interface IError {
   error?: TErrorForm;
+}
+
+export interface ITransitionsProps {
+  $transitionState: TransitionStatus;
 }

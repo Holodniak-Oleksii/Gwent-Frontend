@@ -40,7 +40,7 @@ export const BuyCard = create<IApplyProps>(({ id, card }) => {
   return (
     <ModalLayout
       title={t("title.buy")}
-      maxWidth={360}
+      maxWidth={"360px"}
       open={visible}
       onClose={hide}
     >

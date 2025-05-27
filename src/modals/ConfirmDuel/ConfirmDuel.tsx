@@ -52,7 +52,7 @@ export const ConfirmDuel = create<IConfirmDuelProps>(({ id, nickname }) => {
       open={visible}
       onClose={hide}
       title={t("title.fight")}
-      maxWidth={400}
+      maxWidth={"400px"}
     >
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <TextFiled

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  position: sticky;
+  position: relative;
   height: calc(100svh - 100px);
   min-height: 600px;
   max-height: 1080px;
