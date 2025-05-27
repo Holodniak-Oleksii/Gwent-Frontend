@@ -85,4 +85,5 @@ export interface IGameModel {
   winner: string | null;
   effects: IEffect[];
   enemy?: IGamePlayer;
+  showSunRays?: boolean;
 }

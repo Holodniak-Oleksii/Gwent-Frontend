@@ -11,6 +11,7 @@ export const StyledWrapper = styled.div`
   box-shadow: inset 20px 20px 100px #000;
   display: grid;
   grid-template-columns: 4fr 12fr 3fr;
+  position: relative;
 `;
 
 export const StyledPlayers = styled.div`
@@ -58,8 +59,7 @@ export const StyledList = styled.div<{ disabled: boolean }>`
   gap: 4px;
   padding: 4px;
   overflow: auto;
-  &:disabled {
-  }
+
   ${({ theme, disabled }) =>
     css`
       border: 2px solid

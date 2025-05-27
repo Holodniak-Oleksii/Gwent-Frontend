@@ -10,7 +10,6 @@ import {
 
 export const WeatherContainer = () => {
   const game = useGameStore();
-  console.log("game :", game);
 
   const renderCards = () =>
     game.game?.effects.map((e) => (
@@ -20,13 +19,7 @@ export const WeatherContainer = () => {
     <StyledWrapper>
       <StyledAbsolute>
         <StyledContainer>
-          <StyledList>
-            {renderCards()}
-
-            {renderCards()}
-            {renderCards()}
-            {renderCards()}
-          </StyledList>
+          <StyledList>{renderCards()}</StyledList>
         </StyledContainer>
       </StyledAbsolute>
     </StyledWrapper>

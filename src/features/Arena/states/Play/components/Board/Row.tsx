@@ -4,7 +4,6 @@ import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
 import {
   StyledCardsList,
-  StyledEffect,
   StyledForceIcon,
   StyledHorn,
   StyledImage,
@@ -13,6 +12,7 @@ import {
 } from "./styles";
 
 import imageHorn from "@/assets/images/game/horn.webp";
+import { Effect } from "@/components/effects/Effect";
 import { FC, useMemo } from "react";
 import { forceIcons } from "./data";
 
@@ -22,18 +22,12 @@ interface IRowProps {
 }
 
 export const Row: FC<IRowProps> = ({ position, isMyCards }) => {
-  const { game } = useGameStore();
+  const game = useGameStore().game;
   const { user } = useUserStore();
 
   const hornCard = useMemo(
     () => game?.boardCards.find((e) => e.card.ability === ECardAbilities.HORN),
     [game?.boardCards]
-  );
-
-  const isEffect = useMemo(
-    () =>
-      game?.effects.some((e) => e.row === position && e.type === EType.WEATHER),
-    [game?.effects, position]
   );
 
   const isHorn = useMemo(
@@ -68,7 +62,7 @@ export const Row: FC<IRowProps> = ({ position, isMyCards }) => {
         <StyledForceIcon src={forceIcons[position]} alt="force" />
         <StyledCardsList>{renderCards()}</StyledCardsList>
       </StyledList>
-      {isEffect && <StyledEffect />}
+      <Effect position={position} />
     </StyledRow>
   );
 };
