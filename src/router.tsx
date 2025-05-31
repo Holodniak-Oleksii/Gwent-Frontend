@@ -4,6 +4,7 @@ import { Contacts } from "@/features/Contacts";
 import { Market } from "@/features/Market";
 import { Messages } from "@/features/Messages";
 import { Players } from "@/features/Players";
+import { Refill } from "@/features/Refill";
 import { Rules } from "@/features/Rules";
 import { BaseLayout } from "@/layouts/BaseLayout";
 import { useUserStore } from "@/store/user";
@@ -45,6 +46,7 @@ const AppRouter = () => {
                   path={LINK_TEMPLATES.MESSAGES("")}
                   element={<Messages />}
                 />
+                <Route path={LINK_TEMPLATES.REFILL("")} element={<Refill />} />
               </>
             )}
           </Route>

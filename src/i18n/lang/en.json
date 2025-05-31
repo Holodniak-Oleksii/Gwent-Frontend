@@ -48,7 +48,8 @@
       "accept": "Accept",
       "decline": "Decline",
       "join": "Join",
-      "startGame": "start game"
+      "startGame": "start game",
+      "generate": "Generate"
     },
     "title": {
       "gwent": "Gwent",
@@ -62,6 +63,9 @@
       "cardsInDeck": "Cards in Deck"
     },
     "message": {
+      "codeCopied": "Code copied",
+      "refill": "<p>To top up your balance, please transfer the required amount to the <b>\"Gwent Coins\"</b> bank. In the <b>\"Comment\"</b> field, be sure to indicate the <u>one-time generated code</u>, which will be used to top up your game balance. </p> <p>💰 Top-up rate: 1 hryvnia = 100 coins.</p> <p>Attention! All funds received by this bank will be transferred to <strong>\"Current RUSORIZ\"</strong> to support the Armed Forces of Ukraine.</p> <p>You can also support our army directly by donating to the fund's website: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" >https://www.sternenkofund.org/fundraisings/rusoriz</a> Together we are strong 💙💛</p>",
+      "balanceRefilled": "Balance refilled with {{balance}} coins",
       "waitEnemy": "Waiting enemy...",
       "emptyNotify": "Well, you don't have a notification.",
       "enoughMoney": "You don't have enough money",

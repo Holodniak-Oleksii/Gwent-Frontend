@@ -61,7 +61,7 @@ export const Account = () => {
 
   return (
     <StyledContainer>
-      <StyledRow>
+      <StyledRow as={Link} to={LINK_TEMPLATES.REFILL()}>
         <b>{t("labels.balance")}:</b>
         <StyledBalance>
           <IconCoin />

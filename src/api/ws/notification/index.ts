@@ -1,10 +1,16 @@
 import { EOperationNotificationType } from "@/common/types";
 import { useNotificationStore } from "@/store/notifications";
+import { useUserStore } from "@/store/user";
+import { toast } from "@/utils/toast";
+import { TFunction } from "i18next";
 
 const wsUrl = import.meta.env.VITE_WS_URL;
 let socket: WebSocket | null = null;
 
-export const initializeNotificationManager = (nickname: string) => {
+export const initializeNotificationManager = (
+  nickname: string,
+  t: TFunction
+) => {
   if (!nickname) {
     console.error(
       "WebSocket nickname is missing. Cannot initialize WebSocket."
@@ -42,6 +48,19 @@ export const initializeNotificationManager = (nickname: string) => {
         }));
         break;
       }
+      case EOperationNotificationType.REFILL_BALANCE: {
+        useUserStore.setState((state) => ({
+          ...state,
+          user: {
+            ...state.user!,
+            coins: state.user?.coins + message.data.balance,
+          },
+        }));
+        toast.success(
+          t(`message.balanceRefilled`, { balance: message.data.balance })
+        );
+        break;
+      }
       case EOperationNotificationType.NEW_DUEL: {
         useNotificationStore.setState((state) => ({
           ...state,
@@ -71,7 +90,7 @@ export const initializeNotificationManager = (nickname: string) => {
     if (event.code !== 1000) {
       setTimeout(() => {
         if (nickname) {
-          initializeNotificationManager(nickname);
+          initializeNotificationManager(nickname, t);
         }
       }, 3000);
     }

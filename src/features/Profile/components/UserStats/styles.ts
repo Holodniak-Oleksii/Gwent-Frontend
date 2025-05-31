@@ -52,7 +52,7 @@ export const StyledGrid = styled.div`
 `;
 
 export const StyledPanel = styled.div`
-  height: 200px;
+  height: 220px;
   width: 100%;
   position: relative;
   overflow: hidden;
