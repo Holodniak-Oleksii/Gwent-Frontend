@@ -3,6 +3,7 @@ import { LINK_TEMPLATES } from "@/common/constants";
 import { useGetUserStats } from "@/common/hooks/useGetUserStats";
 import IconEditAvatar from "@/common/icons/IconEditAvatar";
 import IconLogout from "@/common/icons/IconLogout";
+import IconWallet from "@/common/icons/IconWallet";
 import { EModalKey } from "@/common/types";
 import { TPlayer } from "@/common/types/entity";
 import { StatCard } from "@/components/cards/StatCard";
@@ -15,7 +16,7 @@ import { useUserStore } from "@/store/user";
 import { useModal } from "@ebay/nice-modal-react";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import {
   StyledAvatarContainer,
@@ -81,6 +82,9 @@ export const UserStats: FC<IUserStatsProps> = ({
                 </StyledIcon>
                 <StyledIcon onClick={() => show()}>
                   <IconEditAvatar />
+                </StyledIcon>
+                <StyledIcon as={Link} to={LINK_TEMPLATES.REFILL()}>
+                  <IconWallet />
                 </StyledIcon>
               </>
             )}

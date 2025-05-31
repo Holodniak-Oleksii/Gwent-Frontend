@@ -20,4 +20,5 @@ export const LINK_TEMPLATES = {
   ABOUT_US: (locale?: string) => getPath("about-us", locale),
   CONTACTS: (locale?: string) => getPath("contacts", locale),
   ARENA: (id: string, locale?: string) => getPath(`arena/${id}`, locale),
+  REFILL: (locale?: string) => getPath(`refill`, locale),
 };

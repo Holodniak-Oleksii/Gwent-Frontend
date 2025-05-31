@@ -66,12 +66,14 @@ export enum ENDPOINTS {
   ALL_CARDS = "/cards",
   BUY_CARDS = "/cards/buy",
   AVATAR = "/users/avatar",
+  REFILL = "/users/generate-refill-code",
 }
 
 export enum EOperationNotificationType {
   RESPOND_DUEL = "respond_duel",
   STORED_DUELS = "stored_duels",
   NEW_DUEL = "new_duel",
+  REFILL_BALANCE = "refill_balance",
 }
 
 export enum EGameMessageType {

@@ -16,13 +16,14 @@ import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 export const useLoginMutation = () => {
   const setCredentials = useAuthStore((state) => state.setCredentials);
   const setUser = useUserStore((state) => state.setUser);
   const navigation = useNavigate();
-
+  const { t } = useTranslation();
   return useNotifyMutation({
     mutationFn: (data: ILoginFormFields) => {
       return API.post(ENDPOINTS.LOGIN, data);
@@ -34,7 +35,7 @@ export const useLoginMutation = () => {
       );
       setUser(data.data.user);
       navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
-      initializeNotificationManager(data.data.user.nickname);
+      initializeNotificationManager(data.data.user.nickname, t);
     },
   });
 };
@@ -43,6 +44,7 @@ export const useRegistrationMutation = () => {
   const setCredentials = useAuthStore((state) => state.setCredentials);
   const setUser = useUserStore((state) => state.setUser);
   const navigation = useNavigate();
+  const { t } = useTranslation();
 
   return useNotifyMutation({
     mutationFn: (data: IRegistrationFormFields) => {
@@ -55,7 +57,7 @@ export const useRegistrationMutation = () => {
       );
       setUser(data.data.user);
       navigation(LINK_TEMPLATES.PROFILE(data.data.user.nickname));
-      initializeNotificationManager(data.data.user.nickname);
+      initializeNotificationManager(data.data.user.nickname, t);
     },
   });
 };
