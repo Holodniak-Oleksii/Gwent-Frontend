@@ -30,9 +30,23 @@ export const formatDate = (
   });
 };
 
-export const convertText = (text: string) =>
+export const convertText = (
+  text: string,
+  capitalizeMode: "title" | "sentence" | "lower" = "title"
+) =>
   text
     .replace(/[-_]\d+$/, "")
     .split(/[-_]/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word, index) => {
+      switch (capitalizeMode) {
+        case "title":
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        case "sentence":
+          return index === 0
+            ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            : word.toLowerCase();
+        case "lower":
+          return word.toLowerCase();
+      }
+    })
     .join(" ");

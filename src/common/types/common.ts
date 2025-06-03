@@ -12,7 +12,6 @@ export interface IOpenable {
 export interface IOption {
   label: string;
   value: string;
-  id: number;
 }
 
 export type TErrorForm =
@@ -24,4 +23,9 @@ export interface IError {
 
 export interface ITransitionsProps {
   $transitionState: TransitionStatus;
+}
+
+export interface IOption {
+  value: string;
+  label: string;
 }

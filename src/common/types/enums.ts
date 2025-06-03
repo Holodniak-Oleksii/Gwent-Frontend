@@ -133,3 +133,8 @@ export enum EAwards {
   FIGHTER = "FIGHTER",
   ONE_IN_A_THOUSAND = "ONE_IN_A_THOUSAND",
 }
+
+export enum EFilters {
+  PLAYERS = "PLAYERS",
+  CARDS = "CARDS",
+}
