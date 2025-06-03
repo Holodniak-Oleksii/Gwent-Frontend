@@ -60,7 +60,8 @@
       "fight": "Fight",
       "buy": "Buy",
       "cardCollection": "Card Collection",
-      "cardsInDeck": "Cards in Deck"
+      "cardsInDeck": "Cards in Deck",
+      "cards": "Dive into the depths of <b>Gwent</b>"
     },
     "message": {
       "codeCopied": "Code copied",
@@ -73,6 +74,7 @@
       "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight"
     },
     "subTitle": {
+      "cards": "Step into a world where every card is a key to thrilling stories and unmatched strategy. Experience the exquisite artistry and creativity woven into every detail. Welcome to our incredible collection of Gwent cards from The Witcher 3!",
       "totalCardsInDeck": "Total cards in deck",
       "numberOfUnitCards": "Number of Unit Cards",
       "specialCards": "Special Cards",

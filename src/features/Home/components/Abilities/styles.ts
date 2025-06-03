@@ -18,12 +18,9 @@ export const StyledContainer = styled.div`
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  position: sticky;
   height: calc(100svh - 80px);
   min-height: 600px;
   max-height: 1080px;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
 `;
