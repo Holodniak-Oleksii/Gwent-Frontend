@@ -28,7 +28,6 @@ export const FilterCreator = <T extends object>({
 
   useEffect(() => {
     if (debouncedValues) {
-      console.log("debouncedValues :", debouncedValues);
       onFilterChange(EFilters[filterKey], debouncedValues);
     }
   }, [debouncedValues, onFilterChange, filterKey]);
@@ -44,26 +43,11 @@ const SwitchFiled = <T extends object>({ item, register }: ISwitchProps<T>) => {
   switch (item.type) {
     case "input": {
       const args = item.args as IFieldArgs<"input">;
-      return (
-        <TextFiled
-          {...register(args.name!)}
-          placeholder={args.placeholder}
-          type={args.type}
-          label={args.label}
-          name={args.name}
-        />
-      );
+      return <TextFiled {...register(args.name!)} {...args} />;
     }
     case "select": {
       const args = item.args as IFieldArgs<"select">;
-      return (
-        <SelectField
-          name={args.name}
-          label={args.label}
-          placeholder={args.placeholder}
-          options={args.options}
-        />
-      );
+      return <SelectField {...args} />;
     }
     default:
       return null;

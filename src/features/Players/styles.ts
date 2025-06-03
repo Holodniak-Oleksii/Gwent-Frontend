@@ -3,13 +3,21 @@ import styled, { css } from "styled-components";
 export const StyledGrid = styled.div`
   display: grid;
   gap: 32px;
-  margin-top: 16px;
   ${({ theme }) => css`
-    ${theme.spacing.indents};
     grid-template-columns: repeat(4, 1fr);
     ${theme.media.width.lg} {
       grid-template-columns: repeat(3, 1fr);
     }
+  `};
+`;
+
+export const StyledContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  ${({ theme }) => css`
+    ${theme.spacing.indents};
   `};
 `;
 

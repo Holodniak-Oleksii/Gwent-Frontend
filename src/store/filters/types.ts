@@ -11,6 +11,8 @@ export interface IFilterFields {
     size: number;
   };
   [EFilters.PLAYERS]: {
+    name: string;
+    raring: number;
     page: number;
     size: number;
   };

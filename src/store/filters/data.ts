@@ -11,6 +11,8 @@ export const DEFAULT_FIELDS: IFilterFields = {
     size: 18,
   },
   PLAYERS: {
+    name: "",
+    raring: 0,
     page: 1,
     size: 18,
   },
