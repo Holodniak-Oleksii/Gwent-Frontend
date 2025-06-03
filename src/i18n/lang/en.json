@@ -49,7 +49,8 @@
       "decline": "Decline",
       "join": "Join",
       "startGame": "start game",
-      "generate": "Generate"
+      "generate": "Generate",
+      "submit": "Submit"
     },
     "title": {
       "gwent": "Gwent",
@@ -61,7 +62,8 @@
       "buy": "Buy",
       "cardCollection": "Card Collection",
       "cardsInDeck": "Cards in Deck",
-      "cards": "Dive into the depths of <b>Gwent</b>"
+      "cards": "Dive into the depths of <b>Gwent</b>",
+      "getInTouch": "Get In Touch"
     },
     "message": {
       "codeCopied": "Code copied",
@@ -74,6 +76,7 @@
       "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight"
     },
     "subTitle": {
+      "getInTouch": "We are here for you! How can we help?",
       "cards": "Step into a world where every card is a key to thrilling stories and unmatched strategy. Experience the exquisite artistry and creativity woven into every detail. Welcome to our incredible collection of Gwent cards from The Witcher 3!",
       "totalCardsInDeck": "Total cards in deck",
       "numberOfUnitCards": "Number of Unit Cards",
@@ -157,9 +160,13 @@
       "repeatPassword": "Repeat Password",
       "email": "Email",
       "balance": "Balance",
-      "rate": "Bet"
+      "rate": "Bet",
+      "name": "Name",
+      "message": "Message"
     },
     "placeholders": {
+      "name": "Enter Name",
+      "message": "Enter Message",
       "nickname": "Enter Nickname",
       "password": "Enter Password",
       "email": "Enter Email",

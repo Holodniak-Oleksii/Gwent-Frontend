@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const StyledGrid = styled.div`
   display: grid;
   gap: 32px;
+  padding: 32px 24px;
   ${({ theme }) => css`
     grid-template-columns: repeat(4, 1fr);
     ${theme.media.width.lg} {
@@ -15,7 +16,7 @@ export const StyledContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
   ${({ theme }) => css`
     ${theme.spacing.indents};
   `};
@@ -30,4 +31,25 @@ export const StyledWrapper = styled.div`
     ${theme.spacing.content};
     ${theme.common.bgTexture};
   `};
+`;
+
+export const StyledTitle = styled.h2`
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  ${({ theme }) => css`
+    ${theme.fontSizes.big};
+    color: ${theme.colors.text};
+  `}
+`;
+
+export const StyledDivider = styled.hr`
+  width: 100%;
+  outline: none;
+  border: none;
+  ${({ theme }) => css`
+    height: 1px;
+    background-color: ${theme.colors.secondary};
+  `}
 `;

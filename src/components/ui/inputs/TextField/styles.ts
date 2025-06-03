@@ -1,11 +1,11 @@
 import { IError } from "@/common/types";
+import { IInputProps, IPosition } from "@/components/ui/inputs/TextField/types";
 import { convertHexToRgba } from "@/utils/colorUtil";
-import { forwardRef } from "react";
 import styled, { css } from "styled-components";
-import { IInputProps, IPosition, ITextFieldProps } from "./types";
 
-const StyledInput = styled.input<IError & IInputProps>`
+export const StyledInput = styled.input<IError & IInputProps>`
   width: 100%;
+  resize: none;
   ${({ theme, error, endIcon, startIcon }) => css`
     border: 2px solid
       ${error
@@ -26,12 +26,12 @@ const StyledInput = styled.input<IError & IInputProps>`
   `}
 `;
 
-const StyledBlock = styled.div`
+export const StyledBlock = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const StyledLabel = styled.label<IError>`
+export const StyledLabel = styled.label<IError>`
   position: absolute;
   font-family: "HalisGR", sans-serif;
   left: 0;
@@ -46,7 +46,7 @@ const StyledLabel = styled.label<IError>`
   `}
 `;
 
-const StyledError = styled.span<IError>`
+export const StyledError = styled.span<IError>`
   position: absolute;
   font-family: "HalisGR", sans-serif;
   left: 0;
@@ -86,42 +86,3 @@ export const Icon = styled.button<IPosition & IError>`
     }
   }
 `;
-
-export const TextFiled = forwardRef<HTMLInputElement, ITextFieldProps>(
-  (props, ref) => {
-    const { error, label, endIcon, startIcon, ...rest } = props;
-    return (
-      <StyledBlock>
-        {!!startIcon && (
-          <Icon
-            error={error}
-            type={"button"}
-            className="end-icon"
-            position="left"
-          >
-            {startIcon}
-          </Icon>
-        )}
-        {!!label && <StyledLabel error={error}>{label}</StyledLabel>}
-        <StyledInput
-          {...rest}
-          ref={ref}
-          error={error}
-          endIcon={!!endIcon}
-          startIcon={!!startIcon}
-        />
-        {!!error && <StyledError>{error.message}</StyledError>}
-        {!!endIcon && (
-          <Icon
-            error={error}
-            type={"button"}
-            className="end-icon"
-            position="right"
-          >
-            {endIcon}
-          </Icon>
-        )}
-      </StyledBlock>
-    );
-  }
-);

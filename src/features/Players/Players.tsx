@@ -1,10 +1,17 @@
 import { useGetPlayersQuery } from "@/api/player";
 import { EFilters } from "@/common/types";
+import { Banner } from "@/components/shared/Banner";
 import { FilterCreator } from "@/components/shared/FilterCreator";
 import { Loader } from "@/components/shared/Loader";
 import { PlayerCard } from "./components/PlayerCard";
 import { fields } from "./data";
-import { StyledContainer, StyledGrid, StyledWrapper } from "./styles";
+import {
+  StyledContainer,
+  StyledDivider,
+  StyledGrid,
+  StyledTitle,
+  StyledWrapper,
+} from "./styles";
 
 export const Players = () => {
   const { data, isLoading } = useGetPlayersQuery();
@@ -21,6 +28,11 @@ export const Players = () => {
   return (
     <StyledWrapper>
       <StyledContainer>
+        <Banner />
+        <div>
+          <StyledTitle>Find your partner</StyledTitle>
+          <StyledDivider />
+        </div>
         <FilterCreator fields={fields} filterKey={EFilters.PLAYERS} />
         <StyledGrid>{renderPlayers()}</StyledGrid>
       </StyledContainer>

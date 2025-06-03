@@ -5,7 +5,7 @@ import IconEyeOff from "@/common/icons/IconEyeOff";
 import IconLock from "@/common/icons/IconLock";
 import IconUserProfile from "@/common/icons/IconUserProfile";
 import { EAuthFormID } from "@/common/types";
-import { TextFiled } from "@/components/ui/inputs/TextFiled";
+import { TextField } from "@/components/ui/inputs/TextField";
 import { IRegistrationFormFields } from "@/features/auth/Registration/types";
 import { StyledForm } from "@/features/auth/styles";
 import { useState } from "react";
@@ -40,7 +40,7 @@ export const Registration = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} id={EAuthFormID.REGISTRATION}>
-      <TextFiled
+      <TextField
         {...register("email", {
           required: t("errors.required"),
           pattern: {
@@ -53,7 +53,7 @@ export const Registration = () => {
         startIcon={<IconEmail />}
         error={errors.email}
       />
-      <TextFiled
+      <TextField
         {...register("nickname", {
           required: t("errors.required"),
           pattern: {
@@ -66,7 +66,7 @@ export const Registration = () => {
         startIcon={<IconUserProfile />}
         error={errors.nickname}
       />
-      <TextFiled
+      <TextField
         {...register("password", {
           required: t("errors.required"),
           minLength: {
@@ -92,7 +92,7 @@ export const Registration = () => {
         }
         type={showPass.password ? "text" : "password"}
       />
-      <TextFiled
+      <TextField
         {...register("confirmPassword", {
           required: t("errors.required"),
           minLength: {

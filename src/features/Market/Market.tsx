@@ -3,7 +3,6 @@ import { EFilters } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { FilterCreator } from "@/components/shared/FilterCreator";
 import { Loader } from "@/components/shared/Loader";
-import { Banner } from "./components/Banner";
 import { fields } from "./data";
 import {
   StyledContainer,
@@ -12,6 +11,7 @@ import {
   StyledTitle,
   StyledWrapper,
 } from "./styles";
+import { Banner } from "@/components/shared/Banner";
 
 export const Market = () => {
   const { data, isLoading } = useGetCardsQuery();

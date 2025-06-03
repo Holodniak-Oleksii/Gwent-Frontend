@@ -1,7 +1,7 @@
 import { useDebounce } from "@/common/hooks/useDebounce";
 import { EFilters } from "@/common/types";
 import { SelectField } from "@/components/ui/inputs/SelectField/SelectField";
-import { TextFiled } from "@/components/ui/inputs/TextFiled";
+import { TextField } from "@/components/ui/inputs/TextField";
 import { useFilterStore } from "@/store/filters";
 import { DEFAULT_FIELDS } from "@/store/filters/data";
 import { IFilterFields } from "@/store/filters/types";
@@ -43,7 +43,7 @@ const SwitchFiled = <T extends object>({ item, register }: ISwitchProps<T>) => {
   switch (item.type) {
     case "input": {
       const args = item.args as IFieldArgs<"input">;
-      return <TextFiled {...register(args.name!)} {...args} />;
+      return <TextField {...register(args.name!)} {...args} />;
     }
     case "select": {
       const args = item.args as IFieldArgs<"select">;

@@ -2,7 +2,7 @@ import { sendMessage } from "@/api/ws/notification";
 import IconCoin from "@/common/icons/IconCoin";
 import { EOperationNotificationType } from "@/common/types";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
-import { TextFiled } from "@/components/ui/inputs/TextFiled";
+import { TextField } from "@/components/ui/inputs/TextField";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
 import { StyledForm } from "@/modals/ConfirmDuel/styles";
@@ -55,7 +55,7 @@ export const ConfirmDuel = create<IConfirmDuelProps>(({ id, nickname }) => {
       maxWidth={"400px"}
     >
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <TextFiled
+        <TextField
           {...register("rate", { required: true })}
           placeholder={t("placeholders.rate")}
           label={t("labels.rate")}

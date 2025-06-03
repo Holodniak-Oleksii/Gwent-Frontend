@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { EFilters } from "@/common/types";
 import { ISelectFieldProps } from "@/components/ui/inputs/SelectField/types";
-import { ITextFieldProps } from "@/components/ui/inputs/TextFiled/types";
+import { ITextFieldProps } from "@/components/ui/inputs/TextField/types";
 import { Control, UseFormRegister } from "react-hook-form";
 
 export type TFiledType = "input" | "select";
