@@ -3,9 +3,16 @@ import Lottie from "lottie-react";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 
-const StyledWrapper = styled.div`
-  position: fixed;
-  inset: 0;
+const StyledWrapper = styled.div<{ $height?: string }>`
+  ${({ $height }) =>
+    $height
+      ? css`
+          height: ${$height};
+        `
+      : css`
+          position: fixed;
+          inset: 0;
+        `}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,10 +41,11 @@ export const StyledText = styled.p`
 `;
 interface ILoaderProps {
   text?: string;
+  height?: string;
 }
 
-export const Loader: FC<ILoaderProps> = ({ text }) => (
-  <StyledWrapper>
+export const Loader: FC<ILoaderProps> = ({ text, height }) => (
+  <StyledWrapper $height={height}>
     <Lottie animationData={animationData} autoPlay={true} />
     {!!text && <StyledText>{text}</StyledText>}
   </StyledWrapper>
