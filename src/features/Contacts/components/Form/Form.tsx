@@ -1,4 +1,4 @@
-import { BaseButton } from "@/components/ui/buttons/BaseButton";
+import { DecoratedButton } from "@/components/ui/buttons/DecoratedButton";
 import { AreaField, TextField } from "@/components/ui/inputs/TextField";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,9 @@ const StyledWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  .decorated-button {
+    transform: translateX(36px);
+  }
 `;
 
 export const Form = () => {
@@ -57,7 +60,9 @@ export const Form = () => {
         error={errors.message}
         rows={5}
       />
-      <BaseButton type="submit">{t("button.submit")}</BaseButton>
+      <DecoratedButton minWidth={140} type="submit">
+        {t("button.submit")}
+      </DecoratedButton>
     </StyledWrapper>
   );
 };
