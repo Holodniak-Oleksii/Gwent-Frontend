@@ -7,7 +7,7 @@ import { Control, UseFormRegister } from "react-hook-form";
 export type TFiledType = "input" | "select";
 
 type FieldArgsMap = {
-  input: ITextFieldProps;
+  input: ITextFieldProps<any>;
   select: Pick<ISelectFieldProps, "label" | "name" | "placeholder" | "options">;
 };
 
