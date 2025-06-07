@@ -56,7 +56,11 @@ export const Row: FC<IRowProps> = ({ position, isMyCards }) => {
     <StyledRow>
       <StyledHorn>
         <StyledImage src={imageHorn} alt="horn" />
-        {isHorn && hornCard && <PlayingCard card={hornCard.card} />}
+        {isHorn && hornCard && (
+          <StyledCardsList>
+            <PlayingCard card={hornCard.card} />
+          </StyledCardsList>
+        )}
       </StyledHorn>
       <StyledList>
         <StyledForceIcon src={forceIcons[position]} alt="force" />
