@@ -24,6 +24,7 @@ interface IHeroCardProps {
   isPreview?: boolean;
   bgcolor?: string;
   textColor?: string;
+  hasFlag?: boolean;
 }
 
 export const HeroCard: FC<IHeroCardProps> = ({
@@ -32,6 +33,7 @@ export const HeroCard: FC<IHeroCardProps> = ({
   isPreview,
   bgcolor,
   textColor,
+  hasFlag,
 }) => {
   const user = useUserStore((state) => state.user);
   const buyAlible = isBuy && !user?.cards.includes(card._id);
@@ -41,7 +43,7 @@ export const HeroCard: FC<IHeroCardProps> = ({
   return (
     <StyledWrapper $bgcolor={bgcolor}>
       <StyledCover $isBuy={isBuy && !!user} $isPreview={isPreview}>
-        <Labels card={card} />
+        <Labels card={card} hasFlag={hasFlag} />
         <StyledImage src={getUrlImage(card)} alt={card.image} />
       </StyledCover>
       {!isPreview && (

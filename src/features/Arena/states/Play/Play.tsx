@@ -1,5 +1,5 @@
 import { useGame } from "@/common/hooks/useGame";
-import { EGameRequestMessageType, EModalKey, ICardModel } from "@/common/types";
+import { EModalKey, ICardModel } from "@/common/types";
 import { PlayingCard } from "@/components/cards/PlayingCard";
 import { SunLightEffectPixi } from "@/components/effects/SunRays";
 import { TransitionOverlay } from "@/components/effects/TransitionOverlay";
@@ -27,25 +27,24 @@ export const Play = () => {
   const { show } = useModal(EModalKey.APPLY_CARD);
   const [visible, setVisible] = useState(false);
 
-  const onConfirm = async (card: ICardModel) => {
-    game.sendMessage(
-      JSON.stringify({
-        type: EGameRequestMessageType.APPLY_CARD,
-        data: { card },
-      })
-    );
-  };
-
   const renderCards = () =>
-    gameStore?.playingCards?.map((c) => (
-      <PlayingCard
-        key={c._id}
-        card={c}
-        onClick={() => {
-          show({ card: c, onSubmit: (card: ICardModel) => onConfirm(card) });
-        }}
-      />
-    ));
+    gameStore?.playingCards?.map(
+      (c) =>
+        !!c && (
+          <PlayingCard
+            key={c._id}
+            card={c}
+            onClick={() => {
+              show({
+                card: c,
+                onSubmit: (data: string) => {
+                  game.sendMessage(data);
+                },
+              });
+            }}
+          />
+        )
+    );
 
   useEffect(() => {
     if (gameStore?.showSunRays) {

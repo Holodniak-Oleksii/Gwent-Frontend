@@ -1,5 +1,11 @@
 import { dataForceIcon } from "@/common/constants/images";
-import { ECardAbilities, EForces, EModalKey, ICardModel } from "@/common/types";
+import {
+  ECardAbilities,
+  EForces,
+  EGameRequestMessageType,
+  EModalKey,
+  ICardModel,
+} from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
@@ -17,7 +23,7 @@ import {
 
 interface IApplyProps extends IModalProps {
   card: ICardModel;
-  onSubmit: (card: ICardModel) => void;
+  onSubmit: (data: string) => void;
 }
 const forces = [EForces.SIEGE, EForces.CLOSE, EForces.RANGED];
 
@@ -27,6 +33,14 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const discards = useGameStore((state) => state.game?.discards);
   const { colors } = useTheme();
 
+  const onConfirm = (card: ICardModel) =>
+    onSubmit(
+      JSON.stringify({
+        type: EGameRequestMessageType.APPLY_CARD,
+        data: { card },
+      })
+    );
+
   const apply = () => {
     if (card.ability === ECardAbilities.MEDIC && !!discards?.length) {
       show({
@@ -35,7 +49,7 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
       });
       hide();
     } else {
-      onSubmit(card);
+      onConfirm(card);
       hide();
     }
   };
@@ -45,7 +59,7 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
       <StyledForce
         key={key}
         onClick={() => {
-          onSubmit({ ...card, forces: i });
+          onConfirm({ ...card, forces: i });
           hide();
         }}
       >

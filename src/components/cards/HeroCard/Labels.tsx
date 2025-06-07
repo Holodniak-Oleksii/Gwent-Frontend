@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 interface ILablesProps {
   card: ICardModel;
+  hasFlag?: boolean;
 }
 export const StyledWrapper = styled.div`
   position: absolute;
@@ -41,14 +42,16 @@ export const StyledColumn = styled.div`
 
 const universal = [EFaction.NEUTRAL, EFaction.SPECIAL, EFaction.WEATHER];
 
-export const Labels: FC<ILablesProps> = ({ card }) => {
-  const hasFlag =
-    !universal.includes(card.fractionId) && card.type !== EType.LEADER;
+export const Labels: FC<ILablesProps> = ({ card, hasFlag = true }) => {
+  const showFlag =
+    hasFlag &&
+    !universal.includes(card.fractionId) &&
+    card.type !== EType.LEADER;
 
   return (
     <StyledWrapper>
       <StyledRelative>
-        {hasFlag && <IconFlag fraction={card.fractionId} />}
+        {showFlag && <IconFlag fraction={card.fractionId} />}
         <StyledColumn>
           {card.type === EType.UNIT && (
             <>
