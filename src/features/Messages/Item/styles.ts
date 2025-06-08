@@ -6,8 +6,9 @@ import styled, { css } from "styled-components";
 
 export const statusColor: Record<TStatus, string> = {
   accepted: theme.colors.gold,
-  pending: theme.colors.secondary,
+  pending: theme.colors.lightText,
   declined: theme.colors.error,
+  completed: theme.colors.secondary,
 };
 
 export const StyledNotificationContainer = styled.div`

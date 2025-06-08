@@ -36,7 +36,7 @@ export const StyledContent = styled(StyledContainer)`
 `;
 
 export const StyledForce = styled.button`
-  width: calc(100 / 3 - 8px);
+  width: calc(100% / 3 - 8px);
   aspect-ratio: 1/1;
   opacity: 0.6;
   transition: all 0.2s ease;

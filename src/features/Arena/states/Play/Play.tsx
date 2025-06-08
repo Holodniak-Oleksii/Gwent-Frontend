@@ -52,6 +52,7 @@ export const Play = () => {
         !!c && (
           <PlayingCard
             key={c._id}
+            isShowForce
             card={c}
             onClick={() => {
               onChooseCard(c);

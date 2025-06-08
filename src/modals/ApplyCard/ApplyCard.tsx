@@ -27,14 +27,14 @@ interface IApplyProps extends IModalProps {
   card: ICardModel;
   onSubmit: (data: string) => void;
 }
-const forces = [EForces.SIEGE, EForces.CLOSE, EForces.RANGED];
+const forces = [EForces.CLOSE, EForces.RANGED, EForces.SIEGE];
 
 export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const { hide, visible } = useModal(id);
   const { show } = useModal(EModalKey.RESURRECT);
   const discards = useGameStore((state) => state.game?.discards);
   const { colors } = useTheme();
-
+  const isAgile = card.forces === EForces.AGILE;
   const setChooseCard = useBoardStore((state) => state.setChooseCard);
   const setAbility = useBoardStore((state) => state.setAbility);
   const ability = useBoardStore((state) => state.ability);
@@ -66,7 +66,7 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   };
 
   const renderButtons = () =>
-    forces.map((i, key) => (
+    forces.slice(0, isAgile ? 2 : 3).map((i, key) => (
       <StyledForce
         key={key}
         onClick={() => {
@@ -101,8 +101,9 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
                 <StyledButton onClick={onHide}>Cancel</StyledButton>
               ) : (
                 <>
-                  {card.ability === ECardAbilities.HORN &&
-                  card.type === EType.SPECIAL ? (
+                  {(card.ability === ECardAbilities.HORN &&
+                    card.type === EType.SPECIAL) ||
+                  isAgile ? (
                     renderButtons()
                   ) : (
                     <StyledButton onClick={apply}>Apply</StyledButton>

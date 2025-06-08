@@ -32,7 +32,7 @@ export interface ICardModel {
   isDefault: boolean;
 }
 
-export type TStatus = "pending" | "accepted" | "declined";
+export type TStatus = "pending" | "accepted" | "declined" | 'completed';
 export interface INotificationModel {
   _id: string;
   rate: number;

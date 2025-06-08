@@ -41,7 +41,11 @@ export const StyledLabel = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 75%;
+  font-size: 70%;
   line-height: 1;
+  div {
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
 `;
