@@ -4,11 +4,13 @@ import {
   EForces,
   EGameRequestMessageType,
   EModalKey,
+  EType,
   ICardModel,
 } from "@/common/types";
 import { HeroCard } from "@/components/cards/HeroCard";
 import { ModalLayout } from "@/layouts/ModalLayout";
 import { IModalProps } from "@/modals";
+import { useBoardStore } from "@/store/board";
 import { useGameStore } from "@/store/game";
 import { create, useModal } from "@ebay/nice-modal-react";
 import { useTheme } from "styled-components";
@@ -33,6 +35,16 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
   const discards = useGameStore((state) => state.game?.discards);
   const { colors } = useTheme();
 
+  const setChooseCard = useBoardStore((state) => state.setChooseCard);
+  const setAbility = useBoardStore((state) => state.setAbility);
+  const ability = useBoardStore((state) => state.ability);
+
+  const onHide = () => {
+    setChooseCard(null);
+    setAbility(null);
+    hide();
+  };
+
   const onConfirm = (card: ICardModel) =>
     onSubmit(
       JSON.stringify({
@@ -47,11 +59,10 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
         card,
         onSubmit,
       });
-      hide();
     } else {
       onConfirm(card);
-      hide();
     }
+    onHide();
   };
 
   const renderButtons = () =>
@@ -60,7 +71,7 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
         key={key}
         onClick={() => {
           onConfirm({ ...card, forces: i });
-          hide();
+          onHide();
         }}
       >
         <img src={dataForceIcon[i]} alt={i} />
@@ -71,10 +82,11 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
     <ModalLayout
       open={visible}
       maxWidth={"100%"}
-      onClose={hide}
+      onClose={onHide}
       bgcolor="transparent"
+      crossClick={!!ability}
     >
-      <StyledContent onClick={hide}>
+      <StyledContent onClick={onHide}>
         <div />
         <div />
         <StyledCover onClick={(e) => e.stopPropagation()}>
@@ -85,10 +97,17 @@ export const ApplyCard = create<IApplyProps>(({ id, card, onSubmit }) => {
               textColor={colors.focus}
             />
             <StyledAction>
-              {card.ability === ECardAbilities.HORN ? (
-                renderButtons()
+              {ability ? (
+                <StyledButton onClick={onHide}>Cancel</StyledButton>
               ) : (
-                <StyledButton onClick={apply}>Apply</StyledButton>
+                <>
+                  {card.ability === ECardAbilities.HORN &&
+                  card.type === EType.SPECIAL ? (
+                    renderButtons()
+                  ) : (
+                    <StyledButton onClick={apply}>Apply</StyledButton>
+                  )}
+                </>
               )}
             </StyledAction>
           </StyledAbsolute>

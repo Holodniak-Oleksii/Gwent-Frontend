@@ -40,7 +40,7 @@ export const StyledList = styled.div`
   `}
 `;
 
-export const StyledCardsList = styled.div`
+export const StyledCardsList = styled.div<{ $isClickable: boolean }>`
   position: absolute;
   left: 0;
   top: 0;
@@ -50,15 +50,29 @@ export const StyledCardsList = styled.div`
   align-items: center;
   justify-content: center;
   gap: 6px;
+  pointer-events: ${({ $isClickable }) => ($isClickable ? "all" : "none")};
 `;
 
-export const StyledRow = styled.div`
+export const StyledRow = styled.div<{ $isClickable: boolean }>`
   width: 100%;
   position: relative;
   display: flex;
   gap: 6px;
-  ${({ theme }) => css`
+  border: 1px solid transparent;
+  ${({ theme, $isClickable }) => css`
     background-color: ${convertHexToRgba(theme.colors.text, 0.025)};
+    ${$isClickable &&
+    css`
+      @media (hover: hover) {
+        cursor: pointer;
+        &:hover {
+          border: 1px solid ${convertHexToRgba(theme.colors.gold, 0.5)};
+          filter: drop-shadow(
+            0px 0px 1px ${convertHexToRgba(theme.colors.gold, 0.25)}
+          );
+        }
+      }
+    `}
   `}
 `;
 

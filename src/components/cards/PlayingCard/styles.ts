@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
   height: 100%;
@@ -10,9 +10,22 @@ export const StyledWrapper = styled.div`
   transition: all 0.2s ease-in;
   @media (hover: hover) {
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) translateY(-8px);
+      ${({ theme }) => css`
+        filter: drop-shadow(0px 0px 4px ${theme.colors.gold});
+      `}
     }
   }
+`;
+
+export const StyledEffectImage = styled.img`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 `;
 
 export const StyledImage = styled.img`

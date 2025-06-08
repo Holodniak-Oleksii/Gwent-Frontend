@@ -1,8 +1,9 @@
 import { useGame } from "@/common/hooks/useGame";
-import { EModalKey, ICardModel } from "@/common/types";
+import { ECardAbilities, EModalKey, ICardModel } from "@/common/types";
 import { PlayingCard } from "@/components/cards/PlayingCard";
 import { SunLightEffectPixi } from "@/components/effects/SunRays";
 import { TransitionOverlay } from "@/components/effects/TransitionOverlay";
+import { useBoardStore } from "@/store/board";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
 import { useModal } from "@ebay/nice-modal-react";
@@ -23,9 +24,27 @@ import {
 export const Play = () => {
   const { game } = useGame();
   const gameStore = useGameStore((state) => state.game);
+  const seChooseCard = useBoardStore((state) => state.setChooseCard);
+  const setAbility = useBoardStore((state) => state.setAbility);
+
   const user = useUserStore((state) => state.user);
   const { show } = useModal(EModalKey.APPLY_CARD);
   const [visible, setVisible] = useState(false);
+
+  const onChooseCard = (c: ICardModel) => {
+    const isHidden =
+      c.ability === ECardAbilities.DECOY ||
+      c.ability === ECardAbilities.MARDROEME;
+    seChooseCard(isHidden ? c : null);
+    setAbility(isHidden ? c.ability : null);
+
+    show({
+      card: c,
+      onSubmit: (data: string) => {
+        game.sendMessage(data);
+      },
+    });
+  };
 
   const renderCards = () =>
     gameStore?.playingCards?.map(
@@ -35,12 +54,7 @@ export const Play = () => {
             key={c._id}
             card={c}
             onClick={() => {
-              show({
-                card: c,
-                onSubmit: (data: string) => {
-                  game.sendMessage(data);
-                },
-              });
+              onChooseCard(c);
             }}
           />
         )

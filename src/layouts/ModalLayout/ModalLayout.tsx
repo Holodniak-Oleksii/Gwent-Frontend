@@ -16,6 +16,7 @@ interface IModalLayout extends PropsWithChildren {
   maxWidth?: string;
   renderStatus?: React.ReactNode;
   bgcolor?: string;
+  crossClick?: boolean;
 }
 
 export const ModalLayout: FC<IModalLayout> = ({
@@ -26,8 +27,13 @@ export const ModalLayout: FC<IModalLayout> = ({
   maxWidth = "515px",
   renderStatus,
   bgcolor,
+  crossClick,
 }) => (
-  <StyledModal isOpen={open} onRequestClose={onClose}>
+  <StyledModal
+    isOpen={open}
+    onRequestClose={onClose}
+    $crossClick={!!crossClick}
+  >
     <StyledScroll onClick={onClose}>
       <StyledContainer
         bgcolor={bgcolor}

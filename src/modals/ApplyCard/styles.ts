@@ -13,6 +13,7 @@ export const StyledAction = styled.div`
 export const StyledCover = styled.div`
   position: relative;
   width: 100%;
+  pointer-events: all;
 `;
 
 export const StyledAbsolute = styled.div`

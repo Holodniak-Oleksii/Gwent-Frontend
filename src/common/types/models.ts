@@ -46,6 +46,7 @@ export interface IBoardCard {
   card: ICardModel;
   ownerNickname: string;
   position: EForces;
+  isCursed?: boolean;
 }
 
 export interface IRound {

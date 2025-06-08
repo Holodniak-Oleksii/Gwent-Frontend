@@ -78,8 +78,9 @@ html,
 }
 
 .ReactModal__Overlay {
-  background: #0000007d !important;
+  background: transparent !important;
   z-index: 1000;
+  pointer-events: none;
 }
 .ReactModal__Overlay > div {
   height: 100%;

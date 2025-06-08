@@ -10,10 +10,14 @@ export const StyledScroll = styled.div`
   display: flex;
 `;
 
-export const StyledModal = styled(Modal)`
+export const StyledModal = styled(Modal)<{ $crossClick: boolean }>`
   display: flex;
   overflow: auto;
   width: 100%;
+  ${({ $crossClick }) => css`
+    pointer-events: ${$crossClick ? "none" : "all"};
+    background: ${$crossClick ? "transparent" : "#0000007d"} !important;
+  `};
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
