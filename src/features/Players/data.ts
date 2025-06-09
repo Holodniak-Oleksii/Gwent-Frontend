@@ -3,25 +3,28 @@ import {
   TFiledType,
 } from "@/components/shared/FilterCreator/types";
 import { IFilterFields } from "@/store/filters/types";
+import { TFunction } from "i18next";
 
-export const fields: IFiledSetting<IFilterFields["PLAYERS"], TFiledType>[] = [
+export const fields = (
+  t: TFunction
+): IFiledSetting<IFilterFields["PLAYERS"], TFiledType>[] => [
   {
     name: "name",
     type: "input",
     args: {
       name: "name",
-      label: "Player Name",
-      placeholder: "Enter Player Name",
+      label: t("labels.playerName"),
+      placeholder: t("placeholders.enterPlayerName"),
       type: "text",
     },
   },
   {
-    name: "raring",
+    name: "rating",
     type: "input",
     args: {
-      name: "raring",
-      label: "Min Player Raring",
-      placeholder: "Enter Min Player Raring",
+      name: "rating",
+      label: t("labels.minPlayerRating"),
+      placeholder: t("placeholders.enterMinPlayerRating"),
       type: "number",
       min: 0,
     },

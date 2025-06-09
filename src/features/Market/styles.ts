@@ -18,7 +18,7 @@ export const StyledContainer = styled.div`
 
 export const StyledList = styled.div`
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
   ${({ theme }) => theme.common.grid};
 `;
 

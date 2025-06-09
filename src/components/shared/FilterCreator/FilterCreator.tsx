@@ -6,7 +6,7 @@ import { useFilterStore } from "@/store/filters";
 import { DEFAULT_FIELDS } from "@/store/filters/data";
 import { IFilterFields } from "@/store/filters/types";
 import { useEffect } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { StyledWrapper } from "./styles";
 import { IFieldArgs, IFilterProps, ISwitchProps } from "./types";
 
@@ -39,7 +39,11 @@ export const FilterCreator = <T extends object>({
 
   return <StyledWrapper>{renderFields()}</StyledWrapper>;
 };
-const SwitchFiled = <T extends object>({ item, register }: ISwitchProps<T>) => {
+const SwitchFiled = <T extends object>({
+  item,
+  register,
+  control,
+}: ISwitchProps<T>) => {
   switch (item.type) {
     case "input": {
       const args = item.args as IFieldArgs<"input">;
@@ -47,7 +51,13 @@ const SwitchFiled = <T extends object>({ item, register }: ISwitchProps<T>) => {
     }
     case "select": {
       const args = item.args as IFieldArgs<"select">;
-      return <SelectField {...args} />;
+      return (
+        <Controller
+          name={args.name!}
+          control={control}
+          render={({ field }) => <SelectField {...args} {...field} />}
+        />
+      );
     }
     default:
       return null;

@@ -1,98 +1,179 @@
 {
   "translation": {
-    "navigation": {
-      "market": "Market",
-      "rules": "Rules",
-      "aboutUs": "About Us",
-      "contacts": "Contacts",
-      "players": "Players",
+    "abilities": {
+      "berserk": "Transforms into a powerful unit when combined with Mardroeme. Requires setup and timing to maximize effect.",
+      "bitingFrost": "Reduces the strength of all close combat units to 1. A powerful weather card to weaken enemy frontlines.",
+      "clearWeather": "Removes all active weather effects. Best used to restore your units’ full strength.",
+      "commanderOfTheRedRiders": "Leader ability to use Scorch effect immediately. A powerful board control tool to eliminate high-value enemy units.",
+      "decoy": "Replaces a unit card on the battlefield and returns that card to your hand. Ideal for reusing spies or medics.",
+      "hero": "Immune to all special cards and abilities. Cannot be affected by Scorch, weather, or other abilities. A powerful standalone card.",
+      "hisImperialMajesty": "Leader ability allowing you to look at 3 random cards from your opponent’s hand. Gives insight and strategic planning.",
+      "horn": "Doubles the strength of all units in the row it’s placed on (except heroes). Great for boosting your power in a single line.",
+      "impenetrableFog": "Reduces the strength of all ranged units to 1. Best used when your opponent relies on mid-range units.",
+      "kingOfTemeria": "Leader ability that draws an extra card when the round begins. Ensures card advantage.",
+      "mardroeme": "Allows transformation of berserker units into their bear form. Used strategically with berserk units for increased strength.",
+      "medic": "When played, allows you to bring back one unit card from your graveyard to the battlefield. Cannot revive hero or other medic cards.",
+      "moraleBoost": "Increases the strength of all other units in its row by 1 point. It does not affect itself. Ideal for boosting large groups.",
+      "muster": "Summons all cards with the same name from your deck to the battlefield. Quickly strengthens your field with matching units.",
+      "purebloodElf": "Unaffected by weather. Combines well with weather-heavy decks to maintain strength.",
+      "scorch": "Destroys the strongest non-hero units on the battlefield, including both your side and your opponent’s if tied. Great counter to high-power units.",
+      "skelligeStorm": "Affects multiple rows simultaneously, reducing unit strength in both ranged and siege rows to 1.",
+      "spy": "Played on the opponent’s side of the battlefield but grants you two extra cards. A smart trade-off of points for card advantage.",
+      "tightBond": "Doubles the strength of all cards with the same name when placed next to each other. Best used in multiples for exponential power.",
+      "torrentialRain": "Reduces the strength of all siege units to 1. Can cripple siege-heavy strategies."
+    },
+    "button": {
+      "accept": "Accept",
+      "apply": "Apply",
+      "buy": "Buy",
+      "cancel": "Cancel",
+      "challenge": "Challenge",
+      "confirm": "Confirm",
+      "createAccount": "Create Account",
+      "decline": "Decline",
+      "generate": "Generate",
+      "join": "Join",
       "login": "Login",
-      "fqa": "FQA",
-      "howIfWorks": "How it Works",
-      "teams": "Teams",
-      "abilities": "Abilities",
-      "gamePlay": "Game Play",
-      "forces": "Forces",
-      "fractions": "Fractions",
-      "ukrainian": "Ukrainian",
-      "poland": "Poland",
-      "english": "English",
-      "deutschland": "Deutschland",
-      "title": {
-        "links": "Links",
-        "support": "Support",
-        "product": "Product",
-        "languages": "Languages"
-      }
+      "moreInfo": "More Info",
+      "owned": "Owned",
+      "pass": "Pass",
+      "play": "Play",
+      "registration": "Registration",
+      "startGame": "start game",
+      "submit": "Submit"
+    },
+    "errors": {
+      "cardNotFound": "Card not found",
+      "emailTaken": "This email is already taken",
+      "invalidCredentials": "Invalid input data",
+      "invalidEmail": "Invalid email address",
+      "invalidNickname": "Nickname can only contain Latin letters and numbers",
+      "invalidToken": "Invalid or expired session",
+      "nicknameTaken": "This nickname is already taken",
+      "notEnoughMoney": "You don't have enough money",
+      "passIncorrect": "Password incorrect",
+      "passMissMatch": "Passwords do not match",
+      "passwordLength": "Password must be at least 6 characters long",
+      "required": "This field is required",
+      "requiredFields": "All required fields must be filled",
+      "serverError": "An unexpected server error occurred",
+      "somethingWentWrong": "Something went wrong",
+      "successfully": "Successfully",
+      "tokenRefreshed": "Session updated",
+      "tokenRequired": "You are not authorized",
+      "userLogin": "Login successful",
+      "userNotFound": "User not found",
+      "userRegistered": "User successfully registered"
     },
     "footer": {
       "advertisement": "Join the battle in Gwent! Build your deck and outsmart your opponents today!",
       "terms": {
-        "rights": "© 2025 GwentWeb. All rights reserved.",
-        "policy": "Terms & Conditions | Privacy & Policy"
+        "policy": "Terms & Conditions | Privacy & Policy",
+        "rights": "© 2025 GwentWeb. All rights reserved."
       }
     },
-    "button": {
-      "pass": "Pass",
-      "login": "Login",
-      "registration": "Registration",
-      "play": "Play",
-      "createAccount": "Create Account",
-      "cancel": "Cancel",
-      "challenge": "Challenge",
-      "moreInfo": "More Info",
-      "apply": "Apply",
-      "confirm": "Confirm",
-      "buy": "Buy",
-      "owned": "Owned",
-      "accept": "Accept",
-      "decline": "Decline",
-      "join": "Join",
-      "startGame": "start game",
-      "generate": "Generate",
-      "submit": "Submit"
+    "fqa": {
+      "text": {
+        "1": "Gwent is a strategic card game set in the Witcher universe where players battle by building decks and outsmarting their opponents.",
+        "10": "The Gwent team regularly updates the game with balance patches, seasonal modes, and new card drops to keep gameplay fresh.",
+        "2": "You can download Gwent for free on PC, iOS, Android, and select consoles, then create an account to start playing.",
+        "3": "Yes, Gwent is completely free to play with optional in-game purchases for cosmetics and card kegs.",
+        "4": "No, Gwent can be fully enjoyed without prior knowledge of the Witcher books or games, though fans may appreciate the lore references.",
+        "5": "Building a strong deck requires balancing unit strength, special abilities, and synergies between your chosen faction's cards.",
+        "6": "Factions represent different kingdoms and groups, such as Nilfgaard, Northern Realms, Scoia’tael, Monsters, and Skellige, each with unique playstyles.",
+        "7": "Yes, Gwent offers friendly matches where you can challenge your friends directly.",
+        "8": "Absolutely! Gwent hosts ranked seasons, official esports tournaments, and community-driven competitions.",
+        "9": "While the main Gwent game is multiplayer-focused, there is a single-player experience called Gwent: Thronebreaker."
+      },
+      "title": {
+        "1": "What is Gwent?",
+        "10": "How often does Gwent receive updates and new cards?",
+        "2": "How can I start playing Gwent?",
+        "3": "Is Gwent free to play?",
+        "4": "Do I need to know the Witcher series to enjoy Gwent?",
+        "5": "How do I build a strong deck in Gwent?",
+        "6": "What are factions in Gwent?",
+        "7": "Can I play Gwent with my friends?",
+        "8": "Are there competitive tournaments in Gwent?",
+        "9": "Is there a single-player mode in Gwent?"
+      }
     },
-    "title": {
-      "gwent": "Gwent",
-      "fractions": "Fractions",
-      "gamePlay": "Game Play",
-      "gwentProperly": "How to Play <span>Gwent</span> Properly",
-      "fqa": "Frequently Asked Questions",
-      "fight": "Fight",
-      "buy": "Buy",
-      "cardCollection": "Card Collection",
-      "cardsInDeck": "Cards in Deck",
-      "cards": "Dive into the depths of <b>Gwent</b>",
-      "getInTouch": "Get In Touch"
+    "fraction": {
+      "monsters": {
+        "description": "Terrifying creatures that thrive in chaos and devour everything in their path. They can multiply, strengthen by consuming allies, and control the weather.",
+        "title": "Monsters"
+      },
+      "nilfgaard": {
+        "description": "An empire that relies on spies, deceit, and controlling the opponent. Their forces reveal enemy cards and use strategic advantages.",
+        "title": "Nilfgaard"
+      },
+      "northern": {
+        "description": "Disciplined warriors who rely on knights, mages, and war machines. They gain bonuses from battlefield resilience and have many armored units.",
+        "title": "Northern Realms"
+      },
+      "scoiatael": {
+        "description": "Guerrilla elves, dwarves, and dryads waging war against human tyranny. They use trickery, ambushes, and unique placement mechanics.",
+        "title": "Scoia'tael"
+      }
     },
     "html": {
       "aboutUs": "<h1>Oleksii Holodniak</h1> <p>A student of Uzhhorod National University, majoring in Software Engineering.</p> <p>This page is part of a thesis project titled:</p> <p><b>“Development of a Platform for Playing Gwent Based on the WebSocket Protocol”</b></p> <p><strong>Project Goal:</strong> To create a functional real-time gaming platform using modern web technologies that ensure high data transfer speed and scalability. Special attention is given to researching the WebSocket protocol and its advantages for online games.</p><br/> <p>Implemented in the thesis:</p> <ul> <li>Full client-server interaction using WebSocket;</li> <li>Game logic and rules adapted for an online environment;</li> <li>System for player registration and connection;</li> <li>Mechanism for creating and hosting game sessions;</li> <li>Game state persistence and real-time updates.</li> </ul> <br/> <p>Technologies used: <span>WebSocket,</span> <span>React,</span> <span>Node.js,</span> <span>Express,</span> <span>TypeScript,</span> <span>Styled Components.</span> </p>",
       "rules": "<h1>Game Rules: Gwent</h1> <p><strong>Gwent</strong> is a strategic card game where two players battle using custom-built decks, aiming to win two out of three rounds by scoring more points than their opponent.</p> <p><strong>Objective:</strong> The goal is to win rounds by playing cards that add up to a higher total score than your opponent.</p> <p><strong>Deck Composition:</strong></p> <ul> <li>Each player’s deck contains a minimum of 25 cards.</li> <li>Decks include unit cards (with strength values), special cards (weather, spells), and leader cards (with unique abilities).</li> <li>Cards are divided among three rows: <span>Melee</span>, <span>Ranged</span>, and <span>Siege</span>.</li> </ul> <p><strong>Game Setup:</strong></p> <ul> <li>Players draw 10 random cards at the beginning of the game.</li> <li>No additional cards are drawn between rounds, so strategic planning is crucial.</li> </ul> <p><strong>Gameplay:</strong></p> <ul> <li>The game is played in <span>3 rounds</span>. A player needs to win <span>2 out of 3</span> rounds to win the match.</li> <li>Each player plays one card per turn or passes.</li> <li>The round ends when both players pass consecutively.</li> <li>The player with the highest total strength on the battlefield wins the round.</li> </ul> <p><strong>Passing:</strong></p> <ul> <li>You may pass your turn at any time to preserve cards for future rounds.</li> <li>Once passed, you cannot play further cards for that round.</li> </ul> <p><strong>Card Effects:</strong></p> <ul> <li><span>Unit Cards</span>: Contribute strength to a row.</li> <li><span>Special Cards</span>: Modify game state (e.g., clear weather, double strength).</li> <li><span>Weather Cards</span>: Reduce the strength of all cards on a particular row.</li> </ul> <p><strong>Victory:</strong> To win, carefully manage your resources, outmaneuver your opponent across all rounds, and use each card to its maximum potential.</p> <p><strong>Strategy Tips:</strong></p> <ul> <li>Don’t use all strong cards in the first round—balance power across rounds.</li> <li>Bait out your opponent’s powerful cards early.</li> <li>Know when to pass and save resources for a decisive round.</li> <li>Build synergy within your deck—cards that work well together often win games.</li> </ul>"
     },
+    "labels": {
+      "abilities": "Abilities",
+      "balance": "Balance",
+      "call": "Do you want to stay up to date? <span>Join us!<span/>",
+      "cardName": "Card Name",
+      "email": "Email",
+      "forces": "Forces",
+      "fractions": "Fractions",
+      "login": "Already have an account?",
+      "message": "Message",
+      "minPlayerRating": "Min Player Rating",
+      "name": "Name",
+      "nickname": "Nickname",
+      "password": "Password",
+      "playerName": "Player Name",
+      "rate": "Bet",
+      "registration": "Don't have an account?",
+      "repeatPassword": "Repeat Password",
+      "types": "Types"
+    },
     "message": {
-      "codeCopied": "Code copied",
-      "refill": "<p>To top up your balance, please transfer the required amount to the <b>\"Gwent Coins\"</b> bank. In the <b>\"Comment\"</b> field, be sure to indicate the <u>one-time generated code</u>, which will be used to top up your game balance. </p> <p>💰 Top-up rate: 1 hryvnia = 100 coins.</p> <p>Attention! All funds received by this bank will be transferred to <strong>\"Current RUSORIZ\"</strong> to support the Armed Forces of Ukraine.</p> <p>You can also support our army directly by donating to the fund's website: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" >https://www.sternenkofund.org/fundraisings/rusoriz</a> Together we are strong 💙💛</p>",
       "balanceRefilled": "Balance refilled with {{balance}} coins",
-      "waitEnemy": "Waiting enemy...",
+      "challenged": "Player <b>{{player}}</b> challenged you to a duel by placing <span>{{coins}}</span> coins on the fight",
+      "codeCopied": "Code copied",
+      "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight",
       "emptyNotify": "Well, you don't have a notification.",
       "enoughMoney": "You don't have enough money",
-      "challenged": "Player <b>{{player}}</b> challenged you to a duel by placing <span>{{coins}}</span> coins on the fight",
-      "duel": "You challenged user <b>{{player}}</b> to a duel by placing <span>{{coins}}</span> coins on the fight"
+      "refill": "<p>To top up your balance, please transfer the required amount to the <b>\"Gwent Coins\"</b> bank. In the <b>\"Comment\"</b> field, be sure to indicate the <u>one-time generated code</u>, which will be used to top up your game balance. </p> <p>💰 Top-up rate: 1 hryvnia = 100 coins.</p> <p>Attention! All funds received by this bank will be transferred to <strong>\"Current RUSORIZ\"</strong> to support the Armed Forces of Ukraine.</p> <p>You can also support our army directly by donating to the fund's website: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" >https://www.sternenkofund.org/fundraisings/rusoriz</a> Together we are strong 💙💛</p>",
+      "waitEnemy": "Waiting enemy..."
     },
-    "subTitle": {
-      "getInTouch": "We are here for you! How can we help?",
-      "cards": "Step into a world where every card is a key to thrilling stories and unmatched strategy. Experience the exquisite artistry and creativity woven into every detail. Welcome to our incredible collection of Gwent cards from The Witcher 3!",
-      "totalCardsInDeck": "Total cards in deck",
-      "numberOfUnitCards": "Number of Unit Cards",
-      "specialCards": "Special Cards",
-      "totalUnitCardStrength": "Total Unit Card Strength",
-      "heroCards": "Hero Cards",
-      "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
-      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
-      "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
-      "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!",
-      "fractions": "Factions in <span>Gwent</span> have unique playstyles and mechanics. Some rely on strength, others on <span>cunning</span> or chaos.",
-      "gamePlay": "Where <span>strategy</span> matters more than luck. Players build decks using unique faction <span>mechanics.</span>"
+    "navigation": {
+      "abilities": "Abilities",
+      "aboutUs": "About Us",
+      "contacts": "Contacts",
+      "deutschland": "Deutschland",
+      "english": "English",
+      "forces": "Forces",
+      "fqa": "FQA",
+      "fractions": "Fractions",
+      "gamePlay": "Game Play",
+      "howIfWorks": "How it Works",
+      "login": "Login",
+      "market": "Market",
+      "players": "Players",
+      "poland": "Poland",
+      "rules": "Rules",
+      "teams": "Teams",
+      "title": {
+        "languages": "Languages",
+        "links": "Links",
+        "product": "Product",
+        "support": "Support"
+      },
+      "ukrainian": "Ukrainian"
     },
     "paragraphs": {
       "game": {
@@ -114,115 +195,58 @@
         "two": "Understanding the tempo of the game allows you to dictate the flow and force your opponent into bad moves.It’s crucial not only to know your own cards but also to anticipate possible threats from your opponent. Sometimes, it's best to intentionally lose a round to secure a stronger position in the decisive one. The winner is the one who doesn’t just play cards but builds a strategy several steps ahead."
       }
     },
-    "fraction": {
-      "northern": {
-        "title": "Northern Realms",
-        "description": "Disciplined warriors who rely on knights, mages, and war machines. They gain bonuses from battlefield resilience and have many armored units."
-      },
-      "scoiatael": {
-        "title": "Scoia'tael",
-        "description": "Guerrilla elves, dwarves, and dryads waging war against human tyranny. They use trickery, ambushes, and unique placement mechanics."
-      },
-      "monsters": {
-        "title": "Monsters",
-        "description": "Terrifying creatures that thrive in chaos and devour everything in their path. They can multiply, strengthen by consuming allies, and control the weather."
-      },
-      "nilfgaard": {
-        "title": "Nilfgaard",
-        "description": "An empire that relies on spies, deceit, and controlling the opponent. Their forces reveal enemy cards and use strategic advantages."
-      }
-    },
-    "errors": {
-      "required": "This field is required",
-      "invalidEmail": "Invalid email address",
-      "invalidNickname": "Nickname can only contain Latin letters and numbers",
-      "passwordLength": "Password must be at least 6 characters long",
-      "passMissMatch": "Passwords do not match",
-      "passIncorrect": "Password incorrect",
-      "requiredFields": "All required fields must be filled",
-      "emailTaken": "This email is already taken",
-      "nicknameTaken": "This nickname is already taken",
-      "userRegistered": "User successfully registered",
-      "userLogin": "Login successful",
-      "invalidCredentials": "Invalid input data",
-      "userNotFound": "User not found",
-      "cardNotFound": "Card not found",
-      "tokenRequired": "You are not authorized",
-      "invalidToken": "Invalid or expired session",
-      "tokenRefreshed": "Session updated",
-      "serverError": "An unexpected server error occurred",
-      "somethingWentWrong": "Something went wrong",
-      "successfully": "Successfully",
-      "notEnoughMoney": "You don't have enough money"
-    },
-    "labels": {
-      "call": "Do you want to stay up to date? <span>Join us!<span/>",
-      "login": "Already have an account?",
-      "registration": "Don't have an account?",
-      "nickname": "Nickname",
-      "password": "Password",
-      "repeatPassword": "Repeat Password",
-      "email": "Email",
-      "balance": "Balance",
-      "rate": "Bet",
-      "name": "Name",
-      "message": "Message"
-    },
     "placeholders": {
-      "name": "Enter Name",
+      "cardName": "Enter Card Name",
+      "chooseAbilities": "Choose Abilities",
+      "chooseForces": "Choose Forces",
+      "chooseFractions": "Choose Fractions",
+      "chooseTypes": "Choose Types",
+      "email": "Enter Email",
+      "enterMinPlayerRating": "Enter Min Player Rating",
+      "enterPlayerName": "Enter Player Name",
       "message": "Enter Message",
+      "name": "Enter Name",
       "nickname": "Enter Nickname",
       "password": "Enter Password",
-      "email": "Enter Email",
       "rate": "Enter the bet"
     },
-    "abilities": {
-      "hero": "Immune to all special cards and abilities. Cannot be affected by Scorch, weather, or other abilities. A powerful standalone card.",
-      "horn": "Doubles the strength of all units in the row it’s placed on (except heroes). Great for boosting your power in a single line.",
-      "spy": "Played on the opponent’s side of the battlefield but grants you two extra cards. A smart trade-off of points for card advantage.",
-      "medic": "When played, allows you to bring back one unit card from your graveyard to the battlefield. Cannot revive hero or other medic cards.",
-      "scorch": "Destroys the strongest non-hero units on the battlefield, including both your side and your opponent’s if tied. Great counter to high-power units.",
-      "muster": "Summons all cards with the same name from your deck to the battlefield. Quickly strengthens your field with matching units.",
-      "mardroeme": "Allows transformation of berserker units into their bear form. Used strategically with berserk units for increased strength.",
-      "decoy": "Replaces a unit card on the battlefield and returns that card to your hand. Ideal for reusing spies or medics.",
-      "berserk": "Transforms into a powerful unit when combined with Mardroeme. Requires setup and timing to maximize effect.",
-      "tightBond": "Doubles the strength of all cards with the same name when placed next to each other. Best used in multiples for exponential power.",
-      "moraleBoost": "Increases the strength of all other units in its row by 1 point. It does not affect itself. Ideal for boosting large groups.",
-      "bitingFrost": "Reduces the strength of all close combat units to 1. A powerful weather card to weaken enemy frontlines.",
-      "impenetrableFog": "Reduces the strength of all ranged units to 1. Best used when your opponent relies on mid-range units.",
-      "torrentialRain": "Reduces the strength of all siege units to 1. Can cripple siege-heavy strategies.",
-      "skelligeStorm": "Affects multiple rows simultaneously, reducing unit strength in both ranged and siege rows to 1.",
-      "clearWeather": "Removes all active weather effects. Best used to restore your units’ full strength.",
-      "kingOfTemeria": "Leader ability that draws an extra card when the round begins. Ensures card advantage.",
-      "hisImperialMajesty": "Leader ability allowing you to look at 3 random cards from your opponent’s hand. Gives insight and strategic planning.",
-      "purebloodElf": "Unaffected by weather. Combines well with weather-heavy decks to maintain strength.",
-      "commanderOfTheRedRiders": "Leader ability to use Scorch effect immediately. A powerful board control tool to eliminate high-value enemy units."
+    "stats": {
+      "defeats": "Defeats",
+      "draws": "Draws",
+      "fights": "Fights",
+      "rang": "Rang",
+      "rating": "Rating",
+      "wins": "Wins"
     },
-    "fqa": {
-      "title": {
-        "1": "What is Gwent?",
-        "2": "How can I start playing Gwent?",
-        "3": "Is Gwent free to play?",
-        "4": "Do I need to know the Witcher series to enjoy Gwent?",
-        "5": "How do I build a strong deck in Gwent?",
-        "6": "What are factions in Gwent?",
-        "7": "Can I play Gwent with my friends?",
-        "8": "Are there competitive tournaments in Gwent?",
-        "9": "Is there a single-player mode in Gwent?",
-        "10": "How often does Gwent receive updates and new cards?"
-      },
-      "text": {
-        "1": "Gwent is a strategic card game set in the Witcher universe where players battle by building decks and outsmarting their opponents.",
-        "2": "You can download Gwent for free on PC, iOS, Android, and select consoles, then create an account to start playing.",
-        "3": "Yes, Gwent is completely free to play with optional in-game purchases for cosmetics and card kegs.",
-        "4": "No, Gwent can be fully enjoyed without prior knowledge of the Witcher books or games, though fans may appreciate the lore references.",
-        "5": "Building a strong deck requires balancing unit strength, special abilities, and synergies between your chosen faction's cards.",
-        "6": "Factions represent different kingdoms and groups, such as Nilfgaard, Northern Realms, Scoia’tael, Monsters, and Skellige, each with unique playstyles.",
-        "7": "Yes, Gwent offers friendly matches where you can challenge your friends directly.",
-        "8": "Absolutely! Gwent hosts ranked seasons, official esports tournaments, and community-driven competitions.",
-        "9": "While the main Gwent game is multiplayer-focused, there is a single-player experience called Gwent: Thronebreaker.",
-        "10": "The Gwent team regularly updates the game with balance patches, seasonal modes, and new card drops to keep gameplay fresh."
-      }
+    "subTitle": {
+      "advertisement": "The free card game set in The Witcher universe, where players build decks and battle strategically.",
+      "cards": "Step into a world where every card is a key to thrilling stories and unmatched strategy. Experience the exquisite artistry and creativity woven into every detail. Welcome to our incredible collection of Gwent cards from The Witcher 3!",
+      "fqa": "Everything You <span>Need</span> to Know About <span>Gwent</span>",
+      "fractions": "Factions in <span>Gwent</span> have unique playstyles and mechanics. Some rely on strength, others on <span>cunning</span> or chaos.",
+      "gameDescriptionOne": "is a card game where victory depends not on luck, but on your skill. Choose a faction, build your army, and challenge players worldwide in various game modes. Adapt your strategies on the fly with hundreds of unique cards featuring charismatic heroes, powerful spells, and special abilities. Remember: every move you make shapes the outcome of the battle.",
+      "gameDescriptionTwo": "Master the art of deck-building, outsmart your opponents, and climb the ranks to become a true GWENT champion!",
+      "gamePlay": "Where <span>strategy</span> matters more than luck. Players build decks using unique faction <span>mechanics.</span>",
+      "getInTouch": "We are here for you! How can we help?",
+      "heroCards": "Hero Cards",
+      "numberOfUnitCards": "Number of Unit Cards",
+      "specialCards": "Special Cards",
+      "totalCardsInDeck": "Total cards in deck",
+      "totalUnitCardStrength": "Total Unit Card Strength"
+    },
+    "title": {
+      "buy": "Buy",
+      "cardCollection": "Card Collection",
+      "cards": "Dive into the depths of <b>Gwent</b>",
+      "cardsInDeck": "Cards in Deck",
+      "fight": "Fight",
+      "findYourCards": "Find your cards",
+      "findYourPartners": "Find your partners",
+      "fqa": "Frequently Asked Questions",
+      "fractions": "Fractions",
+      "gamePlay": "Game Play",
+      "getInTouch": "Get In Touch",
+      "gwent": "Gwent",
+      "gwentProperly": "How to Play <span>Gwent</span> Properly"
     }
   }
 }

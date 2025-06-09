@@ -60,7 +60,7 @@ export const UserStats: FC<IUserStatsProps> = ({
   };
 
   const renderStats = (secondPart: boolean) =>
-    convertStatsToArray(stats)
+    convertStatsToArray(stats, t)
       .slice(secondPart ? 3 : 0, secondPart ? 6 : 3)
       .map((item, i) => (
         <Fragment key={i}>

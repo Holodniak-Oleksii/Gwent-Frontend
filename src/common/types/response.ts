@@ -29,10 +29,12 @@ export interface IGetPlayerResponse {
 
 export interface IGetPlayersResponse {
   players: TPlayer[];
+  total: number;
 }
 
 export interface IGetCardsResponse {
   cards: ICardModel[];
+  total: number;
 }
 
 export interface IGetCardIDsResponse {

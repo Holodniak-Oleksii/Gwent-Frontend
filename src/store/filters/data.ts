@@ -8,11 +8,11 @@ export const DEFAULT_FIELDS: IFilterFields = {
     types: [],
     name: "",
     page: 1,
-    size: 18,
+    size: 32,
   },
   PLAYERS: {
     name: "",
-    raring: 0,
+    rating: 0,
     page: 1,
     size: 18,
   },

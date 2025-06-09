@@ -12,7 +12,7 @@ export interface IFilterFields {
   };
   [EFilters.PLAYERS]: {
     name: string;
-    raring: number;
+    rating: number;
     page: number;
     size: number;
   };

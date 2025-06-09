@@ -70,9 +70,18 @@ export const StyledPortal = styled.div`
   transform: translateY(calc(100% + 8px));
   display: flex;
   flex-direction: column;
+
   ${({ theme }) => css`
     box-shadow: 0px 0px 10px ${theme.colors.focus};
     background-color: ${theme.colors.primary};
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: ${theme.colors.bgneon};
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${convertHexToRgba(theme.colors.lightText, 0.6)};
+    }
   `}
 `;
 

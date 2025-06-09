@@ -1,27 +1,256 @@
 {
   "translation": {
-    "navigation": {
-      "market": "Rynek",
-      "rules": "Zasady",
-      "aboutUs": "O nas",
-      "contacts": "Łączność",
-      "login": "Login"
+    "abilities": {
+      "berserk": "Przekształca się w potężną jednostkę w połączeniu z Mardroeme. Wymaga konfiguracji i czasu, aby zmaksymalizować efekt.",
+      "bitingFrost": "Zmniejsza siłę wszystkich jednostek walki bliskiej do 1. Potężna karta pogodowa, która osłabia linie frontu wroga.",
+      "clearWeather": "Usuwa wszystkie aktywne efekty pogodowe. Najlepiej wykorzystać do przywrócenia pełnej siły twoich jednostek.",
+      "commanderOfTheRedRiders": "Zdolność lidera do natychmiastowego użycia efektu Scorch. Potężne narzędzie do sterowania tablicą do eliminacji wartościowych jednostek wroga.",
+      "decoy": "Zastępuje kartę jednostki na polu bitwy i zwraca tę kartę do twojej ręki. Idealny do ponownego wykorzystania szpiegów lub lekarzy.",
+      "hero": "Odporny na wszystkie specjalne karty i umiejętności. Nie mogą mieć wpływu na przypalenie, pogodę ani inne umiejętności. Potężna samodzielna karta.",
+      "hisImperialMajesty": "Umiejętność lidera pozwalająca spojrzeć na 3 losowe karty z ręki przeciwnika. Daje wgląd i planowanie strategiczne.",
+      "horn": "Podwaja siłę wszystkich jednostek w rzędzie, na którym jest umieszczony (z wyjątkiem bohaterów). Doskonały do zwiększenia mocy w jednej linii.",
+      "impenetrableFog": "Zmniejsza wytrzymałość wszystkich jednostek dystansowych do 1. Najlepiej używać, gdy przeciwnik polega na jednostkach średniego zasięgu.",
+      "kingOfTemeria": "Umiejętność lidera, która losuje dodatkową kartę po rozpoczęciu rundy. Zapewnia przewagę karty.",
+      "mardroeme": "Umożliwia przekształcenie jednostek berserkera w ich formę niedźwiedzia. Stosowany strategicznie z jednostkami berserk w celu zwiększenia wytrzymałości.",
+      "medic": "Podczas gry pozwala przywrócić jedną kartę jednostki z cmentarza na pole bitwy. Nie można ożywić bohatera ani innych kart medycznych.",
+      "moraleBoost": "Zwiększa siłę wszystkich innych jednostek w swoim rzędzie o 1 punkt. Nie wpływa na siebie. Idealny do zwiększania dużych grup.",
+      "muster": "Przywołuje wszystkie karty o tej samej nazwie z talii na pole bitwy. Szybko wzmacnia swoje pole dzięki dopasowanym jednostkom.",
+      "purebloodElf": "Nie ma wpływu na pogodę. Dobrze łączy się z ciężkimi warunkami atmosferycznymi pokładami, aby zachować wytrzymałość.",
+      "scorch": "Niszczy najsilniejsze jednostki niebędące bohaterami na polu bitwy, w tym zarówno twoją stronę, jak i przeciwnika, jeśli jest remisowany. Świetny licznik jednostek dużej mocy.",
+      "skelligeStorm": "Wpływa na wiele rzędów jednocześnie, zmniejszając siłę jednostki zarówno w rzędach dystansowych, jak i oblężniczych do 1.",
+      "spy": "Gra po stronie przeciwnika na polu bitwy, ale daje ci dwie dodatkowe karty. Inteligentny kompromis punktów za przewagę karty.",
+      "tightBond": "Podwaja siłę wszystkich kart o tej samej nazwie, gdy są umieszczone obok siebie. Najlepiej stosować w wielokrotnościach dla mocy wykładniczej.",
+      "torrentialRain": "Zmniejsza siłę wszystkich jednostek oblężniczych do 1. Może paraliżować strategie ciężkie oblężenia."
     },
     "button": {
-      "login": "Login",
+      "accept": "Zaakceptować",
+      "apply": "Złożyć wniosek",
+      "buy": "Kupić",
+      "cancel": "Anuluj",
+      "challenge": "Wyzwanie",
+      "confirm": "Potwierdzać",
+      "createAccount": "Utwórz konto",
+      "decline": "Odrzuć",
+      "generate": "Generować",
+      "join": "Dołączyć",
+      "login": "Zaloguj się",
+      "moreInfo": "Więcej informacji",
+      "owned": "Własny",
+      "pass": "Przekaż",
+      "play": "Odtwórz",
       "registration": "Rejestracja",
-      "play": "Grać"
+      "startGame": "Rozpocznij grę",
+      "submit": "Zatwierdź"
     },
-    "title": {
-      "gwent": "Gwent"
+    "errors": {
+      "cardNotFound": "Karta nie została znaleziona",
+      "emailTaken": "Ten e-mail został już odebrany",
+      "invalidCredentials": "Nieprawidłowe dane wejściowe",
+      "invalidEmail": "Nieprawidłowy adres e-mail",
+      "invalidNickname": "Pseudonim może zawierać tylko litery i cyfry łacińskie",
+      "invalidToken": "Nieprawidłowa lub wygasła sesja",
+      "nicknameTaken": "Ten pseudonim jest już przyjęty",
+      "notEnoughMoney": "Nie posiadasz wystarczająco pieniędzy",
+      "passIncorrect": "Niepoprawne hasło",
+      "passMissMatch": "Hasła nie pasują",
+      "passwordLength": "Hasło musi mieć co najmniej 6 znaków",
+      "required": "To pole jest wymagane",
+      "requiredFields": "Wszystkie wymagane pola muszą być wypełnione",
+      "serverError": "Wystąpił nieoczekiwany błąd serwera",
+      "somethingWentWrong": "Coś poszło nie tak",
+      "successfully": "Pomyślnie",
+      "tokenRefreshed": "Sesja zaktualizowana",
+      "tokenRequired": "Nie jesteś upoważniony",
+      "userLogin": "Logowanie pomyślnie",
+      "userNotFound": "Użytkownik nie został znaleziony",
+      "userRegistered": "Użytkownik pomyślnie zarejestrowany"
     },
-    "subTitle": {
-      "advertisement": "gra karciana osadzona we Wszechświecie Witcher, w której gracze budują pokłady i walczą strategicznie.",
-      "gameDescriptionOne": "GWENT to gra karciana, w której o zwycięstwie decydują nie szczęście, lecz twoje umiejętności. Wybierz frakcję, zbuduj armię i zmierz się z graczami z całego świata w różnych trybach gry. Dostosuj strategię w locie, korzystając ze setek unikalnych kart z charyzmatycznymi bohaterami, potężnymi zaklęciami i specjalnymi umiejętnościami. Pamiętaj: każdy twój ruch może przesądzić o wyniku bitwy.",
-      "gameDescriptionTwo": "Opanuj sztukę budowania talii, przechytrz przeciwników i pnij się w rankingach, aby zostać prawdziwym mistrzem GWENT!"
+    "footer": {
+      "advertisement": "Dołącz do bitwy w Gwent! Zbuduj swoją talię i przechytrz przeciwników już dziś!",
+      "terms": {
+        "policy": "Regulamin | Prywatność i polityka",
+        "rights": "© 2025 GwentWeb. Wszelkie prawa zastrzeżone."
+      }
+    },
+    "fqa": {
+      "text": {
+        "1": "Gwent to strategiczna gra karciana osadzona w uniwersum Wiedźmina, w której gracze walczą, budując talie i przechytrając przeciwników.",
+        "10": "Zespół Gwent regularnie aktualizuje grę o poprawki równowagi, tryby sezonowe i nowe krople kart, aby zachować świeżość rozgrywki.",
+        "2": "Możesz pobrać Gwent za darmo na PC, iOS, Android i wybrane konsole, a następnie założyć konto, aby rozpocząć grę.",
+        "3": "Tak, Gwent jest całkowicie darmowy z opcjonalnymi zakupami kosmetyków i beczek na karty w grze.",
+        "4": "Nie, Gwent można w pełni cieszyć się bez wcześniejszej wiedzy o książkach lub grach Wiedźmina, chociaż fani mogą docenić odniesienia do wiedzy.",
+        "5": "Budowanie silnej talii wymaga zrównoważenia siły jednostki, specjalnych umiejętności i synergii między kartami wybranej frakcji.",
+        "6": "Frakcje reprezentują różne królestwa i grupy, takie jak Nilfgaard, Northern Realms, Scoia'tael, Potwory i Skellige, każdy z unikalnymi stylami gry.",
+        "7": "Tak, Gwent oferuje mecze towarzyskie, w których możesz rzucić wyzwanie znajomym bezpośrednio.",
+        "8": "Absolutnie! Gwent jest gospodarzem sezonów rankingowych, oficjalnych turniejów e-sportowych i konkursów opartych na społeczności.",
+        "9": "Podczas gdy główna gra Gwent koncentruje się na wielu graczach, istnieje doświadczenie dla jednego gracza o nazwie Gwent: Thronebreaker."
+      },
+      "title": {
+        "1": "Czym jest Gwent?",
+        "10": "Jak często Gwent otrzymuje aktualizacje i nowe karty?",
+        "2": "Jak mogę zacząć grać w Gwent?",
+        "3": "Czy Gwent może grać za darmo?",
+        "4": "Czy muszę znać serię Wiedźmin, aby cieszyć się Gwintem?",
+        "5": "Jak zbudować silną talię w Gwincie?",
+        "6": "Czym są frakcje w Gwent?",
+        "7": "Czy mogę grać w Gwent z moimi przyjaciółmi?",
+        "8": "Czy w Gwent odbywają się turnieje konkurencyjne?",
+        "9": "Czy w Gwincie jest tryb dla jednego gracza?"
+      }
+    },
+    "fraction": {
+      "monsters": {
+        "description": "Przerażające stworzenia, które rozwijają się w chaosie i pożerają wszystko na swojej drodze. Mogą się rozmnażać, wzmacniać poprzez konsumowanie sojuszników i kontrolować pogodę.",
+        "title": "Potwory"
+      },
+      "nilfgaard": {
+        "description": "Imperium, które opiera się na szpiegach, oszustwach i kontrolowaniu przeciwnika. Ich siły ujawniają karty wroga i wykorzystują strategiczne zalety.",
+        "title": "Nilfgaard"
+      },
+      "northern": {
+        "description": "Zdyscyplinowani wojownicy, którzy polegają na rycerzach, magach i maszynach wojennych. Zyskują bonusy z odporności na polu bitwy i mają wiele jednostek pancernych.",
+        "title": "Królestwa Północne"
+      },
+      "scoiatael": {
+        "description": "Elfy partyzanckie, krasnoludy i dryady toczą wojnę z ludzką tyranią. Używają oszustw, zasadzek i unikalnej mechaniki umieszczania.",
+        "title": "Scoia'tael"
+      }
+    },
+    "html": {
+      "aboutUs": "<h1>Oleksii Holodniak Student Uniwersytetu Narodowego w U </h1> <p> żhorodzie na kierunku Inżynieria Oprogramowania. </p><p>Ta strona jest częścią projektu dyplomowego zatytułowanego: </p> <p> <b> „Rozwój platformy do gry w Gwent w oparciu o protokół WebSocket Protocol” Cel </b> </p> <p> <strong> projektu: </strong> Stworzenie funkcjonalnej platformy gier w czasie rzeczywistym wykorzystującej nowoczesne technologie internetowe, które zapewniają wysoką szybkość przesyłania danych i skalowalność. Szczególną uwagę zwraca się na badanie protokołu WebSocket i jego zalet w grach online. </p><br/><p>Zaimplementowano w pracy: </p> <ul> <li> Pełna interakcja klient-serwer za pomocą WebSocket; Logika </li> <li> gry i reguły dostosowane do środowiska online; </li> <li> System rejestracji i łączenia graczy; </li> <li> Mechanizm tworzenia i hostowania sesji gry; Trwałość stanu gry i aktualizacje w czasie rzeczywistym. </li> <li> </li></ul><br/><p>Zastosowane technologie: <span> WebSocket, </span> <span> React, </span> <span> Node.js, </span> <span> Express, </span> <span> TypeScript, </span> <span> Styled Components. </span></p>",
+      "rules": "<h1>Zasady gry: Gwent </h1> <p> <strong> Gwent </strong> to strategiczna gra karciana, w której dwóch graczy walczy za pomocą niestandardowych talii, mając na celu wygranie dwóch z trzech rund zdobywając więcej punktów niż ich przeciwnik. </p><p><strong>C </strong> el: Celem jest wygranie rund, grając w karty, które sumują się do wyższego wyniku całkowitego niż twój przeciwnik. </p><p><strong>Skład talii: Talia </strong> </p> <ul> <li> każdego gracza zawiera minimum 25 kart. </li><li>Tale obejmują karty jednostkowe (z wartościami siły), karty specjalne (pogoda, zaklęcia) i karty liderów (z unikalnymi umiejętnościami). </li><li>Karty są podzielone na trzy rzędy: w <span> zwarciu</span>, zasię <span> gu i <span> oblęż </span> eniu. </span> </li></ul><p><strong>Konfiguracja gry: </strong> </p> <ul> <li> Gracze losują 10 losowych kart na początku gry. </li><li>Pomiędzy rundami nie są losowane żadne dodatkowe karty, więc planowanie strategiczne ma kluczowe znaczenie. </li></ul><p><strong>Rozgrywka: </strong> </p> <ul> <li> Gra rozgrywana jest w <span> 3 rundach</span>. Gracz musi wygrać <span> 2 z 3 r </span> und, aby wygrać mecz. </li><li>Każdy gracz gra jedną kartę na turę lub podaje. </li><li>Runda kończy się, gdy obaj gracze przechodzą kolejno. </li><li>Gracz o największej całkowitej sile na polu bitwy wygrywa rundę. </li></ul><p><strong>Podawanie: </strong> </p> <ul> <li> Możesz przejść swoją turę w dowolnym momencie, aby zachować karty na przyszłe rundy. </li><li>Po przejściu nie możesz zagrać w kolejne karty w tej rundzie. </li></ul><p><strong>Efekty kart: Karty </strong> </p> <ul> <li> <span> jednostkowe</span>: Przyczyń siłę do rzędu. </li><li><span>Karty specjalne</span>: modyfikuj stan gry (np. pogodna pogoda, podwójna siła). </li><li><span>Karty pogodowe</span>: Zmniejsz siłę wszystkich kart w określonym rzędzie. </li></ul><p><strong>Zwycięstwo: </strong> Aby wygrać, ostrożnie zarządzaj swoimi zasobami, wymanewruj przeciwnika we wszystkich rundach i wykorzystaj każdą kartę do maksymalnego potencjału. </p><p><strong>Wskazówki dotyczące strategii: </strong> </p> <ul> <li> Nie używaj wszystkich mocnych kart w pierwszej rundzie — zrównoważyć siłę w różnych rundach. </li><li>Wcześniej wyrzuć potężne karty przeciwnika. </li><li>Dowiedz się, kiedy przejść i oszczędzaj zasoby na decydującą rundę. </li><li>Buduj synergię w swojej talii — karty, które dobrze ze sobą współpracują, często wygrywają gry. </li></ul>"
     },
     "labels": {
-      "call": "Chcesz być na bieżąco? <span>Dołącz do nas!<span/>"
+      "abilities": "umiejętności",
+      "balance": "Równowagi",
+      "call": "Chcesz być na bieżąco? <span>Dołącz do nas! <span/>",
+      "cardName": "Nazwa karty",
+      "email": "Email",
+      "forces": "Siły",
+      "fractions": "Ułamki",
+      "login": "Masz już konto?",
+      "message": "Wiadomość",
+      "minPlayerRating": "Minimalna ocena gracza",
+      "name": "Nazwa",
+      "nickname": "Pseudonim",
+      "password": "Password",
+      "playerName": "Nazwa gracza",
+      "rate": "Zakład",
+      "registration": "Nie masz konta?",
+      "repeatPassword": "Powtórz hasło",
+      "types": "Typy"
+    },
+    "message": {
+      "balanceRefilled": "Saldo uzupełnione monetami {{balance}}",
+      "challenged": "Gracz <b> {{player}} </b> rzucił cię na pojedynek, umieszczając <span> {{coins}} </span> monety w walce",
+      "codeCopied": "Kod skopiowany",
+      "duel": "Wyzwałeś użytkownika <b> {{player}} </b> na pojedynek, umieszczając <span> {{coins}} </span> monety w walce",
+      "emptyNotify": "Cóż, nie masz powiadomienia.",
+      "enoughMoney": "Nie posiadasz wystarczająco pieniędzy",
+      "refill": "<p>Aby uzupełnić saldo, należy przelać wymaganą kwotę do </b> banku <b> „Gwent Coins”. W polu <b> „Komentarz” </b> pamiętaj, aby wskazać <u> jednorazowo wygenerowany kod</u>, który zostanie użyty do uzupełnienia salda gry. </p><p>💰 Stawka doładowania: 1 hrywna = 100 monet. </p><p>Uwaga! Wszystkie środki otrzymane przez ten bank zostaną przekazane do <strong> „Current RUSORIZ” </strong> na wsparcie Sił Zbrojnych Ukrainy. </p><p>Możesz również wesprzeć naszą armię bezpośrednio, przekazując darowiznę na stronę funduszu: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" > https://www.sternenkofund.org/fundraisings/rusoriz </a> Razem jesteśmy silni 💙💛 </p>",
+      "waitEnemy": "Czekający wróg..."
+    },
+    "navigation": {
+      "abilities": "umiejętności",
+      "aboutUs": "O nas",
+      "contacts": "Łączność",
+      "deutschland": "Niemcy",
+      "english": "Anglik",
+      "forces": "Siły",
+      "fqa": "FQA",
+      "fractions": "Ułamki",
+      "gamePlay": "Zagraj w grę",
+      "howIfWorks": "Jak to działa",
+      "login": "Zaloguj się",
+      "market": "sklep",
+      "players": "GRACZE",
+      "poland": "Polska",
+      "rules": "Reguły",
+      "teams": "Zespoły",
+      "title": {
+        "languages": "Języki",
+        "links": "Linki",
+        "product": "Produkt",
+        "support": "Wsparcie"
+      },
+      "ukrainian": "ukraiński"
+    },
+    "paragraphs": {
+      "game": {
+        "descriptions": {
+          "one": "to gra karciana, w której zwycięstwo zależy nie od szczęścia, ale od twoich umiejętności. Wybierz frakcję, zbuduj swoją armię i rzuć wyzwanie graczom na całym świecie w różnych trybach gry. Dostosuj swoje strategie w locie dzięki setkom unikalnych kart z charyzmatycznymi bohaterami, potężnymi zaklęciami i specjalnymi umiejętnościami. Pamiętaj: każdy wykonany ruch kształtuje wynik bitwy.",
+          "few": "",
+          "many": ""
+        },
+        "mode": {
+          "one": "Weź udział w ekscytujących pojedynkach, korzystając z połączenia WebSocket w czasie rzeczywistym. Rzuć wyzwanie znajomym lub zmierz się z wykwalifikowanymi przeciwnikami w płynnym trybie online.",
+          "few": "",
+          "many": ""
+        },
+        "start": {
+          "one": "Zarejestruj się, zbuduj swoją pierwszą talię i zanurz się w bitwę!",
+          "few": "",
+          "many": ""
+        }
+      },
+      "properly": {
+        "one": "W Gwincie nie chodzi tylko o grę w mocne karty, ale także o prawidłową ocenę pola bitwy. Każdy ruch ma znaczenie, a pośpieszne decyzje mogą kosztować Cię grę. Znalezienie właściwej równowagi między atakowaniem a kontrolowaniem przeciwnika ma kluczowe znaczenie, podobnie jak wiedza o tym, kiedy przyznać rundę, aby później zdobyć przewagę. Śledzenie zasobów, przewidywanie strategii przeciwnika i granie w karty oparte na synergii, a nie tylko surowej mocy, doprowadzi do zwycięstwa. Sukces przychodzi tym, którzy myślą z wyprzedzeniem i zmuszają przeciwnika do gry na ich warunkach.",
+        "few": "",
+        "many": ""
+      }
+    },
+    "placeholders": {
+      "cardName": "Wprowadź nazwę karty",
+      "chooseAbilities": "Wybierz Umiejętności",
+      "chooseForces": "Wybierz Siły",
+      "chooseFractions": "Wybierz ułamki",
+      "chooseTypes": "Wybierz Typy",
+      "email": "Wpisz adres e-mail",
+      "enterMinPlayerRating": "Wprowadź minimalną ocenę gracza",
+      "enterPlayerName": "Wprowadź nazwę gracza",
+      "message": "Wprowadź wiadomość",
+      "name": "Wpisz nazwę",
+      "nickname": "Wpisz pseudonim",
+      "password": "Wprowadź hasło",
+      "rate": "Wprowadź zakład"
+    },
+    "stats": {
+      "defeats": "Porażki",
+      "draws": "Losowania",
+      "fights": "Walki",
+      "rang": "Zadzwonił",
+      "rating": "Ocena",
+      "wins": "Wygrywa"
+    },
+    "subTitle": {
+      "advertisement": "Darmowa gra karciana osadzona w uniwersum Wiedźmina, w której gracze budują talie i walczą strategicznie.",
+      "cards": "Wkrocz do świata, w którym każda karta jest kluczem do ekscytujących historii i niezrównanej strategii. Doświadcz wykwintnego kunsztu i kreatywności wplecionej w każdy szczegół. Witamy w naszej niesamowitej kolekcji kart Gwent z Wiedźmina 3!",
+      "fqa": "Wszystko, co <span> musisz </span> wiedzieć o <span> Gwent </span>",
+      "fractions": "Frakcje w <span> Gwincie </span> mają unikalne style gry i mechanikę. Niektórzy polegają na sile, inni na <span> przebiegłości </span> lub chaosie.",
+      "gameDescriptionOne": "to gra karciana, w której zwycięstwo zależy nie od szczęścia, ale od twoich umiejętności. Wybierz frakcję, zbuduj swoją armię i rzuć wyzwanie graczom na całym świecie w różnych trybach gry. Dostosuj swoje strategie w locie dzięki setkom unikalnych kart z charyzmatycznymi bohaterami, potężnymi zaklęciami i specjalnymi umiejętnościami. Pamiętaj: każdy wykonany ruch kształtuje wynik bitwy.",
+      "gameDescriptionTwo": "Opanuj sztukę budowania pokładów, przechytrz przeciwników i wspinaj się w szeregi, aby zostać prawdziwym mistrzem GWINTA!",
+      "gamePlay": "Tam, gdzie <span> strate </span> gia liczy się bardziej niż szczęście. Gracze budują talie przy użyciu unikalnej <span> mechaniki frakcji. </span>",
+      "getInTouch": "Jesteśmy tu dla Ciebie! Jak możemy pomóc?",
+      "heroCards": "Karty bohaterów",
+      "numberOfUnitCards": "Liczba kart jednostkowych",
+      "specialCards": "Karty specjalne",
+      "totalCardsInDeck": "Suma kart w talii",
+      "totalUnitCardStrength": "Całkowita wytrzymałość karty jednostkowej"
+    },
+    "title": {
+      "buy": "Kupić",
+      "cardCollection": "Kolekcja kart",
+      "cards": "Zanurz się w głębinach <b> Gwent </b>",
+      "cardsInDeck": "Karty w talii",
+      "fight": "Walka",
+      "findYourCards": "Znajdź swoje karty",
+      "findYourPartners": "Znajdź swoich partnerów",
+      "fqa": "Często zadawane pytania",
+      "fractions": "Ułamki",
+      "gamePlay": "Zagraj w grę",
+      "getInTouch": "Skontaktuj się z nami",
+      "gwent": "Gwent",
+      "gwentProperly": "Jak prawidłowo grać w <span> Gwent </span>"
     }
   }
 }

@@ -7,6 +7,7 @@ import {
   IGetCardsResponse,
   QueryKey,
 } from "@/common/types";
+import { useFilterStore } from "@/store/filters";
 import { useUserStore } from "@/store/user";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -21,10 +22,15 @@ export const useGetMyCardsQuery = () => {
 };
 
 export const useGetCardsQuery = () => {
+  const params = useFilterStore((state) => state.filter.CARDS);
+
   return useQuery<IGetCardsResponse, IErrorResponse>({
-    queryKey: [QueryKey.ALL_CARDS],
+    queryKey: [QueryKey.ALL_CARDS, JSON.stringify(params)],
+    placeholderData: (previousData) => previousData,
     queryFn: async () => {
-      const { data } = await API.get<IGetCardsResponse>(ENDPOINTS.ALL_CARDS);
+      const { data } = await API.get<IGetCardsResponse>(ENDPOINTS.ALL_CARDS, {
+        params,
+      });
       return data;
     },
   });

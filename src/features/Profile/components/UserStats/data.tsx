@@ -5,39 +5,43 @@ import IconDraws from "@/common/icons/stats/IconDraws";
 import IconFight from "@/common/icons/stats/IconFight";
 import IconMedal from "@/common/icons/stats/IconMedal";
 import IconWins from "@/common/icons/stats/IconWins";
+import { TFunction } from "i18next";
 import { IStat } from "../../../../components/cards/StatCard/StatCard";
 
-export const convertStatsToArray = (stats: IUserStats): IStat[] => {
+export const convertStatsToArray = (
+  stats: IUserStats,
+  t: TFunction
+): IStat[] => {
   const Icon = RANG_IMAGE[stats.rang];
   return [
     {
       icon: <IconWins />,
-      name: "Wins",
+      name: t("stats.wins"),
       value: stats.wins,
     },
     {
       icon: <IconDraws />,
-      name: "Draws",
+      name: t("stats.draws"),
       value: stats.draws,
     },
     {
       icon: <IconDefeat />,
-      name: "Defeats",
+      name: t("stats.defeats"),
       value: stats.losses,
     },
     {
       icon: <Icon />,
-      name: "Rang",
+      name: t("stats.rang"),
       value: stats.rang + 1,
     },
     {
       icon: <IconFight />,
-      name: "Fights",
+      name: t("stats.fights"),
       value: stats.sum,
     },
     {
       icon: <IconMedal />,
-      name: "Rating",
+      name: t("stats.rating"),
       value: stats.rating,
     },
   ];

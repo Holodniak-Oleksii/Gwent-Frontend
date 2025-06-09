@@ -5,15 +5,18 @@ import {
 } from "@/components/shared/FilterCreator/types";
 import { IFilterFields } from "@/store/filters/types";
 import { convertText } from "@/utils";
+import { TFunction } from "i18next";
 
-export const fields: IFiledSetting<IFilterFields["CARDS"], TFiledType>[] = [
+export const fields = (
+  t: TFunction
+): IFiledSetting<IFilterFields["CARDS"], TFiledType>[] => [
   {
     name: "name",
     type: "input",
     args: {
       name: "name",
-      label: "Card Name",
-      placeholder: "Enter Card Name",
+      label: t("labels.cardName"),
+      placeholder: t("placeholders.cardName"),
       type: "text",
     },
   },
@@ -22,8 +25,8 @@ export const fields: IFiledSetting<IFilterFields["CARDS"], TFiledType>[] = [
     type: "select",
     args: {
       name: "abilities",
-      label: "Abilities",
-      placeholder: "Choose Abilities",
+      label: t("labels.abilities"),
+      placeholder: t("placeholders.chooseAbilities"),
       options: Object.keys(ECardAbilities).map((value) => ({
         label: convertText(value, "sentence"),
         value,
@@ -35,8 +38,8 @@ export const fields: IFiledSetting<IFilterFields["CARDS"], TFiledType>[] = [
     type: "select",
     args: {
       name: "forces",
-      label: "Forces",
-      placeholder: "Choose Forces",
+      label: t("labels.forces"),
+      placeholder: t("placeholders.chooseForces"),
       options: Object.keys(EForces).map((value) => ({
         label: convertText(value, "sentence"),
         value,
@@ -48,8 +51,8 @@ export const fields: IFiledSetting<IFilterFields["CARDS"], TFiledType>[] = [
     type: "select",
     args: {
       name: "fractions",
-      label: "Fractions",
-      placeholder: "Choose Fractions",
+      label: t("labels.fractions"),
+      placeholder: t("placeholders.chooseFractions"),
       options: Object.keys(EFaction).map((value) => ({
         label: convertText(value, "sentence"),
         value,
@@ -61,8 +64,8 @@ export const fields: IFiledSetting<IFilterFields["CARDS"], TFiledType>[] = [
     type: "select",
     args: {
       name: "types",
-      label: "Types",
-      placeholder: "Choose Types",
+      label: t("labels.types"),
+      placeholder: t("placeholders.chooseTypes"),
       options: Object.keys(EType).map((value) => ({
         label: convertText(value, "sentence"),
         value,
