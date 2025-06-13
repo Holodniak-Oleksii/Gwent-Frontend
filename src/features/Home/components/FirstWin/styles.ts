@@ -30,12 +30,15 @@ export const StyledText = styled.span<IActiveble>`
         `}
     top: 20%;
     left: 10%;
-    font-size: 130px;
     color: ${convertHexToRgba(theme.colors.text, 0.7)};
+    ${theme.fontSizes.extra}
     ${theme.media.width.lg} {
-      font-size: 100px;
       top: 14%;
       left: 8%;
+    }
+    ${theme.media.width.sm} {
+      top: 10%;
+      left: 5%;
     }
   `}
 `;
@@ -84,6 +87,9 @@ export const StyledCardOverlay = styled.div<IActiveble>`
       : css`
           width: 60px;
         `}
+    ${theme.media.width.sm} {
+      width: ${$isActive ? 75 : 50}px;
+    }
   `}
 `;
 

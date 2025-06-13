@@ -20,9 +20,7 @@ export const StyledWrapper = styled.div`
   cursor: pointer;
   position: relative;
   aspect-ratio: 6 / 9;
-  min-height: 400px;
   max-height: calc(100vh - 120px);
-  background: ${({ theme }) => theme.colors.bgneon};
   padding: 4px;
   border-radius: 4px;
   @media (hover: hover) {
@@ -42,6 +40,13 @@ export const StyledWrapper = styled.div`
       }
     }
   }
+  ${({ theme }) => css`
+    background: ${theme.colors.bgneon};
+    min-height: 400px;
+    ${theme.media.width.md} {
+      min-height: 320px;
+    }
+  `}
 `;
 
 export const StyledContent = styled.div`

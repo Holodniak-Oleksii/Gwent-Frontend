@@ -19,10 +19,21 @@ export const StyledContainer = styled.div`
 export const StyledTextWrapper = styled.div`
   width: 100%;
   position: absolute;
-  top: 20%;
-  left: 10%;
   transition-delay: 0.6s;
   overflow: hidden;
+  ${({ theme }) => css`
+    top: 20%;
+    left: 10%;
+    ${theme.media.width.md} {
+      top: 8%;
+      left: 8%;
+    }
+    ${theme.media.width.xxs} {
+      top: 16px;
+      left: 16px;
+      width: 175%;
+    }
+  `}
 `;
 
 export const StyledText = styled.div<IActiveble>`

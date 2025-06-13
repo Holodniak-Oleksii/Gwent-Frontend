@@ -107,6 +107,18 @@ const theme: DefaultTheme = {
         padding-top: 100px;
         padding-bottom: 100px;
       }
+      ${media.width.md} {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+      ${media.width.sm} {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+      ${media.width.xs} {
+        padding-top: 44px;
+        padding-bottom: 44px;
+      }
     `,
   },
 
@@ -116,11 +128,20 @@ const theme: DefaultTheme = {
       ${media.width.lg} {
         font-size: 100px;
       }
+      ${media.width.sm} {
+        font-size: 80px;
+      }
+      ${media.width.xs} {
+        font-size: 64px;
+      }
     `,
     largeTitle: `
       font-size: 80px;
       ${media.width.lg} {
         font-size: 64px;
+      }
+      ${media.width.sm} {
+        font-size: 44px;
       }
     `,
     large: `
@@ -128,11 +149,23 @@ const theme: DefaultTheme = {
       ${media.width.lg} {
         font-size: 44px;
       }
+      ${media.width.sm} {
+        font-size: 32px;
+      }
+      ${media.width.xs} {
+        font-size: 28px;
+      }
+      ${media.width.xxs} {
+        font-size: 24px;
+      }
     `,
     big: `
       font-size: 28px;
       ${media.width.lg} {
         font-size: 24px;
+      }
+      ${media.width.sm} {
+        font-size: 20px;
       }
     `,
     regular: `
@@ -142,6 +175,9 @@ const theme: DefaultTheme = {
       };
       ${media.width.md} {
         font-size: 18px;
+      }
+      ${media.width.xxs} {
+        font-size: 16px;
       }
     `,
     medium: `

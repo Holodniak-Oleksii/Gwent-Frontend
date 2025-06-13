@@ -1,5 +1,6 @@
 import imageHeroes from "@/assets/images/heroes.webp";
 import { DecoratedButton } from "@/components/ui/buttons/DecoratedButton";
+import { TableOff } from "@/utils/responsive";
 import { useTranslation } from "react-i18next";
 import { CardCarousel } from "./CardCarousel";
 import {
@@ -28,9 +29,11 @@ export const Banner = () => {
           </StyledButtonContainer>
         </StyledTextContainer>
       </StyledContent>
-      <StyledImageWrapper>
-        <StyledHeroes src={imageHeroes} alt="heroes" />
-      </StyledImageWrapper>
+      <TableOff>
+        <StyledImageWrapper>
+          <StyledHeroes src={imageHeroes} alt="heroes" />
+        </StyledImageWrapper>
+      </TableOff>
     </StyledWrapper>
   );
 };

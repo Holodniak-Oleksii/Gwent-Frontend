@@ -37,6 +37,10 @@ export const StyledTextContainer = styled.div`
     ${theme.media.width.lg} {
       margin-right: 24%;
     }
+    ${theme.media.width.sm} {
+      margin: auto auto 0 auto;
+      gap: 8px;
+    }
   `};
 `;
 
@@ -68,18 +72,31 @@ export const StyledImageWrapper = styled.div`
   position: relative;
   margin-left: auto;
   width: 30%;
-  min-width: 400px;
-  max-width: 700px;
   height: 100%;
-  filter: drop-shadow(0px 5px 4px ${({ theme }) => theme.colors.secondary});
+  ${({ theme }) => css`
+    min-width: 400px;
+    max-width: 700px;
+    filter: drop-shadow(0px 5px 4px ${theme.colors.secondary});
+    ${theme.media.width.sm} {
+      min-width: 210px;
+    }
+  `};
 `;
 
 export const StyledHeroes = styled.img`
-  height: calc(100% - 50px);
   width: auto;
   position: absolute;
   bottom: 0;
-  right: 60px;
+  ${({ theme }) => css`
+    height: calc(100% - 50px);
+    right: 60px;
+    ${theme.media.width.sm} {
+      right: 32px;
+      max-width: 500px;
+      object-fit: contain;
+      object-position: bottom;
+    }
+  `}
 `;
 
 export const StyledButtonContainer = styled.div`

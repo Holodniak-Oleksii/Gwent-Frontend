@@ -10,6 +10,10 @@ interface IPixiSliderProps {
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
   div {
     position: absolute;
     inset: 0;

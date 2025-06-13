@@ -1,4 +1,5 @@
 import imageLogo from "@/assets/images/logo.webp";
+import { LittleMobileOff, LittleMobileOn } from "@/utils/responsive";
 import { useTranslation } from "react-i18next";
 import { footerNavigation, social } from "./data";
 import {
@@ -31,6 +32,15 @@ export const Footer = () => {
         </StyledColumn>
       )
     );
+
+  const renderLinks = () =>
+    (Object.keys(footerNavigation) as Array<keyof typeof footerNavigation>).map(
+      (key) =>
+        footerNavigation[key].map((item, index) => (
+          <StyledItem key={key + index}>{t(item)}</StyledItem>
+        ))
+    );
+
   return (
     <StyledOverlay>
       <StyledWrapper>
@@ -44,12 +54,12 @@ export const Footer = () => {
               ))}
             </StyledSocial>
           </StyledColumn>
-          {renderColumn()}
+          <LittleMobileOff>{renderColumn()}</LittleMobileOff>
+          <LittleMobileOn>{renderLinks()}</LittleMobileOn>
         </StyledContent>
       </StyledWrapper>
       <StyledTerms>
         <span>{t("footer.terms.rights")}</span>
-        <span>{t("footer.terms.policy")}</span>
       </StyledTerms>
     </StyledOverlay>
   );

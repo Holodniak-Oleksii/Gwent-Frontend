@@ -20,6 +20,7 @@ const StyledButton = styled.button<IBaseButtonProps>`
   z-index: 3;
   height: fit-content;
   padding: 8px;
+  line-height: 1;
   &:disabled {
     opacity: 0.5;
     cursor: progress;
@@ -33,6 +34,9 @@ const StyledButton = styled.button<IBaseButtonProps>`
       : theme.colors.secondary};
     ${theme.media.width.lg} {
       min-width: 110px;
+    }
+    ${theme.media.width.sm} {
+      min-width: 80px;
     }
   `}
 `;

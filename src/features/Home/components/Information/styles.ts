@@ -13,11 +13,20 @@ export const StyledContainer = styled.div`
 export const StyledContent = styled.div`
   width: 100%;
   display: flex;
-  gap: 100px;
   align-items: center;
   flex-direction: column;
   ${({ theme }) => css`
+    gap: 100px;
     ${theme.spacing.indents};
+    ${theme.media.width.md} {
+      gap: 80px;
+    }
+    ${theme.media.width.sm} {
+      gap: 64px;
+    }
+    ${theme.media.width.xs} {
+      gap: 44px;
+    }
   `}
 `;
 
@@ -26,14 +35,26 @@ export const StyledGrid = styled.div`
   display: grid;
   gap: 48px;
   align-items: center;
-  grid-template-columns: 45% 1fr;
+  ${({ theme }) => css`
+    grid-template-columns: 45% 1fr;
+    ${theme.media.width.sm} {
+      grid-template-columns: 100%;
+      grid-template-rows: min-content auto;
+    }
+  `}
 `;
 
 export const StyledTexts = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
   height: 100%;
+  width: 100%;
+  ${({ theme }) => css`
+    gap: 32px;
+    ${theme.media.width.xs} {
+      gap: 20px;
+    }
+  `}
 `;
 
 export const StyledLabel = styled.div`
@@ -63,7 +84,14 @@ export const StyledImageContainer = styled.div`
   width: 100%;
   position: relative;
   aspect-ratio: 3 / 2;
-  filter: drop-shadow(0px 0px 8px ${({ theme }) => theme.colors.secondary});
+  ${({ theme }) => css`
+    filter: drop-shadow(0px 0px 8px ${theme.colors.secondary});
+    ${theme.media.width.sm} {
+      max-width: 100%;
+      margin: auto;
+      max-height: 300px;
+    }
+  `}
 `;
 
 export const StyledImage = styled.img<IActiveble & { $isPrevious: boolean }>`
@@ -102,6 +130,15 @@ export const StyledTabList = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;
+  overflow: auto;
+  width: 100%;
+  ${({ theme }) => css`
+    ${theme.media.width.xs} {
+      padding: 0 16px 12px 16px;
+      width: calc(100% + 32px);
+      transform: translateX(-16px);
+    }
+  `}
 `;
 
 export const StyledTabContent = styled.div`
@@ -126,6 +163,7 @@ export const StyledTab = styled.button<IActiveble>`
   align-items: center;
   line-height: 1;
   position: relative;
+  white-space: nowrap;
   &::after {
     content: "";
     position: absolute;

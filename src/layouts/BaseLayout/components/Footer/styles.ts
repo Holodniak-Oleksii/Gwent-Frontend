@@ -31,6 +31,12 @@ export const StyledTerms = styled.div`
       color: ${theme.colors.text};
       ${theme.fontSizes.small};
     }
+    ${theme.media.width.xxs} {
+      flex-direction: column;
+      * {
+        padding: 16px 0;
+      }
+    }
   `}
 `;
 
@@ -41,6 +47,14 @@ export const StyledContent = styled.div`
     ${theme.media.width.lg} {
       padding: 60px 0;
     }
+    ${theme.media.width.sm} {
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+    ${theme.media.width.xxs} {
+      gap: 16px;
+      padding: 32px 0;
+    }
   `};
 `;
 
@@ -50,6 +64,16 @@ export const StyledColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  ${({ theme }) => css`
+    ${theme.media.width.sm} {
+      &:first-child {
+        width: 100%;
+      }
+    }
+    ${theme.media.width.xs} {
+      margin-bottom: 32px;
+    }
+  `};
 `;
 
 export const StyledLinks = styled(StyledColumn)`
@@ -70,6 +94,9 @@ export const StyledMessage = styled.span`
   ${({ theme }) => css`
     ${theme.fontSizes.medium};
     color: ${theme.colors.text};
+    ${theme.media.width.sm} {
+      max-width: 100%;
+    }
   `}
 `;
 

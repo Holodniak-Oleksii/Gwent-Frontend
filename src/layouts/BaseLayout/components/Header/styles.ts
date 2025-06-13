@@ -9,26 +9,32 @@ export const StyledWrapper = styled.header<{ $isVisible: boolean }>`
   width: 100%;
   height: 80px;
   z-index: 1000;
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
   transition: all 0.4s ease-in-out;
+  padding-top: 16px;
+  padding-bottom: 16px;
   ${({ theme, $isVisible }) => css`
     background: ${theme.colors.bgneon};
     border-bottom: 1px solid ${theme.colors.border};
     transform: translateY(${$isVisible ? 0 : -100}%);
+    ${theme.media.width.xxs} {
+      height: 72px;
+    }
   `}
-  padding-top: 16px;
-  padding-bottom: 16px;
 `;
 
 export const StyledContainer = styled.div`
   height: 100%;
   display: flex;
   gap: 72px;
-
+  position: relative;
   ${({ theme }) => css`
     ${theme.spacing.content}
     ${theme.media.width.lg} {
       gap: 56px;
+    }
+    ${theme.media.width.sm} {
+      gap: 24px;
     }
   `};
 `;
@@ -58,12 +64,19 @@ export const StyledLink = styled(Link)<IActiveble>`
 export const StyledList = styled.nav`
   display: flex;
   align-items: center;
-  gap: 32px;
+  ${({ theme }) => css`
+    gap: 32px;
+    ${theme.media.width.sm} {
+      gap: 16px;
+    }
+  `}
 `;
 
 export const StyledLogo = styled(Link)`
   height: 100%;
   width: auto;
+  position: relative;
+  z-index: 103;
   img {
     width: auto;
     height: 100%;

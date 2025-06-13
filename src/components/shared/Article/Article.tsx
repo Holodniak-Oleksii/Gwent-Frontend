@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IArticleProps {
   title: string;
@@ -11,9 +11,14 @@ const StyledText = styled.div`
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
   margin: 0 auto;
   align-items: center;
+  ${({ theme }) => css`
+    gap: 24px;
+    ${theme.media.width.sm} {
+      gap: 16px;
+    }
+  `}
 `;
 
 const StyledTitle = styled.div`
@@ -40,12 +45,18 @@ const StyledTitle = styled.div`
     transform: translateY(-50%) translateX(calc(-100% - 16px));
   }
 
-  ${({ theme }) => `
+  ${({ theme }) => css`
     color: ${theme.colors.text};
     ${theme.fontSizes.large};
     &::before,
     &::after {
       background: ${theme.colors.secondary};
+    }
+    ${theme.media.width.sm} {
+      &::before,
+      &::after {
+        display: none;
+      }
     }
   `};
 `;

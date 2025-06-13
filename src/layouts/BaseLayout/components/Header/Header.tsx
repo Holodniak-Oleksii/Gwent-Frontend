@@ -2,9 +2,10 @@ import imageLogo from "@/assets/images/logo.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
 import IconBell from "@/common/icons/IconBell";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
-import i18n from "@/i18n";
+import { BurgerMenu } from "@/layouts/BaseLayout/components/BurgerMenu";
 import { Account } from "@/layouts/BaseLayout/components/Header/components/Account";
 import { useUserStore } from "@/store/user";
+import { LittleMobileOff, MobileOff, MobileOn } from "@/utils/responsive";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -21,12 +22,13 @@ import {
 } from "./styles";
 
 export const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const isAuth = useUserStore((state) => state.isAuth);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,9 +61,13 @@ export const Header = () => {
         <StyledLogo to={LINK_TEMPLATES.HOME()}>
           <img src={imageLogo} alt="logo" />
         </StyledLogo>
-        <StyledList>{renderNav()}</StyledList>
+        <MobileOff>
+          <StyledList>{renderNav()}</StyledList>
+        </MobileOff>
         <StyledAction>
-          <LanguageSelect />
+          <LittleMobileOff>
+            <LanguageSelect />
+          </LittleMobileOff>
           {isAuth ? (
             <>
               <StyledNotify to={LINK_TEMPLATES.MESSAGES()}>
@@ -83,6 +89,9 @@ export const Header = () => {
             </>
           )}
         </StyledAction>
+        <MobileOn>
+          <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        </MobileOn>
       </StyledContainer>
     </StyledWrapper>
   );

@@ -1,6 +1,6 @@
 import { ScrollingCard } from "@/components/cards/ScrollingCard";
 import { cardList } from "@/features/Home/components/Banner/data";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const scrollAnimation = keyframes`
   from { transform: translateX(0); }
@@ -24,16 +24,22 @@ const StyledTrack = styled.div`
 `;
 
 const StyledWrapper = styled.div`
-  height: 500px;
   display: flex;
   gap: 32px;
-  width: 150%;
   overflow: hidden;
   position: absolute;
   top: 10%;
   left: 50%;
   transform: rotate(5deg) translateX(-50%);
   perspective: 500px;
+  ${({ theme }) => css`
+    height: 500px;
+    width: 150%;
+    ${theme.media.width.xs} {
+      height: 400px;
+      width: 180%;
+    }
+  `}
 `;
 
 export const CardCarousel = () => {

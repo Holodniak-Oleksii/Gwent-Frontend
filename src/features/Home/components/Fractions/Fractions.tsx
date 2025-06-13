@@ -1,6 +1,6 @@
 import { Article } from "@/components/shared/Article";
-import { FractionCard } from "@/features/Home/components/Fractions/components/FractionCard";
 import { useTranslation } from "react-i18next";
+import { FractionCard } from "./components/FractionCard";
 import { fractionCardList } from "./data";
 import { StyledContent, StyledList, StyledWrapper } from "./styles";
 

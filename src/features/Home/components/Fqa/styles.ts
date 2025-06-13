@@ -15,11 +15,16 @@ export const StyledContainer = styled.div`
 
 export const StyledQuestions = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   max-width: 1280px;
   margin: 0 auto;
   text-align: left;
+  ${({ theme }) => css`
+    grid-template-columns: repeat(2, 1fr);
+    ${theme.media.width.xs} {
+      grid-template-columns: 100%;
+    }
+  `};
 `;
 
 export const StyledQuestionItem = styled.div`
