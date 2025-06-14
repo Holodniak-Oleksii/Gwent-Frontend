@@ -9,7 +9,7 @@ export const StyledWrapper = styled.header<{ $isVisible: boolean }>`
   width: 100%;
   height: 80px;
   z-index: 1000;
-  /* backdrop-filter: blur(3px); */
+  backdrop-filter: blur(3px);
   transition: all 0.4s ease-in-out;
   padding-top: 16px;
   padding-bottom: 16px;

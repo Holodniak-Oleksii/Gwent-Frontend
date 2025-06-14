@@ -7,7 +7,12 @@ export const StyledFormContainer = styled.div`
   display: flex;
   overflow: hidden;
   overflow-y: auto;
-  padding: 40px;
+  padding: 100px 40px 40px;
+  ${({ theme }) => css`
+    ${theme.media.width.xxs} {
+      padding: 16px;
+    }
+  `}
 `;
 
 export const StyledBgImage = styled.img`
@@ -28,7 +33,6 @@ export const StyledFrame = styled.div`
   max-width: 440px;
   z-index: 3;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
-
   & > div {
     backdrop-filter: blur(4px);
     position: relative;

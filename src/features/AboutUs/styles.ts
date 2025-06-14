@@ -11,18 +11,30 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledContainer = styled.div`
-  ${({ theme }) => theme.spacing.content}
   width: 100%;
   height: 100%;
   min-height: fit-content;
-
   gap: 32px;
+  ${({ theme }) => css`
+    ${theme.spacing.content};
+    ${theme.media.width.xs} {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+  `}
 `;
 
 export const StyledCardWrapper = styled.div`
   width: fit-content;
   float: left;
   margin: 0 44px 44px 0;
+  ${({ theme }) => css`
+    ${theme.media.width.xs} {
+      margin: 0;
+    }
+  `}
 `;
 
 export const StyledText = styled.div`
@@ -33,6 +45,10 @@ export const StyledText = styled.div`
     }
     h1 {
       ${theme.fontSizes.big}
+
+      ${theme.media.width.xs} {
+        padding-inline: 12px;
+      }
     }
     b,
     strong {

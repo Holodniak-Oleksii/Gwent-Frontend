@@ -78,6 +78,18 @@ const theme: DefaultTheme = {
         ${media.width.lg} {
           width: ${getCardWidth("16px", 6)};
         }
+        ${media.width.md} {
+          width: ${getCardWidth("16px", 5)};
+        }
+        ${media.width.sm} {
+          width: ${getCardWidth("16px", 4)};
+        }
+        ${media.width.xs} {
+          width: ${getCardWidth("16px", 3)};
+        }
+        ${media.width.xxs} {
+          width: ${getCardWidth("16px", 2)};
+        }
       }
     `,
   },
@@ -106,6 +118,10 @@ const theme: DefaultTheme = {
       ${media.width.lg} {
         padding-top: 100px;
         padding-bottom: 100px;
+      }
+      ${media.width.xxs} {
+        padding-top: 88px;
+        padding-bottom: 88px;
       }
     `,
     indents: css`

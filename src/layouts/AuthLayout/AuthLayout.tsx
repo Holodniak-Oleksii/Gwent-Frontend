@@ -16,8 +16,13 @@ import {
   StyledFrame,
   StyledLabel,
 } from "./styles";
+import { useMediaQuery } from "react-responsive";
+import { breakpoints } from "@/theme/theme";
 
 export const AuthLayout = () => {
+  const isMobile = useMediaQuery({
+    maxWidth: breakpoints.xxs,
+  });
   const { t } = useTranslation();
   const isLogin = useLocation().pathname.includes(LINK_TEMPLATES.LOGIN());
   const { text, linkText, linkTo, buttonText, formId } = getAuthLayoutConfig(
@@ -40,7 +45,11 @@ export const AuthLayout = () => {
               {text}&nbsp;
               <Link to={linkTo}>{linkText}</Link>
             </StyledLabel>
-            <DecoratedButton type="submit" form={formId} minWidth={250}>
+            <DecoratedButton
+              type="submit"
+              form={formId}
+              minWidth={isMobile ? 200 : 250}
+            >
               {buttonText}
             </DecoratedButton>
           </StyledColumn>

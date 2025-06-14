@@ -3,11 +3,21 @@ import styled, { css } from "styled-components";
 export const StyledGrid = styled.div`
   display: grid;
   gap: 32px;
-  padding: 32px 24px;
   ${({ theme }) => css`
-    grid-template-columns: repeat(4, 1fr);
+    padding: 32px 0;
+    grid-template-columns: repeat(5, 1fr);
+    ${theme.media.width.xlg} {
+      grid-template-columns: repeat(4, 1fr);
+    }
     ${theme.media.width.lg} {
       grid-template-columns: repeat(3, 1fr);
+    }
+    ${theme.media.width.md} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    ${theme.media.width.xs} {
+      padding: 16px 0;
+      grid-template-columns: repeat(1, 1fr);
     }
   `};
 `;

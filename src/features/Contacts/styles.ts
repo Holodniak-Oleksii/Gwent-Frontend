@@ -12,7 +12,18 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledContainer = styled.div`
-  ${({ theme }) => theme.spacing.content}
+  ${({ theme }) => css`
+    ${theme.spacing.content};
+    ${theme.media.width.md} {
+      padding-right: 80px;
+    }
+    ${theme.media.width.sm} {
+      padding-right: 32px;
+    }
+    ${theme.media.width.xs} {
+      padding-right: 16px;
+    }
+  `}
   width: 100%;
   height: 100%;
   min-height: fit-content;
@@ -35,6 +46,9 @@ export const StyledOverlay = styled.div`
     border: 2px solid ${convertHexToRgba(theme.colors.secondary, 0.1)};
     box-shadow: 0px 1px 25px ${theme.colors.focus},
       0px 1px 5px ${theme.colors.focus};
+    ${theme.media.width.sm} {
+      grid-template-columns: 1fr;
+    }
   `}
 `;
 

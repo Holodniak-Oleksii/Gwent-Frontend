@@ -3,7 +3,7 @@ import { AreaField, TextField } from "@/components/ui/inputs/TextField";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IContactFormFields {
   name: string;
@@ -18,6 +18,14 @@ const StyledWrapper = styled.form`
   .decorated-button {
     transform: translateX(36px);
   }
+  ${({ theme }) => css`
+    ${theme.media.width.md} {
+      align-items: center;
+      .decorated-button {
+        transform: translateX(0);
+      }
+    }
+  `}
 `;
 
 export const Form = () => {

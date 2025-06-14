@@ -12,8 +12,13 @@ const StyledWrapper = styled.div`
   border-radius: 0 8px 28px 0;
   overflow: hidden;
   ${({ theme }) => css`
-    border: 2px solid ${theme.colors.primary};
-    outline: 1px solid ${convertHexToRgba(theme.colors.secondary, 0.5)};
+  border: 2px solid ${theme.colors.primary};
+  outline: 1px solid ${convertHexToRgba(theme.colors.secondary, 0.5)};
+  ${theme.media.width.sm} {
+    display: flex;
+    bottom: -62px;
+    right: 100%;
+    }
   `}
 `;
 
