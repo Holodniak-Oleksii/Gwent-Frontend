@@ -28,6 +28,9 @@ export const StyledAvatarWrapper = styled.div`
     ${theme.media.width.lg} {
       width: 70px;
     }
+    ${theme.media.width.md} {
+      margin-right: auto;
+    }
   `}
 `;
 
@@ -52,6 +55,9 @@ export const StyledRow = styled.div<IActiveble>`
 
     ${theme.media.width.lg} {
       padding: 16px 32px 16px 16px;
+    }
+    ${theme.media.width.md} {
+      flex-direction: column;
     }
   `}
 `;
@@ -83,6 +89,9 @@ export const StyledCounts = styled.div`
       b {
         margin-bottom: 6px;
       }
+    }
+    ${theme.media.width.md} {
+      align-items: center;
     }
   `}
 `;

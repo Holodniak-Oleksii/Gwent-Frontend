@@ -58,7 +58,8 @@ export const StyledList = styled.div<{ disabled: boolean }>`
   align-items: center;
   gap: 4px;
   padding: 4px;
-
+  overflow: hidden;
+  overflow-x: auto;
   ${({ theme, disabled }) =>
     css`
       border: 2px solid

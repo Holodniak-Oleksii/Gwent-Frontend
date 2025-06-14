@@ -1,11 +1,22 @@
+import imageDraw from "@/assets/images/result/draw.webp";
+import imageLose from "@/assets/images/result/lose.webp";
+import imageWin from "@/assets/images/result/win.webp";
 import { LINK_TEMPLATES } from "@/common/constants";
+import { FirefliesPixi } from "@/components/shared/Fireflies";
 import { BaseStyledLink } from "@/components/ui/buttons/BaseButton";
 import { useGameStore } from "@/store/game";
 import { useUserStore } from "@/store/user";
-
 import styled, { css } from "styled-components";
 
-const StyledWrapper = styled.div`
+type TResult = "draw" | "win" | "lose";
+
+const resultImage: Record<TResult, string> = {
+  draw: imageDraw,
+  win: imageWin,
+  lose: imageLose,
+};
+
+const StyledWrapper = styled.div<{ $isWin: boolean }>`
   position: fixed;
   inset: 0;
   display: flex;
@@ -13,35 +24,27 @@ const StyledWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 16px;
-  span {
-    text-align: center;
-    ${({ theme }) => css`
-      ${theme.fontSizes.large};
-      color: ${theme.colors.text};
-      b {
-        color: ${theme.colors.secondary};
-      }
-    `}
-  }
+  ${({ $isWin, theme }) => css`
+    ${$isWin && theme.common.bgTexture}
+  `}
 `;
+
+const StyledImage = styled.img``;
 
 export const End = () => {
   const gameStore = useGameStore((state) => state.game);
   const user = useUserStore((state) => state.user);
-
-  const result =
+  const result: TResult =
     gameStore?.winner === "draw"
-      ? "Draw"
+      ? "draw"
       : user?.nickname === gameStore?.winner
-      ? "You Win"
-      : "You Lose";
+      ? "win"
+      : "lose";
 
   return (
-    <StyledWrapper>
-      <span>
-        Game End <br />
-        <b>{result}</b>
-      </span>
+    <StyledWrapper $isWin={result === "win"}>
+      {result === "win" && <FirefliesPixi />}
+      <StyledImage src={resultImage[result]} alt={result} />
       <BaseStyledLink to={LINK_TEMPLATES.HOME()}>Back to main</BaseStyledLink>
     </StyledWrapper>
   );
