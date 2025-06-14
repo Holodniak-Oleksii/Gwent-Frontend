@@ -9,31 +9,25 @@ import {
 import { Loader } from "@/components/shared/Loader";
 import { FractionCarousel } from "@/features/Arena/states/Preparation/components/FractionCarousel";
 import { TOperation } from "@/features/Arena/states/Preparation/types";
+import { usePreparationStore } from "@/store/preparation";
 import { useMemo, useState } from "react";
 import { ChooseCards } from "./components/ChooseCards";
 import { StyledWrapper } from "./styles";
 
 const universalArray = [EFaction.WEATHER, EFaction.NEUTRAL, EFaction.SPECIAL];
-const cardDefault: Record<EFaction, ICardModel[]> = {
-  [EFaction.KINGDOMS_OF_THE_NORTH]: [],
-  [EFaction.MONSTERS]: [],
-  [EFaction.NILFGAARD]: [],
-  [EFaction.SCOIATAEL]: [],
-  [EFaction.NEUTRAL]: [],
-  [EFaction.SPECIAL]: [],
-  [EFaction.WEATHER]: [],
-};
+
 export const Preparation = () => {
   const { game } = useGame();
   const { data, isLoading } = useGetMyCardsQuery();
+
   const [activeFraction, setActiveFraction] = useState<EFaction>(
     EFaction.KINGDOMS_OF_THE_NORTH
   );
+
   const universal =
     data?.cards.filter((i) => universalArray.includes(i.fractionId)) || [];
 
-  const [chooseCards, setChooseCards] =
-    useState<Record<EFaction, ICardModel[]>>(cardDefault);
+  const { chooseCards, setCard, unsetCard } = usePreparationStore();
 
   const leader = useMemo(
     () =>
@@ -45,18 +39,10 @@ export const Preparation = () => {
 
   const handlerCardClick = (card: ICardModel, operation: TOperation) => {
     if (operation === "set") {
-      setChooseCards((prev) => ({
-        ...prev,
-        [activeFraction]: [card, ...prev[activeFraction]],
-      }));
+      setCard(activeFraction, card);
     }
     if (operation === "unset") {
-      setChooseCards((prev) => ({
-        ...prev,
-        [activeFraction]: prev[activeFraction].filter(
-          (i) => i._id !== card._id
-        ),
-      }));
+      unsetCard(activeFraction, card._id);
     }
   };
 

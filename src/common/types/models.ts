@@ -32,13 +32,19 @@ export interface ICardModel {
   isDefault: boolean;
 }
 
-export type TStatus = "pending" | "accepted" | "declined" | 'completed';
+export enum EStatusNotification {
+  PENDING = "pending",
+  ACCEPTED = "accepted",
+  DECLINED = "declined",
+  COMPLETED = "completed",
+}
+
 export interface INotificationModel {
   _id: string;
   rate: number;
   sender: string;
   receiver: string;
-  status: TStatus;
+  status: EStatusNotification;
   createdAt: Date;
 }
 

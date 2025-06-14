@@ -2,6 +2,7 @@ import IconTriangle from "@/common/icons/IconTriangle";
 import { EFaction } from "@/common/types";
 import { IMAGE_FRACTION } from "@/features/Arena/states/Preparation/components/FractionCarousel/data";
 import { convertText } from "@/utils";
+import { MobileOff } from "@/utils/responsive";
 import { FC } from "react";
 import {
   StyledButtonLeft,
@@ -70,13 +71,17 @@ export const FractionCarousel: FC<FractionCarouselProps> = ({
 
   return (
     <StyledWrapper>
-      <StyledButtonLeft onClick={handlePrev}>
-        <IconTriangle />
-      </StyledButtonLeft>
+      <MobileOff>
+        <StyledButtonLeft onClick={handlePrev}>
+          <IconTriangle />
+        </StyledButtonLeft>
+      </MobileOff>
       {renderFractions()}
-      <StyledButtonRight onClick={handleNext}>
-        <IconTriangle />
-      </StyledButtonRight>
+      <MobileOff>
+        <StyledButtonRight onClick={handleNext}>
+          <IconTriangle />
+        </StyledButtonRight>
+      </MobileOff>
     </StyledWrapper>
   );
 };

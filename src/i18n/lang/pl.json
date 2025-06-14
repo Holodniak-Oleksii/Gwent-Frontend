@@ -148,7 +148,11 @@
       "emptyNotify": "Cóż, nie masz powiadomienia.",
       "enoughMoney": "Nie posiadasz wystarczająco pieniędzy",
       "refill": "<p>Aby uzupełnić saldo, należy przelać wymaganą kwotę do </b> banku <b> „Gwent Coins”. W polu <b> „Komentarz” </b> pamiętaj, aby wskazać <u> jednorazowo wygenerowany kod</u>, który zostanie użyty do uzupełnienia salda gry. </p><p>💰 Stawka doładowania: 1 hrywna = 100 monet. </p><p>Uwaga! Wszystkie środki otrzymane przez ten bank zostaną przekazane do <strong> „Current RUSORIZ” </strong> na wsparcie Sił Zbrojnych Ukrainy. </p><p>Możesz również wesprzeć naszą armię bezpośrednio, przekazując darowiznę na stronę funduszu: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" > https://www.sternenkofund.org/fundraisings/rusoriz </a> Razem jesteśmy silni 💙💛 </p>",
-      "waitEnemy": "Czekający wróg..."
+      "waitEnemy": "Czekający wróg...",
+      "confirmDuel": "Użytkownik {{user}} potwierdza wyzwanie",
+      "declinedDuel": "Użytkownik {{user}} odrzucił wyzwanie",
+      "challenge": "Wysyłasz wyzwanie na pojedynek do {{user}}",
+      "newDuel": "Otrzymałeś wyzwanie od {{sender}}"
     },
     "navigation": {
       "abilities": "umiejętności",

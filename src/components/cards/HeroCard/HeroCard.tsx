@@ -42,12 +42,16 @@ export const HeroCard: FC<IHeroCardProps> = ({
 
   return (
     <StyledWrapper $bgcolor={bgcolor}>
-      <StyledCover $isBuy={isBuy && !!user} $isPreview={isPreview}>
+      <StyledCover
+        className="hero-card-image"
+        $isBuy={isBuy && !!user}
+        $isPreview={isPreview}
+      >
         <Labels card={card} hasFlag={hasFlag} />
         <StyledImage src={getUrlImage(card)} alt={card.image} />
       </StyledCover>
       {!isPreview && (
-        <StyledPanel>
+        <StyledPanel className="hero-card-panel">
           <StyledName $textColor={textColor}>
             {convertText(card.image)}
           </StyledName>

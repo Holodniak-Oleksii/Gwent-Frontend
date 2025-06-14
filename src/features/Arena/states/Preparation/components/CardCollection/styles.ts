@@ -26,34 +26,33 @@ export const StyledTitle = styled.span`
 `;
 
 export const StyledList = styled.div`
-  height: 100%;
+  height: fit-content;
   width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
   padding: 16px;
   gap: 16px;
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-  overflow: hidden;
-  overflow-y: auto;
 
   ${({ theme }) => css`
-    background-color: ${theme.colors.bgneon};
-    border: 1px solid ${theme.colors.placeholder};
-    border-radius: 8px;
     & > div {
       width: ${getCardWidth("16px", 3)};
+      ${theme.media.width.md} {
+        width: ${getCardWidth("16px", 2)};
+      }
     }
-
-    &::-webkit-scrollbar {
-      width: 3px;
-      background-color: ${theme.colors.bgneon};
+    ${theme.media.width.xs} {
+      padding: 8px;
+      gap: 8px;
+      & > div {
+        width: ${getCardWidth("8px", 2)};
+      }
     }
-    &::-webkit-scrollbar-thumb {
-      background-color: ${convertHexToRgba(theme.colors.lightText, 0.6)};
+    ${theme.media.width.xxs} {
+      & > div {
+        width: 100%;
+      }
     }
   `}
 `;
@@ -64,4 +63,45 @@ export const StyledCardOverlay = styled.div`
   &:hover {
     transform: scale(1.02);
   }
+  ${({ theme }) => css`
+    ${theme.media.width.sm} {
+      .hero-card-panel {
+        padding: 8px;
+      }
+      .hero-card-image {
+        height: calc(100% - 40px);
+      }
+    }
+    ${theme.media.width.xs} {
+      .hero-card-panel {
+        padding: 4px;
+      }
+      .hero-card-image {
+        height: calc(100% - 28px);
+      }
+    }
+  `}
+`;
+
+export const StyledContent = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  overflow-y: auto;
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.bgneon};
+    border: 1px solid ${theme.colors.placeholder};
+    border-radius: 8px;
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: ${theme.colors.bgneon};
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${convertHexToRgba(theme.colors.lightText, 0.6)};
+    }
+  `}
 `;

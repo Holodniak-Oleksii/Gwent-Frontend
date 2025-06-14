@@ -83,7 +83,9 @@ export const Leader: FC<ILeaderProps> = ({ leader, onStart, stats }) => {
         </StyledOverlay>
       )}
       {renderLabels()}
-      <BaseButton onClick={onStart}>{t("button.startGame")}</BaseButton>
+      <BaseButton disabled={!isAllow} onClick={onStart}>
+        {t("button.startGame")}
+      </BaseButton>
     </StyledWrapper>
   );
 };

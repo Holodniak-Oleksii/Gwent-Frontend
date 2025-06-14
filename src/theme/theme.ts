@@ -213,6 +213,9 @@ const theme: DefaultTheme = {
       ${media.width.md} {
         font-size: 14px;
       }
+      ${media.width.xs} {
+        font-size: 12px;
+      }
     `,
     small: `
       font-size: 14px;
@@ -221,6 +224,9 @@ const theme: DefaultTheme = {
       };
       ${media.width.md} {
         font-size: 10px;
+      }
+     ${media.width.xs} {
+        font-size: 8px;
       }
     `,
   },

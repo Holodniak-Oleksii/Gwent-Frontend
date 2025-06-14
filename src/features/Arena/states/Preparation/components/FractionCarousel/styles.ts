@@ -15,6 +15,11 @@ export const StyledWrapper = styled.div`
     height: 100px;
     ${theme.media.width.lg} {
       height: 80px;
+    ${theme.media.width.md}{
+      margin-bottom: 24px;
+    }
+    ${theme.media.width.xs}{
+      margin-bottom: 0;
     }
   `}
 `;
@@ -62,6 +67,16 @@ export const StyledTab = styled.button<ITabProps>`
         height: 60px;
       }
     }
+    ${theme.media.width.xs} {
+      min-width: 150px;
+      img {
+        width: 44px;
+        height: 44px;
+      }
+    }
+    ${theme.media.width.xxs} {
+      min-width: 120px;
+    }
   `}
 `;
 
@@ -76,6 +91,9 @@ export const StyledButtonLeft = styled.button`
     ${theme.media.width.lg} {
       transform: translateX(calc(50% - 140px)) translateY(-50%) rotate(-90deg);
     }
+    ${theme.media.width.xs} {
+      transform: translateX(calc(50% - 110px)) translateY(-50%) rotate(-90deg);
+    }
   `}
 `;
 
@@ -84,6 +102,9 @@ export const StyledButtonRight = styled(StyledButtonLeft)`
     transform: translateX(calc(-50% + 100px)) translateY(-50%) rotate(90deg);
     ${theme.media.width.lg} {
       transform: translateX(calc(-50% + 90px)) translateY(-50%) rotate(90deg);
+    }
+    ${theme.media.width.xs} {
+      transform: translateX(calc(-50% + 70px)) translateY(-50%) rotate(90deg);
     }
   `}
 `;

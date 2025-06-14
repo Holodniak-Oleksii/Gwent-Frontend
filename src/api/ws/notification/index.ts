@@ -1,4 +1,7 @@
-import { EOperationNotificationType } from "@/common/types";
+import {
+  EOperationNotificationType,
+  EStatusNotification,
+} from "@/common/types";
 import { useNotificationStore } from "@/store/notifications";
 import { useUserStore } from "@/store/user";
 import { toast } from "@/utils/toast";
@@ -66,6 +69,15 @@ export const initializeNotificationManager = (
           ...state,
           notifications: [message.data, ...state.notifications],
         }));
+        if (message.data.sender !== useUserStore.getState().user?.nickname) {
+          toast.success(
+            t(`message.newDuel`, { sender: message?.data?.sender })
+          );
+        } else {
+          toast.success(
+            t(`message.challenge`, { user: message?.data?.receiver })
+          );
+        }
         break;
       }
       case EOperationNotificationType.RESPOND_DUEL: {
@@ -77,6 +89,22 @@ export const initializeNotificationManager = (
               : n
           ),
         }));
+        if (message.data.sender === useUserStore.getState().user?.nickname) {
+          if (message.data.status === EStatusNotification.ACCEPTED) {
+            toast.success(
+              t(`message.confirmDuel`, {
+                user: message.data.sender,
+              })
+            );
+          }
+          if (message.data.status === EStatusNotification.DECLINED) {
+            toast.error(
+              t(`message.declinedDuel`, {
+                user: message.data.sender,
+              })
+            );
+          }
+        }
         break;
       }
     }

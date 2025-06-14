@@ -1,10 +1,10 @@
-import { TStatus } from "@/common/types";
+import { EStatusNotification } from "@/common/types";
 import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import theme from "@/theme/theme";
 import { convertHexToRgba } from "@/utils/colorUtil";
 import styled, { css } from "styled-components";
 
-export const statusColor: Record<TStatus, string> = {
+export const statusColor: Record<EStatusNotification, string> = {
   accepted: theme.colors.gold,
   pending: theme.colors.lightText,
   declined: theme.colors.error,
@@ -29,18 +29,29 @@ export const StyledNotificationFlex = styled.div`
   width: 100%;
   align-items: flex-start;
   gap: 8px;
+  position: relative;
 `;
 
-export const StyledNotificationStatus = styled.div<{ status: TStatus }>`
+export const StyledNotificationStatus = styled.div<{
+  status: EStatusNotification;
+}>`
   padding: 4px 12px;
   border-radius: 24px;
-  ${({ status }) => css`
+  ${({ theme, status }) => css`
+    ${theme.fontSizes.medium};
     background-color: ${statusColor[status]};
+    ${theme.media.width.xs} {
+      position: absolute;
+      top: 0;
+      right: -6px;
+      transform: translateY(-32px);
+    }
   `}
 `;
 
 export const StyledNotificationMessage = styled.div`
   flex: 1 1 auto;
+  position: relative;
   ${({ theme }) => css`
     ${theme.fontSizes.medium};
     ${theme.common.secondFontFamily};
@@ -70,6 +81,9 @@ export const StyledDateTime = styled.div`
     ${theme.fontSizes.small};
     ${theme.common.secondFontFamily};
     color: ${convertHexToRgba(theme.colors.text, 0.6)};
+    ${theme.media.width.xs} {
+      margin-bottom: 12px;
+    }
   `}
 `;
 

@@ -148,7 +148,11 @@
       "emptyNotify": "Nun, du hast keine Benachrichtigung.",
       "enoughMoney": "Du hast nicht genug Geld",
       "refill": "<p>Um dein Guthaben aufzuladen, überweise bitte den erforderlichen Betrag an die <b> „Gwent Coins“ </b> -Bank. Gib im </b> Feld <b> „Kommentar“ unbedingt den <u> einmalig generierten Code an</u>, der zum Aufladen deines Spielguthabens verwendet wird. </p><p>💰 Aufladerate: 1 Griwna = 100 Münzen. </p><p>Achtung! Alle Gelder, die diese Bank erhält, werden an <strong> „Current RUSORIZ“ </strong> zur Unterstützung der Streitkräfte der Ukraine überwiesen. </p><p>Sie können unsere Armee auch direkt unterstützen, indem Sie für die Website des Fonds spenden: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" > https://www.sternenkofund.org/fundraisings/rusoriz </a> Zusammen sind wir stark 💙💛 </p>",
-      "waitEnemy": "Wartender Feind..."
+      "waitEnemy": "Wartender Feind...",
+      "confirmDuel": "Benutzer {{user}} bestätigt Herausforderung",
+      "declinedDuel": "Benutzer {{user}} hat Herausforderung abgelehnt",
+      "challenge": "Du schickst die Herausforderung zum Duell an {{user}}",
+      "newDuel": "Du hast die Herausforderung von {{sender}} erhalten"
     },
     "navigation": {
       "abilities": "Fähigkeiten",

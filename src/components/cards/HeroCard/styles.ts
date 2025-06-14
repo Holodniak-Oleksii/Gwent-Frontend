@@ -20,6 +20,9 @@ export const StyledWrapper = styled.div<{ $bgcolor?: string }>`
   ${({ theme, $bgcolor }) => css`
     background-color: ${$bgcolor || theme.colors.primary};
     border: 1px solid ${theme.colors.bgneonLight};
+    ${theme.media.width.xs} {
+      border-radius: 8px;
+    }
   `}
 `;
 

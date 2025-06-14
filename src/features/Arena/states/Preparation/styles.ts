@@ -13,5 +13,10 @@ export const StyledWrapper = styled.div`
     ${theme.media.width.lg} {
       padding: 32px 16px 16px;
     }
+    ${theme.media.width.xs} {
+      padding: 16px;
+      max-height: fit-content;
+      height: fit-content;
+    }
   `}
 `;

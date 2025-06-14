@@ -3,6 +3,7 @@ import { HeroCard } from "@/components/cards/HeroCard";
 import { FC } from "react";
 import {
   StyledCardOverlay,
+  StyledContent,
   StyledList,
   StyledTitle,
   StyledWrapper,
@@ -29,7 +30,9 @@ export const CardCollection: FC<ICardCollectionProps> = ({
   return (
     <StyledWrapper>
       <StyledTitle>{title}</StyledTitle>
-      <StyledList>{renderCards()}</StyledList>
+      <StyledContent>
+        <StyledList>{renderCards()}</StyledList>
+      </StyledContent>
     </StyledWrapper>
   );
 };

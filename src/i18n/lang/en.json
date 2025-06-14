@@ -148,7 +148,11 @@
       "emptyNotify": "Well, you don't have a notification.",
       "enoughMoney": "You don't have enough money",
       "refill": "<p>To top up your balance, please transfer the required amount to the <b>\"Gwent Coins\"</b> bank. In the <b>\"Comment\"</b> field, be sure to indicate the <u>one-time generated code</u>, which will be used to top up your game balance. </p> <p>💰 Top-up rate: 1 hryvnia = 100 coins.</p> <p>Attention! All funds received by this bank will be transferred to <strong>\"Current RUSORIZ\"</strong> to support the Armed Forces of Ukraine.</p> <p>You can also support our army directly by donating to the fund's website: 👉 <a target=\"_blank\" href=\"https://www.sternenkofund.org/fundraisings/rusoriz\" >https://www.sternenkofund.org/fundraisings/rusoriz</a> Together we are strong 💙💛</p>",
-      "waitEnemy": "Waiting enemy..."
+      "waitEnemy": "Waiting enemy...",
+      "confirmDuel": "User {{user}} confirm challenge",
+      "declinedDuel": "User {{user}} declined challenge",
+      "challenge": "You send challenge for duel to {{user}}",
+      "newDuel": "You got challenge from {{sender}}"
     },
     "navigation": {
       "abilities": "Abilities",

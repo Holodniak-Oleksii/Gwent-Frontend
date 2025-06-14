@@ -1,6 +1,10 @@
 import { sendMessage } from "@/api/ws/notification";
 import { LINK_TEMPLATES } from "@/common/constants";
-import { EOperationNotificationType, INotificationModel } from "@/common/types";
+import {
+  EOperationNotificationType,
+  EStatusNotification,
+  INotificationModel,
+} from "@/common/types";
 import { useUserStore } from "@/store/user";
 import { formatDate } from "@/utils";
 import { FC } from "react";
@@ -65,12 +69,14 @@ export const Item: FC<INotificationModel> = ({
       </StyledNotificationFlex>
       {status === "pending" && !isOwner && (
         <StyledAction>
-          <StyledButton onClick={() => onSetStatus("accepted")}>
+          <StyledButton
+            onClick={() => onSetStatus(EStatusNotification.ACCEPTED)}
+          >
             {t("button.accept")}
           </StyledButton>
           <StyledButton
             variant="outline"
-            onClick={() => onSetStatus("declined")}
+            onClick={() => onSetStatus(EStatusNotification.DECLINED)}
           >
             {t("button.decline")}
           </StyledButton>
