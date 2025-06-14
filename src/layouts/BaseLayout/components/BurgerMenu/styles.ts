@@ -219,3 +219,10 @@ export const SocialList = styled.div`
     height: fit-content;
   }
 `;
+
+export const StyledSelect = styled.div`
+  position: absolute;
+  top: 0;
+  right: 32px;
+  z-index: 2;
+`;

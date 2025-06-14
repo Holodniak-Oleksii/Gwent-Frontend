@@ -6,6 +6,9 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  ${({ theme }) => css`
+    ${theme.spacing.layout};
+  `};
 `;
 
 export const StyledContainer = styled.div`
@@ -18,7 +21,6 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledList = styled.div`
-  padding: 32px 0;
   ${({ theme }) => css`
     ${theme.common.grid};
   `};

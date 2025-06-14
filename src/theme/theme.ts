@@ -99,6 +99,15 @@ const theme: DefaultTheme = {
         padding: 0 16px;
       }
     `,
+    layout: css`
+      padding-top: 120px;
+      padding-bottom: 120px;
+
+      ${media.width.lg} {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    `,
     indents: css`
       padding-top: 120px;
       padding-bottom: 120px;

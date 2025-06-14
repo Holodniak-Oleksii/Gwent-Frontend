@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const StyledWrapper = styled.div`
   width: 100%;
   ${({ theme }) => css`
-    ${theme.spacing.indents};
+    ${theme.spacing.layout};
     ${theme.common.bgTexture}
   `}
 `;

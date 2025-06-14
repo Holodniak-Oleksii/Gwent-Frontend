@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  ${({ theme }) => theme.spacing.indents};
+  ${({ theme }) => theme.spacing.layout};
 `;
 
 export const StyledContainer = styled.div`

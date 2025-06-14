@@ -25,11 +25,6 @@ export const StyledContainer = styled.div`
   `}
 `;
 
-export const StyledOverlay = styled.div`
-  width: 100%;
-  padding: 120px 0 0;
-`;
-
 export const StyledGrid = styled.div`
   width: 100%;
   display: flex;
@@ -48,11 +43,19 @@ export const StyledGrid = styled.div`
         display: none;
       }
     }
+    ${theme.media.width.xs} {
+      border: 1px solid ${theme.colors.bgneonLight};
+      padding: 16px;
+      justify-content: space-between;
+    }
+    ${theme.media.width.xxs} {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   `}
 `;
 
 export const StyledPanel = styled.div`
-  height: 220px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -64,8 +67,12 @@ export const StyledPanel = styled.div`
   gap: 16px;
   z-index: 3;
   ${({ theme }) => css`
+    height: 220px;
     background-color: ${theme.colors.bgneonLight};
     ${theme.common.bgTexture};
+    ${theme.media.width.md} {
+      height: 150px;
+    }
   `}
 `;
 
@@ -80,6 +87,13 @@ export const StyledIcon = styled.button`
   }
   ${({ theme }) => css`
     background-color: ${theme.colors.bgneonLight};
+    ${theme.media.width.md} {
+      padding: 6px;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
   `}
 `;
 
@@ -88,8 +102,17 @@ export const StyledInfo = styled.div`
   position: relative;
   display: grid;
   z-index: 4;
-  padding: 24px;
-  grid-template-columns: 1fr minmax(200px, 360px) 1fr;
+  ${({ theme }) => css`
+    padding: 24px;
+    grid-template-columns: 1fr minmax(200px, 360px) 1fr;
+    ${theme.media.width.md} {
+      grid-template-columns: 1fr minmax(160px, 280px) 1fr;
+      padding: 16px;
+    }
+    ${theme.media.width.xs} {
+      grid-template-columns: 100%;
+    }
+  `}
 `;
 
 export const StyledCover = styled.div`
@@ -139,6 +162,14 @@ export const StyledAvatarWrapper = styled.div`
   height: 45px;
   width: 200px;
   position: relative;
+  ${({ theme }) => css`
+    height: 45px;
+    width: 200px;
+    ${theme.media.width.md} {
+      height: 32px;
+      width: 160px;
+    }
+  `}
 `;
 
 export const StyledDate = styled.span`

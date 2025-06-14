@@ -13,6 +13,7 @@ import { BaseButton } from "@/components/ui/buttons/BaseButton";
 import { convertStatsToArray } from "@/features/Profile/components/UserStats/data";
 import { useAuthStore } from "@/store/auth";
 import { useUserStore } from "@/store/user";
+import { LittleMobileOff, MobileOff, MobileOn } from "@/utils/responsive";
 import { useModal } from "@ebay/nice-modal-react";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
@@ -29,7 +30,6 @@ import {
   StyledIcon,
   StyledInfo,
   StyledName,
-  StyledOverlay,
   StyledPanel,
   StyledRow,
   StyledWrapper,
@@ -65,59 +65,69 @@ export const UserStats: FC<IUserStatsProps> = ({
       .map((item, i) => (
         <Fragment key={i}>
           <StatCard {...item} />
-          <hr />
+          <LittleMobileOff>
+            <hr />
+          </LittleMobileOff>
         </Fragment>
       ));
 
   return (
-    <StyledOverlay>
-      <StyledWrapper>
-        <StyledContainer>
-          <StyledPanel>
-            <FirefliesPixi />
-            {isMyProfile && (
-              <>
-                <StyledIcon onClick={onLogOut}>
-                  <IconLogout />
-                </StyledIcon>
-                <StyledIcon onClick={() => show()}>
-                  <IconEditAvatar />
-                </StyledIcon>
-                <StyledIcon as={Link} to={LINK_TEMPLATES.REFILL()}>
-                  <IconWallet />
-                </StyledIcon>
-              </>
-            )}
-          </StyledPanel>
-          <StyledCover>
-            <StyledInfo>
+    <StyledWrapper>
+      <StyledContainer>
+        <StyledPanel>
+          <FirefliesPixi />
+          {isMyProfile && (
+            <>
+              <StyledIcon onClick={onLogOut}>
+                <IconLogout />
+              </StyledIcon>
+              <StyledIcon onClick={() => show()}>
+                <IconEditAvatar />
+              </StyledIcon>
+              <StyledIcon as={Link} to={LINK_TEMPLATES.REFILL()}>
+                <IconWallet />
+              </StyledIcon>
+            </>
+          )}
+        </StyledPanel>
+        <StyledCover>
+          <StyledInfo>
+            <MobileOff>
               <StyledGrid>{renderStats(false)}</StyledGrid>
-              <StyledColumn>
-                <StyledAvatarWrapper>
-                  <StyledAvatarContainer>
-                    <Avatar
-                      src={stats.avatar}
-                      percentage={stats.winsPercentage}
-                    />
-                  </StyledAvatarContainer>
-                </StyledAvatarWrapper>
-                <StyledName>{stats.nickname}</StyledName>
-                <StyledDate>{stats.createdAt}</StyledDate>
-              </StyledColumn>
+            </MobileOff>
+            <StyledColumn>
+              <StyledAvatarWrapper>
+                <StyledAvatarContainer>
+                  <Avatar
+                    src={stats.avatar}
+                    percentage={stats.winsPercentage}
+                  />
+                </StyledAvatarContainer>
+              </StyledAvatarWrapper>
+              <StyledName>{stats.nickname}</StyledName>
+              <StyledDate>{stats.createdAt}</StyledDate>
+            </StyledColumn>
+            <MobileOff>
               <StyledGrid>{renderStats(true)}</StyledGrid>
-            </StyledInfo>
-            {!isMyProfile && (
-              <StyledRow>
-                <BaseButton
-                  onClick={() => showChallenge({ nickname: player.nickname })}
-                >
-                  {t("button.challenge")}
-                </BaseButton>
-              </StyledRow>
-            )}
-          </StyledCover>
-        </StyledContainer>
-      </StyledWrapper>
-    </StyledOverlay>
+            </MobileOff>
+          </StyledInfo>
+          <MobileOn>
+            <StyledGrid>
+              {renderStats(true)}
+              {renderStats(false)}
+            </StyledGrid>
+          </MobileOn>
+          {!isMyProfile && (
+            <StyledRow>
+              <BaseButton
+                onClick={() => showChallenge({ nickname: player.nickname })}
+              >
+                {t("button.challenge")}
+              </BaseButton>
+            </StyledRow>
+          )}
+        </StyledCover>
+      </StyledContainer>
+    </StyledWrapper>
   );
 };

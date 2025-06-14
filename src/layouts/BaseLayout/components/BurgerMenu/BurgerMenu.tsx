@@ -1,6 +1,8 @@
 import { getNavigation } from "@/layouts/BaseLayout/components/data";
 import { social } from "@/layouts/BaseLayout/components/Footer/data";
+import { LanguageSelect } from "@/layouts/BaseLayout/components/Header/components/LanguageSelect";
 import { useUserStore } from "@/store/user";
+import { LittleMobileOn } from "@/utils/responsive";
 import { Dispatch, FC, SetStateAction, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
@@ -14,6 +16,7 @@ import {
   StyledLink,
   StyledList,
   StyledScroll,
+  StyledSelect,
   StyledWrapper,
 } from "./styles";
 interface IBurgerMenuProps {
@@ -69,6 +72,11 @@ export const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, setIsOpen }) => {
       >
         {(state) => (
           <>
+            <LittleMobileOn>
+              <StyledSelect>
+                <LanguageSelect />
+              </StyledSelect>
+            </LittleMobileOn>
             <StyledCircleOverlay ref={contentRef} $transitionState={state} />
             <StyledContainer $transitionState={state}>
               <StyledScroll>

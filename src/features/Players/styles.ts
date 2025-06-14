@@ -18,7 +18,7 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   gap: 16px;
   ${({ theme }) => css`
-    ${theme.spacing.indents};
+    ${theme.spacing.layout};
   `};
 `;
 

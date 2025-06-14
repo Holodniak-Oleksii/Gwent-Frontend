@@ -19,7 +19,12 @@ export const StyledList = styled.div`
 `;
 
 export const StyledIcon = styled.img`
-  width: 80px;
   aspect-ratio: 1/1;
   object-fit: contain;
+  ${({ theme }) => css`
+    width: 80px;
+    ${theme.media.width.md} {
+      width: 60px;
+    }
+  `}
 `;

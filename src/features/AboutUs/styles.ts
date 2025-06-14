@@ -5,7 +5,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
   min-height: fit-content;
   ${({ theme }) => css`
-    ${theme.spacing.indents};
+    ${theme.spacing.layout};
     ${theme.common.bgTexture}
   `}
 `;

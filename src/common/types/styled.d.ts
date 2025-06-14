@@ -41,6 +41,7 @@ declare module "styled-components" {
     spacing: {
       content: ReturnType<typeof css>;
       indents: ReturnType<typeof css>;
+      layout: ReturnType<typeof css>;
     };
     fontSizes: {
       extra: string;

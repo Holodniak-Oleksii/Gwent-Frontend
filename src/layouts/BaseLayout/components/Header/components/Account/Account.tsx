@@ -42,16 +42,24 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 4px 8px 4px 16px;
   border-radius: 4px;
   ${({ theme }) => css`
+    padding: 4px 8px 4px 16px;
     background-color: ${theme.colors.primary};
     border: 1px solid ${theme.colors.placeholder};
+    ${theme.media.width.xs} {
+      padding: 4px 8px 4px 8px;
+    }
   `}
 `;
 
 const StyledAva = styled(Link)`
-  width: 36px;
+  ${({ theme }) => css`
+    width: 36px;
+    ${theme.media.width.xs} {
+      width: 28px;
+    }
+  `}
 `;
 
 export const Account = () => {

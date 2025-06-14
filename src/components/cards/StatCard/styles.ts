@@ -2,11 +2,17 @@ import { convertHexToRgba } from "@/utils/colorUtil";
 import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div`
-  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${({ theme }) => css`
+    width: 100px;
+    ${theme.media.width.md} {
+      width: 60px;
+      margin: auto;
+    }
+  `}
 `;
 
 export const StyledName = styled.span`
@@ -26,9 +32,14 @@ export const StyledValue = styled.span`
 `;
 
 export const StyledIcon = styled.div`
-  height: 40px;
   svg {
     height: 100%;
     width: fit-content;
   }
+  ${({ theme }) => css`
+    height: 40px;
+    ${theme.media.width.md} {
+      height: 32px;
+    }
+  `}
 `;
