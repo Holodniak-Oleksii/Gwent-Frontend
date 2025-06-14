@@ -52,6 +52,7 @@ export const StyledTitle = styled.div`
   ${({ theme }) => css`
     ${theme.fontSizes.largeTitle};
     color: ${theme.colors.text};
+    ${theme.common.textShadow};
   `}
 `;
 
@@ -59,6 +60,7 @@ export const StyledDescription = styled.div`
   ${({ theme }) => css`
     ${theme.fontSizes.regular};
     color: ${theme.colors.text};
+    ${theme.common.textShadow};
   `}
 `;
 

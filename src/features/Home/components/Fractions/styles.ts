@@ -33,11 +33,12 @@ export const StyledList = styled.div`
     }
     ${theme.media.width.sm} {
       max-width: 540px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, calc(50% - 8px));
       gap: 16px;
     }
     ${theme.media.width.xxs} {
-      grid-template-columns: 100%;
+      grid-template-columns: repeat(2, calc(50% - 4px));
+      gap: 8px;
     }
   `}
 `;

@@ -1,4 +1,4 @@
-import { EFaction } from "@/common/types";
+import { EFaction, IOpenable } from "@/common/types";
 import styled, { css } from "styled-components";
 
 interface IColorScheme {
@@ -15,7 +15,23 @@ const colors = {
   [EFaction.SCOIATAEL]: "#00ff26",
 };
 
-export const StyledWrapper = styled.div`
+const openStyle = css`
+  .expanded {
+    transform: rotate(33.2deg);
+    opacity: 0.4;
+    & > div {
+      transform: rotate(-33.2deg);
+    }
+  }
+  .collapsed {
+    opacity: 1;
+  }
+  .texts {
+    transform: translateX(0);
+  }
+`;
+
+export const StyledWrapper = styled.div<IOpenable>`
   width: 100%;
   cursor: pointer;
   position: relative;
@@ -25,26 +41,20 @@ export const StyledWrapper = styled.div`
   border-radius: 4px;
   @media (hover: hover) {
     &:hover {
-      .expanded {
-        transform: rotate(33.2deg);
-        opacity: 0.4;
-        & > div {
-          transform: rotate(-33.2deg);
-        }
-      }
-      .collapsed {
-        opacity: 1;
-      }
-      .texts {
-        transform: translateX(0);
-      }
+      ${openStyle}
     }
   }
-  ${({ theme }) => css`
+  ${({ theme, $isOpen }) => css`
     background: ${theme.colors.bgneon};
     min-height: 400px;
     ${theme.media.width.md} {
       min-height: 320px;
+    }
+    ${theme.media.width.xxs} {
+      min-height: 220px;
+    }
+    @media (hover: none) {
+      ${$isOpen && openStyle}
     }
   `}
 `;
@@ -153,11 +163,17 @@ export const StyledTexts = styled.div`
   right: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
-  padding: 24px 16px;
   transition: all 0.4s ease-in-out;
   transform: translateX(100%);
+  ${({ theme }) => css`
+    padding: 24px 16px;
+    gap: 16px;
+    ${theme.media.width.xs} {
+      padding: 6px;
+      gap: 8px;
+    }
+  `}
 `;
 
 export const StyledTitle = styled.div<IColorScheme>`

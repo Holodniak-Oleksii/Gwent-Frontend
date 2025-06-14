@@ -1,5 +1,6 @@
+import { useOnClickOutside } from "@/common/hooks/useOnClickOutside";
 import { IFractionCard } from "@/features/Home/components/Fractions/types";
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   StyledAnglesBottom,
@@ -24,8 +25,17 @@ export const FractionCard: FC<IFractionCard> = ({
   title,
 }) => {
   const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+
+  useOnClickOutside(ref, () => setIsOpen(false));
+
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      $isOpen={isOpen}
+      ref={ref}
+      onClick={() => setIsOpen((prev) => !prev)}
+    >
       <StyledAnglesTop type={type} />
       <StyledContent>
         <StyledHeroRotate type={type} className="expanded">

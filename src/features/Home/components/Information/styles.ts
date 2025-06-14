@@ -40,6 +40,7 @@ export const StyledGrid = styled.div`
     ${theme.media.width.sm} {
       grid-template-columns: 100%;
       grid-template-rows: min-content auto;
+      padding-bottom: 32px;
     }
   `}
 `;
