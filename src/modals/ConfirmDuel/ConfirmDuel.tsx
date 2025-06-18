@@ -33,7 +33,7 @@ export const ConfirmDuel = create<IConfirmDuelProps>(({ id, nickname }) => {
   const onSubmit = (data: IFormFields) => {
     if (!user) return;
     if (+data.rate > user.coins) {
-      toast.error("errors.notEnoughMoney");
+      toast.error(t("errors.notEnoughMoney"));
     } else {
       const callDate = {
         type: EOperationNotificationType.NEW_DUEL,
